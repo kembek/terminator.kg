@@ -33,13 +33,31 @@ module.exports = {
   /*
   ** Global CSS
   */
-  css: ['~assets/css/main.css'],
+  css: [
+    '~assets/css/clear.min.css',
+    '~assets/css/main.css'
+  ],
   /*
   ** Customize the progress-bar color
   */
   loading: { color: '#744d82' },
-  /*
-  ** Point to resources
-  */
+  build: {
+    analyze: true,
+    vendor: [],
+    extend (config) {
+      const urlLoader = config.module.rules.find((rule) => rule.loader === 'url-loader')
+      urlLoader.test = /\.(png|jpe?g|gif)$/
+
+      config.module.rules.push({
+        test: /\.svg$/,
+        loader: 'vue-svg-loader',
+        options: {
+          svgo: {
+            plugins: [{removeDoctype: true}, {removeComments: true}]
+          }
+        }
+      })
+    }
+  },
   srcDir: resolve(__dirname, '..', 'resources')
 }
