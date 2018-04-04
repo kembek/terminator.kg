@@ -26,6 +26,8 @@
     "@adonisjs/session": "^1.0.19",
     "@adonisjs/shield": "^1.0.4",
     "cross-env": "^3.1.4",
+    "less": "^3.0.1",
+    "less-loader": "^4.1.0",
     "nuxt": "latest",
     "standard": "^8.6.0",
     "youch": "^2.0.4"
