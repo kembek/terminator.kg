@@ -1,0 +1,42 @@
+{
+  "name": "tm-demo",
+  "version": "1.0.0",
+  "adonis-version": "4.1.0",
+  "description": "The api for tm-demo project",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node ace test"
+  },
+  "keywords": [
+    "adonisjs",
+    "adonis-app"
+  ],
+  "author": "Beknazar <zevs.312.777@gmail.com>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@adonisjs/ace": "^5.0.1",
+    "@adonisjs/auth": "^3.0.4",
+    "@adonisjs/bodyparser": "^2.0.2",
+    "@adonisjs/cors": "^1.0.5",
+    "@adonisjs/fold": "^4.0.7",
+    "@adonisjs/framework": "^5.0.5",
+    "@adonisjs/ignitor": "^2.0.6",
+    "@adonisjs/lucid": "^5.0.3",
+    "@adonisjs/session": "^1.0.23",
+    "@adonisjs/shield": "^1.0.6"
+  },
+  "devDependencies": {},
+  "autoload": {
+    "App": "./app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Beknazar18/tm-demo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Beknazar18/tm-demo/issues"
+  },
+  "homepage": "https://github.com/Beknazar18/tm-demo#readme"
+}

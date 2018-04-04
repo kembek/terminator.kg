@@ -1,0 +1,31 @@
+'use strict'
+
+const Schema = use('Schema')
+
+class UserSchema extends Schema {
+  up() {
+    this.create('users', table => {
+      table.increments()
+      table.string('username', 80)
+        .notNullable()
+        .unique('ui_users_username')
+      table.string('email', 80)
+        .notNullable()
+        .unique('ui_users_email')
+      table.string('password', 60).notNullable()
+      table.integer('group_id')
+        .notNullable()
+        .unsigned()
+      table.boolean('is_status')
+        .nonNullable()
+        .defaultTo(false)
+      table.timestamps()
+    })
+  }
+
+  down() {
+    this.drop('users')
+  }
+}
+
+module.exports = UserSchema
