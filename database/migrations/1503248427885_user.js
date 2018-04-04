@@ -17,7 +17,7 @@ class UserSchema extends Schema {
         .notNullable()
         .unsigned()
       table.boolean('is_status')
-        .nonNullable()
+        .notNullable()
         .defaultTo(false)
       table.timestamps()
     })

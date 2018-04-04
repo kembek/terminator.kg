@@ -3,14 +3,16 @@
 const Schema = use('Schema')
 
 class ProductImageSchema extends Schema {
-  up () {
+  up() {
     this.create('product_images', (table) => {
-      table.increments()
-      table.timestamps()
+      table.primary(['product_id', 'image_id', 'color_id'])
+      table.integer('product_id').notNullable().unsigned()
+      table.integer('image_id').notNullable().unsigned()
+      table.integer('color_id').notNullable().unsigned()
     })
   }
 
-  down () {
+  down() {
     this.drop('product_images')
   }
 }

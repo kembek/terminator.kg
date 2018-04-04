@@ -4,9 +4,9 @@ const Schema = use('Schema')
 
 class StocStatusSchema extends Schema {
   up() {
-    this.create('stoc_statuses', (table) => {
+    this.create('stock_statuses', (table) => {
       table.increments()
-      table.string('title', 255).notNullable().unique()
+      table.string('title').notNullable().unique('ui_stoc_statuses')
     })
   }
 

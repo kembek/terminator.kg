@@ -6,7 +6,8 @@ class ColorSchema extends Schema {
   up () {
     this.create('colors', (table) => {
       table.increments()
-      table.timestamps()
+      table.string('title').notNullable().unique('ui_colors_title')
+      table.string('code').notNullable().unique('ui_colors_code')
     })
   }
 

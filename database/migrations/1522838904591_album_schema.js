@@ -6,7 +6,9 @@ class AlbumSchema extends Schema {
   up () {
     this.create('albums', (table) => {
       table.increments()
-      table.timestamps()
+      table.string('title').notNullable().unique('ui_albums_title')
+      table.integer('parent_id').notNullable().unsigned()
+      
     })
   }
 
