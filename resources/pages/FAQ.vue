@@ -1,22 +1,14 @@
 <template>
-<div class="FAQ-Wrapper">
-  <Search />
+<div>
+  <FAQ />
 </div>
 </template>
 
 <script>
-import Search from '~/components/FAQ/FAQ-Search'
+import FAQ from '~/components/faq'
 export default {
-  components:{
-    Search
+  components: {
+    FAQ
   }
 }
 </script>
-<style lang="less">
-.FAQ-Wrapper{
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-</style>
