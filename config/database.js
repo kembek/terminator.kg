@@ -33,6 +33,7 @@ module.exports = {
       user: Env.get('DB_USER', 'root'),
       password: Env.get('DB_PASSWORD', ''),
       database: Env.get('DB_DATABASE', 'tm_test_db')
-    }
+    },
+    debug: true
   }
 }
