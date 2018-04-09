@@ -9,6 +9,7 @@ class ProductImageSchema extends Schema {
       table.integer('product_id').notNullable().unsigned()
       table.integer('image_id').notNullable().unsigned()
       table.integer('color_id').notNullable().unsigned()
+      table.integer('sort').notNullable().unsigned().defaultTo(0)
     })
   }
 

@@ -3,17 +3,17 @@
 const Schema = use('Schema')
 
 class MenuSchema extends Schema {
-  up () {
+  up() {
     this.create('menus', (table) => {
       table.increments()
-      table.string('title').notNullable().unique('ui_menus_title')
+      table.integer('parent_id').notNullable().unsigned()
+      table.integer('user_id').notNullable().unsigned()
       table.string('link').notNullable().unique('ui_menus_link')
       table.integer('sort').notNullable().unsigned().defaultTo(0)
-      table.timestamps()
     })
   }
 
-  down () {
+  down() {
     this.drop('menus')
   }
 }

@@ -7,7 +7,7 @@ class ReviewSchema extends Schema {
     this.create('reviews', (table) => {
       table.increments()
       table.string('email', 80).notNullable()
-      table.string('img').nullable()
+      table.string('img')
       table.string('first_name', 80).notNullable()
       table.string('last_name', 80).notNullable()
       table.string('description').notNullable()

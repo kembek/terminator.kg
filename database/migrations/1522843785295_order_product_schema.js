@@ -5,9 +5,9 @@ const Schema = use('Schema')
 class OrderProductSchema extends Schema {
   up() {
     this.create('order_products', (table) => {
-      table.primary(['order_id', 'product_id'])
-      table.integer('order_id').notNullable().unsigned()
+      table.primary(['product_id', 'order_id'])
       table.integer('product_id').notNullable().unsigned()
+      table.integer('order_id').notNullable().unsigned()
       table.timestamps()
     })
   }
