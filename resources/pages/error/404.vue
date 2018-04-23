@@ -80,7 +80,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 20px;
+  margin: 20px 0;
   a {
     display: flex;
     justify-content: center;
@@ -163,7 +163,7 @@ path#XMLID_2_ {
   animation-duration: 2s;
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
-  margin: 0 50px;
+  margin: 0 20px;
 }
 
 @-webkit-keyframes opacity {

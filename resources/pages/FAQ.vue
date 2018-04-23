@@ -22,6 +22,7 @@ export default {
 @color-text: #ABABAB;
 @color-light: #5FA09B;
 @color-dark: #0B8793;
+
 /* !Variables */
 
 .content {
@@ -32,7 +33,11 @@ export default {
     width: 100%;
     display: flex;
     flex-direction: column;
+    #toogle-categories {
+      display: none;
+    }
     .search {
+      padding: 0 5px;
       display: flex;
       align-items: center;
       svg {
@@ -55,19 +60,36 @@ export default {
         outline: none;
       }
     }
+    .toogle-categories-label {
+      display: none;
+      svg {
+        fill: @color-main_font;
+        width: 100%;
+        height: 10px;
+        transition: none;
+        &:hover {
+          fill: @color-dark;
+        }
+      }
+    }
     .categories {
       padding: 20px;
+      display: flex;
+      flex-wrap: wrap;
       a {
         color: @color-text;
+        text-align: center;
         text-decoration: none;
         font-size: 18px;
         margin-left: 20px;
+        padding: 10px;
       }
       .nuxt-link-exact-active {
         color: white;
       }
     }
     .questions {
+      padding: 0 5px;
       margin-top: 100px;
       .faq-title {
         text-align: center;
@@ -96,6 +118,7 @@ export default {
             cursor: pointer;
           }
           svg {
+            min-width: 30px;
             width: 30px;
             height: 30px;
             fill: white;
@@ -120,6 +143,7 @@ export default {
       flex-direction: column;
       align-items: center;
       margin-top: 50px;
+      padding: 0 5px;
       button {
         width: 260px;
         height: 50px;
@@ -148,49 +172,117 @@ export default {
       .user-info {
         display: flex;
         flex-wrap: wrap;
-        ;
-        justify-content: center;
+        justify-content: space-between;
+        max-width: 828px;
+        width: 100%;
         .user-name,
         .user-email {
           display: flex;
           align-items: center;
+          max-width: 380px;
+          width: 100%;
           svg {
-            width: 40px;
-            height: 40px;
+            width: 30px;
+            height: 30px;
             position: absolute;
             margin-left: 15px;
             fill: white;
           }
           input {
             font-size: 24px;
-            width: 340px;
+            width: 100%;
             height: 60px;
             outline: none;
             padding-left: 60px;
           }
         }
         .user-name {
-          &:first-child {
-            margin-right: 50px;
-          }
+          &:first-child {}
         }
       }
       .user-text {
         display: flex;
         flex-direction: column;
         margin-top: 30px;
+        max-width: 828px;
+        width: 100%;
         span {
           font-size: 24px;
           color: @color-text;
           margin-bottom: 15px;
         }
         textarea {
-          width: 828px;
           border: 2px solid @color-text;
           height: 160px;
           resize: none;
           padding: 15px;
           font-size: 16px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 772px) {
+  .content {
+    .wrapper {
+      .search {
+        svg {
+          width: 25px;
+          height: 25px;
+          margin-left: 15px;
+        }
+        input[type="text"] {
+          height: 60px;
+          font-size: 15px;
+          padding-left: 50px;
+        }
+      }
+      #toogle-categories {
+        &:checked {
+          &~.categories {
+            display: flex;
+          }
+        }
+      }
+      .toogle-categories-label {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 10px;
+        margin-top: 20px;
+      }
+      .categories {
+        display: none;
+        flex-direction: column;
+        a {
+          margin-left: 0;
+        }
+      }
+      .questions {
+        margin-top: 50px;
+      }
+      .q-form {
+        h2 {
+          font-size: 36px;
+          margin-bottom: 50px;
+        }
+        .user-info {
+          justify-content: center;
+          .user-name,
+          .user-email {
+            margin: 5px 0;
+            svg {
+              width: 25px;
+              height: 25px;
+              margin-left: 15px;
+            }
+            input {
+              height: 60px;
+              font-size: 15px;
+              padding-left: 50px;
+            }
+          }
         }
       }
     }

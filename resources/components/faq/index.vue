@@ -4,6 +4,10 @@
     <SearchIcon />
     <input type="text" placeholder="Напишите здесь свой воспрос">
   </div>
+  <input type="checkbox" id="toogle-categories">
+  <label for="toogle-categories" class="toogle-categories-label">
+    <IconDots />
+  </label>
   <Categories :items="categories" />
   <nuxt-child />
   <DropDown />
@@ -16,13 +20,15 @@ import SearchIcon from '~/assets/svg/search.svg';
 import Categories from './Categories'
 import DropDown from '../DropDown'
 import QuestionForm from '../QuestionForm'
+import IconDots from '~/assets/svg/dots.svg'
 
 export default {
   components: {
     SearchIcon,
     Categories,
     DropDown,
-    QuestionForm
+    QuestionForm,
+    IconDots
   },
   data() {
     return {
