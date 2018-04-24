@@ -1,7 +1,9 @@
 <template>
-
+  <Main />
 </template>
 <script>
+import Main from '~/components/main/'
+
 export default {
   head() {
     return {
@@ -14,13 +16,7 @@ export default {
     }
   },
   components: {
-
+    Main
   }
 }
 </script>
-
-<style scoped>
-.title {
-  margin: 50px 0;
-}
-</style>

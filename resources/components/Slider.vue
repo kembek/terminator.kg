@@ -37,11 +37,6 @@ export default {
           link: "/",
           img: "/images/slide3.jpg"
         },
-        {
-          text: "<h2>Xiaomi Urban lifestyle</h2>",
-          link: "/",
-          img: "/images/slide4.webp"
-        }
       ]
     }
   },

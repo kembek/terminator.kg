@@ -88,9 +88,18 @@ module.exports = {
   ** Customize the progress-bar color
   */
   loading: { color: '#744d82' },
+   /*
+   ** Plugins to load before mounting the App
+   */
+  plugins: [
+    {
+      src: '~/plugins/vue-carousel.js',
+      ssr: false
+    }
+  ],
   build: {
     analyze: true,
-    vendor: [],
+    vendor: ['vue-carousel'],
     extend (config) {
       const urlLoader = config.module.rules.find((rule) => rule.loader === 'url-loader')
       urlLoader.test = /\.(png|jpe?g|gif)$/

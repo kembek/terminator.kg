@@ -30,7 +30,7 @@ export default {
   data() {
     return {
       speedMainSlider: settings.speedMainSlider,
-      loading: true
+      loading: true,
     }
   },
   head() {
@@ -49,6 +49,9 @@ export default {
   methods: {
     ready(fn) {
       if (process.browser) {
+        window.onload = () => {
+          fn();
+        }
         if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
           setTimeout(() => {
             fn();
@@ -60,8 +63,20 @@ export default {
             }, 1000);
           });
         }
+        setTimeout(() => {
+          if (!this.loading)
+            fn();
+        }, 1000)
       }
     }
   }
 }
 </script>
+<style lang="less">
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+</style>

@@ -30,6 +30,7 @@
     "less-loader": "^4.1.0",
     "nuxt": "latest",
     "standard": "^8.6.0",
+    "vue-carousel": "^0.7.2",
     "youch": "^2.0.4"
   },
   "standard": {

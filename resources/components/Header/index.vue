@@ -17,7 +17,7 @@
           <ul v-if="item.childs.length > 0 & showChildMenu == i" class="child-links-container">
             <li v-for="(child, j) in item.childs" :key="j" class="child-links">
               <nuxt-link v-if="child.isLocal" :to="child.link" class="child-link">
-                <i :style="'mask-image: url(' + child.img + ')'" />
+                <i :style="'mask-image: url(/images/' + child.img + ')'" />
                 <span>{{child.title}}</span>
               </nuxt-link>
               <a v-else :href="child.link">{{child.title}}</a>
@@ -53,27 +53,27 @@ export default {
           isLocal: true,
           title: 'ВСЕ СМАРТФОНЫ',
           link: '',
-          img: '/images/all.svg'
+          img: 'all.svg'
         }, {
           isLocal: true,
           title: 'ТЯЖЕЛЫЕ ИГРЫ',
           link: '',
-          img: '/images/game.svg'
+          img: 'game.svg'
         }, {
           isLocal: true,
           title: 'ОТЛИЧНАЯ КАМЕРА',
           link: '',
-          img: '/images/camera.svg'
+          img: 'camera.svg'
         }, {
           isLocal: true,
           title: 'АКТИВНОЕ ИСПОЛЬЗОВАНИЕ',
           link: '',
-          img: '/images/battery.svg'
+          img: 'battery.svg'
         }, {
           isLocal: true,
           title: 'УНИВЕРСАЛЬНЫЙ СМАРТФОН',
           link: '',
-          img: '/images/universal.svg'
+          img: 'universal.svg'
         }]
       }, {
         title: 'Другие',
