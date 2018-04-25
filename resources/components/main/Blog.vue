@@ -2,10 +2,10 @@
 <div class="slider-blog">
   <h2>Блог</h2>
   <no-ssr placeholder="Loading...">
-    <Carousel :navigationEnabled="true" :autoplay="true" :autoplayLoop="true" :loop="true" :autoplayHoverPause="true" :perPage="perPage" :autoplayTimeout="10000" :navigationClickTargetSize="0" navigationNextLabel="" navigationPrevLabel="">
+    <Carousel :navigationEnabled="true" :autoplay="true" :autoplayLoop="true" :loop="true" :autoplayHoverPause="true" :perPage="perPage" :autoplayTimeout="10000" navigationNextLabel="<img class='slider-navigation' src='/next.svg' />" navigationPrevLabel="<img class='slider-navigation' src='/prev.svg' />" paginationActiveColor="#0B8793">
       <Slide v-for="(item, index) in items" :key="index">
         <nuxt-link :to="item.url">
-          <span class="slider-name">{{item.name}}</span>
+          <span class="slider-name" :title="item.name">{{item.name}}</span>
           <img :src="'/images/' + item.image" :alt="item.description">
         </nuxt-link>
       </Slide>
@@ -87,6 +87,7 @@ export default {
 
 <style lang="less">
 @import '~assets/css/themes/default.less';
+
 .slider-blog {
   margin-top: 50px;
   display: flex;
@@ -106,14 +107,14 @@ export default {
     text-transform: uppercase;
   }
   .VueCarousel {
-  width: 80vw;
+    width: 80vw;
     max-width: 1200px;
     .VueCarousel-slide {
       flex-direction: column;
       display: flex;
       justify-content: center;
       align-items: center;
-  width: 80vw;
+      width: 80vw;
       a {
         text-decoration: none;
         text-align: center;
@@ -141,4 +142,13 @@ export default {
     }
   }
 }
+.slider-navigation {
+  height: 25px;
+}
+@media screen and (max-width: 600px) {
+  .VueCarousel-navigation-button {
+    display: none
+  }
+}
 </style>
+

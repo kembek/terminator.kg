@@ -2,7 +2,8 @@
 <div class="slider-reviews">
   <h2>Отзывы</h2>
   <no-ssr placeholder="Loading...">
-    <Carousel :navigationEnabled="true" :autoplay="true" :autoplayLoop="true" :loop="true" :autoplayHoverPause="true" :perPage="perPage" :autoplayTimeout="10000" :navigationClickTargetSize="0" navigationNextLabel="" navigationPrevLabel="">
+    <Carousel :navigationEnabled="true" :autoplay="true" :autoplayLoop="true" :loop="true" :autoplayHoverPause="true" :perPage="perPage" :autoplayTimeout="10000" navigationNextLabel="<img class='slider-navigation' src='/next.svg' />" navigationPrevLabel="<img class='slider-navigation' src='/prev.svg' />"
+      paginationActiveColor="#0B8793">
       <Slide v-for="(item, index) in items" :key="index">
         <span class="slider-name">{{item.name}}</span>
         <p class="slider-message">
@@ -100,6 +101,16 @@ export default {
     .VueCarousel-dot-button {
       outline: none !important;
     }
+  }
+}
+
+.slider-navigation {
+  height: 25px;
+}
+
+@media screen and (max-width: 600px) {
+  .VueCarousel-navigation-button {
+    display: none
   }
 }
 </style>

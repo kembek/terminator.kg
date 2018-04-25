@@ -57,7 +57,7 @@
     </g>
   </g>
 </svg>
-  <span class="message">Идет загрузка</span>
+  <span class="text">Идет загрузка</span>
 </div>
 </template>
 
@@ -72,23 +72,24 @@
   width: 100vw;
   background-color: #242323;
   z-index: 999999999;
+  user-select: none;
 }
 
-.message {
+.text {
   color: white;
   margin: 20px;
 }
 
-.message:after {
+.text:after {
   content: "]";
 }
 
-.message:before {
+.text:before {
   content: "[";
 }
 
-.message:after,
-.message:before {
+.text:after,
+.text:before {
   color: white;
   font-size: 20px;
   animation-name: opacity;

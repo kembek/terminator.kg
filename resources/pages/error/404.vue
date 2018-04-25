@@ -58,6 +58,7 @@ export default {
 
 
 <style lang="less">
+@import '~assets/css/themes/default.less';
 .error-page {
   display: flex;
   position: absolute;
@@ -95,7 +96,7 @@ export default {
     text-transform: uppercase;
     text-decoration: none;
     &:hover {
-      border: solid 1px #0B8793;
+      border: solid 1px @color-dark;
     }
   }
 }
@@ -116,22 +117,22 @@ svg {
   max-height: 150px;
   max-width: 80vw;
   text-align: center;
-  fill: #0B8793;
+  fill: @color-dark;
 }
 
 path#XMLID_5_ {
-  fill: #0B8793;
+  fill: @color-dark;
   filter: url(#blurFilter4);
 }
 
 path#XMLID_11_,
 path#XMLID_2_ {
-  fill: #0B8793;
+  fill: @color-dark;
 }
 
 .circle {
   animation: out 2s infinite ease-out;
-  fill: #0B8793;
+  fill: @color-dark;
 }
 
 #container {
@@ -139,7 +140,7 @@ path#XMLID_2_ {
 }
 
 .message {
-  color: #0B8793;
+  color: @color-main_font;
 }
 
 .message:after {
@@ -152,7 +153,7 @@ path#XMLID_2_ {
 
 .message:after,
 .message:before {
-  color: #0B8793;
+  color: @color-main_font;
   font-size: 20px;
   -webkit-animation-name: opacity;
   -webkit-animation-duration: 2s;
