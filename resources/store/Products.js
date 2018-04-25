@@ -2,8 +2,21 @@ export const state = () => ({
   items: [
     {
       id: 0,
-      title: 'Redmi 5 Plus',
-      image: 'hits.jpg',
+      title: 'Redmi 5 Plus 64GB',
+      image: '1-redmi-wg-22.png',
+      images: [],
+      price: 11000,
+      prices: [{
+        color: "black",
+        price: 12000
+      }, {
+        color: "white",
+        price: 11000
+      }]
+    },     {
+      id: 1,
+      title: 'Redmi 5 Plus 32GB',
+      image: '1-redmi-wg-22.png',
       images: [],
       price: 11000,
       prices: [{
@@ -14,9 +27,9 @@ export const state = () => ({
         price: 11000
       }]
     },    {
-      id: 0,
+      id: 2,
       title: 'Mi Max 4',
-      image: 'hits.jpg',
+      image: '1-redmi-wg-22.png',
       images: [],
       price: 11000,
       prices: [{
@@ -27,9 +40,9 @@ export const state = () => ({
         price: 11000
       }]
     },    {
-      id: 0,
-      title: 'Redmi  3',
-      image: 'hits.jpg',
+      id: 3,
+      title: 'Redmi 3',
+      image: '1-redmi-wg-22.png',
       images: [],
       price: 11000,
       prices: [{
@@ -40,9 +53,9 @@ export const state = () => ({
         price: 11000
       }]
     },    {
-      id: 0,
+      id: 4,
       title: 'Mi max 2',
-      image: 'hits.jpg',
+      image: '1-redmi-wg-22.png',
       images: [],
       price: 11000,
       prices: [{
@@ -53,9 +66,9 @@ export const state = () => ({
         price: 11000
       }]
     },    {
-      id: 0,
+      id: 5,
       title: 'Redmi 4A',
-      image: 'hits.jpg',
+      image: '1-redmi-wg-22.png',
       images: [],
       price: 13230,
       prices: [{
