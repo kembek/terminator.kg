@@ -6,7 +6,10 @@
   <MyHeader v-if="this.$route.fullPath.search('/error/')" />
   <Slider :speed="speedMainSlider" v-if="this.$route.fullPath == '/'" />
   <div v-else style="padding-top: 100px;" />
-  <nuxt class="content" />
+  <div class="content">
+
+    <nuxt />
+  </div>
   <MyFooter v-if="this.$route.fullPath.search('/error/')" />
 </div>
 </template>
@@ -78,5 +81,12 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  .page {
+    max-width: 1200px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 </style>

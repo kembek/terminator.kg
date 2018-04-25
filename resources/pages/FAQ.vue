@@ -1,7 +1,6 @@
 <template>
-<div>
   <FAQ />
-</div>
+
 </template>
 
 <script>
@@ -14,16 +13,7 @@ export default {
 </script>
 
 <style lang="less">
-/* Variables */
-
-@color-bg: #242323;
-@color-bg-50: rgba(33, 33, 33, 0.5);
-@color-main_font: white;
-@color-text: #ABABAB;
-@color-light: #5FA09B;
-@color-dark: #0B8793;
-
-/* !Variables */
+@import '~assets/css/themes/default.less';
 
 .content {
   display: flex;

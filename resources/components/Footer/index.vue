@@ -105,7 +105,6 @@ footer {
     flex-wrap: wrap;
     .block {
       margin: 10px 25px;
-      width: 100%;
       max-width: 424px;
       h2 {
         padding-bottom: 30px;
@@ -212,6 +211,16 @@ footer {
           color: @color-dark;
         }
       }
+    }
+  }
+}
+
+@media screen and (max-width: 585px) {
+  footer {
+    align-items: flex-start;
+    justify-content: flex-start;
+    .blocks {
+      
     }
   }
 }

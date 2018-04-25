@@ -26,10 +26,3 @@ export default {
   }
 }
 </script>
-
-<style lang="less">
-.page {
-  max-width: 1200px;
-  width: 100%;
-}
-</style>

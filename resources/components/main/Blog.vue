@@ -95,8 +95,9 @@ export default {
   flex-direction: column;
   margin-bottom: 30px;
   max-width: 1200px;
+  width: 80vw;
   h2 {
-    width: 80%;
+    width: 80vw;
     max-width: 1200px;
     padding-bottom: 20px;
     font-family: 'Segoe UI';
@@ -105,14 +106,14 @@ export default {
     text-transform: uppercase;
   }
   .VueCarousel {
-    width: 80%;
+  width: 80vw;
     max-width: 1200px;
     .VueCarousel-slide {
       flex-direction: column;
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 80%;
+  width: 80vw;
       a {
         text-decoration: none;
         text-align: center;

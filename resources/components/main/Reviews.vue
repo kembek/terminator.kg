@@ -75,9 +75,9 @@ export default {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-    max-width: 1200px;
+  max-width: 1200px;
   h2 {
-    width: 80%;
+    width: 80vw;
     max-width: 1200px;
     padding-bottom: 20px;
     font-family: 'Segoe UI';
@@ -86,7 +86,7 @@ export default {
     text-transform: uppercase;
   }
   .VueCarousel {
-    width:80%;
+    width: 80vw;
     max-width: 1200px;
     .VueCarousel-slide {
       .slider-name {
