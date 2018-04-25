@@ -1,6 +1,7 @@
 <template>
-<div v-if="items == 0">
-  Не найдено
+<div class="NotResult" v-if="items == 0">
+  <h3>Ничего не найдено</h3>
+  <SearchSunIcon />
 </div>
 <div class="result-wrapper" v-else>
   <div class="search-filters">
@@ -16,11 +17,15 @@
 </template>
 
 <script>
+import SearchSunIcon from "~/assets/svg/searchsun.svg";
 export default {
   data() {
     return {
       search: this.$route.params.result
     }
+  },
+  components: {
+    SearchSunIcon
   },
   computed: {
     items() {
@@ -34,6 +39,26 @@ export default {
 
 <style lang="less">
 @import "~assets/css/themes/default.less";
+.NotResult {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  h3{
+        margin-top: 10px;
+        font-size: 24px;
+        color: @color-text;
+  }
+  svg {
+    max-height: 55vh;
+    -webkit-transition: none;
+    transition: none;
+    width: 80vw;
+    max-width: 380px;
+    fill: #5FA09B;
+    margin: 20px;
+  }
+}
+
 .result-wrapper {
   display: flex;
   width: 100%;
@@ -42,12 +67,11 @@ export default {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-    // justify-content: space-evenly;
+    justify-content: space-around; // justify-content: space-evenly;
     .product {
       margin: 10px;
       text-align: center;
-      h3{
+      h3 {
         color: @color-dark;
         margin: 5px;
       }
