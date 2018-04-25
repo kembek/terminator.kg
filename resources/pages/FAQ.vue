@@ -39,12 +39,12 @@ export default {
       }
       input[type="text"] {
         width: 100%;
-        height: 100px;
+        height: 60px;
         padding-left: 80px;
         border-radius: 5px;
         border-color: @color-dark;
         background: transparent;
-        font-size: 24px;
+        font-size: 20px;
         border-style: solid;
         color: @color-main_font;
         outline: none;
@@ -179,7 +179,7 @@ export default {
             fill: white;
           }
           input {
-            font-size: 24px;
+            font-size: 20px;
             width: 100%;
             height: 60px;
             outline: none;
@@ -206,7 +206,7 @@ export default {
           height: 160px;
           resize: none;
           padding: 15px;
-          font-size: 16px;
+          font-size: 20px;
         }
       }
     }
@@ -268,7 +268,6 @@ export default {
               margin-left: 15px;
             }
             input {
-              height: 60px;
               font-size: 15px;
               padding-left: 50px;
             }
