@@ -1,9 +1,9 @@
 <template>
 <div class="questions">
   <div class="faq-title">
-    <h1>FAQ-ВСЕ</h1>
+    <h1>{{title}}</h1>
   </div>
-  <div class="question" v-for="(item, i) in items" :key="i" @click="isShow(i)">
+  <div class="question" v-for="(item, i) in items" :key="i" @click="isShow(i)" :id="scroll + '-' + i">
     <div class="h2-question--wrapper" :class="{'active' :Show == i}">
       <h2>{{item.question}}</h2>
       <ArrowIcon />
@@ -17,6 +17,14 @@
 <script>
 import ArrowIcon from '~/assets/svg/arrow.svg';
 export default {
+  props: {
+    title: {
+      type: String
+    },
+    scroll: {
+      type: String
+    }
+  },
   components: {
     ArrowIcon
   },
@@ -43,10 +51,17 @@ export default {
   },
   methods: {
     isShow(value) {
-      if (value == this.Show)
+      if (value == this.Show) {
         this.Show = -1
-      else
+      } else {
         this.Show = value
+
+      }
+      setTimeout(() => {
+        this.$scrollTo('#' + this.scroll + '-' + value, 500, {
+          offset: -120
+        })
+      }, 50)
     }
   },
 }

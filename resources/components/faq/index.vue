@@ -4,14 +4,14 @@
     <SearchIcon />
     <input type="text" placeholder="Напишите здесь свой воспрос">
   </div>
-  <input type="checkbox" id="toogle-categories">
+  <!-- <input type="checkbox" id="toogle-categories">
   <label for="toogle-categories" class="toogle-categories-label">
     <IconDots />
   </label>
-  <Categories :items="categories" />
+  <Categories :items="categories" /> -->
   <nuxt-child />
-  <DropDown />
-  <QuestionForm />
+  <DropDown title="FAQ" scroll="faq" />
+  <!-- <QuestionForm /> -->
 </div>
 </template>
 

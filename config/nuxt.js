@@ -95,11 +95,19 @@ module.exports = {
     {
       src: '~/plugins/vue-carousel.js',
       ssr: false
-    }
+    },
+    {
+      src: '~/plugins/vue-scroll-to.js',
+      ssr: false
+    },{
+      src: '~/plugins/vue-notifications.js',
+      ssr: false
+    },
+    '~/plugins/vue-social-sharing.js',
   ],
   build: {
     analyze: true,
-    vendor: ['vue-carousel'],
+    vendor: ['vue-notifications','vue-carousel'],
     extend (config) {
       const urlLoader = config.module.rules.find((rule) => rule.loader === 'url-loader')
       urlLoader.test = /\.(png|jpe?g|gif)$/

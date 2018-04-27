@@ -1,6 +1,5 @@
 <template>
-  <FAQ />
-
+<FAQ />
 </template>
 
 <script>
@@ -14,7 +13,6 @@ export default {
 
 <style lang="less">
 @import '~assets/css/themes/default.less';
-
 .content {
   display: flex;
   justify-content: center;
@@ -91,13 +89,12 @@ export default {
       .question {
         font-size: 18px;
         border-bottom: 1px solid @color-dark;
-        -webkit-touch-callout: none;
-        -webkit-user-select: none;
-        -khtml-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
         user-select: none;
         cursor: pointer;
+        outline: none;
+        * {
+          outline: none;
+        }
         .h2-question--wrapper {
           display: flex;
           justify-content: space-between;
@@ -124,6 +121,7 @@ export default {
           max-width: 1100px;
           padding-left: 25px;
           padding-bottom: 20px;
+          cursor: default;
           color: @color-text;
         }
       }

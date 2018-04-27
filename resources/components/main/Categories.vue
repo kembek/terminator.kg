@@ -1,5 +1,5 @@
 <template>
-<div class="main-categorie">
+<div class="main-categorie" @click="ShowNotify()">
   <nuxt-link :to="item.link" v-for="(item, index) in items" :key="index">
     <img :src="'/images/' + item.image" />
     <span>{{item.title}}</span>
@@ -11,6 +11,7 @@
 export default {
   data() {
     return {
+      i: 0,
       items: [{
         title: 'Аксессуары для смартфона',
         image: 'accessories.svg',
@@ -38,7 +39,23 @@ export default {
       }]
     }
   },
-  methods: {}
+  methods: {
+    ShowNotify() {
+
+      this.showSuccessMsg({
+        title: 'Test' + this.i,
+        text: 'Test'
+      })
+      this.i++
+    }
+  },
+  notifications: {
+    showSuccessMsg: {
+      type: 'success',
+      title: 'Hello there',
+      message: 'That\'s the success!'
+    }
+  }
 }
 </script>
 
