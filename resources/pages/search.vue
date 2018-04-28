@@ -49,6 +49,17 @@ export default {
         return this.$router.push('/search/' + this.search)
       }, 500)
     }
+  },
+  head() {
+    return {
+      title: 'Поиск',
+      meta: [{
+          hid: 'og:title',
+          property: 'og:title',
+          content: 'Поиск | TERMINATOR.KG'
+        },
+      ]
+    }
   }
 };
 </script>
@@ -92,8 +103,7 @@ export default {
       border: 1px solid @color-dark;
       border-radius: 4px;
       background-color: @color-bg;
-      padding: 10px;
-      // position: absolute;
+      padding: 10px; // position: absolute;
       // width: 90vw;
       // max-width: 1200px;
       // padding: 10px 0;
