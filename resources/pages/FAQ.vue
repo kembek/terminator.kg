@@ -4,7 +4,17 @@
 
 <script>
 import FAQ from '~/components/faq'
-export default {
+export default {  head() {
+    return {
+      title: 'FAQ',
+      meta: [{
+          hid: 'description',
+          name: 'description',
+          content: 'FAQ | TERMINATOR.KG'
+        },
+      ]
+    }
+  },
   components: {
     FAQ
   }

@@ -11,7 +11,6 @@
 export default {
   data() {
     return {
-      i: 0,
       items: [{
         title: 'Аксессуары для смартфона',
         image: 'accessories.svg',
@@ -41,19 +40,14 @@ export default {
   },
   methods: {
     ShowNotify() {
-
-      this.showSuccessMsg({
-        title: 'Test' + this.i,
-        text: 'Test'
-      })
-      this.i++
+      this.showSuccessMsg()
     }
   },
   notifications: {
     showSuccessMsg: {
       type: 'success',
-      title: 'Hello there',
-      message: 'That\'s the success!'
+      title: 'Успешно',
+      text: 'Операция была успешно выполнена'
     }
   }
 }

@@ -1,14 +1,13 @@
 'use strict'
-
 const resolve = require('path').resolve
+const axios = require('axios')
 
 module.exports = {
   /*
-  ** Headers of the page
-  */
+   ** Headers of the page
+   */
   head: {
-    meta: [
-      {
+    meta: [{
         charset: 'utf-8'
       },
       {
@@ -32,8 +31,7 @@ module.exports = {
         content: 'yes'
       }
     ],
-    link: [
-      {
+    link: [{
         rel: 'icon',
         type: 'image/x-icon',
         href: 'favicon.ico'
@@ -78,37 +76,63 @@ module.exports = {
     ]
   },
   /*
-  ** Global CSS
-  */
+   ** Global CSS
+   */
   css: [
     '~assets/css/clear.min.css',
     '~assets/css/main.css'
   ],
   /*
-  ** Customize the progress-bar color
-  */
-  loading: { color: '#744d82' },
-   /*
+   ** Customize the progress-bar color
+   */
+  loading: {
+    color: '#744d82'
+  },
+  /*
    ** Plugins to load before mounting the App
    */
-  plugins: [
-    {
+  plugins: [{
       src: '~/plugins/vue-carousel.js',
       ssr: false
     },
     {
       src: '~/plugins/vue-scroll-to.js',
       ssr: false
-    },{
+    }, {
       src: '~/plugins/vue-notifications.js',
       ssr: false
     },
     '~/plugins/vue-social-sharing.js',
   ],
+  modules: [
+    '@nuxtjs/sitemap'
+  ],
+  sitemap: {
+    path: '/sitemap.xml',
+    hostname: 'http://terminator.kg',
+    cacheTime: 1000 * 60 * 15,
+    gzip: true,
+    generate: false, // Enable me when using nuxt generate
+    exclude: [
+      '/admin',
+      '/admin/**'
+    ],
+    // routes: [
+    //   {
+    //     url: '/',
+    //     changefreq: 'daily',
+    //     priority: 1
+    //   }
+    // ],
+    // routes () {
+    //   return axios.get('https://jsonplaceholder.typicode.com/users')
+    //   .then(res => res.data.map(user =>  '/users/' + user.username))
+    // }
+  },
   build: {
     analyze: true,
-    vendor: ['vue-notifications','vue-carousel'],
-    extend (config) {
+    vendor: ['vue-notifications', 'vue-carousel'],
+    extend(config) {
       const urlLoader = config.module.rules.find((rule) => rule.loader === 'url-loader')
       urlLoader.test = /\.(png|jpe?g|gif)$/
 
@@ -117,7 +141,11 @@ module.exports = {
         loader: 'vue-svg-loader',
         options: {
           svgo: {
-            plugins: [{removeDoctype: true}, {removeComments: true}]
+            plugins: [{
+              removeDoctype: true
+            }, {
+              removeComments: true
+            }]
           }
         }
       })
