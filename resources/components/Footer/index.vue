@@ -90,8 +90,8 @@ export default {
 <style lang="less">
 @import '~assets/css/themes/default.less';
 footer {
-  border-top: solid 1px @color-dark;
-  display: flex;
+background-color: @color-bg_dark;
+display: flex;
   justify-content: flex-start;
   align-items: center;
   margin-top: 20px;

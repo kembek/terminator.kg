@@ -1,5 +1,5 @@
 <template>
-<div class="q-form">
+<form class="q-form">
   <h2>Задать вопрос</h2>
   <div class="user-info">
     <div class="user-name">
@@ -16,7 +16,7 @@
     <textarea rows="10" cols="45" name="text" placeholder="Введите сюда Ваш вопрос..." required></textarea>
   </div>
   <button>Отправить</button>
-</div>
+</form>
 </template>
 <script>
 import NameIcon from '~/assets/svg/NameIcon.svg';

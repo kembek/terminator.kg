@@ -22,7 +22,8 @@ export default {
       type: String
     },
     scroll: {
-      type: String
+      type: String,
+      default: 'drop-down'
     }
   },
   components: {
