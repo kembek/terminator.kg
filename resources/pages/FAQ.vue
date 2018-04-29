@@ -27,10 +27,12 @@ export default {  head() {
   display: flex;
   justify-content: center;
   .wrapper {
-    max-width: 1280px;
+    max-width: 1200px;
     width: 100%;
     display: flex;
     flex-direction: column;
+      align-items: center;
+      
     #toogle-categories {
       display: none;
     }
@@ -38,19 +40,21 @@ export default {  head() {
       padding: 0 5px;
       display: flex;
       align-items: center;
+        max-width: 1200px;
+        width: 90vw;
       svg {
-        fill: @color-dark;
-        height: 40px;
-        width: 40px;
+        fill: @color-main_font;
+        height: 30px;
+        width: 30px;
         margin-left: 20px;
         position: absolute;
       }
       input[type="text"] {
         width: 100%;
-        height: 60px;
+        height: 50px;
         padding-left: 80px;
         border-radius: 5px;
-        border-color: @color-dark;
+        border-color: @color-text;
         background: transparent;
         font-size: 20px;
         border-style: solid;
@@ -88,17 +92,18 @@ export default {  head() {
     }
     .questions {
       padding: 0 5px;
-      margin-top: 100px;
+      margin-top: 50px;
+      width: 100%;
       .faq-title {
         text-align: center;
-        margin-bottom: 50px;
         h1 {
           font-size: 24px;
         }
       }
       .question {
+
         font-size: 18px;
-        border-bottom: 1px solid @color-dark;
+        border-bottom: 1px solid @color-main_font;
         user-select: none;
         cursor: pointer;
         outline: none;
@@ -113,11 +118,13 @@ export default {  head() {
           padding-left: 10px;
           h2 {
             cursor: pointer;
+            font-size: 16px;
           }
           svg {
-            min-width: 30px;
-            width: 30px;
-            height: 30px;
+            margin-right: 10px;
+            min-width: 20px;
+            width: 20px;
+            height: 20px;
             fill: white;
           }
         }
@@ -127,7 +134,8 @@ export default {  head() {
           }
         }
         .answer {
-          margin-top: 28px;
+            font-size: 16px;
+          // margin-top: 28px;
           max-width: 1100px;
           padding-left: 25px;
           padding-bottom: 20px;
@@ -142,25 +150,27 @@ export default {  head() {
       align-items: center;
       margin-top: 50px;
       padding: 0 5px;
+      width: 90%;
       button {
-        width: 260px;
+        width: 220px;
         height: 50px;
         margin-top: 40px;
         cursor: pointer;
-        font-size: 24px;
+        font-size: 20px;
         &:hover {
-          background-color: @color-dark;
+          // color: @color-light;
+        border: 1px solid @color-dark;
           transition: .5s;
         }
       }
       h2 {
-        font-size: 50px;
+        font-size: 40px;
         margin-bottom: 70px;
       }
       input,
       textarea,
       button {
-        border-color: @color-text;
+        border: 1px solid @color-text;
         background: transparent;
         border-style: solid;
         border-radius: 5px;
@@ -189,7 +199,7 @@ export default {  head() {
           input {
             font-size: 20px;
             width: 100%;
-            height: 60px;
+            height: 50px;
             outline: none;
             padding-left: 60px;
           }
@@ -210,7 +220,6 @@ export default {  head() {
           margin-bottom: 15px;
         }
         textarea {
-          border: 2px solid @color-text;
           height: 160px;
           resize: none;
           padding: 15px;
@@ -231,7 +240,6 @@ export default {  head() {
           margin-left: 15px;
         }
         input[type="text"] {
-          height: 60px;
           font-size: 15px;
           padding-left: 50px;
         }

@@ -75,7 +75,7 @@ export default {
         {
           hid: 'og:image',
           property: 'og:image',
-          content: 'http://fd33b22d.ngrok.io/og.png'
+          content: 'http://176.126.166.16/og.png'
         },
         {
           hid: 'og:image:width',

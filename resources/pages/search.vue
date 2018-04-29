@@ -54,11 +54,10 @@ export default {
     return {
       title: 'Поиск',
       meta: [{
-          hid: 'og:title',
-          property: 'og:title',
-          content: 'Поиск | TERMINATOR.KG'
-        },
-      ]
+        hid: 'og:title',
+        property: 'og:title',
+        content: 'Поиск | TERMINATOR.KG'
+      }, ]
     }
   }
 };
@@ -78,21 +77,21 @@ export default {
     align-items: center;
     width: 90vw;
     svg {
-      fill: @color-dark;
-      height: 40px;
-      width: 40px;
-      margin-left: 20px;
+      fill: @color-main_font;
+      height: 25px;
+      width: 25px;
+      margin-left: 15px;
       position: absolute;
     }
     input {
       max-width: 1200px;
       width: 100%;
-      height: 60px;
+      height: 50px;
       padding-left: 80px;
       font-size: 20px;
       background: transparent;
       outline: none;
-      border: 2px solid @color-dark;
+      border: 2px solid @color-text;
       color: @color-text;
       border-radius: 5px;
     }
@@ -126,7 +125,7 @@ export default {
     flex-direction: column;
     align-items: center;
     svg {
-      max-height: 55vh;
+      max-height: 250px;
       transition: none;
       width: 80vw;
       max-width: 380px; // height: 400px;
@@ -140,6 +139,17 @@ export default {
       max-width: 322px;
       text-align: center;
       font-size: 20px;
+    }
+  }
+}
+
+@media screen and (max-width: 772px) {
+  .search-wrapper {
+    .search-input {
+      input {
+        font-size: 15px;
+        padding-left: 50px;
+      }
     }
   }
 }

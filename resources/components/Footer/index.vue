@@ -41,7 +41,7 @@
         <a href="https://fb.com/" target="_blank">
           <FB />
         </a>
-        <a href="https://instagram.com/" target="_blank">
+        <a href="https://instagram.com/terminator_kg" target="_blank">
           <Insta />
         </a>
       </div>

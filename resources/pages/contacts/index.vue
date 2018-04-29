@@ -30,6 +30,7 @@ export default {
   align-items: center;
   justify-content: center;
   width: 100%;
+  max-width: 1200px;
   * {
     color: @color-main_font;
   }
@@ -38,8 +39,8 @@ export default {
     background-color: #fff;
     height: 80vh;
     max-height: 600px;
-    width: 80vw;
-    max-width: 1200px;
+    width: 100%;
+    max-width: 1140px;
     margin-top: 20px;
   }
   .contacts-block {
