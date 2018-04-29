@@ -57,9 +57,21 @@
     </g>
   </g>
 </svg>
-  <span class="text">Идет загрузка</span>
+  <span class="text">{{text}}</span>
 </div>
 </template>
+
+<script>
+export default {
+  props: {
+    text: {
+      type: String,
+      default: 'Идёт загрузка'
+    }
+  }
+}
+</script>
+
 
 <style lang="less">
 .preloader {

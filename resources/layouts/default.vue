@@ -1,16 +1,15 @@
 <template>
 <div class="container">
   <transition name="popup">
-    <preloader v-if="loading" />
+    <preloader v-if="loading" :text="text" />
   </transition>
-  <MyHeader v-if="this.$route.fullPath.search('/error/')" />
+  <MyHeader />
   <Slider :speed="speedMainSlider" v-if="this.$route.fullPath == '/'" />
   <div v-else style="padding-top: 100px;" />
   <div class="content">
-
     <nuxt />
   </div>
-  <MyFooter v-if="this.$route.fullPath.search('/error/')" />
+  <MyFooter />
 </div>
 </template>
 
@@ -34,6 +33,8 @@ export default {
     return {
       speedMainSlider: settings.speedMainSlider,
       loading: true,
+      online: true,
+      text: 'Идёт загрузка'
     }
   },
   head() {
@@ -43,51 +44,6 @@ export default {
       htmlAttrs: {
         lang: 'ru'
       },
-      meta: [{
-          hid: 'description',
-          name: 'description',
-          content: 'Интернет-магазин TERMINATOR.KG. Здесь Вы сможете найти оригинальную, качественную продукцию по доступной цене. Продукция - Xiaomi смартфоны, аксессуары для смартфонов, гаджеты, рюкзаки и сумки, wi-fi роутеры, гироскутеры, электросамокаты, электровелоипеды, квадрокоптеры, зубные щетки и многое другое. Будем рады видеть!'
-        },
-        {
-          hid: 'og:title',
-          property: 'og:title',
-          content: 'Главная страница | TERMINATOR.KG'
-        }, {
-          hid: 'og:description',
-          property: 'og:description',
-          content: 'Интернет-магазин TERMINATOR.KG. Здесь Вы сможете найти оригинальную, качественную продукцию по доступной цене. Продукция - Xiaomi смартфоны, аксессуары для смартфонов, гаджеты, рюкзаки и сумки, wi-fi роутеры, гироскутеры, электросамокаты, электровелоипеды, квадрокоптеры, зубные щетки и многое другое. Будем рады видеть!'
-        },
-        {
-          hid: 'og:site_name',
-          property: 'og:site_name',
-          content: 'TERMINATOR.KG'
-        },
-        {
-          hid: 'og:url',
-          property: 'og:url',
-          content: 'http://terminator.kg/'
-        },
-        {
-          hid: 'og:locale',
-          property: 'og:locale',
-          content: 'ru_RU'
-        },
-        {
-          hid: 'og:image',
-          property: 'og:image',
-          content: 'http://176.126.166.16/og.png'
-        },
-        {
-          hid: 'og:image:width',
-          property: 'og:image:width',
-          content: '968'
-        },
-        {
-          hid: 'og:image:height',
-          property: 'og:image:height',
-          content: '504'
-        },
-      ]
     }
   },
   created() {
@@ -97,7 +53,30 @@ export default {
       }, 1000);
     })
   },
+  mounted() {
+    if (!window.navigator) {
+      this.online = false
+      return
+    }
+    this.online = Boolean(window.navigator.onLine)
+    window.addEventListener('offline', this._toggleNetworkStatus)
+    window.addEventListener('online', this._toggleNetworkStatus)
+  },
+  destroyed() {
+    window.removeEventListener('offline', this._toggleNetworkStatus)
+    window.removeEventListener('online', this._toggleNetworkStatus)
+  },
   methods: {
+    _toggleNetworkStatus({
+      type
+    }) {
+      this.online = type === 'online'
+        // this.loading = !this.online
+        // if(this.online) 
+        //   this.text = 'Идёт загрузка'
+        //   else 
+        //   this.text = 'Нет сети!'
+    },
     ready(fn) {
       if (process.browser) {
         window.onload = () => {

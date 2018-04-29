@@ -76,7 +76,7 @@ export default {
           img: 'universal.svg'
         }]
       }, {
-        title: 'Другие',
+        title: 'Другое',
         link: '/category/other',
         isLocal: true,
         childs: []

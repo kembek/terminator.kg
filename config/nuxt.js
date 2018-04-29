@@ -6,6 +6,17 @@ module.exports = {
   /*
    ** Headers of the page
    */
+  manifest: {
+    name: 'TERMINATOR.KG',
+    short_name: 'TERMINATOR.KG',
+    description: 'Интернет-магазин TERMINATOR.KG',
+    theme_color: '#242323',
+    background_color: '#242323',
+    display: 'standalone',
+    orientation: 'portrait',
+    lang: 'ru',
+    start_url: '/'
+  },
   head: {
     meta: [{
         charset: 'utf-8'
@@ -29,7 +40,51 @@ module.exports = {
       {
         name: 'mobile-web-app-capable',
         content: 'yes'
-      }
+      },
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'Интернет-магазин TERMINATOR.KG. Здесь Вы сможете найти оригинальную, качественную продукцию по доступной цене. Продукция - Xiaomi смартфоны, аксессуары для смартфонов, гаджеты, рюкзаки и сумки, wi-fi роутеры, гироскутеры, электросамокаты, электровелоипеды, квадрокоптеры, зубные щетки и многое другое. Будем рады видеть!'
+      },
+      {
+        hid: 'og:title',
+        property: 'og:title',
+        content: 'Главная страница | TERMINATOR.KG'
+      }, {
+        hid: 'og:description',
+        property: 'og:description',
+        content: 'Интернет-магазин TERMINATOR.KG. Здесь Вы сможете найти оригинальную, качественную продукцию по доступной цене. Продукция - Xiaomi смартфоны, аксессуары для смартфонов, гаджеты, рюкзаки и сумки, wi-fi роутеры, гироскутеры, электросамокаты, электровелоипеды, квадрокоптеры, зубные щетки и многое другое. Будем рады видеть!'
+      },
+      {
+        hid: 'og:site_name',
+        property: 'og:site_name',
+        content: 'TERMINATOR.KG'
+      },
+      {
+        hid: 'og:url',
+        property: 'og:url',
+        content: '/'
+      },
+      {
+        hid: 'og:locale',
+        property: 'og:locale',
+        content: 'ru_RU'
+      },
+      {
+        hid: 'og:image',
+        property: 'og:image',
+        content: 'og.png'
+      },
+      {
+        hid: 'og:image:width',
+        property: 'og:image:width',
+        content: '968'
+      },
+      {
+        hid: 'og:image:height',
+        property: 'og:image:height',
+        content: '504'
+      },
     ],
     link: [{
         rel: 'icon',
@@ -69,12 +124,13 @@ module.exports = {
         sizes: '180x180',
         href: 'logo180.png'
       },
-      {
-        rel: 'manifest',
-        href: 'manifest.json'
-      }
-    ]
+    ],
+    script: [{
+      src: 'service-worker.js',
+      type: 'text/javascript'
+    }]
   },
+
   /*
    ** Global CSS
    */
@@ -105,8 +161,21 @@ module.exports = {
     '~/plugins/vue-social-sharing.js',
   ],
   modules: [
-    '@nuxtjs/sitemap'
+    '@nuxtjs/sitemap',
+    '@nuxtjs/pwa'
   ],
+  workbox: {
+    runtimeCaching: [{
+      urlPattern: '*',
+      strategyOptions: {
+        cacheName: 'terminator.kg',
+        cacheExpiration: {
+          maxEntries: 10,
+          maxAgeSeconds: 300
+        }
+      }
+    }]
+  },
   sitemap: {
     path: '/sitemap.xml',
     hostname: 'http://terminator.kg',

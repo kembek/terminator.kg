@@ -1,5 +1,11 @@
 {
   "name": "TERMINATOR.KG",
+  "short_name": "TERMINATOR.KG",
+  "theme_color": "#242323",
+  "background_color": "#242323",
+  "display": "standalone",
+  "orientation": "portrait",
+  "lang": "ru",
   "icons": [
     {
       "src": "logo36.png",
@@ -32,9 +38,5 @@
       "type": "image/png"
     }
   ],
-  "theme_color": "#242323",
-  "background_color": "#242323",
-  "start_url": "/",
-  "display": "standalone",
-  "orientation": "portrait"
+  "start_url": "/"
 }

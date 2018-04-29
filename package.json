@@ -25,6 +25,7 @@
     "@adonisjs/lucid": "^4.0.22",
     "@adonisjs/session": "^1.0.19",
     "@adonisjs/shield": "^1.0.4",
+    "@nuxtjs/pwa": "^2.0.8",
     "@nuxtjs/sitemap": "^0.1.1",
     "axios": "^0.18.0",
     "cross-env": "^3.1.4",
@@ -39,6 +40,7 @@
     "vue-notifications": "^0.9.0",
     "vue-scrollto": "^2.11.0",
     "vue-social-sharing": "^2.3.3",
+    "vue2-google-maps": "^0.9.6",
     "youch": "^2.0.4"
   },
   "standard": {
