@@ -31,9 +31,6 @@ export default {
   justify-content: center;
   width: 100%;
   max-width: 1200px;
-  * {
-    color: @color-main_font;
-  }
   .contacts-map {
     content: '';
     background-color: #fff;
@@ -44,7 +41,7 @@ export default {
     margin-top: 20px;
   }
   .contacts-block {
-  width: 100%;
+    width: 100%;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -61,7 +58,7 @@ export default {
         width: 100%;
         flex-direction: column;
         align-items: center;
-        border-bottom: 1px solid black;
+        border-bottom: 2px solid @color-text;
         color: black;
         height: 65px;
         justify-content: space-between;
@@ -69,7 +66,7 @@ export default {
         svg {
           width: 40px;
           height: 40px;
-    fill: @color-main_font;
+          fill: @color-main_font;
         }
         h2 {
           color: @color-text;
@@ -77,28 +74,69 @@ export default {
         }
       }
       .contacts-info {
+        a {
+          text-decoration: none;
+          color: @color-text;
+          &:hover {
+            color: white;
+          }
+        }
         padding: 40px 0;
         .address-link {}
         .work-time {
+          color: @color-text;
           margin-top: 20px;
-          color: black;
+          h3 {
+            margin-bottom: 10px;
+          }
           span {
             margin-left: 20px;
           }
         }
+        .number-block {
+          p {
+            color: @color-dark;
+            margin: 10px 0;
+            a {
+              margin-left: 30px;
+            }
+          }
+        }
         .fb-inputs {
           input {
-            width: 99%;
+            border: 1px solid rgba(204, 204, 204, 0.3);
+            width: 96%;
             outline: none;
             height: 20px;
             margin-bottom: 5px;
-            padding: 5px 0;
+            padding: 5px 0 5px 10px;
+            background-color: rgba(255, 255, 255, 0.3);
+            color: black;
+            &::-webkit-input-placeholder {
+              /* Chrome/Opera/Safari */
+              color: rgb(56, 56, 56);
+            }
+            &::-moz-placeholder {
+              /* Firefox 19+ */
+              color: rgb(56, 56, 56);
+            }
+            &:-ms-input-placeholder {
+              /* IE 10+ */
+              color: pink;
+            }
+            &:-moz-placeholder {
+              /* Firefox 18- */
+              color: pink;
+            }
           }
           textarea {
             outline: none;
             resize: none;
-            width: 98%;
+            width: 96%;
+            background-color: rgba(255, 255, 255, 0.3);
+            color: black;
             height: 100px;
+            padding: 5px 0 5px 10px;
           }
           button {
             border: none;
@@ -113,25 +151,26 @@ export default {
       background-color: rgba(95, 160, 155, 0.4);
     }
     .phone-wrapper {
-      background-color: @color-bg_dark;
+      background-color: rgba(47, 46, 46, 0.4);
     }
     .feedback-wrapper {
-      background-color: rgba(95, 160, 155, 0.4);
+      background-color: rgba(255, 255, 255, 0.35);
     }
   }
 }
 
-@media screen and (max-width: 970px){
+@media screen and (max-width: 970px) {
   .div {
-  .contacts-map {
+    .contacts-map {}
+    .contacts-block {
+      flex-direction: column;
+      align-items: center;
+      .address-wrapper,
+      .feedback-wrapper,
+      .phone-wrapper {
+        width: 80vw;
+      }
+    }
   }
-  .contacts-block {
-    flex-direction: column;
-    align-items: center;
-    .address-wrapper,
-    .feedback-wrapper,
-    .phone-wrapper {
-      width: 80vw;
-    }}}
 }
 </style>
