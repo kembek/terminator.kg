@@ -63,7 +63,7 @@ module.exports = {
       {
         hid: 'og:url',
         property: 'og:url',
-        content: 'http://terminator.kg'
+        content: 'https://terminator.kg'
       },
       {
         hid: 'og:locale',
@@ -73,7 +73,7 @@ module.exports = {
       {
         hid: 'og:image',
         property: 'og:image',
-        content: 'http://terminator.kg/og.png'
+        content: 'https://terminator.kg/og.png'
       },
       {
         hid: 'og:image:width',
@@ -166,7 +166,7 @@ module.exports = {
   ],
   workbox: {
     runtimeCaching: [{
-      urlPattern: 'http://localhost/*',
+      urlPattern: 'https://terminator.kg/*',
       strategyOptions: {
         cacheName: 'terminator.kg',
         cacheableResponse: { statuses: [0, 200] },
@@ -179,7 +179,7 @@ module.exports = {
   },
   sitemap: {
     path: '/sitemap.xml',
-    hostname: 'http://terminator.kg',
+    hostname: 'https://terminator.kg',
     cacheTime: 1000 * 60 * 15,
     gzip: true,
     generate: false, // Enable me when using nuxt generate
