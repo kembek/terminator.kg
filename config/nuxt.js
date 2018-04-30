@@ -63,7 +63,7 @@ module.exports = {
       {
         hid: 'og:url',
         property: 'og:url',
-        content: '/'
+        content: 'http://terminator.kg'
       },
       {
         hid: 'og:locale',
@@ -73,7 +73,7 @@ module.exports = {
       {
         hid: 'og:image',
         property: 'og:image',
-        content: 'og.png'
+        content: 'http://terminator.kg/og.png'
       },
       {
         hid: 'og:image:width',
@@ -125,10 +125,10 @@ module.exports = {
         href: 'logo180.png'
       },
     ],
-    script: [{
-      src: 'service-worker.js',
-      type: 'text/javascript'
-    }]
+    // script: [{
+    //   src: 'sw.js',
+    //   type: 'text/javascript'
+    // }]
   },
 
   /*
@@ -166,9 +166,10 @@ module.exports = {
   ],
   workbox: {
     runtimeCaching: [{
-      urlPattern: '*',
+      urlPattern: 'http://localhost/*',
       strategyOptions: {
         cacheName: 'terminator.kg',
+        cacheableResponse: { statuses: [0, 200] },
         cacheExpiration: {
           maxEntries: 10,
           maxAgeSeconds: 300
@@ -199,7 +200,7 @@ module.exports = {
     // }
   },
   build: {
-    analyze: true,
+    // analyze: true,
     vendor: ['vue-notifications', 'vue-carousel'],
     extend(config) {
       const urlLoader = config.module.rules.find((rule) => rule.loader === 'url-loader')
