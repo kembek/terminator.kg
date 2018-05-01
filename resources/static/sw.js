@@ -8,72 +8,68 @@ const workboxSW = new self.WorkboxSW({
 
 workboxSW.precache([
   {
-    "url": "/_nuxt/app.b72ed38d77ee4fffb92d.js",
-    "revision": "3f7f7398d002f3806825bd191ccf5c9a"
+    "url": "/_nuxt/app.773d2dcbc9c34eb0fec3.js",
+    "revision": "0d2371aa3c2199aad49d5c03647d9c70"
   },
   {
-    "url": "/_nuxt/layouts_default.ee36e6f969735446f85a.js",
-    "revision": "44e2fd1dd10c1bc246bec11b7b702a09"
+    "url": "/_nuxt/layouts_default.4fffc126c4abf75a0687.js",
+    "revision": "ebadd1c7a2bbf52945dcabd2cd936e16"
   },
   {
-    "url": "/_nuxt/layouts_none.e19d17f4b785cbf8b279.js",
-    "revision": "69d1536e0baf069c2b7107be629877d7"
+    "url": "/_nuxt/layouts_none.fb46da3323f088853359.js",
+    "revision": "0e30137ef4b5c86e302c7b7980f3ee5b"
   },
   {
-    "url": "/_nuxt/manifest.91bac394219b3b288b7c.js",
-    "revision": "f3648046128170c043976f069402c081"
+    "url": "/_nuxt/manifest.a408384acd164b870d42.js",
+    "revision": "c221561fda3bf5f7378caba2e085cd36"
   },
   {
-    "url": "/_nuxt/pages_about_index.d9feb47c8c2d27a39d72.js",
-    "revision": "647e4632e0d6f0de084519e820bc9b63"
+    "url": "/_nuxt/pages_access_about_index.3e590ab7091c68474654.js",
+    "revision": "d4bbad90b94539edc88e556d6ec8deac"
   },
   {
-    "url": "/_nuxt/pages_admin_index.fe9fefa6a58d402d066a.js",
-    "revision": "7dd425281c2a7e894bfc52b690abc4dc"
+    "url": "/_nuxt/pages_access_contacts_index.c08f93bc6471e85e36c2.js",
+    "revision": "7a40aaf679e6824b3e67e77e6b05a0cb"
   },
   {
-    "url": "/_nuxt/pages_admin_test.6a33a32d3a476521eeeb.js",
-    "revision": "cbd59056204932d6dd7086ea1b1327d9"
+    "url": "/_nuxt/pages_access_faq__link.38d415170ef41a6a418f.js",
+    "revision": "75b4d163a78f7ea3ddfbcf7267f995cd"
   },
   {
-    "url": "/_nuxt/pages_contacts_index.b404576d00bcf3d0ab0e.js",
-    "revision": "0071ce67f4c8f2911c772133a8db2802"
+    "url": "/_nuxt/pages_access_FAQ.eb33513759759aecddcf.js",
+    "revision": "932a449974f9f062ce14b521018b2e36"
   },
   {
-    "url": "/_nuxt/pages_faq__link.867bba6bb61ca8a3495e.js",
-    "revision": "33bb0825b3dc0db721b34835f44da282"
+    "url": "/_nuxt/pages_access_index.c3676210b497d7856325.js",
+    "revision": "3366516ddcdb259eb231fc80e68cf03b"
   },
   {
-    "url": "/_nuxt/pages_FAQ.7effd052557a4587f772.js",
-    "revision": "f2cf6105c54f891e8b277c61955eb704"
+    "url": "/_nuxt/pages_access_products__product.6aa4a86da1153f564a75.js",
+    "revision": "92e17d35e69adf632c069f0a2454d573"
   },
   {
-    "url": "/_nuxt/pages_index.dd05c5048b0841927f06.js",
-    "revision": "cc2ddbb3761b8dc08f535815d7d933de"
+    "url": "/_nuxt/pages_access_products_index.735457ab267ad94ebd9e.js",
+    "revision": "2f25c4d967912fe4ffaabbbb5b2cc6e8"
   },
   {
-    "url": "/_nuxt/pages_products__product.9285e317c4a839185fc3.js",
-    "revision": "f762b771dce37aa9f8db9bdf2b736807"
+    "url": "/_nuxt/pages_access_search__result.a94e17d89cc355215c73.js",
+    "revision": "65f988133fc9e4c0e5725c9c834caea2"
   },
   {
-    "url": "/_nuxt/pages_products_index.ff35e913ec36d768c034.js",
-    "revision": "a0764ab0a8ba381c08b0ecae77ee76c7"
+    "url": "/_nuxt/pages_access_search_index.d176a12fcc392357d40c.js",
+    "revision": "6d78713a94aa38a7fd05df11a43fd066"
   },
   {
-    "url": "/_nuxt/pages_search__result.4e4c6f77b28a618c20ee.js",
-    "revision": "13410266e6cb18f15b929d5bfff60b99"
+    "url": "/_nuxt/pages_access_search.caf9e9c13552eb9c7f1e.js",
+    "revision": "901aeed9fcd7f444b0553a5b6b7a23ac"
   },
   {
-    "url": "/_nuxt/pages_search_index.831807472e4685d0ca9e.js",
-    "revision": "c5ed006498b8805068ef26a84f1f8557"
+    "url": "/_nuxt/pages_index.fecfe4d94f0b403fbb69.js",
+    "revision": "6ede6dfd39c7c77b91f0f88749490b91"
   },
   {
-    "url": "/_nuxt/pages_search.816ae752dea645ecb1f5.js",
-    "revision": "ad0d202ee24cfd785961c8a03c9d101f"
-  },
-  {
-    "url": "/_nuxt/vendor.7c04579187fe8f6fb65c.js",
-    "revision": "e9a786c3830275e7edb42dc57852952f"
+    "url": "/_nuxt/vendor.e84a13337f58784893ab.js",
+    "revision": "1ae2b6fdc688d79779ed12263d9dfa22"
   }
 ])
 
@@ -82,5 +78,5 @@ workboxSW.router.registerRoute(new RegExp('/_nuxt/.*'), workboxSW.strategies.cac
 
 workboxSW.router.registerRoute(new RegExp('/.*'), workboxSW.strategies.networkFirst({}), 'GET')
 
-workboxSW.router.registerRoute(new RegExp('http://localhost/*'), workboxSW.strategies.networkFirst({"cacheName":"terminator.kg","cacheableResponse":{"statuses":[0,200]},"cacheExpiration":{"maxEntries":10,"maxAgeSeconds":300}}), 'GET')
+workboxSW.router.registerRoute(new RegExp('https://terminator.kg/*'), workboxSW.strategies.networkFirst({"cacheName":"terminator.kg","cacheableResponse":{"statuses":[0,200]},"cacheExpiration":{"maxEntries":10,"maxAgeSeconds":300}}), 'GET')
 
