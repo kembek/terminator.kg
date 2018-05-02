@@ -157,6 +157,9 @@ module.exports = {
     }, {
       src: '~/plugins/vue-notifications.js',
       ssr: false
+    },{
+      src: '~/plugins/vue-slider-component.js',
+      ssr: false
     },
     '~/plugins/vue-social-sharing.js',
   ],
