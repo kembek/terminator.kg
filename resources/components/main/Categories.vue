@@ -39,7 +39,7 @@ export default {
     }
   },
   methods: {
-    ShowNotify() {
+    ShowNotify(type, title, text) {
       this.showSuccessMsg()
     }
   },
