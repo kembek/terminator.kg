@@ -67,7 +67,7 @@ export default {
   width: 100%;
   flex-wrap: wrap-reverse;
   .search-result {
-    width: 60%;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around; // justify-content: space-evenly;
