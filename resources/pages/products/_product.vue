@@ -11,10 +11,10 @@
     </div>
   </div>
   <div class="product-up-r">
-    <h2>Xiaomi Redmi 5 Plus</h2>
+      <h2>{{product.title}}</h2>
     <div class="p-text">
       <label>Цена</label>
-      <span>11 000 сом</span>
+      <span>{{product.prices[active].price}} сом</span>
     </div>
     <div class="p-text">
       <label>Количество</label>
@@ -25,9 +25,9 @@
       </div>
     </div>
     <div class="p-text">
-      <label>Цвет</label>
+      <label>Цвет: {{product.prices[active].title}}</label>
       <div class="color">
-        <span v-for="(item, i) in product.prices" :key="i" :style="'background-color: ' + item.color + ';'" @click="setColor(i)" />
+        <span v-for="(item, i) in product.prices" :key="i" :style="'background-color: ' + item.color + ';'" @click="setColor(i)" :title="item.title"/>
       </div>
     </div>
     <p>В зависимости от цвета стоимость может измениться</p>
@@ -51,6 +51,7 @@ export default {
         url: '1-redmi-wg-22.png',
         prices: [{
           color: "black",
+          title: 'Темный',
           price: 12000,
           images: [{
               url: '1-redmi-wg-22.png',
@@ -83,6 +84,7 @@ export default {
           ]
         }, {
           color: "white",
+          title: 'Светлый',
           price: 11000,
           images: [{
               url: 'hits.jpg',
@@ -213,10 +215,13 @@ export default {
       display: flex;
       margin: 15px 0;
       .color {
+        display: flex;
+        flex-wrap: wrap;
         span {
           display: block;
           width: 20px;
           height: 20px;
+          margin: 0 5px;
           background-color: red;
           border-radius: 50%;
         }
