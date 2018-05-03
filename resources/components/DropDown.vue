@@ -1,9 +1,9 @@
 <template>
 <div class="questions">
   <div class="faq-title">
-    <h1>{{title}}</h1>
+    <h1 v-if="title == 'FAQ'">{{title}}</h1>
   </div>
-  <div class="question" v-for="(item, i) in items" :key="i" @click="isShow(i)" :id="scroll + '-' + i">
+  <div  class="question" v-for="(item, i) in items" :key="i" @click="isShow(i)" :id="scroll + '-' + i">
     <div class="h2-question--wrapper" :class="{'active' :Show == i}">
       <h2>{{item.question}}</h2>
       <ArrowIcon />

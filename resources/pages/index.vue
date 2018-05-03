@@ -1,42 +1,23 @@
 <template>
-  <div class="App">
-  <div class="wrapper">
-    <header>
-      <div class="logo" title="TERMINATOR.KG">
-        <Logo />
-      </div>
-    </header>
-    <div id="Content">
-      <h2>Технические работы</h2>
-      <h3>До конца работ осталось</h3>
-      <Timer dedline="2018/05/02 12:00:00"/>
-    </div>
-  </div>
-</div>
+<Main />
 </template>
-
 <script>
-import Timer from '~/components/Timer'
-import Logo from '~/assets/svg/logo.svg'
+import Main from '~/components/main/'
 
 export default {
-  name: 'name',
-  layout: 'none',
-  data() {	
-    return {}
+  head() {
+    return {
+      title: 'Главная страница',
+      meta: [{
+          hid: 'description',
+          name: 'description',
+          content: 'Интернет-магазин TERMINATOR.KG. Здесь Вы сможете найти оригинальную, качественную продукцию по доступной цене. Продукция - Xiaomi смартфоны, аксессуары для смартфонов, гаджеты, рюкзаки и сумки, wi-fi роутеры, гироскутеры, электросамокаты, электровелоипеды, квадрокоптеры, зубные щетки и многое другое. Будем рады видеть!'
+        },
+      ]
+    }
   },
   components: {
-    Logo,
-    Timer
-  },
-  methods: {}
+    Main
+  }
 }
 </script>
-
-<style lang="less">
-.logo {
-  svg {
-  height: 30vh;
-  width: 30vw;}
-}
-</style>
