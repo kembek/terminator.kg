@@ -1,5 +1,5 @@
 <template>
-<header :class="{'active': showChildMenu != -1 && menu[showChildMenu].childs.length > 0}">
+<header :class="{'active': showChildMenu != -1 && menu[showChildMenu].childs.length > 0}" id="Top">
   <div class="logo-container">
     <nuxt-link to="/" class="logo">
       <Logo />

@@ -60,10 +60,21 @@
       </div>
     </div>
     <div class="middle">
-
+      <span v-scroll-to="'#Top'">
+            <Scroll />
+          </span>
     </div>
     <div class="right">
-
+      <a class="footer--bottom-item fys" href='http://fys.kg/referral_site/terminator.kg' target="_blank">
+        <h3 class="fys-created">Сайт разработан</h3>
+        <div>
+          <FysLogo class="footer--icon-fys" />
+          <span>
+       <h3>Studios</h3>
+        <p>Мы создаём будущее</p>
+      </span>
+        </div>
+      </a>
     </div>
   </div>
 </footer>
@@ -73,14 +84,18 @@
 import VK from '~/assets/svg/vk.svg';
 import FB from '~/assets/svg/fb.svg';
 import Insta from '~/assets/svg/insta.svg';
-import Logo from '~/assets/svg/logo.svg'
+import Logo from '~/assets/svg/logo.svg';
+import Scroll from '~/assets/svg/fys.svg';
+import FysLogo from '~/assets/svg/fysLogo.svg';
 
 export default {
   components: {
     VK,
     FB,
     Insta,
-    Logo
+    Logo,
+    Scroll,
+    FysLogo
   }
 
 }
@@ -90,8 +105,8 @@ export default {
 <style lang="less">
 @import '~assets/css/themes/default.less';
 footer {
-background-color: @color-bg_dark;
-display: flex;
+  background-color: @color-bg_dark;
+  display: flex;
   justify-content: flex-start;
   align-items: center;
   margin-top: 20px;
@@ -183,13 +198,18 @@ display: flex;
   }
   .bottom {
     width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 10px;
     .left {
-      width: 100%;
+      width: 28%;
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: left;
       .copyright {
         margin-bottom: 10px;
+        text-align: center;
       }
       .logo {
         margin: 10px;
@@ -208,19 +228,116 @@ display: flex;
           text-transform: uppercase;
         }
         &:hover {
-          color: @color-dark;
+          color: #00ffcb;
+        }
+      }
+    }
+    .middle {
+      width: 30%;
+      display: flex;
+      justify-content: center;
+      svg {
+        height: 60px;
+        width: 60px;
+        fill: white;
+        padding-top: 20px;
+        &:hover {
+          transform: scale(1.05, 1.05);
+        }
+      }
+      span {
+        transition: none;
+        font-size: 24px;
+        text-transform: uppercase;
+      }
+    }
+    .right {
+      width: 29%;
+      display: flex;
+      flex-direction: column;
+      margin-top: 10px;
+      .footer--bottom-item {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        &.fys {
+          text-decoration: none;
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-end;
+          color: white;
+          svg {
+            fill: white;
+            height: 70px;
+            width: 70px;
+          }
+          h3 {
+            font-size: 12px;
+            margin: 0 5px;
+            text-align: center;
+          }
+          div {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: center;
+            
+            span {
+              h3 {
+                font-size: 33px;
+                font-family: "Arial", sans-serif;
+                font-weight: bold;
+              }
+              p {
+                font-size: 10px;
+                text-align: center;
+              }
+            }
+          }
+          &:hover {
+            color: white;
+            svg {
+              transform: scale(1.05, 1.05);
+            }
+          }
         }
       }
     }
   }
 }
 
-@media screen and (max-width: 585px) {
+@media screen and (max-width: 670px) {
   footer {
     align-items: flex-start;
     justify-content: flex-start;
-    .blocks {
-      
+    .bottom {
+      .right {
+      .footer--bottom-item {
+        &.fys {
+          align-items: center;
+          flex-direction: column;
+          margin-bottom: 20px;
+          h3{
+            font-size: 14px;
+          }
+          div{
+            margin-top: 10px;
+          }
+        }}
+      }
+      .right,
+      .left,
+      .middle {
+        flex-direction: column;
+        width: 100%;
+        margin-bottom: 10px;
+        align-items: center;
+        margin: 0;
+      }
+      flex-direction: column;
+      align-items: center;
+      justify-content:center;
     }
   }
 }
