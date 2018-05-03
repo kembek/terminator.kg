@@ -3,9 +3,9 @@
   <nuxt-link to='/search/'>
     <Search />
   </nuxt-link>
-  <nuxt-link to='/basket/'>
+  <a @click="$root.$emit('basket', true)">
     <Basket />
-  </nuxt-link>
+  </a>
 </div>
 </template>
 

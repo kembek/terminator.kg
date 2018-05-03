@@ -6,6 +6,9 @@
   <MyHeader />
   <Slider :speed="speedMainSlider" v-if="this.$route.fullPath == '/'" />
   <div v-else style="padding-top: 100px;" />
+  <transition name="page">
+    <Basket v-if="isShowBasket" />
+  </transition>
   <div class="content">
     <nuxt />
   </div>
@@ -17,6 +20,7 @@
 import MyHeader from '~/components/Header'
 import Slider from '~/components/Slider'
 import MyFooter from '~/components/Footer'
+import Basket from '~/components/basket/'
 import preloader from '~/components/preloader'
 
 import settings from '~/settings'
@@ -26,7 +30,8 @@ export default {
     preloader,
     MyHeader,
     Slider,
-    MyFooter
+    MyFooter,
+    Basket
 
   },
   data() {
@@ -34,6 +39,7 @@ export default {
       speedMainSlider: settings.speedMainSlider,
       loading: true,
       online: true,
+      isShowBasket: false,
       text: 'Идёт загрузка'
     }
   },
@@ -51,6 +57,9 @@ export default {
       setTimeout(() => {
         this.loading = false
       }, 1000);
+    })
+    this.$root.$on('basket', (value) => {
+      this.isShowBasket = value
     })
   },
   mounted() {
@@ -71,11 +80,11 @@ export default {
       type
     }) {
       this.online = type === 'online'
-        // this.loading = !this.online
-        // if(this.online) 
-        //   this.text = 'Идёт загрузка'
-        //   else 
-        //   this.text = 'Нет сети!'
+      // this.loading = !this.online
+      // if(this.online) 
+      //   this.text = 'Идёт загрузка'
+      //   else 
+      //   this.text = 'Нет сети!'
     },
     ready(fn) {
       if (process.browser) {

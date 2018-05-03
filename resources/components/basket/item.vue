@@ -3,8 +3,8 @@
   <img :src="'/images/' + item.image" />
   <div class="description">
     <h3>{{item.title}}</h3>
-    <span class="count">{{item.count}}</span>
-    <span class="price">{{item.price}}</span>
+    <span class="count">Количество: {{item.count}}</span>
+    <span class="price">Цена: {{item.price}} сом</span>
   </div>
 </div>
 </template>
