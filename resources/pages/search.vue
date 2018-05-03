@@ -9,7 +9,8 @@
       <ul v-if="search && items.length != 0">
         <li v-for="(item, i) in items" :key="i">
           <nuxt-link :to="'/products/' + item.id">
-            {{item.title}}</nuxt-link>
+            {{item.title}}
+          </nuxt-link>
         </li>
       </ul>
     </div>

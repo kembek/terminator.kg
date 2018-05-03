@@ -5,6 +5,7 @@
 </div>
 <div class="result-wrapper" v-else>
   <div class="search-filters">
+    <Filters />
   </div>
   <div class="search-result">
     <div class="product" v-for="(item, i) in items" :key="i">
@@ -18,6 +19,7 @@
 
 <script>
 import SearchSunIcon from "~/assets/svg/searchsun.svg";
+import Filters from '~/components/filtres/'
 export default {
   data() {
     return {
@@ -25,7 +27,8 @@ export default {
     }
   },
   components: {
-    SearchSunIcon
+    SearchSunIcon,
+    Filters
   },
   computed: {
     items() {
@@ -64,7 +67,7 @@ export default {
   width: 100%;
   flex-wrap: wrap-reverse;
   .search-result {
-    width: 100%;
+    width: 60%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around; // justify-content: space-evenly;

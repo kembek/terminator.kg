@@ -1,5 +1,5 @@
 <template>
-<div class="App">
+  <div class="App">
   <div class="wrapper">
     <header>
       <div class="logo" title="TERMINATOR.KG">
@@ -9,28 +9,28 @@
     <div id="Content">
       <h2>Технические работы</h2>
       <h3>До конца работ осталось</h3>
-      <Timer dedline="2018/05/02 12:00:00" />
+      <Timer dedline="2018/05/03 12:00:00"/>
     </div>
   </div>
 </div>
 </template>
 
 <script>
-import Timer from '~/components/Timer'
-import Logo from '~/assets/svg/logo.svg'
+import Timer from "~/components/Timer";
+import Logo from "~/assets/svg/logo.svg";
 
 export default {
-  name: 'name',
-  layout: 'none',
+  name: "name",
+  layout: "none",
   data() {
-    return {}
+    return {};
   },
   components: {
     Logo,
     Timer
   },
   methods: {}
-}
+};
 </script>
 
 <style lang="less">
@@ -40,7 +40,6 @@ export default {
     width: 30vw;
   }
 }
-
 html,
 body {
   height: 100%;
@@ -88,9 +87,6 @@ header {
   justify-content: center;
   flex-wrap: wrap;
   cursor: default;
-  img {
-    width: 150px;
-  }
   h1 {
     font-size: 68px;
     letter-spacing: 0;
@@ -168,7 +164,7 @@ header {
   position: fixed;
 }
 
-@media (max-width:900px) {
+@media (max-width: 900px) {
   .App {
     min-width: initial !important;
   }
@@ -192,7 +188,7 @@ header {
   }
 }
 
-@media (max-width:420px) {
+@media (max-width: 420px) {
   h1 {
     text-align: center;
     margin-left: 0px;

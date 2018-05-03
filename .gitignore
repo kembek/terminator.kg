@@ -25,3 +25,4 @@ lib-cov
 # Nuxt.js
 .nuxt/
 yarn.lock
+resources/static/sw.js
