@@ -49,6 +49,7 @@ export default {
       product: {
         id: 0,
         url: '1-redmi-wg-22.png',
+        title: 'Redmi 5 Plus 64GB',
         prices: [{
           color: "black",
           title: 'Темный',
@@ -165,7 +166,7 @@ export default {
     img {
       user-select: none;
       transition: all .5s linear;
-      object-fit: cover;
+      object-fit: scale-down;
       cursor: pointer; // animation: show-img;
     }
     .product-slider {
