@@ -10,8 +10,8 @@
       <img :src="'/images/'+ image.url" :alt="image.title" draggable="false">
     </div>
   </div>
-  <div class="product-up-r">
-      <h2>{{product.title}}</h2>
+<div class="product-up-r">
+    <h2>{{product.title}}</h2>
     <div class="p-text">
       <label>Цена</label>
       <span>{{product.prices[active].price}} сом</span>
@@ -27,7 +27,7 @@
     <div class="p-text">
       <label>Цвет: {{product.prices[active].title}}</label>
       <div class="color">
-        <span v-for="(item, i) in product.prices" :key="i" :style="'background-color: ' + item.color + ';'" @click="setColor(i)" :title="item.title"/>
+        <span v-for="(item, i) in product.prices" :key="i" :style="'background-color: ' + item.color + ';'" @click="setColor(i)" :title="item.title" />
       </div>
     </div>
     <p>В зависимости от цвета стоимость может измениться</p>
@@ -161,6 +161,7 @@ export default {
   justify-content: center;
   width: 100%;
   .product-up-l {
+    border: 1px solid yellow;
     display: flex;
     align-items: center;
     img {
@@ -199,6 +200,8 @@ export default {
     }
   }
   .product-up-r {
+    border: 1px solid red;
+    height: 200px;
     width: 100%;
     max-width: 320px;
     padding: 0 0 0 25px;
@@ -276,6 +279,26 @@ export default {
   100% {
     opacity: 1;
   }
+}
+
+@media screen and(max-width: 920px) {
+  .product-up {
+    flex-direction: column;
+    align-items:center;
+    .product-up-l {
+      flex-direction: column-reverse;
+      width:100%;
+      .product-slider {
+        flex-direction: row-reverse;
+        svg {
+          transform: rotate(90deg);
+        }
+      }
+    }
+  }
+}
+@media screen and(max-width: 870px){
+
 }
 </style>
 
