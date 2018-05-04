@@ -67,7 +67,7 @@ export default {
   width: 100%;
   flex-wrap: wrap-reverse;
   .search-result {
-    width: 100%;
+    width: 75%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around; // justify-content: space-evenly;
@@ -81,4 +81,42 @@ export default {
     }
   }
 }
+@media screen and (max-width: 1093px)
+{
+  .result-wrapper{
+    .search-result{
+      width: 65%;
+    }
+  }
+}
+@media screen and (max-width: 783px)
+{
+  .result-wrapper{
+    .search-result{
+      width: 60%;
+    }
+  }
+}
+@media screen and (max-width: 685px)
+{
+  .result-wrapper{
+    .search-result{
+      width: 45%;
+      justify-content: center;
+    }
+    
+  }
+}
+@media screen and (max-width: 501px)
+{
+  .result-wrapper{
+    justify-content: center;
+    .search-result{
+      width: 90%
+    }
+    
+  }
+}
+
+
 </style>
