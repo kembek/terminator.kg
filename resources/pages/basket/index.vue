@@ -6,9 +6,9 @@
         <arrow /> Вернуться в магазин
       </nuxt-link>
     </div>
-    <button>
+    <!-- <button>
       <basket />Оформить заказ
-    </button>
+    </button> -->
   </div>
   <div class="table">
     <p class="t1">Моя корзина()</p>
@@ -19,12 +19,21 @@
     </div>
   </div>
   <hr/>
-  <!-- <ul v-for="(item,i) in items" :key="i">
-      <li></li>
-      <li></li>
-      <li></li>
-    </ul> -->
-  <!-- <Items /> -->
+  <div class="list">
+    <li v-for="(item, i) in items" :key="i">
+      <div class="l1">
+        <div class="image"><img :src="items.image" /></div>
+        <div class="title">{{item.title}}</div>
+      </div>
+      <div class="l2">
+        <div class="price">
+          <p>{{item.price}}</p>
+        </div>
+        <div class="count"><input type="text"></div>
+        <div class="total">{{item.price}}</div>
+      </div>
+    </li>
+  </div>
   <hr>
   <div class="price">
     <div class="cost">
@@ -46,9 +55,11 @@
         <p>Итого</p>
         <p>333</p>
       </div>
-      <button>
+      <div class="button">
+        <button>
       <basket /><p>Оформить заказ</P>
-    </button>
+      </button>
+      </div>
     </div>
   </div>
 </div>
@@ -56,24 +67,77 @@
 <script>
 import basket from '~/assets/svg/basket.svg'
 import arrow from '~/assets/svg/arrow.svg'
-import Basket from '~/components/basket/index.vue'
+import Basket from '~/components/basket/index'
 export default {
-  props: {
-    items: {
-      type: Array
-    }
+  data() {
+    return {
+      items: [{
+          id: 0,
+          title: "Xiaomi Redmi 4A 2GB+32GB",
+          count: 5,
+          price: 9025.25,
+          color: 0,
+          image: "image.jpg"
+        },
+        {
+          id: 1,
+          title: "Xiaomi Mi A1 4GB+32GB",
+          count: 4,
+          price: 11520,
+          color: 0,
+          image: "image.jpg"
+        },
+        {
+          id: 2,
+          title: "Xiaomi Redmi 4A 2GB+16GB",
+          count: 1,
+          price: 10000.28,
+          color: 0,
+          image: "image.jpg"
+        },
+        {
+          id: 3,
+          title: "Xiaomi Mi A1 4GB+32GB",
+          count: 4,
+          price: 11520,
+          color: 0,
+          image: "image.jpg"
+        },
+        {
+          id: 4,
+          title: "Xiaomi Mi A1 4GB+32GB",
+          count: 4,
+          price: 11520,
+          color: 0,
+          image: "image.jpg"
+        },
+        {
+          id: 5,
+          title: "Xiaomi Mi A1 4GB+32GB",
+          count: 4,
+          price: 11520,
+          color: 0,
+          image: "image.jpg"
+        },
+        {
+          id: 4,
+          title: "Xiaomi Mi A1 4GB+32GB",
+          count: 4,
+          price: 11520,
+          color: 0,
+          image: "image.jpg"
+        },
+        {
+          id: 4,
+          title: "Xiaomi Mi A1 4GB+32GB",
+          count: 4,
+          price: 11520,
+          color: 0,
+          image: "image.jpg"
+        }
+      ]
+    };
   },
-  items: [{
-      type: "first",
-      isStatus: true,
-      title: "Использовать купон",
-    },
-    {
-      type: "second",
-      title: "Добавить сообщение менеджеру",
-      isStatus: false,
-    }
-  ],
   components: {
     arrow,
     basket,
@@ -89,156 +153,186 @@ export default {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    align-items: center;
-    button {
-      height: 40px;
-      width: 45%;
-      max-width: 200px;
-      ;
-      background: @color-dark;
-      border: none;
-      color: @color-main_font;
-      user-select: none;
-      padding: 0;
-      svg {
-        fill: @color-main_font;
-        width: 29px;
-        height: 12px;
-      }
+    align-items: center; // button {
+    //   height: 40px;
+    //   width: 45%;
+    //   max-width: 200px;
+    //   ;
+    //   background: @color-dark;
+    //   border: none;
+    //   color: @color-main_font;
+    //   user-select: none;
+    //   padding: 0;
+    //   svg {
+    //     fill: @color-main_font;
+    //     width: 29px;
+    //     height: 12px;
+    //   }
+  }
+  .back {
+    width: 45%;
+    max-width: 200px;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    font-size: 1.1em;
+    svg {
+      height: 13px;
+      width: 11px;
+      transform: rotate(90deg);
+      fill: @color-dark;
     }
-    .back {
-      width: 45%;
-      max-width: 200px;
-      display: flex;
-      flex-wrap: wrap;
+    .nuxt-link-active {
+      color: @color-dark;
+      text-decoration: none;
       text-align: center;
-      font-size: 1.1em;
-      svg {
-        height: 13px;
-        width: 11px;
-        transform: rotate(90deg);
-        fill: @color-dark;
+    }
+  }
+}
+
+.table {
+  display: flex;
+  justify-content: space-between;
+  color: @color-text;
+  font-size: 25px;
+  margin: 10px 0;
+  .t1 {
+    width: 100%;
+    max-width: 200px;
+    font-size: 80%; // font-size: 75%;
+  }
+  .s {
+    // width: 0;
+    // height: 0;
+    // visibility: hidden;
+    display: flex;
+    justify-content: space-between;
+    width: 39%;
+    font-size: 25px;
+    p {
+      text-align: end; // min-width: 40%;
+      font-size: 65%;
+    }
+  }
+}
+
+.list {
+  li {
+    display: flex;
+    justify-content: space-between;
+    l1{
+    display: flex;   
+    }
+    .image {
+      border: solid 2px;
+      width: 100px;
+      height: 100px;
+    }
+    .l2 {
+      display: flex;
+    justify-content: flex-end;   
+    .count {
+      margin-left: 113px;
+      input {
+        width: 64px;
       }
-      .nuxt-link-active {
-        color: @color-dark;
-        text-decoration: none;
-        text-align: center;
+      
+    }
+    .total {
+        margin-left: 119px;
       }
     }
   }
-  .table {
-    display: flex;
-    justify-content: space-between;
-    color: @color-text;
-    font-size: 25px;
-    margin-top: 5px;
-    .t1 {
-      width: 100%;
-      max-width: 200px;
-      font-size: 80%;
-      // font-size: 75%;
+}
+
+.price {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  .something {
+    width: 450px;
+    height: 300px;
+    border: solid 1px
+  }
+  .cost {
+    width: 100%;
+    height: 300px;
+    p {
+      color: @color-main_font;
     }
-    .s {
-      width: 0;
-      height: 0;
-      visibility: hidden;
-      // display: flex;
-      // justify-content: space-between;
-      // width: 39%;
-      // font-size: 25px;
-      // p {
-      //   text-align: end;
-      //   // min-width: 40%;
-      //   font-size: 65%;
-      }
-    }
-  } 
-  .price {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    .something {
-      width: 450px;
-      height: 300px;
-      border: solid 1px
-    }
-    .cost {
-      width: 100%;
-      height: 300px;
-      p {
-        color: @color-main_font;
-      }
+    .button {
+      margin: 20px 0 0 300px;
+      display: flex;
+      justify-content: flex-end;
       button {
-        margin-top: 20px;
         height: 40px;
-        width: 100%;
+        width: 30%;
         background: @color-dark;
         border: none;
         color: @color-main_font;
         font-size: 15px;
         display: flex;
         justify-content: center;
-        svg {
-          fill: @color-main_font;
-          width: 27px;
-          height: 18px
-        }
-        p {
-
-        }
+        align-items: center;
       }
-      .sum {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-      }
-      .send {
-        margin-top: 25px;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-      }
-      .country {
-        button {
-          margin-top: 0;
-          width: auto;
-          border: none;
-          background: @color-bg;
-          color: @color-main_font;
-          text-decoration: underline;
-          font-size: 15px;
-          padding: 8px 0;
-          user-select: none;
-          border: none;
-          &:hover {
-            user-select: none;
-          }
-          &:active {
-            border: none;
-            user-select: none;
-          }
-        }
-      }
-      .err {}
-      .total {
-        margin-top: 20px;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        font-size: 20px;
+      svg {
+        fill: @color-main_font;
+        width: 27px;
+        height: 18px
       }
     }
+    .sum {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    .send {
+      margin-top: 25px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    .country {
+      button {
+        margin: 0;
+        width: auto;
+        border: none;
+        background: @color-bg;
+        color: @color-main_font;
+        text-decoration: underline;
+        font-size: 15px;
+        padding: 8px 0;
+        user-select: none;
+        border: none;
+        &:hover {
+          user-select: none;
+        }
+        &:active {
+          border: none;
+          user-select: none;
+        }
+      }
+    }
+    .err {}
+    .total {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      font-size: 20px;
+    }
   }
+}
 
 @media screen and(max-width: 521px) {
   .div {
+    width: 75%;
     .back_pay {
-      height: 100%;
-      button {
-        visibility: hidden;
-        width: 0%;
-        height: 0px;
-      }
+      height: 100%; // button {
+      //   visibility: hidden;
+      //   width: 0%;
+      //   height: 0px;
+      // }
       .back {
         width: 100%;
         max-width: 300px;
@@ -247,8 +341,13 @@ export default {
     }
     .table {
       margin-top: 15px;
-      .t1{
+      .t1 {
         width: 100%;
+      }
+      .s {
+        visibility: hidden;
+        width: 0%;
+        height: 0px;
       }
     }
   }

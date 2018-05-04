@@ -123,7 +123,7 @@ footer {
       max-width: 424px;
       h2 {
         padding-bottom: 30px;
-        text-align: left;
+        text-align: center;
         font-family: 'Segoe UI';
         color: @color-main_font;
         font-size: 24px;

@@ -69,13 +69,11 @@ export default {
       ]
     };
   },
-  methods: {},
   components: {
     Item
   }
 };
 </script>
-
 
 <style lang="less">
 @import '~assets/css/themes/default.less';

@@ -5,7 +5,7 @@
     <img src="/images/hits.jpg" alt="Хиты продаж">
   </nuxt-link>
   <nuxt-link to="/recomendation">
-    <h2>Рекомдуем</h2>
+    <h2>Рекомендуем</h2>
     <img src="/images/recomendation.jpg" alt="Рекомдуем">
   </nuxt-link>
   <nuxt-link to="/new">
