@@ -6,9 +6,7 @@
   <MyHeader />
   <Slider :speed="speedMainSlider" v-if="this.$route.fullPath == '/'" />
   <div v-else style="padding-top: 100px;" />
-  <transition name="page">
-    <Basket v-if="isShowBasket" />
-  </transition>
+  <Basket />
   <div class="content">
     <nuxt />
   </div>
@@ -39,7 +37,6 @@ export default {
       speedMainSlider: settings.speedMainSlider,
       loading: true,
       online: true,
-      isShowBasket: false,
       text: 'Идёт загрузка'
     }
   },
@@ -57,9 +54,6 @@ export default {
       setTimeout(() => {
         this.loading = false
       }, 1000);
-    })
-    this.$root.$on('basket', (value) => {
-      this.isShowBasket = value
     })
   },
   mounted() {

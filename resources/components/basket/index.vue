@@ -1,22 +1,26 @@
 
 <template>
-<div class="basket">
-  <!--  -->
-  <div class="panel">
-    <div class="top">
-      <span @click="$root.$emit('basket', false)"><Arow /></span>
-      <p> Корзина покупок</p>
+<div class="basket-module">
+  <transition name="right">
+    <div class="panel" v-if="isShowBasket">
+      <div class="top">
+        <span @click="$root.$emit('basket', false)"><Arow /></span>
+        <p> Корзина покупок</p>
+      </div>
+      <div class="middle">
+        <Item v-for="(item, i) in items" :key="i" :item="item" />
+      </div>
+      <div class="bottom">
+        <span>Сумма: {{allPrice}} сом</span>
+        <nuxt-link to="/basket/" class="link">
+          Перейти в корзину
+        </nuxt-link>
+      </div>
     </div>
-    <div class="middle">
-      <Item v-for="(item, i) in items" :key="i" :item="item" />
-    </div>
-    <div class="bottom">
-      <span>Сумма: {{allPrice}} сом</span>
-      <nuxt-link to="/basket/" class="link">
-        Перейти в корзину
-      </nuxt-link>
-    </div>
-  </div>
+  </transition>
+  <transition name="page">
+    <div class="basket" @click="$root.$emit('basket', false)" v-if="isShowBasket" />
+  </transition>
 </div>
 </template>
 
@@ -26,6 +30,7 @@ import Arow from '~/assets/svg/arrow.svg'
 export default {
   data() {
     return {
+      isShowBasket: false,
       items: [{
           id: 0,
           title: "Xiaomi Redmi 4A 2GB+32GB",
@@ -94,6 +99,11 @@ export default {
     };
   },
   methods: {},
+  created() {
+    this.$root.$on('basket', (value) => {
+      this.isShowBasket = value
+    })
+  },
   computed: {
     allPrice() {
       var temp = 0;
@@ -112,20 +122,23 @@ export default {
 
 <style lang="less">
 @import "~assets/css/themes/default.less";
-.basket {
-  position: fixed;
-  z-index: 50000000;
-  width: 100vw;
-  height: 120vh;
-  left: 0;
-  right: 0;
-  top: -60px;
-  background-color: @color-bg-50;
+.basket-module {
+  .basket {
+    position: fixed;
+    z-index: 50000000;
+    width: 100vw;
+    height: 120vh;
+    left: 0;
+    right: 0;
+    top: -60px;
+    background-color: @color-bg-50;
+  }
   .panel {
     position: fixed;
     bottom: 0;
     right: 0;
     top: 0;
+    z-index: 50000001;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -133,6 +146,15 @@ export default {
     width: 100%;
     height: 100vh;
     max-width: 500px;
+    &.right-leave-active.right-leave-to {
+
+    .top {
+      span {
+
+          animation: close-basket-arraw .7s;
+      }
+    }
+    }
     .top {
       font-size: 25px;
       background-color: @color-bg;
@@ -147,7 +169,8 @@ export default {
         height: 20px;
         width: 20px;
         fill: white;
-        transform: rotate(-90deg);
+        transform: rotate(270deg);
+        animation: open-basket-arraw .7s;
       }
     }
     .middle {
@@ -214,6 +237,26 @@ export default {
         color: @color-main_font;
       }
     }
+  }
+}
+
+@keyframes open-basket-arraw {
+  0% {
+    opacity: 0;
+    transform: rotate(90deg);
+  }
+  100% {
+    transform: rotate(270deg);
+  }
+}
+
+@keyframes close-basket-arraw {
+  0% {
+    transform: rotate(270deg);
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(90deg);
   }
 }
 </style>
