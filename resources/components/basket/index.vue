@@ -10,10 +10,10 @@
       <div class="middle">
         <Item v-for="(item, i) in items" :key="i" :item="item" />
       </div>
-      <div class="bottom">
-        <span>Сумма: {{allPrice}} сом</span>
+      <div class="bottom" @click="$root.$emit('basket', false)">
         <nuxt-link to="/basket/" class="link">
-          Перейти в корзину
+        <span>Сумма: {{allPrice}} сом</span>
+          <span>Перейти в корзину</span>
         </nuxt-link>
       </div>
     </div>
@@ -144,16 +144,14 @@ export default {
     flex-direction: column;
     background-color: @color-main_font;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     max-width: 500px;
     &.right-leave-active.right-leave-to {
-
-    .top {
-      span {
-
+      .top {
+        span {
           animation: close-basket-arraw .7s;
+        }
       }
-    }
     }
     .top {
       font-size: 25px;
@@ -175,10 +173,11 @@ export default {
     }
     .middle {
       overflow-y: scroll;
+      overflow-x: hidden;
       width: 100%;
       flex-direction: column;
       height: 100%;
-      margin-bottom: 40px;
+      margin-bottom: 75px;
       .item {
         display: flex;
         margin: 0 5px -7px 0;
@@ -217,24 +216,31 @@ export default {
       font-size: 20px;
       span {
         font-family: 'Titillium Web', sans-serif;
-        background-color: white;
-        color: #242323;
+          background: @color-bg;
+        color: @color-main_font;
         display: flex;
+        padding: 5px;
+        padding-top: 10px;
         width: 100%;
         justify-content: center;
         align-items: center;
       }
       .link {
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         width: 100%;
         text-decoration: none;
-        background: @color-dark;
-        height: 20px;
-        padding: 5px 0;
-        font-size: 20px;
-        color: @color-main_font;
+        padding: 5px;
+          background: @color-bg;
+        span {
+          background: @color-bg;
+          height: 20px;
+          padding: 5px 0;
+          font-size: 20px;
+          color: @color-main_font;
+        }
       }
     }
   }

@@ -210,6 +210,7 @@ footer {
       .copyright {
         margin-bottom: 10px;
         text-align: center;
+        width: 250px;
       }
       .logo {
         margin: 10px;
@@ -306,11 +307,29 @@ footer {
     }
   }
 }
-
+@media screen and (max-width: 1058px)
+{
+  footer{
+    .blocks{
+      .block{
+        .links-social{
+          justify-content: center;
+        }
+      }
+    }
+  }
+}
 @media screen and (max-width: 670px) {
   footer {
     align-items: flex-start;
     justify-content: flex-start;
+    .blocks{
+      .block{
+        .links-social{
+          justify-content: center;
+        }
+      }
+    }
     .bottom {
       .right {
       .footer--bottom-item {
