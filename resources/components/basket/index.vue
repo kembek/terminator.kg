@@ -12,7 +12,7 @@
       </div>
       <div class="bottom" @click="$root.$emit('basket', false)">
         <nuxt-link to="/basket/" class="link">
-        <span>Сумма: {{allPrice}} сом</span>
+          <span>Сумма: {{allPrice}} сом</span>
           <span>Перейти в корзину</span>
         </nuxt-link>
       </div>
@@ -61,7 +61,7 @@ export default {
           count: 4,
           price: 11520,
           color: 0,
-          image: "image.jpg"
+          image: "hits.jpg"
         },
         {
           id: 4,
@@ -123,6 +123,7 @@ export default {
 <style lang="less">
 @import "~assets/css/themes/default.less";
 .basket-module {
+  user-select: none;
   .basket {
     position: fixed;
     z-index: 50000000;
@@ -167,8 +168,12 @@ export default {
         height: 20px;
         width: 20px;
         fill: white;
+        cursor: pointer;
         transform: rotate(270deg);
         animation: open-basket-arraw .7s;
+      }
+      p {
+        text-align: center;
       }
     }
     .middle {
@@ -177,10 +182,21 @@ export default {
       width: 100%;
       flex-direction: column;
       height: 100%;
-      margin-bottom: 75px;
       .item {
         display: flex;
-        margin: 0 5px -7px 0;
+        margin: 10px 5px -7px 0;
+        border-top: 1px solid black;
+        align-items: center;
+        &:last-child {
+          border-bottom: 1px solid black;
+              margin-bottom: 4px;
+        }
+        .close {
+          height: 30px;
+          width: 30px;
+          position: relative;
+          right: 10px;
+        }
         .description {
           margin-bottom: 100px;
           color: @color-bg;
@@ -190,7 +206,12 @@ export default {
           flex-direction: column;
           h3,
           span {
-            font-weight: bold;
+            // overflow: hidden;
+            // text-overflow: ellipsis;
+            // white-space: nowrap;
+            font-family: 'Montserrat', sans-serif;
+            max-width: 330px;
+            width: 90%;
             padding: 5px;
             letter-spacing: 1px;
             overflow: hidden;
@@ -206,8 +227,7 @@ export default {
       }
     }
     .bottom {
-      font-weight: bold;
-      position: absolute;
+      // position: absolute;
       bottom: 0;
       width: 100%;
       display: flex;
@@ -215,11 +235,10 @@ export default {
       align-items: center;
       font-size: 20px;
       span {
-        font-family: 'Titillium Web', sans-serif;
-          background: @color-bg;
+        background: @color-bg;
         color: @color-main_font;
         display: flex;
-        padding: 5px;
+        padding: 5px 0;
         padding-top: 10px;
         width: 100%;
         justify-content: center;
@@ -232,8 +251,8 @@ export default {
         align-items: center;
         width: 100%;
         text-decoration: none;
-        padding: 5px;
-          background: @color-bg;
+        padding: 5px 0;
+        background: @color-bg;
         span {
           background: @color-bg;
           height: 20px;
@@ -263,6 +282,41 @@ export default {
   100% {
     opacity: 0;
     transform: rotate(90deg);
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .basket-module {
+    .basket {}
+    .panel {
+      &.right-leave-active.right-leave-to {
+        .top {
+          span {}
+        }
+      }
+      .top {
+        width: 100%;
+        span {}
+      }
+      .middle {
+        .item {
+          .close {}
+          .description {
+            h3,
+            span {
+              white-space: normal;
+            }
+          }
+          img {}
+        }
+      }
+      .bottom {
+        span {}
+        .link {
+          span {}
+        }
+      }
+    }
   }
 }
 </style>
