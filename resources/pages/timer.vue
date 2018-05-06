@@ -9,7 +9,7 @@
     <div id="Content">
       <h2>Технические работы</h2>
       <h3>До конца работ осталось</h3>
-      <Timer dedline="2018/05/03 12:00:00"/>
+      <Timer :dedline="dedline"/>
     </div>
   </div>
 </div>
@@ -20,8 +20,7 @@ import Timer from "~/components/Timer";
 import Logo from "~/assets/svg/logo.svg";
 
 export default {
-  name: "name",
-  layout: "none",
+  props: ['dedline'],
   data() {
     return {};
   },

@@ -1,5 +1,5 @@
 <template>
-<div class="container">
+<div class="container" v-if="isTime">
   <transition name="popup">
     <preloader v-if="loading" :text="text" />
   </transition>
@@ -12,6 +12,7 @@
   </div>
   <MyFooter />
 </div>
+<Timer :dedline="dedline" v-else/>
 </template>
 
 <script>
@@ -20,6 +21,7 @@ import Slider from '~/components/Slider'
 import MyFooter from '~/components/Footer'
 import Basket from '~/components/basket/'
 import preloader from '~/components/preloader'
+import Timer from '~/pages/timer'
 
 import settings from '~/settings'
 
@@ -29,15 +31,17 @@ export default {
     MyHeader,
     Slider,
     MyFooter,
-    Basket
-
+    Basket,
+    Timer
   },
   data() {
     return {
       speedMainSlider: settings.speedMainSlider,
       loading: true,
       online: true,
-      text: 'Идёт загрузка'
+      text: 'Идёт загрузка',
+      dedline: '2018/05/07 18:00:00',
+      isTime: true
     }
   },
   head() {
@@ -50,11 +54,14 @@ export default {
     }
   },
   created() {
+    this.isTime = new Date(this.dedline).getTime() <= Date.now()
     this.ready(() => {
       setTimeout(() => {
         this.loading = false
       }, 1000);
     })
+
+
   },
   mounted() {
     if (!window.navigator) {

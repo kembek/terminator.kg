@@ -8,7 +8,6 @@
 </template>
 
 <script>
-
 let interval = null;
 
 export default {
@@ -25,6 +24,15 @@ export default {
     interval = setInterval(() => {
       this.now = Math.trunc((new Date()).getTime() / 1000)
     }, 500)
+
+
+    setInterval(() => {
+      if (new Date(this.dedline).getTime() <= Date.now()) {
+        if (process.browser) {
+          document.location.reload()
+        }
+      }
+    }, 1000)
   },
   computed: {
     seconds() {
