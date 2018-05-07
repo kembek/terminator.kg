@@ -292,6 +292,9 @@ export default {
               justify-content: flex-end;
             }
             .count {
+              input[type=number]::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+              }
               input {
                 // width: 100%;
                 text-align: center;

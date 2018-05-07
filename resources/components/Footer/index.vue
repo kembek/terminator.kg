@@ -123,7 +123,7 @@ footer {
       max-width: 424px;
       h2 {
         padding-bottom: 30px;
-        text-align: center;
+        text-align: left;
         font-family: 'Segoe UI';
         color: @color-main_font;
         font-size: 24px;
@@ -325,6 +325,9 @@ footer {
     justify-content: flex-start;
     .blocks{
       .block{
+        h2 {
+          text-align: center;
+        }
         .links-social{
           justify-content: center;
         }
