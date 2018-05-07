@@ -9,7 +9,7 @@ class ProductCategorySchema extends Schema {
       table.integer('parent_id').unsigned()
       table.integer('user_id').notNullable().unsigned()
       table.integer('sort').notNullable().unsigned().defaultTo(0)
-      table.string('thumbnail').notNullable().unique('ui_product_categories_image')
+      table.string('thumbnail').notNullable().unique('ui_product_categories_thumbnail')
       table.string('title').notNullable().unique('ui_product_categories_title')
       table.string('link').notNullable().unique('ui_product_categories_link')
       table.string('meta_keywords')
