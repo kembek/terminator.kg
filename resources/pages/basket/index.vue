@@ -6,44 +6,59 @@
         <arrow /> Вернуться в магазин
       </nuxt-link>
     </div>
-    <!-- <button>
-      <basket />Оформить заказ
-    </button> -->
   </div>
-  <div class="table">
-    <p class="t1">Моя корзина()</p>
-    <div class="s">
-      <p>Цена</p>
-      <p>К-во</p>
-      <p>Итого</p>
+  <div class="t-list">
+    <!-- <div class="tt"> -->
+    <p class="t1">Моя корзина({{items.length}})</p>
+    <div class="table">
+      <div class="s">
+        <p>Цена</p>
+        <p>Кол-во</p>
+        <p>Сумма</p>
+      </div>
     </div>
-  </div>
-  <hr/>
-  <div class="list">
-    <li v-for="(item, i) in items" :key="i">
-      <div class="l1">
-        <div class="image"><img :src="items.image" /></div>
-        <div class="title">{{item.title}}</div>
-      </div>
-      <div class="l2">
-        <div class="price">
-          <p>{{item.price}}</p>
+    <!-- </div> -->
+    <hr/>
+    <div class="list">
+      <li v-for="(item, i) in items" :key="i">
+        <div class="l1">
+          <!-- <div class="image"> -->
+          <img :src="'/images/' + 'image.jpg'" />
+          <!--исправить-->
+          <!-- </div> -->
+          <div class="title">{{item.title}}</div>
         </div>
-        <div class="count"><input type="text"></div>
-        <div class="total">{{item.price}}</div>
-      </div>
-    </li>
+        <div class="l2">
+          <!-- <div class="price"> -->
+          <div class="hid">
+            <p id="a">Цена:</p>
+            <p>К-во:</p>
+            <p>Сумма:</p>
+          </div>
+          <div class="nums">
+            <p>{{item.price}}</p>
+            <div class="count">
+              <input v-model="item.count" type="number" min="0">
+            </div>
+            <div class="total">
+              <p>{{item.price * item.count}}</p>
+            </div>
+            <!-- </div> -->
+          </div>
+        </div>
+      </li>
+    </div>
   </div>
   <hr>
   <div class="price">
     <div class="cost">
       <div class="sum">
         <p>Сумма</p>
-        <p>111</p>
+        <p>{{sum}}</p>
       </div>
       <div class="send">
-        <p>Доставка</p>
-        <p>222</p>
+        <p>Доставка <input type="checkbox" v-model="isSend"></p>
+        <p>{{send}}</p>
       </div>
       <div class="country">
         <button>Страна</button>
@@ -53,7 +68,7 @@
       <hr>
       <div class="total">
         <p>Итого</p>
-        <p>333</p>
+        <p>{{allSun}}</p>
       </div>
       <div class="button">
         <button>
@@ -71,6 +86,8 @@ import Basket from '~/components/basket/index'
 export default {
   data() {
     return {
+      send: 100,
+      isSend: true,
       items: [{
           id: 0,
           title: "Xiaomi Redmi 4A 2GB+32GB",
@@ -138,6 +155,20 @@ export default {
       ]
     };
   },
+  computed: {
+    sum() {
+      var a = 0;
+      this.items.forEach(item => {
+        a += item.price * item.count
+      });
+      return a;
+    },
+    allSun() {
+      if (this.isSend)
+        return this.sum + this.send
+      return this.sum
+    }
+  },
   components: {
     arrow,
     basket,
@@ -148,6 +179,12 @@ export default {
 <style lang="less">
 @import '~assets/css/themes/default.less';
 .div {
+  hr {
+    border: none;
+    background-color: @color-light;
+    /* Цвет линии для браузера Firefox и Opera */
+    height: 1px;
+  }
   width: 75%;
   .back_pay {
     display: flex;
@@ -168,186 +205,300 @@ export default {
     //     width: 29px;
     //     height: 12px;
     //   }
-  }
-  .back {
-    width: 45%;
-    max-width: 200px;
-    display: flex;
-    flex-wrap: wrap;
-    text-align: center;
-    font-size: 1.1em;
-    svg {
-      height: 13px;
-      width: 11px;
-      transform: rotate(90deg);
-      fill: @color-dark;
-    }
-    .nuxt-link-active {
-      color: @color-dark;
-      text-decoration: none;
-      text-align: center;
-    }
-  }
-}
-
-.table {
-  display: flex;
-  justify-content: space-between;
-  color: @color-text;
-  font-size: 25px;
-  margin: 10px 0;
-  .t1 {
-    width: 100%;
-    max-width: 200px;
-    font-size: 80%; // font-size: 75%;
-  }
-  .s {
-    // width: 0;
-    // height: 0;
-    // visibility: hidden;
-    display: flex;
-    justify-content: space-between;
-    width: 39%;
-    font-size: 25px;
-    p {
-      text-align: end; // min-width: 40%;
-      font-size: 65%;
-    }
-  }
-}
-
-.list {
-  li {
-    display: flex;
-    justify-content: space-between;
-    l1{
-    display: flex;   
-    }
-    .image {
-      border: solid 2px;
-      width: 100px;
-      height: 100px;
-    }
-    .l2 {
+    .back {
+      width: 45%;
+      max-width: 200px;
       display: flex;
-    justify-content: flex-end;   
-    .count {
-      margin-left: 113px;
-      input {
-        width: 64px;
+      flex-wrap: wrap;
+      text-align: center;
+      font-size: 1.1em;
+      svg {
+        height: 13px;
+        width: 11px;
+        transform: rotate(90deg);
+        fill: @color-dark;
       }
-      
-    }
-    .total {
-        margin-left: 119px;
+      .nuxt-link-active {
+        color: @color-dark;
+        text-decoration: none;
+        text-align: center;
       }
     }
   }
-}
-
-.price {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  .something {
-    width: 450px;
-    height: 300px;
-    border: solid 1px
-  }
-  .cost {
-    width: 100%;
-    height: 300px;
-    p {
+  .t-list {
+    .t1 {
+      // width: 100%;
+      max-width: 155px;
+      font-size: 20px;
       color: @color-main_font;
+      float: left;
     }
-    .button {
-      margin: 20px 0 0 300px;
+    .table {
+      height: 20px; // width: 843px;      // max-width: 865px;
       display: flex;
       justify-content: flex-end;
-      button {
-        height: 40px;
-        width: 30%;
-        background: @color-dark;
-        border: none;
-        color: @color-main_font;
-        font-size: 15px;
+      color: @color-text;
+      font-size: 25px;
+      margin: 10px 0;
+      .s {
         display: flex;
-        justify-content: center;
+        justify-content: flex-end;
+        width: 100%;
+        font-size: 25px;
+        p {
+          width: 120px; // max-width: 150px;
+          text-align: end; // min-width: 40%;
+          font-size: 65%;
+        }
+      }
+    }
+    .list {
+      li {
+        display: flex;
+        justify-content: space-between;
         align-items: center;
+        .l1 {
+          display: flex;
+          align-items: center;
+          .title {
+            margin-left: 10px;
+            width: 100%;
+            max-width: 250px;
+          }
+          img {
+            width: 150px;
+            height: 100px;
+            object-fit: scale-down;
+          }
+        }
+        .l2 {
+          width: 50%;
+          max-width: 560px;
+          justify-content: space-between;
+          display: flex;
+          .hid {
+            visibility: hidden;
+            width: 0%;
+            height: 0%;
+          }
+          .nums {
+            display: flex;
+            justify-content: flex-end; // width: 60%;
+            // max-width: 412px;
+            div {
+              // position: relative;
+              width: 120px; // max-width: 170px;
+              display: flex;
+              justify-content: flex-end;
+            }
+            .count {
+              input[type=number]::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+              }
+              input {
+                // width: 100%;
+                text-align: center;
+                max-width: 50px;
+                height: 20px;
+                border: solid 1px;
+                border-color: @color-light;
+                background-color: @color-bg;
+                color: @color-main_font
+              }
+            }
+            .total {}
+          }
+        }
       }
-      svg {
-        fill: @color-main_font;
-        width: 27px;
-        height: 18px
-      }
     }
-    .sum {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-    }
-    .send {
-      margin-top: 25px;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-    }
-    .country {
-      button {
-        margin: 0;
-        width: auto;
-        border: none;
-        background: @color-bg;
+  }
+  .price {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .cost {
+      width: 100%;
+      height: 300px;
+      p {
         color: @color-main_font;
-        text-decoration: underline;
-        font-size: 15px;
-        padding: 8px 0;
-        user-select: none;
-        border: none;
-        &:hover {
-          user-select: none;
-        }
-        &:active {
+      }
+      .button {
+        margin: 20px 0;
+        display: flex;
+        justify-content: flex-end;
+        button {
+          height: 40px;
+          width: 30%;
+          background: @color-dark;
           border: none;
-          user-select: none;
+          color: @color-main_font;
+          font-size: 15px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        svg {
+          fill: @color-main_font;
+          width: 27px;
+          height: 18px
         }
       }
-    }
-    .err {}
-    .total {
-      margin-top: 20px;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      font-size: 20px;
+      .sum {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      .send {
+        margin-top: 25px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      .country {
+        button {
+          margin: 0;
+          width: auto;
+          border: none;
+          background: @color-bg;
+          color: @color-main_font;
+          text-decoration: underline;
+          font-size: 15px;
+          padding: 8px 0;
+          user-select: none;
+          border: none;
+          &:hover {
+            user-select: none;
+          }
+          &:active {
+            border: none;
+            user-select: none;
+          }
+        }
+      }
+      .err {}
+      .total {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        font-size: 20px;
+      }
     }
   }
 }
 
-@media screen and(max-width: 521px) {
+@media screen and(max-width: 810px) {
   .div {
-    width: 75%;
+    width: 85%;
     .back_pay {
-      height: 100%; // button {
-      //   visibility: hidden;
-      //   width: 0%;
-      //   height: 0px;
-      // }
+      // height: 100%;
       .back {
         width: 100%;
         max-width: 300px;
         font-size: 25px;
       }
     }
-    .table {
-      margin-top: 15px;
-      .t1 {
+    .t-list {
+      display: flex;
+      flex-wrap: wrap;
+      hr {
+        margin: 0 0 5px 0;
+        border: none;
+        background-color: @color-light;
+        height: 1px;
         width: 100%;
       }
-      .s {
+      .t1 {
+        margin-top: 10px;
+        width: 100%;
+        height: 10%;
+      }
+      .table {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
         visibility: hidden;
-        width: 0%;
-        height: 0px;
+        width: 0%; // height: 0%;
+        p {
+          visibility: hidden;
+          width: 0%;
+          height: 0%;
+        }
+        .s {
+          width: 0%;
+          height: 0%;
+        }
+      }
+      .list {
+        width: 1000px;
+        li {
+          flex-direction: column;
+          .l1 {
+            width: 100%;
+          }
+          .l2 {
+            width: 100%;
+            flex-direction: column;
+            .hid {
+              visibility: visible;
+              display: flex;
+              flex-direction: row;
+              justify-content: space-between;
+              margin-bottom: 5px;
+              width: 100%;
+              p {
+                // margin-left: 50px;
+                justify-content: flex-end;
+                display: flex;
+                width: 100%;
+                max-width: 60px;
+              }
+              #a {
+                // margin-right: 22px;
+              }
+            }
+            .nums {
+              display: flex;
+              flex-direction: row;
+              justify-content: space-between;
+              div {
+                width: 100%;
+                max-width: 60px;
+                display: flex;
+                justify-content: flex-end;
+              }
+              p {
+                justify-content: flex-end;
+                display: flex;
+                width: 100%;
+                max-width: 60px;
+              }
+            }
+          }
+        }
+      }
+    }
+    .price {
+      .cost {
+        .button {
+          margin: 15px 0;
+          button {
+            height: 40px;
+            width: 500px;
+            background: @color-dark;
+            border: none;
+            color: @color-main_font;
+            font-size: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+          svg {
+            fill: @color-main_font;
+            width: 27px;
+            height: 18px
+          }
+        }
       }
     }
   }

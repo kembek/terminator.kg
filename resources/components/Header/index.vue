@@ -52,12 +52,12 @@ export default {
         childs: [{
           isLocal: true,
           title: 'ВСЕ СМАРТФОНЫ',
-          link: '',
+          link: 'all',
           img: 'all.svg'
         }, {
           isLocal: true,
           title: 'ТЯЖЕЛЫЕ ИГРЫ',
-          link: '',
+          link: 'hard-game',
           img: 'game.svg'
         }, {
           isLocal: true,
@@ -77,7 +77,7 @@ export default {
         }]
       }, {
         title: 'Другое',
-        link: '/category/other',
+        link: '/categories/other',
         isLocal: true,
         childs: []
       }, {
