@@ -17,7 +17,7 @@ class ReviewSchema extends Schema {
   }
 
   down() {
-    this.drop('reviews')
+    this.dropIfExists('reviews')
   }
 }
 

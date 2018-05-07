@@ -12,7 +12,7 @@ class GroupSchema extends Schema {
   }
 
   down() {
-    this.drop('groups')
+    this.dropIfExists('groups')
   }
 }
 

@@ -13,7 +13,7 @@ class OrderProductSchema extends Schema {
   }
 
   down() {
-    this.drop('order_products')
+    this.dropIfExists('order_products')
   }
 }
 

@@ -8,13 +8,14 @@ class ProductVideoReviewSchema extends Schema {
       table.primary(['product_id', 'url'])
       table.integer('product_id').notNullable().unsigned()
       table.integer('user_id').notNullable().unsigned()
+      table.integer('sort').notNullable().unsigned().defaultTo(0)
       table.string('url').notNullable()
       table.timestamps()
     })
   }
 
   down() {
-    this.drop('product_video_reviews')
+    this.dropIfExists('product_video_reviews')
   }
 }
 

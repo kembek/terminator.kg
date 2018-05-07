@@ -8,6 +8,7 @@ class AlterSchema extends Schema {
      * ALTER accesses
      */
     this.alter('accesses', (table) => {
+      // table.dropForeign('group_id')
       table.foreign('group_id')
         .references('id')
         .inTable('groups')
@@ -29,58 +30,35 @@ class AlterSchema extends Schema {
     })
 
     /**
-     * ALTER albums
-     */
-    this.alter('albums', (table) => {
-      table.foreign('parent_id')
-        .references('id')
-        .inTable('albums')
-        .onDelete('RESTRICT')
-        .onUpdate('CASCADE')
-        .withKeyName('fk_parent_id_albums')
-    })
-
-    /**
      * ALTER  images
      */
     this.alter('images', (table) => {
-      table.foreign('album_id')
+      table.foreign('product_color_id')
         .references('id')
-        .inTable('albums')
+        .inTable('product_colors')
         .onDelete('RESTRICT')
         .onUpdate('CASCADE')
-        .withKeyName('fk_album_id_albums_images')
+        .withKeyName('fk_product_color_id_images_product_colors')
     })
 
     /**
-     * ALTER product_images
+     * ALTER product_colors
      */
-    this.alter('product_images', (table) => {
+    this.alter('product_colors', (table) => {
       table.foreign('product_id')
         .references('id')
         .inTable('products')
         .onDelete('RESTRICT')
         .onUpdate('CASCADE')
-        .withKeyName('fk_product_id_product_images_products')
-    })
-
-    this.alter('product_images', (table) => {
-      table.foreign('image_id')
-        .references('id')
-        .inTable('images')
-        .onDelete('RESTRICT')
-        .onUpdate('CASCADE')
-        .withKeyName('fk_image_id_product_images_images')
-    })
-
-    this.alter('product_images', (table) => {
+        .withKeyName('fk_product_id_product_colors_products')
       table.foreign('color_id')
         .references('id')
         .inTable('colors')
         .onDelete('RESTRICT')
         .onUpdate('CASCADE')
-        .withKeyName('fk_color_id_product_images_colors')
+        .withKeyName('fk_color_id_product_colors_colors')
     })
+
 
     /**
      * ALTER product_categories
@@ -92,9 +70,6 @@ class AlterSchema extends Schema {
         .onDelete('RESTRICT')
         .onUpdate('CASCADE')
         .withKeyName('fk_user_id_product_categories_users')
-    })
-
-    this.alter('product_categories', (table) => {
       table.foreign('parent_id')
         .references('id')
         .inTable('product_categories')
@@ -113,18 +88,12 @@ class AlterSchema extends Schema {
         .onDelete('RESTRICT')
         .onUpdate('CASCADE')
         .withKeyName('fk_user_id_products_users')
-    })
-
-    this.alter('products', (table) => {
       table.foreign('stock_status_id')
         .references('id')
         .inTable('stock_statuses')
         .onDelete('RESTRICT')
         .onUpdate('CASCADE')
         .withKeyName('fk_stock_status_id_products_stock_statuses')
-    })
-
-    this.alter('products', (table) => {
       table.foreign('category_id')
         .references('id')
         .inTable('product_categories')
@@ -143,9 +112,6 @@ class AlterSchema extends Schema {
         .onDelete('RESTRICT')
         .onUpdate('CASCADE')
         .withKeyName('fk_user_id_post_categories_users')
-    })
-
-    this.alter('post_categories', (table) => {
       table.foreign('parent_id')
         .references('id')
         .inTable('post_categories')
@@ -164,15 +130,6 @@ class AlterSchema extends Schema {
         .onDelete('RESTRICT')
         .onUpdate('CASCADE')
         .withKeyName('fk_user_id_posts_users')
-    })
-
-    this.alter('posts', (table) => {
-      table.foreign('category_id')
-        .references('id')
-        .inTable('post_categories')
-        .onDelete('RESTRICT')
-        .onUpdate('CASCADE')
-        .withKeyName('fk_category_id_post_post_categories')
     })
 
     /**
@@ -197,9 +154,6 @@ class AlterSchema extends Schema {
         .onDelete('RESTRICT')
         .onUpdate('CASCADE')
         .withKeyName('fk_order_id_order_products_orders')
-    })
-
-    this.alter('order_products', (table) => {
       table.foreign('product_id')
         .references('id')
         .inTable('products')
@@ -218,6 +172,12 @@ class AlterSchema extends Schema {
         .onDelete('RESTRICT')
         .onUpdate('CASCADE')
         .withKeyName('fk_category_id_faqs_faq_categories')
+      table.foreign('user_id')
+        .references('id')
+        .inTable('users')
+        .onDelete('RESTRICT')
+        .onUpdate('CASCADE')
+        .withKeyName('fk_category_id_faqs_users')
     })
 
     /**
@@ -230,84 +190,24 @@ class AlterSchema extends Schema {
         .onDelete('RESTRICT')
         .onUpdate('CASCADE')
         .withKeyName('fk_parent_id_faq_categories')
-    })
-
-    /**
-     * ALTER photo_galleries
-     */
-    this.alter('photo_galleries', (table) => {
-      table.foreign('product_id')
-        .references('id')
-        .inTable('products')
-        .onDelete('RESTRICT')
-        .onUpdate('CASCADE')
-        .withKeyName('fk_product_id_photo_galleries_products')
-    })
-
-    /**
-     * ALTER attribute_groups
-     */
-    this.alter('attribute_groups', (table) => {
       table.foreign('user_id')
         .references('id')
         .inTable('users')
         .onDelete('RESTRICT')
         .onUpdate('CASCADE')
-        .withKeyName('fk_user_id_attribute_groups_users')
+        .withKeyName('fk_category_id_faq_categories_users')
     })
 
     /**
-     * ALTER attributes
+     * ALTER product_images
      */
-    this.alter('attributes', (table) => {
-      table.foreign('user_id')
-        .references('id')
-        .inTable('users')
-        .onDelete('RESTRICT')
-        .onUpdate('CASCADE')
-        .withKeyName('fk_user_id_attributes_users')
-    })
-
-    /**
-     * ALTER attribute_group_attributes
-     */
-    this.alter('attribute_group_attributes', (table) => {
-      table.foreign('attribute_group_id')
-        .references('id')
-        .inTable('attribute_groups')
-        .onDelete('RESTRICT')
-        .onUpdate('CASCADE')
-        .withKeyName('fk_attribute_group_id_aga_attribute_groups')
-    })
-
-    this.alter('attribute_group_attributes', (table) => {
-      table.foreign('attribute_id')
-        .references('id')
-        .inTable('attributes')
-        .onDelete('RESTRICT')
-        .onUpdate('CASCADE')
-        .withKeyName('fk_attribute_id_attribute_group_attributes_attributes')
-    })
-
-    /**
-     * ALTER product_attributes
-     */
-    this.alter('product_attributes', (table) => {
-      table.foreign('attribute_id')
-        .references('id')
-        .inTable('attributes')
-        .onDelete('RESTRICT')
-        .onUpdate('CASCADE')
-        .withKeyName('fk_attribute_id_product_attributes_attributes')
-    })
-
-    this.alter('product_attributes', (table) => {
+    this.alter('product_images', (table) => {
       table.foreign('product_id')
         .references('id')
         .inTable('products')
         .onDelete('RESTRICT')
         .onUpdate('CASCADE')
-        .withKeyName('fk_product_id_product_attributes_products')
+        .withKeyName('fk_product_id_product_images_products')
     })
 
     /**
@@ -320,9 +220,6 @@ class AlterSchema extends Schema {
         .onDelete('RESTRICT')
         .onUpdate('CASCADE')
         .withKeyName('fk_user_id_user_customers_users')
-    })
-
-    this.alter('user_customers', (table) => {
       table.foreign('customer_id')
         .references('id')
         .inTable('customers')
@@ -341,9 +238,6 @@ class AlterSchema extends Schema {
         .onDelete('RESTRICT')
         .onUpdate('CASCADE')
         .withKeyName('fk_user_id_user_orders_users')
-    })
-
-    this.alter('user_orders', (table) => {
       table.foreign('order_id')
         .references('id')
         .inTable('orders')
@@ -362,9 +256,6 @@ class AlterSchema extends Schema {
         .onDelete('RESTRICT')
         .onUpdate('CASCADE')
         .withKeyName('fk_user_id_user_reviews_users')
-    })
-
-    this.alter('user_reviews', (table) => {
       table.foreign('review_id')
         .references('id')
         .inTable('reviews')
@@ -383,9 +274,6 @@ class AlterSchema extends Schema {
         .onDelete('RESTRICT')
         .onUpdate('CASCADE')
         .withKeyName('fk_user_id_product_video_reviews_users')
-    })
-
-    this.alter('product_video_reviews', (table) => {
       table.foreign('product_id')
         .references('id')
         .inTable('products')
@@ -404,9 +292,6 @@ class AlterSchema extends Schema {
         .onDelete('RESTRICT')
         .onUpdate('CASCADE')
         .withKeyName('fk_user_id_user_questions_users')
-    })
-
-    this.alter('user_questions', (table) => {
       table.foreign('question_id')
         .references('id')
         .inTable('questions')
@@ -425,15 +310,42 @@ class AlterSchema extends Schema {
         .onDelete('RESTRICT')
         .onUpdate('CASCADE')
         .withKeyName('fk_user_id_menus_users')
-    })
-
-    this.alter('menus', (table) => {
       table.foreign('parent_id')
         .references('id')
         .inTable('menus')
         .onDelete('RESTRICT')
         .onUpdate('CASCADE')
         .withKeyName('fk_user_id_menus')
+    })
+
+    /**
+     * Alter categories_posts
+     */
+    this.alter('categories_posts', (table) => {
+      table.foreign('category_id')
+        .references('id')
+        .inTable('post_categories')
+        .onDelete('RESTRICT')
+        .onUpdate('CASCADE')
+        .withKeyName('fk_category_id_cp_pc')
+      table.foreign('post_id')
+        .references('id')
+        .inTable('posts')
+        .onDelete('RESTRICT')
+        .onUpdate('CASCADE')
+        .withKeyName('fk_post_id_cp_posts')
+    })
+
+    /**
+     * Alter product_prices
+     */
+    this.alter('product_prices', (table)=>{
+      table.foreign('product_color_id')
+        .references('id')
+        .inTable('product_colors')
+        .onDelete('RESTRICT')
+        .onUpdate('CASCADE')
+        .withKeyName('fk_product_color_id_pp_pc')
     })
   }
 

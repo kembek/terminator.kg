@@ -12,7 +12,7 @@ class UserReviewSchema extends Schema {
   }
 
   down () {
-    this.drop('user_reviews')
+    this.dropIfExists('user_reviews')
   }
 }
 

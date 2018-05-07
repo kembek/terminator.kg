@@ -11,16 +11,16 @@ class FaqSchema extends Schema {
       table.integer('sort').notNullable().unsigned().defaultTo(0)
       table.string('title').notNullable().unique('ui_faqs_title')
       table.string('link').notNullable().unique('ui_faqs_link')
-      table.text('body').notNullable()
-      table.string('meta_keywords').notNullable()
-      table.string('meta_desription').notNullable()
+      table.text('body', 'longtext').notNullable()
+      table.string('meta_keywords')
+      table.string('meta_desription')
       table.boolean('is_status').notNullable().defaultTo(1)
       table.timestamps()
     })
   }
 
   down () {
-    this.drop('faqs')
+    this.dropIfExists('faqs')
   }
 }
 

@@ -6,7 +6,7 @@ class MenuSchema extends Schema {
   up() {
     this.create('menus', (table) => {
       table.increments()
-      table.integer('parent_id').notNullable().unsigned()
+      table.integer('parent_id').unsigned()
       table.integer('user_id').notNullable().unsigned()
       table.string('link').notNullable().unique('ui_menus_link')
       table.integer('sort').notNullable().unsigned().defaultTo(0)
@@ -14,7 +14,7 @@ class MenuSchema extends Schema {
   }
 
   down() {
-    this.drop('menus')
+    this.dropIfExists('menus')
   }
 }
 

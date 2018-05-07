@@ -6,7 +6,8 @@ class ImageSchema extends Schema {
   up() {
     this.create('images', (table) => {
       table.increments()
-      table.integer('album_id').notNullable().unsigned().defaultTo(0)
+      table.integer('product_color_id').notNullable().unsigned()
+      table.integer('sort').notNullable().unsigned().defaultTo(0)
       table.string('url').notNullable().unique('ui_images_url')
       table.string('title').notNullable().unique('ui_images_title')
       table.timestamps()
@@ -14,7 +15,7 @@ class ImageSchema extends Schema {
   }
 
   down() {
-    this.drop('images')
+    this.dropIfExists('images')
   }
 }
 

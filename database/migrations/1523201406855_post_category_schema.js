@@ -7,18 +7,18 @@ class PostCategorySchema extends Schema {
     this.create('post_categories', (table) => {
       table.increments()
       table.integer('user_id').notNullable().unsigned()
-      table.integer('parent_id').notNullable().unsigned()
+      table.integer('parent_id').unsigned()
       table.string('title').notNullable().unique('ui_posts_title')
       table.string('link').notNullable().unique('ui_posts_link')
-      table.string('meta_keywords').notNullable()
-      table.string('meta_desription').notNullable()
+      table.string('meta_keywords')
+      table.string('meta_desription')
       table.boolean('is_status').notNullable().defaultTo(1)
       table.timestamps()
     })
   }
 
   down() {
-    this.drop('post_categories')
+    this.dropIfExists('post_categories')
   }
 }
 

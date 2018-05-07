@@ -11,12 +11,122 @@
 |
 */
 
-// const Factory = use('Factory')
+const Factory = use('Factory')
+const _ = require('lodash')
 
-/**
-  Factory.blueprint('App/Models/User', (faker) => {
-    return {
-      username: faker.username()
-    }
-  })
-*/
+Factory.blueprint('AUTHS/Group', (faker, i, data) => {
+  return {
+    title: data.title,
+    description: faker.sentence()
+  }
+})
+
+Factory.blueprint('AUTHS/Access', (faker, i, data) => {
+  return {
+    post: data.post,
+    product: data.product,
+    order: data.order,
+    access: data.access,
+    faq: data.faq,
+    image: data.image,
+    color: data.color,
+    auth: data.auth,
+    setting: data.setting
+  }
+})
+
+Factory.blueprint('AUTHS/User', (faker) => {
+  return {
+    username: faker.username(),
+    email: faker.email(),
+    password: faker.password(),
+    is_status: true
+  }
+})
+
+Factory.blueprint('FAQS/FaqCategory', (faker, i, data) => {
+  return {
+    user_id: data.user_id,
+    title: faker.sentence({ words: _.random(1, 2) })
+  }
+})
+
+Factory.blueprint('FAQS/Faq', (faker, i, data) => {
+  return {
+    user_id: data.user_id,
+    title: faker.sentence({ words: _.random(1, 4) }),
+    body: faker.paragraph()
+  }
+})
+
+Factory.blueprint('POSTS/PostCategory', (faker, i, data) => {
+  return {
+    user_id: data.user_id,
+    title: faker.sentence({ words: _.random(1, 2) })
+  }
+})
+
+Factory.blueprint('POSTS/Post', (faker, i, data) => {
+  return {
+    user_id: data.user_id,
+    thumbnail: _.random(1, 9) + '.jpg',
+    title: faker.sentence({ words: _.random(1, 4) }),
+    body: faker.paragraph()
+  }
+})
+
+Factory.blueprint('PRODUCTS/ProductCategory', (faker, i, data) => {
+  return {
+    user_id: data.user_id,
+    thumbnail: _.random(1, 9) + '.jpg',
+    title: faker.sentence({ words: _.random(1, 2) }),
+    is_status: true
+  }
+})
+
+Factory.blueprint('PRODUCTS/Product', (faker, i, data) => {
+
+  return {
+    user_id: data.user_id,
+    stock_status_id: _.random(1, 3),
+    thumbnail: _.random(1, 9) + '.jpg',
+    title: faker.sentence({ words: _.random(3, 6) }),
+    description: faker.paragraph(),
+    information: faker.paragraph(),
+    is_hit: faker.bool({ likelihood: 20 }),
+    is_recommend: faker.bool({ likelihood: 30 }),
+    is_status: true
+  }
+})
+
+Factory.blueprint('PRODUCTS/ProductVideo', (faker, i, data) => {
+  return {
+    user_id: data.user_id,
+    url: faker.url({ domain: 'www.youtube.com' })
+  }
+})
+
+Factory.blueprint('PRODUCTS/ProductImage', (faker, i, data) => {
+  return {
+    url: faker.url({ extensions: ['jpg', 'png'] })
+  }
+})
+
+Factory.blueprint('PRODUCTS/ProductPrice', (faker, i, data) => {
+  return {
+    price: faker.floating({ fixed: 2, min: 0, max: 999999999 })
+  }
+})
+
+Factory.blueprint('PRODUCTS/Image', (faker, i, data) => {
+  return {
+    title: faker.word({ length: 10 }),
+    url: faker.url({ extensions: ['jpg', 'png'] })
+  }
+})
+
+
+
+
+
+

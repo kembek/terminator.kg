@@ -6,20 +6,20 @@ class FaqCategoriesSchema extends Schema {
   up () {
     this.create('faq_categories', (table) => {
       table.increments()
-      table.integer('parent_id').notNullable().unsigned().defaultTo(0)
+      table.integer('parent_id').unsigned()
       table.integer('user_id').notNullable().unsigned()
       table.integer('sort').notNullable().unsigned().defaultTo(0)
       table.string('title').notNullable().unique('ui_faq_categories_title')
       table.string('link').notNullable().unique('ui_faq_categories_link')
-      table.string('meta_keywords').notNullable()
-      table.string('meta_desription').notNullable()
+      table.string('meta_keywords')
+      table.string('meta_desription')
       table.boolean('is_status').notNullable().defaultTo(1)
       table.timestamps()
     })
   }
 
   down () {
-    this.drop('faq_categories')
+    this.dropIfExists('faq_categories')
   }
 }
 

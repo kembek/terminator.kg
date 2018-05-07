@@ -12,7 +12,7 @@ class UserCustomerSchema extends Schema {
   }
 
   down() {
-    this.drop('user_customers')
+    this.dropIfExists('user_customers')
   }
 }
 

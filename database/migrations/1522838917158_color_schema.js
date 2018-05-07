@@ -12,7 +12,7 @@ class ColorSchema extends Schema {
   }
 
   down () {
-    this.drop('colors')
+    this.dropIfExists('colors')
   }
 }
 

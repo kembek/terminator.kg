@@ -10,12 +10,16 @@ class AccessSchema extends Schema {
       table.enu('product', ['111', '11', '0']).notNullable().defaultTo('0')
       table.enu('order', ['111', '11', '0']).notNullable().defaultTo('0')
       table.enu('access', ['111', '11', '0']).notNullable().defaultTo('0')
+      table.enu('faq', ['111', '11', '0']).notNullable().defaultTo('0')
+      table.enu('image', ['111', '11', '0']).notNullable().defaultTo('0')
+      table.enu('auth', ['111', '11', '0']).notNullable().defaultTo('0')
+      table.enu('color', ['111', '11', '0']).notNullable().defaultTo('0')
       table.enu('setting', ['111', '11', '0']).notNullable().defaultTo('0')
     })
   }
 
   down() {
-    this.drop('accesses')
+    this.dropIfExists('accesses')
   }
 }
 

@@ -15,7 +15,7 @@ class QuestionSchema extends Schema {
   }
 
   down() {
-    this.drop('questions')
+    this.dropIfExists('questions')
   }
 }
 

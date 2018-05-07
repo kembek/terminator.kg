@@ -11,7 +11,7 @@ class StocStatusSchema extends Schema {
   }
 
   down() {
-    this.drop('stoc_statuses')
+    this.dropIfExists('stoc_statuses')
   }
 }
 
