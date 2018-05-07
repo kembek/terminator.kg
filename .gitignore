@@ -1,4 +1,5 @@
 # Node modules
+.nuxt
 node_modules
 
 # Adonis directory for storing tmp files
