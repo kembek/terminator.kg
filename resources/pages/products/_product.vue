@@ -65,7 +65,7 @@
   
       <div class="btns">
   
-        <button class="btn">Купить</button>
+        <button class="btn" @click="$root.$emit('order', true)">Купить</button>
   
         <button class="btn">Добавить в корзину</button>
   

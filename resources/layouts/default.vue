@@ -3,6 +3,7 @@
   <transition name="popup">
     <preloader v-if="loading" :text="text" />
   </transition>
+  <Order />
   <MyHeader />
   <Slider :speed="speedMainSlider" v-if="this.$route.fullPath == '/'" />
   <div v-else style="padding-top: 100px;" />
@@ -22,11 +23,13 @@ import MyFooter from '~/components/Footer'
 import Basket from '~/components/basket/'
 import preloader from '~/components/preloader'
 import Timer from '~/pages/timer'
+import Order from '~/components/forms/order'
 
 import settings from '~/settings'
 
 export default {
   components: {
+    Order,
     preloader,
     MyHeader,
     Slider,
