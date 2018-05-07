@@ -430,18 +430,18 @@
   
         width: 140px;
   
-        border: 1px solid #00ff00;
+        border: 1px solid @color-main_font;
   
         background: rgb(39, 38, 38);
   
-        color: @color-dark;
+        color: @color-text;
   
         font: 20px;
-  
+
         &:hover {
-  
+  border-color: @color-dark;
           cursor: pointer;
-  
+        color: @color-main_font;
         }
   
       }
