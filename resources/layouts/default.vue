@@ -40,7 +40,7 @@ export default {
       loading: true,
       online: true,
       text: 'Идёт загрузка',
-      dedline: '2018/05/07 18:00:00',
+      dedline: '2018/05/06 18:00:00',
       isTime: true
     }
   },
