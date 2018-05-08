@@ -7,10 +7,12 @@ export const mutations = {
     state.items = value
   },
   ADD_PRODUCT(state, value) {
-    var temp = [];
-     temp = state.items
-     temp.push(value)
+    var temp = [] = state.items
+    temp.push(value)
     state.items = temp
+  },
+  UPDATE_PRODUCT(state,value) {
+
   }
 }
 
@@ -20,9 +22,23 @@ export const actions = {
   }, value) {
     commit('SET_ITEMS', value)
   },
-  AddProduct({
-    commit,state
+  Update({
+    commit,
+    state
   }, value) {
+    commit('UPDATE_PRODUCT', value)
+  },
+  AddProduct({
+    commit,
+    state
+  }, value) {
+    // var temp;
+    // state.items.forEach((element,i) => {
+    //   if(element.product.id == value.product.id)
+    //   {
+    //     commit('UPDATE_PRODUCT')
+    //   }
+    // });
     commit('ADD_PRODUCT', value)
   }
 }

@@ -62,8 +62,8 @@
     <p>В зависимости от цвета стоимость может измениться</p>
 
     <div class="btns">
-
-      <button class="btn" @click="$root.$emit('order', true)">Купить</button>
+<!-- @click="$root.$emit('order', false) -->
+      <button class="btn" @click="AddOrder()">Купить</button>
 
       <button class="btn" @click="AddOrder()">Добавить в корзину</button>
 
@@ -94,6 +94,11 @@ export default {
       type: 'success',
       title: 'Успешно',
       text: 'Товар добавлен'
+    },
+    showInfoMsg: {
+      type: 'info',
+      title: 'Внимание',
+      text: 'Оформление заказа будет доступно в ближайшее время'
     }
   },
   methods: {
@@ -102,12 +107,16 @@ export default {
       //   if(item.product.id == this.product.id)
       //   this.$store.dispatch('Order/AddCount')
       // });
-      let temp = {count: this.count, product: this.product}
-      this.$store.dispatch('Order/AddProduct', temp)
-      this.showSuccessMsg({
-        text: 'Товар \"' + this.product.title + '\" добавлен в корзину!'
-      })
-      this.$root.$emit('basket', true)
+      this.showInfoMsg()
+      // let temp = {
+      //   count: this.count,
+      //   product: this.product
+      // }
+      // this.$store.dispatch('Order/AddProduct', temp)
+      // this.showSuccessMsg({
+      //   text: 'Товар \"' + this.product.title + '\" добавлен в корзину!'
+      // })
+      // this.$root.$emit('basket', true)
     },
     setSlide(value) {
       this.img_id = value;

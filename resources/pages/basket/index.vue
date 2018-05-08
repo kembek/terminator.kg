@@ -71,7 +71,7 @@
         <p>Итого</p>
         <p>{{allSun}}</p>
       </div>
-      <div class="button">
+      <div class="button" @click="showInfoMsg()">
         <button>
       <basket /><p>Оформить заказ</P>
       </button>
@@ -85,11 +85,23 @@ import basket from '~/assets/svg/basket.svg'
 import arrow from '~/assets/svg/arrow.svg'
 import Basket from '~/components/basket/index'
 export default {
+  notifications: {
+    showSuccessMsg: {
+      type: 'success',
+      title: 'Успешно',
+      text: 'Товар добавлен'
+    },
+    showInfoMsg: {
+      type: 'info',
+      title: 'Внимание',
+      text: 'Оформление заказа будет доступно в ближайшее время'
+    }
+  },
   data() {
     return {
       send: 100,
       isSend: false,
-      items: this.$store.getters['Order/Items']
+      items: Object.assign([], this.$store.getters['Order/Items'])
     };
   },
   computed: {
