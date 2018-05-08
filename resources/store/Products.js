@@ -1,16 +1,11 @@
 export const state = () => ({
-  "items": [
-    {
-      "groups": [
-        2
-      ],
+  "items": [{
       "id": 1,
-      "groups": [1],
+      "groups": [1, 2, 10],
       "image": "Смартфон Xiaomi Redmi 5A/5.jpg",
       "isShow": true,
       "price": 6290,
-      "prices": [
-        {
+      "prices": [{
           "color": "#d4c69a",
           "images": [
             "Смартфон Xiaomi Redmi 5A/5.jpg",
@@ -43,8 +38,7 @@ export const state = () => ({
       "image": "Клатч Mi DSP/5.jpg",
       "isShow": true,
       "price": 1200,
-      "prices": [
-        {
+      "prices": [{
           "color": "#444444",
           "images": [
             "Клатч Mi DSP/5.jpg",
@@ -89,8 +83,7 @@ export const state = () => ({
       "image": "Мини-рюкзак Xiaomi Simple City/6.jpg",
       "isShow": true,
       "price": 1100,
-      "prices": [
-        {
+      "prices": [{
           "color": "#444444",
           "images": [
             "Мини-рюкзак Xiaomi Simple City/6.jpg",
@@ -123,8 +116,7 @@ export const state = () => ({
       "image": "Рюкзак Mi Urban Lifestyle/1.jpg",
       "isShow": true,
       "price": 2100,
-      "prices": [
-        {
+      "prices": [{
           "color": "#444444",
           "images": [
             "Рюкзак Mi Urban Lifestyle/1.jpg",
@@ -157,30 +149,27 @@ export const state = () => ({
       "image": "Рюкзак Mi Classic Business/2.jpg",
       "isShow": true,
       "price": 1600,
-      "prices": [
-        {
-          "color": "#000000",
-          "images": [
-            "Рюкзак Mi Classic Business/2.jpg",
-            "Рюкзак Mi Classic Business/5.jpg",
-            "Рюкзак Mi Classic Business/1.jpg",
-            "Рюкзак Mi Classic Business/3.jpg",
-            "Рюкзак Mi Classic Business/6.jpg"
-          ],
-          "price": 1600,
-          "title": "черный"
-        }
-      ],
+      "prices": [{
+        "color": "#000000",
+        "images": [
+          "Рюкзак Mi Classic Business/2.jpg",
+          "Рюкзак Mi Classic Business/5.jpg",
+          "Рюкзак Mi Classic Business/1.jpg",
+          "Рюкзак Mi Classic Business/3.jpg",
+          "Рюкзак Mi Classic Business/6.jpg"
+        ],
+        "price": 1600,
+        "title": "черный"
+      }],
       "title": "Рюкзак Xiaomi Classic Business"
     },
     {
       "id": 6,
-      "groups": [1],
+      "groups": [12],
       "image": "Аудио-колонка Mi Square Box/5.jpg",
       "isShow": true,
       "price": 1500,
-      "prices": [
-        {
+      "prices": [{
           "color": "#000000",
           "images": [
             "Аудио-колонка Mi Square Box/5.jpg",
@@ -221,12 +210,11 @@ export const state = () => ({
     },
     {
       "id": 7,
-      "groups": [1],
+      "groups": [12],
       "image": "Аудио-колонка Xiaomi Bluetooth Speaker Color/2.jpg",
       "isShow": true,
       "price": 2500,
-      "prices": [
-        {
+      "prices": [{
           "color": "#000000",
           "images": [
             "Аудио-колонка Xiaomi Bluetooth Speaker Color/2.jpg",
@@ -267,12 +255,11 @@ export const state = () => ({
     },
     {
       "id": 10,
-      "groups": [1],
+      "groups": [9,10],
       "image": "смарт-часы Amazfit Bip/8.jpg",
       "isShow": true,
       "price": 4290,
-      "prices": [
-        {
+      "prices": [{
           "color": "#000000",
           "images": [
             "смарт-часы Amazfit Bip/8.jpg",
@@ -313,12 +300,11 @@ export const state = () => ({
     },
     {
       "id": 11,
-      "groups": [2,3],
+      "groups": [2, 3, 10],
       "image": "Xiaomi Redmi Note 5 Pro/1.jpg",
       "isShow": true,
       "price": 1,
-      "prices": [
-        {
+      "prices": [{
           "color": "#000000",
           "images": [
             "Xiaomi Redmi Note 5 Pro/1.jpg",
@@ -347,12 +333,11 @@ export const state = () => ({
     },
     {
       "id": 12,
-      "groups": [2,3],
+      "groups": [2, 3, 10],
       "image": "Xiaomi Redmi Note 5 Pro/8.jpg",
       "isShow": true,
       "price": 1,
-      "prices": [
-        {
+      "prices": [{
           "color": "#000000",
           "images": [
             "Xiaomi Redmi Note 5 Pro/8.jpg",
@@ -381,12 +366,11 @@ export const state = () => ({
     },
     {
       "id": 13,
-      "groups": [2,3],
+      "groups": [2, 3, 10],
       "image": "Смартфоны Xiaomi Redmi 5 Plus/11.jpg",
       "isShow": true,
       "price": 9590,
-      "prices": [
-        {
+      "prices": [{
           "color": "#d4c69a",
           "images": [
             "Xiaomi Redmi 5 Plus/8.jpg",
@@ -415,12 +399,11 @@ export const state = () => ({
     },
     {
       "id": 14,
-      "groups": [2],
+      "groups": [2,10],
       "image": "Смартфоны Xiaomi Redmi 5 Plus/3.jpg",
       "isShow": true,
       "price": 12180,
-      "prices": [
-        {
+      "prices": [{
           "color": "#d4c69a",
           "images": [
             "Смартфоны Xiaomi Redmi 5 Plus/8.jpg",
@@ -449,12 +432,11 @@ export const state = () => ({
     },
     {
       "id": 16,
-      "groups": [2],
+      "groups": [2, 10],
       "image": "Смартфоны Xiaomi Redmi 5 Plus/8.jpg",
       "isShow": true,
       "price": 10820,
-      "prices": [
-        {
+      "prices": [{
           "color": "#d4c69a",
           "images": [
             "Смартфоны Xiaomi Redmi 5 Plus/8.jpg",
@@ -483,12 +465,11 @@ export const state = () => ({
     },
     {
       "id": 17,
-      "groups": [2,4],
+      "groups": [2, 4, 10],
       "image": "Смартфоны Xiaomi Mi A1/7.jpg",
       "isShow": true,
       "price": 11620,
-      "prices": [
-        {
+      "prices": [{
           "color": "#d4c69a",
           "images": [
             "Смартфоны Xiaomi Mi A1/8.jpg",
@@ -517,32 +498,29 @@ export const state = () => ({
     },
     {
       "id": 18,
-      "groups": [1],
+      "groups": [1,9],
       "image": "Ремешки для Mi Band 2/1.jpg",
       "isShow": true,
       "price": 900,
-      "prices": [
-        {
-          "color": "#000000",
-          "images": [
-            "Ремешки для Mi Band 2/2.jpg",
-            "Ремешки для Mi Band 2/1.jpg",
-            "Ремешки для Mi Band 2/3.jpg"
-          ],
-          "price": 900,
-          "title": "черный"
-        }
-      ],
+      "prices": [{
+        "color": "#000000",
+        "images": [
+          "Ремешки для Mi Band 2/2.jpg",
+          "Ремешки для Mi Band 2/1.jpg",
+          "Ремешки для Mi Band 2/3.jpg"
+        ],
+        "price": 900,
+        "title": "черный"
+      }],
       "title": "Металлические ремешки для Mi Band 2"
     },
     {
       "id": 19,
-      "groups": [1],
+      "groups": [1,9],
       "image": "Ремешки для Mi Band 2/9.jpg",
       "isShow": true,
       "price": 650,
-      "prices": [
-        {
+      "prices": [{
           "color": "#ffffff",
           "images": [
             "Ремешки для Mi Band 2/10.jpg",
@@ -569,12 +547,11 @@ export const state = () => ({
     },
     {
       "id": 20,
-      "groups": [1],
+      "groups": [1,9],
       "image": "Ремешки для Mi Band 2/7.jpg",
       "isShow": true,
       "price": 150,
-      "prices": [
-        {
+      "prices": [{
           "color": "#5493cc",
           "images": [
             "Ремешки для Mi Band 2/5.jpg",
@@ -629,70 +606,63 @@ export const state = () => ({
     },
     {
       "id": 21,
-      "groups": [1],
+      "groups": [1, 7],
       "image": "Защитное стекло_Nillkin/2.jpg",
       "isShow": true,
       "price": 600,
-      "prices": [
-        {
-          "color": "transparent",
-          "images": [
-            "Ремешки для Mi Band 2/5.jpg",
-            "Ремешки для Mi Band 2/4.jpg",
-            "Ремешки для Mi Band 2/6.jpg"
-          ],
-          "price": 150,
-          "title": "прозрачный"
-        }
-      ],
+      "prices": [{
+        "color": "transparent",
+        "images": [
+          "Ремешки для Mi Band 2/5.jpg",
+          "Ремешки для Mi Band 2/4.jpg",
+          "Ремешки для Mi Band 2/6.jpg"
+        ],
+        "price": 150,
+        "title": "прозрачный"
+      }],
       "title": "Защитные стекла с олеофобным покрытием | Nillkin"
     },
     {
       "id": 22,
-      "groups": [2],
+      "groups": [2, 7],
       "image": "Защитное стекло_3D/2.jpg",
       "isShow": true,
       "price": 300,
-      "prices": [
-        {
-          "color": "transparent",
-          "images": [
-            "Защитное стекло_3D/1.jpg",
-            "Защитное стекло_3D/3.jpg"
-          ],
-          "price": 300,
-          "title": "прозрачный"
-        }
-      ],
+      "prices": [{
+        "color": "transparent",
+        "images": [
+          "Защитное стекло_3D/1.jpg",
+          "Защитное стекло_3D/3.jpg"
+        ],
+        "price": 300,
+        "title": "прозрачный"
+      }],
       "title": "Защитные стекла | 3D"
     },
     {
       "id": 23,
-      "groups": [2],
+      "groups": [2, 7],
       "image": "Защитное стекло_обычное/3.jpg",
       "isShow": true,
       "price": 150,
-      "prices": [
-        {
-          "color": "transparent",
-          "images": [
-            "Защитное стекло_обычное/2.jpg",
-            "Защитное стекло_обычное/1.jpg"
-          ],
-          "price": 150,
-          "title": "прозрачный"
-        }
-      ],
+      "prices": [{
+        "color": "transparent",
+        "images": [
+          "Защитное стекло_обычное/2.jpg",
+          "Защитное стекло_обычное/1.jpg"
+        ],
+        "price": 150,
+        "title": "прозрачный"
+      }],
       "title": "Защитные стекла | 2D"
     },
     {
       "id": 24,
-      "groups": [2],
+      "groups": [2,10],
       "image": "Смартфоны Xiaomi Redmi 4A/5.jpg",
       "isShow": true,
       "price": 6190,
-      "prices": [
-        {
+      "prices": [{
           "color": "#666666",
           "images": [
             "Смартфоны Xiaomi Redmi 4A/1.jpg",
@@ -719,12 +689,11 @@ export const state = () => ({
     },
     {
       "id": 25,
-      "groups": [2],
+      "groups": [2,10],
       "image": "Ремешки для Mi Band 2/9.jpg",
       "isShow": true,
       "price": 650,
-      "prices": [
-        {
+      "prices": [{
           "color": "#ffffff",
           "images": [
             "Ремешки для Mi Band 2/10.jpg",
@@ -751,12 +720,11 @@ export const state = () => ({
     },
     {
       "id": 26,
-      "groups": [2],
+      "groups": [2,10],
       "image": "Смартфоны Xiaomi Mi Max 2/6.jpg",
       "isShow": true,
       "price": 14830,
-      "prices": [
-        {
+      "prices": [{
           "color": "#d4c69a",
           "images": [
             "Смартфоны Xiaomi Mi Max 2/1.jpg",
@@ -783,52 +751,47 @@ export const state = () => ({
     },
     {
       "id": 27,
-      "groups": [2,3],
+      "groups": [2, 3, 10],
       "image": "Смартфоны Xiaomi Mi Mix 2/3.jpg",
       "isShow": true,
       "price": 29890,
-      "prices": [
-        {
-          "color": "#000000",
-          "images": [
-            "Смартфоны Xiaomi Mi Mix 2/4.jpg",
-            "Смартфоны Xiaomi Mi Mix 2/6.jpg",
-            "Смартфоны Xiaomi Mi Mix 2/5.jpg"
-          ],
-          "price": 29890,
-          "title": "черный"
-        }
-      ],
+      "prices": [{
+        "color": "#000000",
+        "images": [
+          "Смартфоны Xiaomi Mi Mix 2/4.jpg",
+          "Смартфоны Xiaomi Mi Mix 2/6.jpg",
+          "Смартфоны Xiaomi Mi Mix 2/5.jpg"
+        ],
+        "price": 29890,
+        "title": "черный"
+      }],
       "title": "Xiaomi Mi Mix 2 6GB+64GB (Global Version)"
     },
     {
       "id": 28,
-      "groups": [2,3,4],
+      "groups": [2, 3, 4, 10],
       "image": "Смартфоны Xiaomi Mi Note 3/4.jpg",
       "isShow": true,
       "price": 26450,
-      "prices": [
-        {
-          "color": "#000000",
-          "images": [
-            "Смартфоны Xiaomi Mi Note 3/6.jpg",
-            "Смартфоны Xiaomi Mi Note 3/5.jpg",
-            "Смартфоны Xiaomi Mi Note 3/8.jpg"
-          ],
-          "price": 26450,
-          "title": "черный"
-        }
-      ],
+      "prices": [{
+        "color": "#000000",
+        "images": [
+          "Смартфоны Xiaomi Mi Note 3/6.jpg",
+          "Смартфоны Xiaomi Mi Note 3/5.jpg",
+          "Смартфоны Xiaomi Mi Note 3/8.jpg"
+        ],
+        "price": 26450,
+        "title": "черный"
+      }],
       "title": "Xiaomi Mi Note 3 6GB+128GB"
     },
     {
       "id": 29,
-      "groups": [2,3,4],
+      "groups": [2, 3, 4, 10],
       "image": "Смартфоны Xiaomi Mi Note 3/1.jpg",
       "isShow": true,
       "price": 19870,
-      "prices": [
-        {
+      "prices": [{
           "color": "#000000",
           "images": [
             "Смартфоны Xiaomi Mi Note 3/2.jpg",
@@ -853,12 +816,11 @@ export const state = () => ({
     },
     {
       "id": 30,
-      "groups": [2,4],
+      "groups": [2, 4, 10],
       "image": "Смартфоны Xiaomi Mi A1/11.jpg",
       "isShow": true,
       "price": 12510,
-      "prices": [
-        {
+      "prices": [{
           "color": "#4444d6",
           "images": [
             "Смартфоны Xiaomi Mi A1/10.jpg",
@@ -893,34 +855,31 @@ export const state = () => ({
     },
     {
       "id": 31,
-      "groups": [2],
+      "groups": [2, 10],
       "image": "Смартфоны Xiaomi Mi 6 Ceramic/3.jpg",
-      "groups": [2,3],
+      "groups": [2, 3],
       "isShow": true,
       "price": 28490,
-      "prices": [
-        {
-          "color": "#000000",
-          "images": [
-            "Смартфоны Xiaomi Mi 6 Ceramic/4.jpg",
-            "Смартфоны Xiaomi Mi 6 Ceramic/1.jpg",
-            "Смартфоны Xiaomi Mi 6 Ceramic/2.jpg"
-          ],
-          "price": 28490,
-          "title": "черный"
-        }
-      ],
+      "prices": [{
+        "color": "#000000",
+        "images": [
+          "Смартфоны Xiaomi Mi 6 Ceramic/4.jpg",
+          "Смартфоны Xiaomi Mi 6 Ceramic/1.jpg",
+          "Смартфоны Xiaomi Mi 6 Ceramic/2.jpg"
+        ],
+        "price": 28490,
+        "title": "черный"
+      }],
       "title": "Xiaomi Mi 6 6GB+128GB Ceramic"
     },
     {
       "id": 32,
-      "groups": [2],
+      "groups": [2, 10],
       "image": "Смартфоны Xiaomi Mi 6/4.jpg",
       "isShow": true,
-      "groups": [2,3],
+      "groups": [2, 3],
       "price": 26500,
-      "prices": [
-        {
+      "prices": [{
           "color": "#000000",
           "images": [
             "Смартфоны Xiaomi Mi 6/1.jpg",
@@ -947,12 +906,11 @@ export const state = () => ({
     },
     {
       "id": 33,
-      "groups": [2,5],
+      "groups": [2, 5, 10],
       "image": "Смартфоны Xiaomi Mi 5X/7.jpg",
       "isShow": true,
       "price": 13190,
-      "prices": [
-        {
+      "prices": [{
           "color": "#000000",
           "images": [
             "Смартфоны Xiaomi Mi 5X/02.jpg",
@@ -990,12 +948,11 @@ export const state = () => ({
     },
     {
       "id": 34,
-      "groups": [2],
+      "groups": [2, 10],
       "image": "Смартфоны Xiaomi Mi 5X/5.jpg",
       "isShow": true,
       "price": 14900,
-      "prices": [
-        {
+      "prices": [{
           "color": "#ffffff",
           "images": [
             "Смартфоны Xiaomi Mi 5X/8.jpg"
@@ -1013,14 +970,13 @@ export const state = () => ({
         }
       ],
       "title": "Xiaomi Mi 5 3/32 GB"
-    },{
+    }, {
       "id": 37,
-      "groups": [2],
+      "groups": [2, 10],
       "image": "Смартфоны Xiaomi Redmi Note 4X/12.jpg",
       "isShow": true,
       "price": 12190,
-      "prices": [
-        {
+      "prices": [{
           "color": "#d4c69a",
           "images": [
             "Смартфоны Xiaomi Redmi Note 4X/8.jpg",
@@ -1058,12 +1014,11 @@ export const state = () => ({
     },
     {
       "id": 38,
-      "groups": [2],
+      "groups": [2, 10],
       "image": "Смартфоны Xiaomi Redmi Note 4X/3.jpg",
       "isShow": true,
       "price": 10000,
-      "prices": [
-        {
+      "prices": [{
           "color": "#666666",
           "images": [
             "Смартфоны Xiaomi Redmi Note 4X/6.jpg",
@@ -1090,12 +1045,11 @@ export const state = () => ({
     },
     {
       "id": 38,
-      "groups": [2],
+      "groups": [2, 10],
       "image": "Смартфоны Xiaomi Redmi Note 4X/3.jpg",
       "isShow": true,
       "price": 10000,
-      "prices": [
-        {
+      "prices": [{
           "color": "#666666",
           "images": [
             "Смартфоны Xiaomi Redmi Note 4X/6.jpg",
@@ -1122,12 +1076,11 @@ export const state = () => ({
     },
     {
       "id": 39,
-      "groups": [2,4],
+      "groups": [2, 4, 10],
       "image": "Смартфоны Xiaomi Redmi 4X/5.jpg",
       "isShow": true,
       "price": 9090,
-      "prices": [
-        {
+      "prices": [{
           "color": "#d4c69a",
           "images": [
             "Смартфоны Xiaomi Redmi 4X/3.jpg",
@@ -1154,12 +1107,11 @@ export const state = () => ({
     },
     {
       "id": 40,
-      "groups": [2],
+      "groups": [2, 10],
       "image": "Смартфоны Xiaomi Redmi 4X/7.jpg",
       "isShow": true,
       "price": 7590,
-      "prices": [
-        {
+      "prices": [{
           "color": "#d4c69a",
           "images": [
             "Смартфоны Xiaomi Redmi 4X/12.jpg",
@@ -1188,10 +1140,9 @@ export const state = () => ({
       "id": 41,
       "image": "Смартфоны Xiaomi Redmi 4A/9.jpg",
       "isShow": true,
-      "groups": [2],
+      "groups": [2, 10],
       "price": 7590,
-      "prices": [
-        {
+      "prices": [{
           "color": "#d4c69a",
           "images": [
             "Смартфоны Xiaomi Redmi 4A/2.jpg",
@@ -1218,12 +1169,11 @@ export const state = () => ({
     },
     {
       "id": 42,
-      "groups": [2],
+      "groups": [2, 10],
       "image": "Смартфоны Xiaomi Redmi 4A/6.jpg",
       "isShow": true,
       "price": 6190,
-      "prices": [
-        {
+      "prices": [{
           "color": "#d4c69a",
           "images": [
             "Смартфоны Xiaomi Redmi 4A/9.jpg",
@@ -1250,12 +1200,11 @@ export const state = () => ({
     },
     {
       "id": 43,
-      "groups": [2],
+      "groups": [2, 11],
       "image": "Wi-Fi Router mini/1.jpg",
       "isShow": true,
       "price": 1000,
-      "prices": [
-        {
+      "prices": [{
           "color": "white",
           "images": [
             "Wi-Fi Router mini/2.jpg",
@@ -1284,262 +1233,238 @@ export const state = () => ({
     },
     {
       "id": 44,
-      "groups": [2],
+      "groups": [2, 11],
       "image": "Wi-Fi Router 3/1.jpg",
       "isShow": true,
       "price": 2100,
-      "prices": [
-        {
-          "color": "white",
-          "images": [
-            "Wi-Fi Router mini/2.jpg",
-            "Wi-Fi Router mini/3.jpg",
-            "Wi-Fi Router mini/4.jpg",
-            "Wi-Fi Router mini/5.jpg",
-            "Wi-Fi Router mini/6.jpg"
-          ],
-          "price": 2100,
-          "title": "светлый"
-        }
-      ],
+      "prices": [{
+        "color": "white",
+        "images": [
+          "Wi-Fi Router mini/2.jpg",
+          "Wi-Fi Router mini/3.jpg",
+          "Wi-Fi Router mini/4.jpg",
+          "Wi-Fi Router mini/5.jpg",
+          "Wi-Fi Router mini/6.jpg"
+        ],
+        "price": 2100,
+        "title": "светлый"
+      }],
       "title": "Wi-Fi Router 3"
     },
     {
       "id": 45,
-      "groups": [2],
+      "groups": [2, 11],
       "image": "VR Play/1.jpg",
       "isShow": true,
       "price": 1,
-      "prices": [
-        {
-          "color": "white",
-          "images": [
-            "VR Play/2.jpg",
-            "VR Play/3.jpg",
-            "VR Play/4.jpg",
-            "VR Play/5.jpg"
-          ],
-          "price": 1,
-          "title": "светлый"
-        }
-      ],
+      "prices": [{
+        "color": "white",
+        "images": [
+          "VR Play/2.jpg",
+          "VR Play/3.jpg",
+          "VR Play/4.jpg",
+          "VR Play/5.jpg"
+        ],
+        "price": 1,
+        "title": "светлый"
+      }],
       "title": "Xiaomi Mi VR Play"
     },
     {
       "id": 46,
-      "groups": [2],
+      "groups": [2, 11],
       "image": "VR Glass/6.jpg",
       "isShow": true,
       "price": 1,
-      "prices": [
-        {
-          "color": "white",
-          "images": [
-            "VR Glass/6.jpg",
-            "VR Glass/2.jpg",
-            "VR Glass/3.jpg",
-            "VR Glass/4.jpg",
-            "VR Glass/5.jpg"
-          ],
-          "price": 1,
-          "title": "светлый"
-        }
-      ],
+      "prices": [{
+        "color": "white",
+        "images": [
+          "VR Glass/6.jpg",
+          "VR Glass/2.jpg",
+          "VR Glass/3.jpg",
+          "VR Glass/4.jpg",
+          "VR Glass/5.jpg"
+        ],
+        "price": 1,
+        "title": "светлый"
+      }],
       "title": "Xiaomi Mi VR Glass"
     },
     {
       "id": 47,
-      "groups": [2],
+      "groups": [2, 7],
       "image": "Power Bank 2 20.000 mAh/1.jpg",
       "isShow": true,
       "price": 2100,
-      "prices": [
-        {
-          "color": "#ffffff",
-          "images": [
-            "Power Bank 2 20.000 mAh/2.jpg",
-            "Power Bank 2 20.000 mAh/3.jpg",
-            "Power Bank 2 20.000 mAh/4.jpg",
-            "Power Bank 2 20.000 mAh/5.jpg"
-          ],
-          "price": 2100,
-          "title": "белый"
-        }
-      ],
+      "prices": [{
+        "color": "#ffffff",
+        "images": [
+          "Power Bank 2 20.000 mAh/2.jpg",
+          "Power Bank 2 20.000 mAh/3.jpg",
+          "Power Bank 2 20.000 mAh/4.jpg",
+          "Power Bank 2 20.000 mAh/5.jpg"
+        ],
+        "price": 2100,
+        "title": "белый"
+      }],
       "title": "Xiaomi Power Bank 2 20.000 mAh"
     },
     {
       "id": 48,
-      "groups": [2],
+      "groups": [2,7],
       "image": "Power Bank 2 10.000 mAh/1.jpg",
       "isShow": true,
       "price": 1100,
-      "prices": [
-        {
-          "color": "#666666",
-          "images": [
-            "Power Bank 2 10.000 mAh/2.jpg",
-            "Power Bank 2 10.000 mAh/3.jpg",
-            "Power Bank 2 10.000 mAh/4.jpg",
-            "Power Bank 2 10.000 mAh/5.jpg"
-          ],
-          "price": 1100,
-          "title": "серый"
-        }
-      ],
+      "prices": [{
+        "color": "#666666",
+        "images": [
+          "Power Bank 2 10.000 mAh/2.jpg",
+          "Power Bank 2 10.000 mAh/3.jpg",
+          "Power Bank 2 10.000 mAh/4.jpg",
+          "Power Bank 2 10.000 mAh/5.jpg"
+        ],
+        "price": 1100,
+        "title": "серый"
+      }],
       "title": "Xiaomi Power Bank 2 10.000 mAh"
     },
     {
       "id": 49,
-      "groups": [2],
+      "groups": [2, 7],
       "image": "Mi Band 2/2.jpg",
       "isShow": true,
       "price": 1590,
-      "prices": [
-        {
-          "color": "#666666",
-          "images": [
-            "Mi Band 2/1.jpg",
-            "Mi Band 2/3.jpg",
-            "Mi Band 2/4.jpg",
-            "Mi Band 2/5.jpg"
-          ],
-          "price": 1590,
-          "title": "серый"
-        }
-      ],
+      "prices": [{
+        "color": "#666666",
+        "images": [
+          "Mi Band 2/1.jpg",
+          "Mi Band 2/3.jpg",
+          "Mi Band 2/4.jpg",
+          "Mi Band 2/5.jpg"
+        ],
+        "price": 1590,
+        "title": "серый"
+      }],
       "title": "смарт-браслет Xiaomi Mi Band 2"
     },
     {
       "id": 50,
-      "groups": [2],
+      "groups": [2, 10],
       "image": "Xiaomi Yi Action/1.jpg",
       "isShow": true,
       "price": 1000,
-      "prices": [
-        {
-          "color": "white",
-          "images": [
-            "Xiaomi Yi Action/2.jpg",
-            "Xiaomi Yi Action/3.jpg",
-            "Xiaomi Yi Action/4.jpg",
-            "Xiaomi Yi Action/5.jpg"
-          ],
-          "price": 1000,
-          "title": "Светлый"
-        }
-      ],
+      "prices": [{
+        "color": "white",
+        "images": [
+          "Xiaomi Yi Action/2.jpg",
+          "Xiaomi Yi Action/3.jpg",
+          "Xiaomi Yi Action/4.jpg",
+          "Xiaomi Yi Action/5.jpg"
+        ],
+        "price": 1000,
+        "title": "Светлый"
+      }],
       "title": "Xiaomi Yi Action"
     },
     {
       "id": 51,
-      "groups": [2],
+      "groups": [2, 10],
       "image": "Экшен кам. Yi 4K/1.jpg",
       "isShow": true,
       "price": 2000,
-      "prices": [
-        {
-          "color": "white",
-          "images": [
-            "Экшен кам. Yi 4K/2.jpg",
-            "Экшен кам. Yi 4K/3.jpg",
-            "Экшен кам. Yi 4K/4.jpg",
-            "Экшен кам. Yi 4K/5.jpg",
-            "Экшен кам. Yi 4K/6.jpg",
-            "Экшен кам. Yi 4K/7.jpg"
-          ],
-          "price": 2000,
-          "title": "Светлый"
-        }
-      ],
+      "prices": [{
+        "color": "white",
+        "images": [
+          "Экшен кам. Yi 4K/2.jpg",
+          "Экшен кам. Yi 4K/3.jpg",
+          "Экшен кам. Yi 4K/4.jpg",
+          "Экшен кам. Yi 4K/5.jpg",
+          "Экшен кам. Yi 4K/6.jpg",
+          "Экшен кам. Yi 4K/7.jpg"
+        ],
+        "price": 2000,
+        "title": "Светлый"
+      }],
       "title": "Xiaomi Yi 4K"
     },
     {
       "id": 52,
-      "groups": [2],
+      "groups": [2, 10],
       "image": "Видеорег. Mi Yi/1.jpg",
       "isShow": true,
       "price": 1000,
-      "prices": [
-        {
-          "color": "white",
-          "images": [
-            "Видеорег. Mi Yi/2.jpg",
-            "Видеорег. Mi Yi/3.jpg",
-            "Видеорег. Mi Yi/4.jpg",
-            "Видеорег. Mi Yi/5.jpg",
-            "Видеорег. Mi Yi/6.jpg",
-            "Видеорег. Mi Yi/7.jpg"
-          ],
-          "price": 1000,
-          "title": "Светлый"
-        }
-      ],
+      "prices": [{
+        "color": "white",
+        "images": [
+          "Видеорег. Mi Yi/2.jpg",
+          "Видеорег. Mi Yi/3.jpg",
+          "Видеорег. Mi Yi/4.jpg",
+          "Видеорег. Mi Yi/5.jpg",
+          "Видеорег. Mi Yi/6.jpg",
+          "Видеорег. Mi Yi/7.jpg"
+        ],
+        "price": 1000,
+        "title": "Светлый"
+      }],
       "title": "Xiaomi Yi Car Wi-Fi DVR"
     },
     {
       "id": 53,
-      "groups": [2],
+      "groups": [2, 10],
       "image": "Видеорег. Mi Jia/2.jpg",
       "isShow": true,
       "price": 2000,
-      "prices": [
-        {
-          "color": "white",
-          "images": [
-            "Видеорег. Mi Jia/1.jpg",
-            "Видеорег. Mi Jia/3.jpg",
-            "Видеорег. Mi Jia/4.jpg",
-            "Видеорег. Mi Jia/5.jpg",
-            "Видеорег. Mi Jia/6.jpg",
-            "Видеорег. Mi Jia/7.jpg"
-          ],
-          "price": 1000,
-          "title": "Светлый"
-        }
-      ],
+      "prices": [{
+        "color": "white",
+        "images": [
+          "Видеорег. Mi Jia/1.jpg",
+          "Видеорег. Mi Jia/3.jpg",
+          "Видеорег. Mi Jia/4.jpg",
+          "Видеорег. Mi Jia/5.jpg",
+          "Видеорег. Mi Jia/6.jpg",
+          "Видеорег. Mi Jia/7.jpg"
+        ],
+        "price": 1000,
+        "title": "Светлый"
+      }],
       "title": "Xiaomi MiJia Car Wi-Fi DVR"
     },
     {
       "id": 55,
-      "groups": [2],
+      "groups": [2, 10],
       "image": "Смартфоны Xiaomi Mi 6/7.jpg",
       "isShow": true,
       "price": 17700,
-      "prices": [
-        {
-          "color": "white",
-          "images": [
-            "Смартфоны Xiaomi Mi 6/8.jpg",
-            "Смартфоны Xiaomi Mi 6/6.jpg",
-            "Смартфоны Xiaomi Mi 6/4.jpg",
-            "Смартфоны Xiaomi Mi 6/5.jpg"
-          ],
-          "price": 17700,
-          "title": "Светлый"
-        }
-      ],
+      "prices": [{
+        "color": "white",
+        "images": [
+          "Смартфоны Xiaomi Mi 6/8.jpg",
+          "Смартфоны Xiaomi Mi 6/6.jpg",
+          "Смартфоны Xiaomi Mi 6/4.jpg",
+          "Смартфоны Xiaomi Mi 6/5.jpg"
+        ],
+        "price": 17700,
+        "title": "Светлый"
+      }],
       "title": "Xiaomi Mi 5 3/64"
     },
     {
       "id": 56,
-      "groups": [2],
+      "groups": [2, 10],
       "image": "Смартфон Xiaomi Redmi 5A/6.jpg",
       "isShow": true,
       "price": 20600,
-      "prices": [
-        {
-          "color": "white",
-          "images": [
-            "Смартфон Xiaomi Redmi 5A/2.jpg",
-            "Смартфон Xiaomi Redmi 5A/3.jpg",
-            "Смартфон Xiaomi Redmi 5A/4.jpg",
-            "Смартфон Xiaomi Redmi 5A/5.jpg"
-          ],
-          "price": 20600,
-          "title": "Светлый"
-        }
-      ],
+      "prices": [{
+        "color": "white",
+        "images": [
+          "Смартфон Xiaomi Redmi 5A/2.jpg",
+          "Смартфон Xiaomi Redmi 5A/3.jpg",
+          "Смартфон Xiaomi Redmi 5A/4.jpg",
+          "Смартфон Xiaomi Redmi 5A/5.jpg"
+        ],
+        "price": 20600,
+        "title": "Светлый"
+      }],
       "title": "Xiaomi Mi 5S 3/64GB"
     },
     {
@@ -1547,12 +1472,11 @@ export const state = () => ({
         13
       ],
       "id": 57,
-      "groups": [2],
+      "groups": [2, 12],
       "image": "Наушники Hybrid Pro/1.jpg",
       "isShow": true,
       "price": 1900,
-      "prices": [
-        {
+      "prices": [{
           "color": "black",
           "images": [
             "Наушники Hybrid Pro/1.jpg",
@@ -1599,7 +1523,7 @@ export const mutations = {
   SET_ITEMS(state, value) {
     state.items = value
   },
-  SET_ACTIVE(state, value){
+  SET_ACTIVE(state, value) {
     state.isActive = value
   }
 }
