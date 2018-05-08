@@ -31,71 +31,7 @@ export default {
   data() {
     return {
       isShowBasket: false,
-      items: [{
-          id: 0,
-          title: "Xiaomi Redmi 4A 2GB+32GB",
-          count: 5,
-          price: 9025.25,
-          color: 0,
-          image: "image.jpg"
-        },
-        {
-          id: 1,
-          title: "Xiaomi Mi A1 4GB+32GB",
-          count: 4,
-          price: 11520,
-          color: 0,
-          image: "image.jpg"
-        },
-        {
-          id: 2,
-          title: "Xiaomi Redmi 4A 2GB+16GB",
-          count: 1,
-          price: 10000.28,
-          color: 0,
-          image: "image.jpg"
-        },
-        {
-          id: 3,
-          title: "Xiaomi Mi A1 4GB+32GB",
-          count: 4,
-          price: 11520,
-          color: 0,
-          image: "hits.jpg"
-        },
-        {
-          id: 4,
-          title: "Xiaomi Mi A1 4GB+32GB",
-          count: 4,
-          price: 11520,
-          color: 0,
-          image: "image.jpg"
-        },
-        {
-          id: 5,
-          title: "Xiaomi Mi A1 4GB+32GB",
-          count: 4,
-          price: 11520,
-          color: 0,
-          image: "image.jpg"
-        },
-        {
-          id: 4,
-          title: "Xiaomi Mi A1 4GB+32GB",
-          count: 4,
-          price: 11520,
-          color: 0,
-          image: "image.jpg"
-        },
-        {
-          id: 4,
-          title: "Xiaomi Mi A1 4GB+32GB",
-          count: 4,
-          price: 11520,
-          color: 0,
-          image: "image.jpg"
-        }
-      ]
+      items: this.$store.getters['Order/Items']
     };
   },
   methods: {},
@@ -108,7 +44,7 @@ export default {
     allPrice() {
       var temp = 0;
       this.items.forEach(element => {
-        temp += element.count * element.price;
+        temp += element.count * element.product.price;
       });
       return temp
     }
@@ -210,7 +146,7 @@ export default {
             // text-overflow: ellipsis;
             // white-space: nowrap;
             font-family: 'Montserrat', sans-serif;
-            max-width: 330px;
+            max-width: 300px;
             width: 90%;
             padding: 5px;
             letter-spacing: 1px;

@@ -112,7 +112,7 @@ export const state = () => ({
 export const mutations = {
   SET_ITEMS(state, value) {
     state.items = value
-  }
+  },
 }
 
 

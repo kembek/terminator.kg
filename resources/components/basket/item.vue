@@ -1,10 +1,10 @@
 <template>
 <div class="item">
-  <img :src="'/images/' + item.image" />
+  <img :src="'/images/' + item.product.image" />
   <div class="description">
-    <h3>{{item.title}}</h3>
+    <h3>{{item.product.title}}</h3>
     <span class="count">Количество: {{item.count}}</span>
-    <span class="price">Цена: {{item.price}} сом</span>
+    <span class="price">Цена: {{item.product.price}} сом</span>
   </div>
   <span class="close"><Close /></span>
 </div>

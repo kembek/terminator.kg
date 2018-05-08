@@ -1044,37 +1044,6 @@ export const state = () => ({
       "title": "Xiaomi Redmi Note 4X 3GB+32GB"
     },
     {
-      "id": 38,
-      "groups": [2, 10],
-      "image": "Смартфоны Xiaomi Redmi Note 4X/3.jpg",
-      "isShow": true,
-      "price": 10000,
-      "prices": [{
-          "color": "#666666",
-          "images": [
-            "Смартфоны Xiaomi Redmi Note 4X/6.jpg",
-            "Смартфоны Xiaomi Redmi Note 4X/9.jpg",
-            "Смартфоны Xiaomi Redmi Note 4X/8.jpg",
-            "Смартфоны Xiaomi Redmi Note 4X/10.jpg"
-          ],
-          "price": 10000,
-          "title": "Темно серый"
-        },
-        {
-          "color": "#8aeeee",
-          "images": [
-            "Смартфоны Xiaomi Redmi Note 4X/6.jpg",
-            "Смартфоны Xiaomi Redmi Note 4X/9.jpg",
-            "Смартфоны Xiaomi Redmi Note 4X/8.jpg",
-            "Смартфоны Xiaomi Redmi Note 4X/10.jpg"
-          ],
-          "price": 10600,
-          "title": "бирюзовый"
-        }
-      ],
-      "title": "Xiaomi Redmi Note 4X 3GB+32GB"
-    },
-    {
       "id": 39,
       "groups": [2, 4, 10],
       "image": "Смартфоны Xiaomi Redmi 4X/5.jpg",

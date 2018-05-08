@@ -1,5 +1,5 @@
 <template>
-<div class="div">
+<div class="div" v-if="items != null">
   <div class="back_pay">
     <div class="back">
       <nuxt-link to="/">
@@ -23,10 +23,10 @@
       <li v-for="(item, i) in items" :key="i">
         <div class="l1">
           <!-- <div class="image"> -->
-          <img :src="'/images/' + 'image.jpg'" />
+          <img :src="'/images/' + item.product.image" />
           <!--исправить-->
           <!-- </div> -->
-          <div class="title">{{item.title}}</div>
+          <div class="title">{{item.product.title}}</div>
         </div>
         <div class="l2">
           <!-- <div class="price"> -->
@@ -36,12 +36,12 @@
             <p>Сумма:</p>
           </div>
           <div class="nums">
-            <p>{{item.price}}</p>
+            <p>{{item.product.price}}</p>
             <div class="count">
               <input v-model="item.count" type="number" min="0">
             </div>
             <div class="total">
-              <p>{{item.price * item.count}}</p>
+              <p>{{item.product.price * item.count}}</p>
             </div>
             <!-- </div> -->
           </div>
@@ -52,7 +52,8 @@
   <hr>
   <div class="price">
     <div class="cost">
-      <div class="sum">
+      <!-- Исправить -->
+      <!-- <div class="sum">
         <p>Сумма</p>
         <p>{{sum}}</p>
       </div>
@@ -65,7 +66,7 @@
       </div>
       <div class="err">
       </div>
-      <hr>
+      <hr> -->
       <div class="total">
         <p>Итого</p>
         <p>{{allSun}}</p>
@@ -87,79 +88,15 @@ export default {
   data() {
     return {
       send: 100,
-      isSend: true,
-      items: [{
-          id: 0,
-          title: "Xiaomi Redmi 4A 2GB+32GB",
-          count: 5,
-          price: 9025.25,
-          color: 0,
-          image: "image.jpg"
-        },
-        {
-          id: 1,
-          title: "Xiaomi Mi A1 4GB+32GB",
-          count: 4,
-          price: 11520,
-          color: 0,
-          image: "image.jpg"
-        },
-        {
-          id: 2,
-          title: "Xiaomi Redmi 4A 2GB+16GB",
-          count: 1,
-          price: 10000.28,
-          color: 0,
-          image: "image.jpg"
-        },
-        {
-          id: 3,
-          title: "Xiaomi Mi A1 4GB+32GB",
-          count: 4,
-          price: 11520,
-          color: 0,
-          image: "image.jpg"
-        },
-        {
-          id: 4,
-          title: "Xiaomi Mi A1 4GB+32GB",
-          count: 4,
-          price: 11520,
-          color: 0,
-          image: "image.jpg"
-        },
-        {
-          id: 5,
-          title: "Xiaomi Mi A1 4GB+32GB",
-          count: 4,
-          price: 11520,
-          color: 0,
-          image: "image.jpg"
-        },
-        {
-          id: 4,
-          title: "Xiaomi Mi A1 4GB+32GB",
-          count: 4,
-          price: 11520,
-          color: 0,
-          image: "image.jpg"
-        },
-        {
-          id: 4,
-          title: "Xiaomi Mi A1 4GB+32GB",
-          count: 4,
-          price: 11520,
-          color: 0,
-          image: "image.jpg"
-        }
-      ]
+      isSend: false,
+      items: this.$store.getters['Order/Items']
     };
   },
   computed: {
     sum() {
       var a = 0;
       this.items.forEach(item => {
-        a += item.price * item.count
+        a += item.product.price * item.count
       });
       return a;
     },

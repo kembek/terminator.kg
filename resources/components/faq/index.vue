@@ -1,6 +1,6 @@
 <template>
 <div class="wrapper">
-  <div class="search">
+  <!-- <div class="search">
     <SearchIcon />
     <input type="text" placeholder="Поиск по FAQ">
   </div>
@@ -8,10 +8,10 @@
   <label for="toogle-categories" class="toogle-categories-label">
     <IconDots />
   </label>
-  <Categories :items="categories" />
+  <Categories :items="categories" /> -->
   <nuxt-child />
   <DropDown title="FAQ" scroll="faq" />
-  <QuestionForm />
+  <!-- <QuestionForm /> -->
 </div>
 </template>
 

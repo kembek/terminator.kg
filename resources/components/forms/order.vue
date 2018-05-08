@@ -67,7 +67,7 @@ export default {
   justify-content: center;
   z-index: 6000000000000;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: rgba(0, 0, 0, .75);
   h2 {
     font-size: 20px;
     margin-bottom: 10px;
@@ -75,11 +75,11 @@ export default {
     color: #0b8793;
   }
   form {
-    max-width: 300px;
+    max-width: 400px;
     width: auto;
     border: 1px solid #0b8793;
     padding: 20px;
-    background: #35333352;
+    background: rgb(3, 3, 3);
     display: flex;
     flex-direction: column;
     justify-content: center;

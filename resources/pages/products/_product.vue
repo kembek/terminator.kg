@@ -65,7 +65,7 @@
 
       <button class="btn" @click="$root.$emit('order', true)">Купить</button>
 
-      <button class="btn">Добавить в корзину</button>
+      <button class="btn" @click="AddOrder()">Добавить в корзину</button>
 
     </div>
 
@@ -89,7 +89,26 @@ export default {
       product: this.$store.getters['Products/Item']
     };
   },
+  notifications: {
+    showSuccessMsg: {
+      type: 'success',
+      title: 'Успешно',
+      text: 'Товар добавлен'
+    }
+  },
   methods: {
+    AddOrder() {
+      // this.$store.getters['Order/Items'].forEach(item => {
+      //   if(item.product.id == this.product.id)
+      //   this.$store.dispatch('Order/AddCount')
+      // });
+      let temp = {count: this.count, product: this.product}
+      this.$store.dispatch('Order/AddProduct', temp)
+      this.showSuccessMsg({
+        text: 'Товар \"' + this.product.title + '\" добавлен в корзину!'
+      })
+      this.$root.$emit('basket', true)
+    },
     setSlide(value) {
       this.img_id = value;
     },
