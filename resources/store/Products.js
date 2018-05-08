@@ -300,7 +300,7 @@ export const state = () => ({
     },
     {
       "id": 11,
-      "groups": [2, 3, 10],
+      "groups": [2, 3,5,6, 10],
       "image": "Xiaomi Redmi Note 5 Pro/1.jpg",
       "isShow": true,
       "price": 1,
@@ -366,7 +366,7 @@ export const state = () => ({
     },
     {
       "id": 13,
-      "groups": [2, 3, 10],
+      "groups": [2, 5,6, 10],
       "image": "Смартфоны Xiaomi Redmi 5 Plus/11.jpg",
       "isShow": true,
       "price": 9590,
@@ -432,7 +432,7 @@ export const state = () => ({
     },
     {
       "id": 16,
-      "groups": [2, 10],
+      "groups": [2,5,6, 10],
       "image": "Смартфоны Xiaomi Redmi 5 Plus/8.jpg",
       "isShow": true,
       "price": 10820,
@@ -855,9 +855,9 @@ export const state = () => ({
     },
     {
       "id": 31,
-      "groups": [2, 10],
+      "groups": [2,10],
       "image": "Смартфоны Xiaomi Mi 6 Ceramic/3.jpg",
-      "groups": [2, 3],
+      "groups": [2, 3,4],
       "isShow": true,
       "price": 28490,
       "prices": [{
@@ -874,10 +874,10 @@ export const state = () => ({
     },
     {
       "id": 32,
-      "groups": [2, 10],
+      "groups": [2,4, 10],
       "image": "Смартфоны Xiaomi Mi 6/4.jpg",
       "isShow": true,
-      "groups": [2, 3],
+      "groups": [2, 3,4],
       "price": 26500,
       "prices": [{
           "color": "#000000",
@@ -972,7 +972,7 @@ export const state = () => ({
       "title": "Xiaomi Mi 5 3/32 GB"
     }, {
       "id": 37,
-      "groups": [2, 10],
+      "groups": [2,5,6, 10],
       "image": "Смартфоны Xiaomi Redmi Note 4X/12.jpg",
       "isShow": true,
       "price": 12190,
@@ -1014,7 +1014,7 @@ export const state = () => ({
     },
     {
       "id": 38,
-      "groups": [2, 10],
+      "groups": [2,5,6, 10],
       "image": "Смартфоны Xiaomi Redmi Note 4X/3.jpg",
       "isShow": true,
       "price": 10000,
@@ -1045,7 +1045,7 @@ export const state = () => ({
     },
     {
       "id": 39,
-      "groups": [2, 4, 10],
+      "groups": [2, 5,6, 10],
       "image": "Смартфоны Xiaomi Redmi 4X/5.jpg",
       "isShow": true,
       "price": 9090,
