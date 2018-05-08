@@ -1,14 +1,14 @@
 <template>
 <div class="main-blocks">
-  <nuxt-link to="/hits">
+  <nuxt-link to="/categories/hits/">
     <h2>Хиты продаж</h2>
     <img src="/images/hits.jpg" alt="Хиты продаж">
   </nuxt-link>
-  <nuxt-link to="/recomendation">
+  <nuxt-link to="/categories/recomendation/">
     <h2>Рекомендуем</h2>
     <img src="/images/recomendation.jpg" alt="Рекомдуем">
   </nuxt-link>
-  <nuxt-link to="/new">
+  <nuxt-link to="/categories/new/">
     <h2>Новинки</h2>
     <img src="/images/new.jpg" alt="Новинки">
   </nuxt-link>

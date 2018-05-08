@@ -5,14 +5,14 @@
 </div>
 <div class="result-wrapper" v-else>
   <div class="search-filters">
-    <Filters />
+    <!-- <Filters /> -->
   </div>
   <div class="search-result">
-    <div class="product" v-for="(item, i) in items" :key="i">
-      <img :src="'/images/'+item.image" alt="">
+    <nuxt-link :to="'/products/'+item.id" class="product" v-for="(item, i) in items" :key="i">
+      <img :src="'/images/'+item.image" :alt="item.id">
       <h3>{{item.title}}</h3>
       <span>{{item.price}}</span>
-    </div>
+    </nuxt-link>
   </div>
 </div>
 </template>
@@ -46,10 +46,10 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  h3{
-        margin-top: 10px;
-        font-size: 24px;
-        color: @color-text;
+  h3 {
+    margin-top: 10px;
+    font-size: 24px;
+    color: @color-text;
   }
   svg {
     max-height: 55vh;
@@ -67,13 +67,26 @@ export default {
   width: 100%;
   flex-wrap: wrap-reverse;
   .search-result {
-    width: 75%;
+    width: 100%;
+    max-width: 1200px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around; // justify-content: space-evenly;
     .product {
       margin: 10px;
       text-align: center;
+      text-decoration: none;
+      max-width: 200px;
+      max-height: 400px;
+      color: @color-main_font;
+      img {
+    max-width: 200px;
+    width: 100%;
+    height: 50vh;
+    min-height: 300px;
+    max-height: 300px;
+    object-fit: cover;
+      }
       h3 {
         color: @color-dark;
         margin: 5px;
@@ -81,42 +94,38 @@ export default {
     }
   }
 }
-@media screen and (max-width: 1093px)
-{
-  .result-wrapper{
-    .search-result{
-      width: 65%;
-    }
-  }
-}
-@media screen and (max-width: 783px)
-{
-  .result-wrapper{
-    .search-result{
-      width: 60%;
-    }
-  }
-}
-@media screen and (max-width: 685px)
-{
-  .result-wrapper{
-    .search-result{
-      width: 45%;
-      justify-content: center;
-    }
-    
-  }
-}
-@media screen and (max-width: 501px)
-{
-  .result-wrapper{
-    justify-content: center;
-    .search-result{
-      width: 90%
-    }
-    
-  }
-}
 
+// @media screen and (max-width: 1093px) {
+//   .result-wrapper {
+//     .search-result {
+//       width: 65%;
+//     }
+//   }
+// }
 
+// @media screen and (max-width: 783px) {
+//   .result-wrapper {
+//     .search-result {
+//       width: 60%;
+//     }
+//   }
+// }
+
+// @media screen and (max-width: 685px) {
+//   .result-wrapper {
+//     .search-result {
+//       width: 45%;
+//       justify-content: center;
+//     }
+//   }
+// }
+
+// @media screen and (max-width: 501px) {
+//   .result-wrapper {
+//     justify-content: center;
+//     .search-result {
+//       width: 90%
+//     }
+//   }
+// }
 </style>

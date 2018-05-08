@@ -2,8 +2,8 @@
   <div class="page">
     <Categories />
     <Blocks />
-    <Reviews />
-    <Blog />
+    <!-- <Reviews /> -->
+    <!-- <Blog /> -->
   </div>
 </template>
 

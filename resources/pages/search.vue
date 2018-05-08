@@ -7,9 +7,9 @@
     </div>
     <div class="live-search">
       <ul v-if="search && items.length != 0">
-        <li v-for="(item, i) in items" :key="i">
+        <li v-for="(item, i) in items" :key="i" v-if="i < 5">
           <nuxt-link :to="'/products/' + item.id">
-            {{item.title}}
+            {{item.title}} | {{item.price}} сом
           </nuxt-link>
         </li>
       </ul>

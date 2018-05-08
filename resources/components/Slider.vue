@@ -5,7 +5,7 @@
     <nuxt-link class="slider-link" :to="items[active].link">Подробнее</nuxt-link>
   </div>
   <div class="navigation">
-    <span :class="{'active': active == i}" v-for="(item, i) in items" :key="i" @click="active = i; timeLine = 0" />
+    <span :class="{'active': active == i}" v-for="(item, i) in items" :key="i" @click="active = i; timeLine = 0" v-if="items.length > 1"/>
   </div>
 </div>
 <div v-else style="padding-top: 100px;" />
@@ -24,19 +24,9 @@ export default {
       timeLine: 0,
       items: [{
           text: "<h2>Mi MIX 2</h2><h3>БЕЗРАМОЧНЫЙ СМАРТФОН</h3>",
-          link: "/faq",
+          link: "/",
           img: "/images/slide1.jpg"
-        },
-        {
-          text: "<h2>Девушка</h2><h3>Красавица</h3>",
-          link: "/",
-          img: "/images/slide2.jpg"
-        },
-        {
-          text: "<h2>Redmi 5 Plus Global Version</h2><h3>БЕЗРАМОЧНЫЙ СМАРТФОН</h3>",
-          link: "/",
-          img: "/images/slide3.jpg"
-        },
+        }
       ]
     }
   },

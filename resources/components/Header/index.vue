@@ -52,27 +52,27 @@ export default {
         childs: [{
           isLocal: true,
           title: 'ВСЕ СМАРТФОНЫ',
-          link: 'all',
+          link: '/categories/smartphones',
           img: 'all.svg'
         }, {
           isLocal: true,
           title: 'ТЯЖЕЛЫЕ ИГРЫ',
-          link: 'hard-game',
+          link: '/categories/hard-games',
           img: 'game.svg'
         }, {
           isLocal: true,
           title: 'ОТЛИЧНАЯ КАМЕРА',
-          link: '',
+          link: '/categories/best-camera',
           img: 'camera.svg'
         }, {
           isLocal: true,
           title: 'АКТИВНОЕ ИСПОЛЬЗОВАНИЕ',
-          link: '',
+          link: '/categories/active-using',
           img: 'battery.svg'
         }, {
           isLocal: true,
           title: 'УНИВЕРСАЛЬНЫЙ СМАРТФОН',
-          link: '',
+          link: '/categories/universal-smartphone',
           img: 'universal.svg'
         }]
       }, {

@@ -1,6 +1,6 @@
 <template>
-<div class="main-categorie" @click="ShowNotify()">
-  <nuxt-link :to="item.link" v-for="(item, index) in items" :key="index">
+<div class="main-categorie">
+  <nuxt-link :to="'/categories/'+item.link" v-for="(item, index) in items" :key="index">
     <img :src="'/images/' + item.image" />
     <span>{{item.title}}</span>
   </nuxt-link>
@@ -11,37 +11,13 @@
 export default {
   data() {
     return {
-      items: [{
-        title: 'Аксессуары для смартфона',
-        image: 'accessories.svg',
-        link: '/'
-      }, {
-        title: 'Зарядные устройства',
-        image: 'charging.svg',
-        link: '/'
-      }, {
-        title: 'Умные часы и ремешки',
-        image: 'watch.svg',
-        link: '/'
-      }, {
-        title: 'Гаджеты и устройства',
-        image: 'phone.svg',
-        link: '/'
-      }, {
-        title: 'Товары для дома',
-        image: 'home-device.svg',
-        link: '/'
-      }, {
-        title: 'Наушники и калонки',
-        image: 'headphone.svg',
-        link: '/'
-      }]
+      items: this.$store.getters['Categories/Items']
     }
   },
   methods: {
     ShowNotify(type, title, text) {
       this.showSuccessMsg()
-    }
+    },
   },
   notifications: {
     showSuccessMsg: {
@@ -49,7 +25,7 @@ export default {
       title: 'Успешно',
       text: 'Операция была успешно выполнена'
     }
-  }
+  },
 }
 </script>
 

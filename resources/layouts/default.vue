@@ -63,33 +63,8 @@ export default {
         this.loading = false
       }, 1000);
     })
-
-
-  },
-  mounted() {
-    if (!window.navigator) {
-      this.online = false
-      return
-    }
-    this.online = Boolean(window.navigator.onLine)
-    window.addEventListener('offline', this._toggleNetworkStatus)
-    window.addEventListener('online', this._toggleNetworkStatus)
-  },
-  destroyed() {
-    window.removeEventListener('offline', this._toggleNetworkStatus)
-    window.removeEventListener('online', this._toggleNetworkStatus)
   },
   methods: {
-    _toggleNetworkStatus({
-      type
-    }) {
-      this.online = type === 'online'
-      // this.loading = !this.online
-      // if(this.online) 
-      //   this.text = 'Идёт загрузка'
-      //   else 
-      //   this.text = 'Нет сети!'
-    },
     ready(fn) {
       if (process.browser) {
         window.onload = () => {

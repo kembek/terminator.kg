@@ -3,6 +3,9 @@ const resolve = require('path').resolve
 const axios = require('axios')
 
 module.exports = {
+  router: {
+    // middleware: 'store'
+  },
   /*
    ** Headers of the page
    */
@@ -125,10 +128,6 @@ module.exports = {
         href: 'logo180.png'
       },
     ],
-    // script: [{
-    //   src: 'sw.js',
-    //   type: 'text/javascript'
-    // }]
   },
 
   /*
@@ -157,22 +156,28 @@ module.exports = {
     }, {
       src: '~/plugins/vue-notifications.js',
       ssr: false
-    },{
+    }, {
       src: '~/plugins/vue-slider-component.js',
       ssr: false
     },
     '~/plugins/vue-social-sharing.js',
   ],
   modules: [
+    '@nuxtjs/axios',
     '@nuxtjs/sitemap',
     '@nuxtjs/pwa'
   ],
+  axios: {
+    // proxy: true
+  },
   workbox: {
     runtimeCaching: [{
       urlPattern: 'https://terminator.kg/*',
       strategyOptions: {
         cacheName: 'terminator.kg',
-        cacheableResponse: { statuses: [0, 200] },
+        cacheableResponse: {
+          statuses: [0, 200]
+        },
         cacheExpiration: {
           maxEntries: 10,
           maxAgeSeconds: 300
