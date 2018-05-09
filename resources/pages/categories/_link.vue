@@ -54,58 +54,7 @@ export default {
 
 <style lang="less">
 @import "~assets/css/themes/default.less";
-.NotResult {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  h3 {
-    margin-top: 10px;
-    font-size: 24px;
-    color: @color-text;
-  }
-  svg {
-    max-height: 55vh;
-    -webkit-transition: none;
-    transition: none;
-    width: 80vw;
-    max-width: 380px;
-    fill: #5FA09B;
-    margin: 20px;
-  }
-}
 
-.result-wrapper {
-  display: flex;
-  width: 100%;
-    max-width: 1200px;
-  flex-wrap: wrap-reverse;
-  .search-result {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around; // justify-content: space-evenly;
-    .product {
-      margin: 10px;
-      text-align: center;
-      text-decoration: none;
-      max-width: 200px;
-      max-height: 400px;
-      color: @color-main_font;
-      img {
-        max-width: 200px;
-        width: 100%;
-        height: 50vh;
-        min-height: 300px;
-        max-height: 300px;
-        object-fit: cover;
-      }
-      h3 {
-        color: @color-dark;
-        margin: 5px;
-      }
-    }
-  }
-}
 
 // @media screen and (max-width: 1093px) {
 //   .result-wrapper {
