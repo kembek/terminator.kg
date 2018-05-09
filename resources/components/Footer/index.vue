@@ -17,7 +17,7 @@
               </a>
         </div>
         <div class="link">
-          <img src="/images/telephone.svg" alt="Номера" target="_blank" /><span><a href="tel:+996 502 052 052">+996 502 052 052</a><a href="tel:+996 558 05 80 58">+996 558 05 80 58</a></span>
+          <img src="/images/telephone.svg" alt="Номера" target="_blank" /><span><a href="tel:+996 502 052 052">+996 502 052 052</a><a href="tel:+996 558 058 058">+996 558 058 058</a></span>
         </div>
       </div>
     </div>
