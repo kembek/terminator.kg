@@ -108,16 +108,19 @@ export default {
       //   if(item.product.id == this.product.id)
       //   this.$store.dispatch('Order/AddCount')
       // });
-      // this.showInfoMsg()
-      let temp = {
-        count: this.count,
-        product: this.product
-      }
-      this.$store.dispatch('Order/AddProduct', temp)
-      this.showSuccessMsg({
-        text: 'Товар \"' + this.product.title + '\" добавлен в корзину!'
-      })
-      this.$root.$emit('basket', true)
+
+
+      this.showInfoMsg()
+
+      // let temp = {
+      //   count: this.count,
+      //   product: this.product
+      // }
+      // this.$store.dispatch('Order/AddProduct', temp)
+      // this.showSuccessMsg({
+      //   text: 'Товар \"' + this.product.title + '\" добавлен в корзину!'
+      // })
+      // this.$root.$emit('basket', true)
     },
     setSlide(value) {
       this.img_id = value;

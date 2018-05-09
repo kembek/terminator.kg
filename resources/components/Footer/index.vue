@@ -35,13 +35,13 @@
     <div class="block">
       <h2>Присоединяйтесь</h2>
       <div class="links-social">
-        <a href="https://vk.com/" target="_blank">
-          <VK />
+        <a href="https://ok.ru/profile/587640037410" target="_blank" title="Мы в одноклассниках">
+          <OK />
         </a>
-        <a href="https://fb.com/" target="_blank">
+        <a href="https://fb.com/terminator.kg/" target="_blank" title="Мы в facebook">
           <FB />
         </a>
-        <a href="https://instagram.com/terminator_kg" target="_blank">
+        <a href="https://instagram.com/terminator_kg" target="_blank" title="Мы в instagram">
           <Insta />
         </a>
       </div>
@@ -81,7 +81,7 @@
 </template>
 
 <script>
-import VK from '~/assets/svg/vk.svg';
+import OK from '~/assets/svg/ok.svg';
 import FB from '~/assets/svg/fb.svg';
 import Insta from '~/assets/svg/insta.svg';
 import Logo from '~/assets/svg/logo.svg';
@@ -90,7 +90,7 @@ import FysLogo from '~/assets/svg/fysLogo.svg';
 
 export default {
   components: {
-    VK,
+    OK,
     FB,
     Insta,
     Logo,

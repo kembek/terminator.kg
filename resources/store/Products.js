@@ -624,7 +624,7 @@ export const state = () => ({
     },
     {
       "id": 22,
-      "groups": [2, 7],
+      "groups": [7],
       "image": "Защитное стекло_3D/2.jpg",
       "isShow": true,
       "price": 300,
@@ -641,7 +641,7 @@ export const state = () => ({
     },
     {
       "id": 23,
-      "groups": [2, 7],
+      "groups": [7],
       "image": "Защитное стекло_обычное/3.jpg",
       "isShow": true,
       "price": 150,
@@ -689,7 +689,7 @@ export const state = () => ({
     },
     {
       "id": 25,
-      "groups": [2,10],
+      "groups": [10],
       "image": "Ремешки для Mi Band 2/9.jpg",
       "isShow": true,
       "price": 650,
@@ -1170,7 +1170,7 @@ export const state = () => ({
     },
     {
       "id": 43,
-      "groups": [2, 11],
+      "groups": [11],
       "image": "Wi-Fi Router mini/1.jpg",
       "isShow": true,
       "price": 1000,
@@ -1203,7 +1203,7 @@ export const state = () => ({
     },
     {
       "id": 44,
-      "groups": [2, 11],
+      "groups": [11],
       "image": "Wi-Fi Router 3/1.jpg",
       "isShow": true,
       "price": 2100,
@@ -1223,7 +1223,7 @@ export const state = () => ({
     },
     {
       "id": 45,
-      "groups": [2, 11],
+      "groups": [11],
       "image": "VR Play/1.jpg",
       "isShow": true,
       "price": 1,
@@ -1242,7 +1242,7 @@ export const state = () => ({
     },
     {
       "id": 46,
-      "groups": [2, 11],
+      "groups": [11],
       "image": "VR Glass/6.jpg",
       "isShow": true,
       "price": 1,
@@ -1262,7 +1262,7 @@ export const state = () => ({
     },
     {
       "id": 47,
-      "groups": [2, 7],
+      "groups": [7],
       "image": "Power Bank 2 20.000 mAh/1.jpg",
       "isShow": true,
       "price": 2100,
@@ -1281,7 +1281,7 @@ export const state = () => ({
     },
     {
       "id": 48,
-      "groups": [2,7],
+      "groups": [7],
       "image": "Power Bank 2 10.000 mAh/1.jpg",
       "isShow": true,
       "price": 1100,
@@ -1300,7 +1300,7 @@ export const state = () => ({
     },
     {
       "id": 49,
-      "groups": [2, 7],
+      "groups": [7],
       "image": "Mi Band 2/2.jpg",
       "isShow": true,
       "price": 1590,
@@ -1319,7 +1319,7 @@ export const state = () => ({
     },
     {
       "id": 50,
-      "groups": [2, 10],
+      "groups": [10],
       "image": "Xiaomi Yi Action/1.jpg",
       "isShow": true,
       "price": 1000,
@@ -1338,7 +1338,7 @@ export const state = () => ({
     },
     {
       "id": 51,
-      "groups": [2, 10],
+      "groups": [10],
       "image": "Экшен кам. Yi 4K/1.jpg",
       "isShow": true,
       "price": 2000,
@@ -1359,7 +1359,7 @@ export const state = () => ({
     },
     {
       "id": 52,
-      "groups": [2, 10],
+      "groups": [10],
       "image": "Видеорег. Mi Yi/1.jpg",
       "isShow": true,
       "price": 1000,
@@ -1380,7 +1380,7 @@ export const state = () => ({
     },
     {
       "id": 53,
-      "groups": [2, 10],
+      "groups": [10],
       "image": "Видеорег. Mi Jia/2.jpg",
       "isShow": true,
       "price": 2000,
@@ -1442,7 +1442,7 @@ export const state = () => ({
         13
       ],
       "id": 57,
-      "groups": [2, 12],
+      "groups": [12],
       "image": "Наушники Hybrid Pro/1.jpg",
       "isShow": true,
       "price": 1900,

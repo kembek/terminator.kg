@@ -10,8 +10,8 @@
     </div>
     <div class="work-time">
       <h3>График работы:</h3>
-      <p>10:00 - 20:00 <span>ПН-ПТ</span></p>
-      <p>10:00 - 20:00 <span>ПН-ПТ</span></p>
+      <p>10:00 - 19:00 <span>ПН-СБ</span></p>
+      <p>12:00 - 19:00 <span>ВС</span></p>
     </div>
   </div>
 </div>
