@@ -36,7 +36,7 @@ class User extends Model {
   }
 
   customers() {
-    return this.belongsToMany('USERS/Customer')
+    return this.belongsToMany('ORDERS/Customer')
       .pivotModel(use('USERS/UserCustomer'))
   }
 

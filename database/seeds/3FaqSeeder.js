@@ -13,6 +13,7 @@
 const Database = use('Database')
 const Factory = use('Factory')
 const Faqs = use('FAQS/Faq')
+const _ = require('lodash')
 
 class FaqSeeder {
   async run() {
@@ -25,7 +26,11 @@ class FaqSeeder {
 
     const faq = await Factory.model('FAQS/Faq').makeMany(5, { user_id: 1 })
     const categories = await category.faqs().saveMany(faq)
-    console.log('Faqs seeds done!!!')
+
+    await Factory.model('FAQS/Question').createMany(_.random(8, 12))
+    await Factory.model('FAQS/Review').createMany(_.random(20, 28))
+
+    console.log('Faqs seeds done!')
   }
 }
 

@@ -8,6 +8,7 @@ class MenuSchema extends Schema {
       table.increments()
       table.integer('parent_id').unsigned()
       table.integer('user_id').notNullable().unsigned()
+      table.string('title').notNullable().unique('ui_menus_title')
       table.string('link').notNullable().unique('ui_menus_link')
       table.integer('sort').notNullable().unsigned().defaultTo(0)
     })

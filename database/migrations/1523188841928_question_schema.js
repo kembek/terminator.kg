@@ -8,7 +8,7 @@ class QuestionSchema extends Schema {
       table.increments()
       table.string('email', 80).notNullable()
       table.string('question').notNullable()
-      table.string('username', 80).notNullable()
+      table.string('username', 160).notNullable()
       table.boolean('is_status').notNullable().defaultTo(false)
       table.timestamps()
     })

@@ -3,12 +3,13 @@
 const Model = use('Model')
 
 class OrderProduct extends Model {
+
   static get table() {
     return 'order_products'
   }
 
   static get primaryKey() {
-    return null
+    return ['order_id', 'product_id']
   }
 
   static get incrementing() {

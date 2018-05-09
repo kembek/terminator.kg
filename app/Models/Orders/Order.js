@@ -3,6 +3,11 @@
 const Model = use('Model')
 
 class Order extends Model {
+
+  static get table() {
+    return 'orders'
+  }
+
   orderProducts() {
     return this.belongsToMany('PRODUCTS/Product')
       .pivotModel(use('ORDERS/OrderProduct'))
@@ -14,7 +19,7 @@ class Order extends Model {
   }
 
   customers() {
-    return this.belongsTo('USERS/Customer', 'customer_id', 'id')
+    return this.belongsTo('ORDERS/Customer', 'customer_id', 'id')
   }
 }
 

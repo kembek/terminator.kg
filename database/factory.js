@@ -59,6 +59,23 @@ Factory.blueprint('FAQS/Faq', (faker, i, data) => {
   }
 })
 
+Factory.blueprint('FAQS/Question', (faker) => {
+  return {
+    email: faker.email(),
+    question: faker.sentence({ words: _.random(3, 7) }),
+    username: faker.name()
+  }
+})
+
+Factory.blueprint('FAQS/Review', (faker) => {
+  return {
+    email: faker.email(),
+    img: faker.url({ extensions: ['jpg', 'png'] }),
+    username: faker.name(),
+    description: faker.sentence({ words: _.random(5, 10) })
+  }
+})
+
 Factory.blueprint('POSTS/PostCategory', (faker, i, data) => {
   return {
     user_id: data.user_id,
@@ -69,7 +86,7 @@ Factory.blueprint('POSTS/PostCategory', (faker, i, data) => {
 Factory.blueprint('POSTS/Post', (faker, i, data) => {
   return {
     user_id: data.user_id,
-    thumbnail: _.random(1, 9) + '.jpg',
+    thumbnail: faker.url({ extensions: ['jpg', 'png'] }),
     title: faker.sentence({ words: _.random(1, 4) }),
     body: faker.paragraph()
   }
@@ -78,7 +95,7 @@ Factory.blueprint('POSTS/Post', (faker, i, data) => {
 Factory.blueprint('PRODUCTS/ProductCategory', (faker, i, data) => {
   return {
     user_id: data.user_id,
-    thumbnail: _.random(1, 9) + '.jpg',
+    thumbnail: faker.url({ extensions: ['jpg', 'png'] }),
     title: faker.sentence({ words: _.random(1, 2) }),
     is_status: true
   }
@@ -89,7 +106,7 @@ Factory.blueprint('PRODUCTS/Product', (faker, i, data) => {
   return {
     user_id: data.user_id,
     stock_status_id: _.random(1, 3),
-    thumbnail: _.random(1, 9) + '.jpg',
+    thumbnail: faker.url({ extensions: ['jpg', 'png'] }),
     title: faker.sentence({ words: _.random(3, 6) }),
     description: faker.paragraph(),
     information: faker.paragraph(),
@@ -114,7 +131,7 @@ Factory.blueprint('PRODUCTS/ProductImage', (faker, i, data) => {
 
 Factory.blueprint('PRODUCTS/ProductPrice', (faker, i, data) => {
   return {
-    price: faker.floating({ fixed: 2, min: 0, max: 999999999 })
+    price: faker.floating({ fixed: 2, min: 0, max: 9999999 })
   }
 })
 
@@ -125,8 +142,18 @@ Factory.blueprint('PRODUCTS/Image', (faker, i, data) => {
   }
 })
 
+Factory.blueprint('ORDERS/Customer', (faker) => {
+  return {
+    email: faker.email(),
+    username: faker.username(),
+    phone: faker.phone(),
+    is_status: faker.bool({ likelihood: 80 })
+  }
+})
 
-
-
-
-
+Factory.blueprint('ORDERS/Order', (faker, i, data) => {
+  return {
+    comment: faker.sentence(),
+    is_status: faker.bool({ likelihood: 20 })
+  }
+})

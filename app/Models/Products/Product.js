@@ -37,7 +37,12 @@ class Product extends Basic {
   }
 
   prices() {
-    return this.manyThrough('PRODUCTS/ProductPrice', 'prices')
+    return this.manyThrough('PRODUCTS/ProductColor', 'prices')
+  }
+
+  orderProducts() {
+    return this.belongsToMany('ORDERS/Order')
+      .pivotModel(use('ORDERS/OrderProduct'))
   }
 }
 

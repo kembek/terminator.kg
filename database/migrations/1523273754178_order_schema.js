@@ -7,8 +7,6 @@ class OrderSchema extends Schema {
     this.create('orders', (table) => {
       table.increments()
       table.integer('customer_id').notNullable().unsigned()
-      table.integer('quantity').notNullable().unsigned()
-      table.decimal('total', 11, 2).notNullable().unsigned()
       table.string('comment')
       table.boolean('is_status').notNullable().defaultTo(false)
       table.timestamps()
