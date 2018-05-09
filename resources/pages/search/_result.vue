@@ -11,7 +11,7 @@
     <nuxt-link :to="'/products/'+item.id" class="product" v-for="(item, i) in items" :key="i">
       <img :src="'/images/'+item.image" :alt="item.id">
       <h3>{{item.title}}</h3>
-      <span>{{item.price}}</span>
+      <span>{{item.price}} сом</span>
     </nuxt-link>
   </div>
 </div>
