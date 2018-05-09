@@ -8,8 +8,8 @@
     <!-- <Filters /> -->
   </div>
   <div class="search-result">
-    <nuxt-link :to="'/products/'+item.id" class="product" v-for="(item, i) in items" :key="i">
-      <img :src="'/images/'+item.image" :alt="item.id">
+    <nuxt-link :to="'/products/'+item.id" class="product" v-for="(item, i) in items" :key="i" :title="item.title">
+      <img :src="'/images/'+item.image" :alt="item.title">
       <h3>{{item.title}}</h3>
       <span>{{item.price}} сом</span>
     </nuxt-link>

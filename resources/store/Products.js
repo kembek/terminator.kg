@@ -406,11 +406,8 @@ export const state = () => ({
       "prices": [{
           "color": "#d4c69a",
           "images": [
-            "Смартфоны Xiaomi Redmi 5 Plus/8.jpg",
-            "Смартфоны Xiaomi Redmi 5 Plus/5.jpg",
-            "Смартфоны Xiaomi Redmi 5 Plus/1.jpg",
-            "Смартфоны Xiaomi Redmi 5 Plus/3.jpg",
-            "Смартфоны Xiaomi Redmi 5 Plus/6.jpg"
+            "Смартфоны Xiaomi Redmi 5 Plus/9.jpg",
+            "Смартфоны Xiaomi Redmi 5 Plus/11.jpg",
           ],
           "price": 11920,
           "title": "золотистый"
@@ -418,11 +415,9 @@ export const state = () => ({
         {
           "color": "#000000",
           "images": [
-            "Смартфоны Xiaomi Redmi 5 Plus/8.jpg",
-            "Смартфоны Xiaomi Redmi 5 Plus/5.jpg",
             "Смартфоны Xiaomi Redmi 5 Plus/1.jpg",
+            "Смартфоны Xiaomi Redmi 5 Plus/2.jpg",
             "Смартфоны Xiaomi Redmi 5 Plus/3.jpg",
-            "Смартфоны Xiaomi Redmi 5 Plus/6.jpg"
           ],
           "price": 12180,
           "title": "черный"

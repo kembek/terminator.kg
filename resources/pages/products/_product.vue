@@ -127,6 +127,7 @@ export default {
     },
     setColor(value) {
       this.active = value;
+      this.img_id = 0;
     },
     slideChange(value) {
       if (
