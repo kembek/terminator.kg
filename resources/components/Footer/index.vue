@@ -17,7 +17,7 @@
               </a>
         </div>
         <div class="link">
-          <img src="/images/telephone.svg" alt="Номера" target="_blank" /><span><a href="tel:+996 502 05 20 52">+996 502 05 20 52</a><a href="tel:+996 558 05 80 58">+996 558 05 80 58</a></span>
+          <img src="/images/telephone.svg" alt="Номера" target="_blank" /><span><a href="tel:+996 502 052 052">+996 502 052 052</a><a href="tel:+996 558 05 80 58">+996 558 05 80 58</a></span>
         </div>
       </div>
     </div>
@@ -200,7 +200,7 @@ footer {
     width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     margin-bottom: 10px;
     .left {
       width: 28%;

@@ -291,8 +291,8 @@ body {
     .main-slider {
         transition: all .3s;
         content: '';
-        height: 80vh;
-        max-height: 800px;
+        height: 100vh;
+        // max-height: 800px;
         background-size: cover;
         background-position-y: center;
         background-position-x: center;
@@ -336,8 +336,8 @@ body {
             width: 100%;
             height: 20px;
             display: flex;
-            position: relative;
-            top: 33vh;
+            position: absolute;
+            bottom: 30px;
             justify-content: center;
             align-items: center;
             span {
@@ -436,6 +436,7 @@ body {
 @media screen and (max-width: 1024px) {
     .container {
         .main-slider {
+            height: 80vh;
             .slider-container {
                 float: left;
                 left: 10vw;
@@ -451,7 +452,7 @@ body {
                 }
             }
             .navigation {
-                top: 24vh;
+                top: 75vh;
             }
         }
     }

@@ -7,7 +7,7 @@
 
       <span class="arrow-up" @click="slideChange('down')"><Arrow /></span>
 
-      <img v-for="(item, i) in 4" :key="i" :src="'/images/'+ images(i)" :alt="Slide(i)" @click="setSlide(Slide(i))" draggable="false">
+      <img v-for="(item, i) in slides" :key="i" :src="'/images/'+ images(i)" :alt="product.title" @click="setSlide(Slide(i))" draggable="false">
 
       <span @click="slideChange('up')"><Arrow /></span>
 
@@ -62,7 +62,7 @@
     <p>В зависимости от цвета стоимость может измениться</p>
 
     <div class="btns">
-<!-- @click="$root.$emit('order', false) -->
+      <!-- @click="$root.$emit('order', false) -->
       <button class="btn" @click="AddOrder()">Купить</button>
 
       <button class="btn" @click="AddOrder()">Добавить в корзину</button>
@@ -89,6 +89,7 @@ export default {
       product: this.$store.getters['Products/Item']
     };
   },
+
   notifications: {
     showSuccessMsg: {
       type: 'success',
@@ -107,16 +108,16 @@ export default {
       //   if(item.product.id == this.product.id)
       //   this.$store.dispatch('Order/AddCount')
       // });
-      this.showInfoMsg()
-      // let temp = {
-      //   count: this.count,
-      //   product: this.product
-      // }
-      // this.$store.dispatch('Order/AddProduct', temp)
-      // this.showSuccessMsg({
-      //   text: 'Товар \"' + this.product.title + '\" добавлен в корзину!'
-      // })
-      // this.$root.$emit('basket', true)
+      // this.showInfoMsg()
+      let temp = {
+        count: this.count,
+        product: this.product
+      }
+      this.$store.dispatch('Order/AddProduct', temp)
+      this.showSuccessMsg({
+        text: 'Товар \"' + this.product.title + '\" добавлен в корзину!'
+      })
+      this.$root.$emit('basket', true)
     },
     setSlide(value) {
       this.img_id = value;
@@ -127,7 +128,7 @@ export default {
     slideChange(value) {
       if (
         value === "up" &&
-        this.page < this.product.prices[this.active].images.length - 4
+        this.page < this.product.prices[this.active].images.length - this.slides
       ) {
         this.page++;
       } else if (value === "down" && this.page > 0) {
@@ -145,6 +146,17 @@ export default {
     this.$store.dispatch('Products/SetActive', this.$route.params.product)
   },
   computed: {
+    slides() {
+      if (this.product.prices[this.active].images.length >= 4)
+        if (process.browser) {
+          if (window.innerWidth > 450)
+            return 4
+          else if (window.innerWidth > 350)
+            return 3
+          return 2
+        }
+      return this.product.prices[this.active].images.length
+    },
     image() {
       return this.product.prices[this.active].images[this.img_id];
     }
@@ -152,7 +164,8 @@ export default {
   watch: {
     count() {
       if (this.count < 1) this.count = 1;
-    }
+    },
+
   }
 };
 </script>
@@ -165,6 +178,7 @@ export default {
   width: 100%;
   .product-up-l {
     display: flex;
+    height: 50vh;
     align-items: center;
     img {
       user-select: none;
@@ -188,8 +202,8 @@ export default {
         transform: rotate(180deg);
       }
       img {
-        width: 80px;
-        height: 80px;
+        width: 80px; // height: 80px;
+        border-radius: 5px;
         margin: 6px;
       }
     }

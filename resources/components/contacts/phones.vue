@@ -6,9 +6,9 @@
   </div>
   <div class="contacts-info">
     <div class="number-block">
-      <p>О!:<a href="tel:+1234567890">0705529863</a></p>
-      <p>MegaCom:<a href="tel:+1234567890">0554529863</a></p>
-      <p>email:<a href="mailto:youremailaddress">adm.terminator@gmail.com</a> </p>
+      <p>О!:<a href="tel:+996 502 052 052">+996 502 052 052</a></p>
+      <p>MegaCom:<a href="tel:+996 558 058 058">+996 558 058 058</a></p>
+      <p>email:<a href="mailto:youremailaddress">office@terminator.kg</a> </p>
       <a href=""></a>
     </div>
   </div>

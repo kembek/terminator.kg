@@ -193,6 +193,8 @@ module.exports = {
     generate: false, // Enable me when using nuxt generate
     exclude: [
       '/admin',
+      '/timer',
+      '/products',
       '/admin/**'
     ],
     // routes: [

@@ -4,15 +4,15 @@
 
 <script>
 import FAQ from '~/components/faq'
-export default {  head() {
+export default {
+  head() {
     return {
       title: 'FAQ',
       meta: [{
-          hid: 'description',
-          name: 'description',
-          content: 'FAQ | TERMINATOR.KG'
-        },
-      ]
+        hid: 'description',
+        name: 'description',
+        content: 'FAQ | TERMINATOR.KG'
+      }, ]
     }
   },
   components: {
@@ -25,14 +25,15 @@ export default {  head() {
 @import '~assets/css/themes/default.less';
 .content {
   display: flex;
+  min-height: 50vh;
+  padding-bottom: 6px;
   justify-content: center;
   .wrapper {
     max-width: 1200px;
     width: 100%;
     display: flex;
     flex-direction: column;
-      align-items: center;
-      
+    align-items: center;
     #toogle-categories {
       display: none;
     }
@@ -40,8 +41,8 @@ export default {  head() {
       padding: 0 5px;
       display: flex;
       align-items: center;
-        max-width: 1200px;
-        width: 90vw;
+      max-width: 1200px;
+      width: 90vw;
       svg {
         fill: @color-main_font;
         height: 30px;
@@ -101,7 +102,6 @@ export default {  head() {
         }
       }
       .question {
-
         font-size: 18px;
         border-bottom: 1px solid @color-main_font;
         user-select: none;
@@ -134,8 +134,7 @@ export default {  head() {
           }
         }
         .answer {
-            font-size: 16px;
-          // margin-top: 28px;
+          font-size: 16px; // margin-top: 28px;
           max-width: 1100px;
           padding-left: 25px;
           padding-bottom: 20px;
@@ -159,7 +158,7 @@ export default {  head() {
         font-size: 20px;
         &:hover {
           // color: @color-light;
-        border: 1px solid @color-dark;
+          border: 1px solid @color-dark;
           transition: .5s;
         }
       }

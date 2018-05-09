@@ -752,6 +752,7 @@ export const state = () => ({
     {
       "id": 27,
       "groups": [2, 3, 10],
+      "link": "mi-mix-2",
       "image": "Смартфоны Xiaomi Mi Mix 2/3.jpg",
       "isShow": true,
       "price": 29890,

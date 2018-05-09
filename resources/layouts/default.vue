@@ -96,6 +96,8 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  min-height: 50vh;
+  padding-bottom: 6px;
   .page {
     max-width: 1200px;
     display: flex;

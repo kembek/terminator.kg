@@ -51,6 +51,7 @@ export default {
     img {
       width: 350px;
       height: 228px;
+      border-radius: 5px;
       object-fit: cover;
       filter: grayscale(30%);
     }
