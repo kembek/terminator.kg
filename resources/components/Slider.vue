@@ -24,18 +24,9 @@ export default {
       timeLine: 0,
       items: [{
           text: "<h2>Mi MIX 2</h2><h3>БЕЗРАМОЧНЫЙ СМАРТФОН</h3>",
-          link: "/products/mi-mix-2",
+          link: "/products/27",
           img: "/images/slide1.jpg"
         },
-        {
-          text: "<h2>Mi MIX 2</h2><h3>БЕЗРАМОЧНЫЙ СМАРТФОН</h3>",
-          link: "/",
-          img: "/images/slide2.jpg"
-        },{
-          text: "<h2>Mi MIX 2</h2><h3>БЕЗРАМОЧНЫЙ СМАРТФОН</h3>",
-          link: "/",
-          img: "/images/slide3.jpg"
-        }
       ]
     }
   },

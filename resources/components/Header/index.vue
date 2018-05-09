@@ -6,7 +6,7 @@
       <span>terminator</span>
     </nuxt-link>
   </div>
-  <input type="checkbox" id="toogle-menu"/>
+  <input type="checkbox" id="toogle-menu" v-model="isOpenMenu" />
   <label for="toogle-menu" class="toogle">Меню</label>
   <nav @mouseleave="showChildMenu = -1">
     <ul class="links-container">
@@ -15,7 +15,7 @@
         <a v-else :href="item.link">{{item.title}}</a>
         <transition name="child-links">
           <ul v-if="item.childs.length > 0 & showChildMenu == i" class="child-links-container">
-            <li v-for="(child, j) in item.childs" :key="j" class="child-links">
+            <li v-for="(child, j) in item.childs" :key="j" class="child-links" @click="showChildMenu = -1; isOpenMenu = false">
               <nuxt-link v-if="child.isLocal" :to="child.link" class="child-link">
                 <i :style="'mask-image: url(/images/' + child.img + ')'" />
                 <span>{{child.title}}</span>
