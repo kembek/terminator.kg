@@ -12,7 +12,7 @@
 
 const Factory = use('Factory')
 const Database = use('Database')
-const PostCategory = use('POSTS/PostCategory')
+const Category = use('POSTS/Category')
 const Post = use('POSTS/Post')
 const _ = require('lodash')
 
@@ -25,7 +25,7 @@ class PostSeeder {
     await Database.truncate('posts')
     await Database.raw('SET FOREIGN_KEY_CHECKS = 1;')
 
-    const category = await Factory.model('POSTS/PostCategory').createMany(6, { user_id: 1 })
+    const category = await Factory.model('POSTS/Category').createMany(6, { user_id: 1 })
     const posts = await Factory.model('POSTS/Post').createMany(20, { user_id: 1 })
 
     for (let i = 0; i < 20; ++i) {

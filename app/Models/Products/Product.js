@@ -16,7 +16,7 @@ class Product extends Basic {
   }
 
   category() {
-    return this.belongsTo('PRODUCTS/ProductCategory', 'categroy_id', 'id')
+    return this.belongsTo('PRODUCTS/Category', 'categroy_id', 'id')
   }
 
   productImages() {
@@ -24,7 +24,7 @@ class Product extends Basic {
   }
 
   productVideo() {
-    return this.hasMany('PRODUCTS/ProductVideo', 'id', 'product_id')
+    return this.hasMany('PRODUCTS/Video', 'id', 'product_id')
   }
 
   colors() {

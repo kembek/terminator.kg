@@ -59,7 +59,7 @@ class User extends Model {
   }
 
   faqCategories() {
-    return this.hasMany('FAQS/FaqCategory', 'id', 'user_id')
+    return this.hasMany('FAQS/Category', 'id', 'user_id')
   }
 
   posts() {
@@ -67,7 +67,7 @@ class User extends Model {
   }
 
   postCategories() {
-    return this.hasMany('POSTS/PostCategory', 'id', 'user_id')
+    return this.hasMany('POSTS/Category', 'id', 'user_id')
   }
 
   products() {
@@ -75,11 +75,11 @@ class User extends Model {
   }
 
   productVideo() {
-    return this.hasMany('PRODUCTS/ProductVideo', 'id', 'user_id')
+    return this.hasMany('PRODUCTS/Video', 'id', 'user_id')
   }
 
   productCategories() {
-    return this.hasMany('PRODUCTS/ProductCategory', 'id', 'user_id')
+    return this.hasMany('PRODUCTS/Category', 'id', 'user_id')
   }
 }
 

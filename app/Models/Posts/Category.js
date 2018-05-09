@@ -2,7 +2,7 @@
 
 const Basic = use('App/Models/Basic')
 
-class PostCategory extends Basic {
+class Category extends Basic {
   static get table() {
     return 'post_categories'
   }
@@ -19,4 +19,4 @@ class PostCategory extends Basic {
 
 }
 
-module.exports = PostCategory
+module.exports = Category

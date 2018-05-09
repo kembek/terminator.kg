@@ -24,7 +24,7 @@ class CategoryPost extends Model {
   }
 
   category() {
-    return this.belongsTo('POSTS/PostCategory', 'category_id', 'id')
+    return this.belongsTo('POSTS/Category', 'category_id', 'id')
   }
 
   post() {

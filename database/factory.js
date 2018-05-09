@@ -44,7 +44,7 @@ Factory.blueprint('AUTHS/User', (faker) => {
   }
 })
 
-Factory.blueprint('FAQS/FaqCategory', (faker, i, data) => {
+Factory.blueprint('FAQS/Category', (faker, i, data) => {
   return {
     user_id: data.user_id,
     title: faker.sentence({ words: _.random(1, 2) })
@@ -76,7 +76,7 @@ Factory.blueprint('FAQS/Review', (faker) => {
   }
 })
 
-Factory.blueprint('POSTS/PostCategory', (faker, i, data) => {
+Factory.blueprint('POSTS/Category', (faker, i, data) => {
   return {
     user_id: data.user_id,
     title: faker.sentence({ words: _.random(1, 2) })
@@ -92,7 +92,7 @@ Factory.blueprint('POSTS/Post', (faker, i, data) => {
   }
 })
 
-Factory.blueprint('PRODUCTS/ProductCategory', (faker, i, data) => {
+Factory.blueprint('PRODUCTS/Category', (faker, i, data) => {
   return {
     user_id: data.user_id,
     thumbnail: faker.url({ extensions: ['jpg', 'png'] }),
@@ -116,7 +116,7 @@ Factory.blueprint('PRODUCTS/Product', (faker, i, data) => {
   }
 })
 
-Factory.blueprint('PRODUCTS/ProductVideo', (faker, i, data) => {
+Factory.blueprint('PRODUCTS/Video', (faker, i, data) => {
   return {
     user_id: data.user_id,
     url: faker.url({ domain: 'www.youtube.com' })
@@ -129,7 +129,7 @@ Factory.blueprint('PRODUCTS/ProductImage', (faker, i, data) => {
   }
 })
 
-Factory.blueprint('PRODUCTS/ProductPrice', (faker, i, data) => {
+Factory.blueprint('PRODUCTS/Price', (faker, i, data) => {
   return {
     price: faker.floating({ fixed: 2, min: 0, max: 9999999 })
   }

@@ -28,7 +28,7 @@ class ProductColor extends Model {
   }
 
   prices() {
-    return this.hasOne('PRODUCTS/ProductPrice', 'id', 'product_color_id')
+    return this.hasOne('PRODUCTS/Price', 'id', 'product_color_id')
   }
 
 }

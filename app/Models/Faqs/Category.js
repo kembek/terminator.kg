@@ -2,7 +2,7 @@
 
 const Basic = use('App/Models/Basic')
 
-class FaqCategory extends Basic {
+class Category extends Basic {
   user() {
      return this.belongsTo('AUTHS/User', 'user_id', 'id')
   }
@@ -13,4 +13,4 @@ class FaqCategory extends Basic {
 
 }
 
-module.exports = FaqCategory
+module.exports = Category

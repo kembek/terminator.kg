@@ -2,7 +2,7 @@
 
 const Model = use('Model')
 
-class ProductVideo extends Model {
+class Video extends Model {
   static get table() {
     return 'product_video_reviews'
   }
@@ -25,4 +25,4 @@ class ProductVideo extends Model {
 
 }
 
-module.exports = ProductVideo
+module.exports = Video

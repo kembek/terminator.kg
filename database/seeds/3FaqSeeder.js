@@ -22,7 +22,7 @@ class FaqSeeder {
     await Database.truncate('faqs')
     await Database.raw('SET FOREIGN_KEY_CHECKS = 1;')
 
-    const category = await Factory.model('FAQS/FaqCategory').create({ user_id: 1 })
+    const category = await Factory.model('FAQS/Category').create({ user_id: 1 })
 
     const faq = await Factory.model('FAQS/Faq').makeMany(5, { user_id: 1 })
     const categories = await category.faqs().saveMany(faq)

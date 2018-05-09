@@ -2,7 +2,7 @@
 
 const Basic = use('App/Models/Basic')
 
-class ProductCategory extends Basic {
+class Category extends Basic {
   static get table() {
     return 'product_categories'
   }
@@ -16,8 +16,8 @@ class ProductCategory extends Basic {
   }
 
   parent() {
-    return this.belongsTo('PRODUCTS/ProductCategory', 'parent_id', 'id')
+    return this.belongsTo('PRODUCTS/Category', 'parent_id', 'id')
   }
 }
 
-module.exports = ProductCategory
+module.exports = Category

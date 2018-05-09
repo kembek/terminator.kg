@@ -2,7 +2,7 @@
 
 const Model = use('Model')
 
-class ProductPrice extends Model {
+class Price extends Model {
   static get table() {
     return 'product_prices'
   }
@@ -28,4 +28,4 @@ class ProductPrice extends Model {
   }
 }
 
-module.exports = ProductPrice
+module.exports = Price

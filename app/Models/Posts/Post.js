@@ -8,7 +8,7 @@ class Post extends Basic {
   }
 
   category() {
-    return this.belongsToMany('POSTS/PostCategory', 'post_id', 'category_id', 'id', 'id')
+    return this.belongsToMany('POSTS/Category', 'post_id', 'category_id', 'id', 'id')
       .pivotModel('POSTS/CategoryPost')
   }
 
