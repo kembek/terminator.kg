@@ -41,17 +41,24 @@ export default {
     SearchSunIcon,
     Filters
   },
+  created() {
+    this.$store.getters["Categories/ItemsAll"].forEach(item => {
+      if (item.link == this.$route.params.link) {
+        this.categories = item.title
+        return
+      }
+    })
+  },
   computed: {
     items() {
-      var id, items =[];
+      var id, items = [];
       this.$store.getters["Categories/ItemsAll"].forEach(item => {
         if (item.link == this.$route.params.link) {
           id = item.id
-          this.categories = item.title
           return
         }
       })
-      
+
       this.$store.getters["Products/Items"].forEach(item => {
         return item.groups.forEach(element => {
           if (element == id)
@@ -66,8 +73,6 @@ export default {
 
 <style lang="less">
 @import "~assets/css/themes/default.less";
-
-
 // @media screen and (max-width: 1093px) {
 //   .result-wrapper {
 //     .search-result {
