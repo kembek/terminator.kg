@@ -80,6 +80,16 @@ export default {
   components: {
     Arrow
   },
+  head() {
+    return {
+      title: this.product.title,
+      meta: [{
+        hid: 'og:title',
+        property: 'og:title',
+        content: this.product.title + ' | TERMINATOR.KG'
+      }, ]
+    }
+  },
   data() {
     return {
       page: 0,

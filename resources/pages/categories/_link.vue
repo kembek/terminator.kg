@@ -23,7 +23,18 @@ import Filters from '~/components/filtres/'
 export default {
   data() {
     return {
-      search: this.$route.params.result
+      search: this.$route.params.result,
+      categories: ''
+    }
+  },
+  head() {
+    return {
+      title: this.categories,
+      meta: [{
+        hid: 'og:title',
+        property: 'og:title',
+        content: this.categories + ' | TERMINATOR.KG'
+      }, ]
     }
   },
   components: {
@@ -36,6 +47,7 @@ export default {
       this.$store.getters["Categories/ItemsAll"].forEach(item => {
         if (item.link == this.$route.params.link) {
           id = item.id
+          this.categories = item.title
           return
         }
       })
