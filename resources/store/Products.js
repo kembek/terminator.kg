@@ -2,17 +2,15 @@ export const state = () => ({
   "items": [{
       "id": 1,
       "groups": [1, 2, 10],
-      "image": "Смартфон Xiaomi Redmi 5A/5.jpg",
+      "image": "redmi-5a-gold-1.jpg",
       "isShow": true,
       "price": 6290,
       "prices": [{
           "color": "#d4c69a",
           "images": [
-            "Смартфон Xiaomi Redmi 5A/5.jpg",
-            "Смартфон Xiaomi Redmi 5A/1.jpg",
-            "Смартфон Xiaomi Redmi 5A/3.jpg",
-            "Смартфон Xiaomi Redmi 5A/6.jpg",
-            "Смартфон Xiaomi Redmi 5A/2.jpg"
+            "redmi-5a-gold-1.jpg",
+            "redmi-5a-gold-3.jpg"
+            
           ],
           "price": 6290,
           "title": "Золотистый"
@@ -20,11 +18,9 @@ export const state = () => ({
         {
           "color": "#666666",
           "images": [
-            "Смартфон Xiaomi Redmi 5A/5.jpg",
-            "Смартфон Xiaomi Redmi 5A/1.jpg",
-            "Смартфон Xiaomi Redmi 5A/3.jpg",
-            "Смартфон Xiaomi Redmi 5A/6.jpg",
-            "Смартфон Xiaomi Redmi 5A/2.jpg"
+            "redmi-5a-gray-1.jpg",
+            "redmi-5a-gray-2.jpg",
+            "redmi-5a-gray-3.jpg"
           ],
           "price": 6440,
           "title": "Темно серый"
@@ -367,17 +363,18 @@ export const state = () => ({
     {
       "id": 13,
       "groups": [2, 5,6, 10],
-      "image": "Смартфоны Xiaomi Redmi 5 Plus/11.jpg",
+      "image": "redmi-5-plus-gold-1.jpg",
       "isShow": true,
       "price": 9590,
       "prices": [{
           "color": "#d4c69a",
           "images": [
-            "Xiaomi Redmi 5 Plus/8.jpg",
-            "Xiaomi Redmi 5 Plus/5.jpg",
-            "Xiaomi Redmi 5 Plus/1.jpg",
-            "Xiaomi Redmi 5 Plus/3.jpg",
-            "Xiaomi Redmi 5 Plus/6.jpg"
+            "redmi-5-plus-gold-1.jpg",
+            "redmi-5-plus-gold-2.jpg",
+            "redmi-5-plus-gold-3.jpg",
+            "redmi-5-plus-gold-4.jpg",
+           
+            
           ],
           "price": 9590,
           "title": "золотистый"
@@ -385,11 +382,11 @@ export const state = () => ({
         {
           "color": "#000000",
           "images": [
-            "Xiaomi Redmi 5 Plus/8.jpg",
-            "Xiaomi Redmi 5 Plus/5.jpg",
-            "Xiaomi Redmi 5 Plus/1.jpg",
-            "Xiaomi Redmi 5 Plus/3.jpg",
-            "Xiaomi Redmi 5 Plus/6.jpg"
+            "redmi-5-plus-black-1.jpg",
+            "redmi-5-plus-black-2.jpg",
+            "redmi-5-plus-black-3.jpg",
+            "redmi-5-plus-black-4.jpg",
+        
           ],
           "price": 9640,
           "title": "черный"
@@ -461,17 +458,22 @@ export const state = () => ({
     {
       "id": 17,
       "groups": [2, 4, 10],
-      "image": "Смартфоны Xiaomi Mi A1/7.jpg",
+      "image": "mi-a1-gold-1.jpg",
       "isShow": true,
       "price": 11620,
       "prices": [{
           "color": "#d4c69a",
           "images": [
-            "Смартфоны Xiaomi Mi A1/8.jpg",
-            "Смартфоны Xiaomi Mi A1/5.jpg",
-            "Смартфоны Xiaomi Mi A1/1.jpg",
-            "Смартфоны Xiaomi Mi A1/3.jpg",
-            "Смартфоны Xiaomi Mi A1/6.jpg"
+            "mi-a1-gold-1.jpg",
+            "mi-a1-gold-2.jpg",
+            "mi-a1-gold-3.jpg",
+            "mi-a1-gold-4.jpg",
+            "mi-a1-gold-5.jpg",
+            "mi-a1-gold-6.jpg",
+            "mi-a1-gold-7.jpg",
+            "mi-a1-gold-8.jpg",
+            "mi-a1-gold-9.jpg",
+            "mi-a1-gold-10.jpg",
           ],
           "price": 11620,
           "title": "золотистый"
@@ -479,14 +481,26 @@ export const state = () => ({
         {
           "color": "#000000",
           "images": [
-            "Смартфоны Xiaomi Mi A1/8.jpg",
-            "Смартфоны Xiaomi Mi A1/5.jpg",
-            "Смартфоны Xiaomi Mi A1/1.jpg",
-            "Смартфоны Xiaomi Mi A1/3.jpg",
-            "Смартфоны Xiaomi Mi A1/6.jpg"
+            "mi-a1-black-1.jpg",
+            "mi-a1-black-2.jpg",
+            "mi-a1-black-3.jpg",
+            "mi-a1-black-4.jpg",
+            "mi-a1-black-5.jpg",
           ],
           "price": 11620,
           "title": "черный"
+        },
+        {
+          "color": "red",
+          "images": [
+            "mi-a1-red-1.jpg",
+            "mi-a1-red-2.jpg",
+            "mi-a1-red-3.jpg",
+            "mi-a1-red-4.jpg",
+            "mi-a1-red-5.jpg",
+          ],
+          "price": 11620,
+          "title": "красный"
         }
       ],
       "title": "Xiaomi Mi A1 4GB+32GB (Global Version)"
@@ -766,18 +780,29 @@ export const state = () => ({
     {
       "id": 28,
       "groups": [2, 3, 4, 10],
-      "image": "Смартфоны Xiaomi Mi Note 3/4.jpg",
+      "image": "mi-note-3-black-1.jpg",
       "isShow": true,
       "price": 26450,
       "prices": [{
         "color": "#000000",
         "images": [
-          "Смартфоны Xiaomi Mi Note 3/6.jpg",
-          "Смартфоны Xiaomi Mi Note 3/5.jpg",
-          "Смартфоны Xiaomi Mi Note 3/8.jpg"
+          "mi-note-3-black-1.jpg",
+          "mi-note-3-black-3.jpg",
+          "mi-note-3-black-6.jpg",
+          "mi-note-3-black-7.jpg"
         ],
         "price": 26450,
         "title": "черный"
+      },{
+        "color": "blue",
+        "images": [
+          "mi-note-3-blue-1.jpg",
+          "mi-note-3-blue-2.jpg",
+          "mi-note-3-blue-4.jpg",
+          "mi-note-3-blue-5.jpg"
+        ],
+        "price": 26450,
+        "title": "Синий"
       }],
       "title": "Xiaomi Mi Note 3 6GB+128GB"
     },
@@ -813,15 +838,15 @@ export const state = () => ({
     {
       "id": 30,
       "groups": [2, 4, 10],
-      "image": "Смартфоны Xiaomi Mi A1/11.jpg",
+      "image": "mi-a1-gold-1.jpg",
       "isShow": true,
       "price": 12510,
       "prices": [{
-          "color": "#4444d6",
+          "color": "#ffd700",
           "images": [
-            "Смартфоны Xiaomi Mi A1/10.jpg",
-            "Смартфоны Xiaomi Mi A1/3.jpg",
-            "Смартфоны Xiaomi Mi A1/4.jpg"
+            "mi-a1-gold-1.jpg",
+            "mi-a1-gold-2.jpg",
+            "mi-a1-gold-3.jpg"
           ],
           "price": 12430,
           "title": "золотистый"
@@ -829,9 +854,10 @@ export const state = () => ({
         {
           "color": "#000000",
           "images": [
-            "Смартфоны Xiaomi Mi A1/10.jpg",
-            "Смартфоны Xiaomi Mi A1/3.jpg",
-            "Смартфоны Xiaomi Mi A1/4.jpg"
+            "mi-a1-black-1.jpg",
+            "mi-a1-black-2.jpg",
+            "mi-a1-black-3.jpg",
+            "mi-a1-black-4.jpg"
           ],
           "price": 12510,
           "title": "черный"
@@ -839,9 +865,9 @@ export const state = () => ({
         {
           "color": "#ff0000",
           "images": [
-            "Смартфоны Xiaomi Mi A1/10.jpg",
-            "Смартфоны Xiaomi Mi A1/3.jpg",
-            "Смартфоны Xiaomi Mi A1/4.jpg"
+            "mi-a1-red-1.jpg",
+            "mi-a1-red-2.jpg",
+            "mi-a1-red-3.jpg"
           ],
           "price": 12940,
           "title": "красный"
@@ -852,16 +878,16 @@ export const state = () => ({
     {
       "id": 31,
       "groups": [2,10],
-      "image": "Смартфоны Xiaomi Mi 6 Ceramic/3.jpg",
+      "image": "mi6-black-1.jpg",
       "groups": [2, 3,4],
       "isShow": true,
       "price": 28490,
       "prices": [{
         "color": "#000000",
         "images": [
-          "Смартфоны Xiaomi Mi 6 Ceramic/4.jpg",
-          "Смартфоны Xiaomi Mi 6 Ceramic/1.jpg",
-          "Смартфоны Xiaomi Mi 6 Ceramic/2.jpg"
+          "mi6-black-1.jpg",
+          "mi6-black-2.jpg",
+          "mi6-black-4.jpg",
         ],
         "price": 28490,
         "title": "черный"
@@ -969,16 +995,16 @@ export const state = () => ({
     }, {
       "id": 37,
       "groups": [2,5,6, 10],
-      "image": "Смартфоны Xiaomi Redmi Note 4X/12.jpg",
+      "image": "redmi-4x-1.jpg",
       "isShow": true,
       "price": 12190,
       "prices": [{
-          "color": "#d4c69a",
+          "color": "#ffd700",
           "images": [
-            "Смартфоны Xiaomi Redmi Note 4X/8.jpg",
-            "Смартфоны Xiaomi Redmi Note 4X/6.jpg",
-            "Смартфоны Xiaomi Redmi Note 4X/9.jpg",
-            "Смартфоны Xiaomi Redmi Note 4X/10.jpg"
+            "redmi-4x-1.jpg",
+            "redmi-4x-2.jpg",
+            "redmi-4x-3.jpg",
+           
           ],
           "price": 9590,
           "title": "золотистый"
@@ -1431,12 +1457,50 @@ export const state = () => ({
         "title": "Светлый"
       }],
       "title": "Xiaomi Mi 5S 3/64GB"
+    
     },
     {
-      "groups": [
-        13
-      ],
       "id": 57,
+      "groups": [2, 10],
+      "image": "redmi-5-black-1.jpg",
+      "isShow": true,
+      "price": 20600,
+      "prices": [{
+        "color": "black",
+        "images": [
+          "redmi-5-black-1.jpg",
+          "redmi-5-black-2.jpg",
+          "redmi-5-black-3.jpg",
+          "redmi-5-black-4.jpg",
+
+        ],
+        "price": 20600,
+        "title": "черный"
+      }],
+      "title": "Xiaomi Mi 5S 3/64GB"
+    },
+    {
+      
+        "id": 58,
+        "groups": [2, 10],
+        "image": "redmi-5-plus-light-blue-1.jpg",
+        "isShow": true,
+        "price": 20600,
+        "prices": [{
+          "color": "blue",
+          "images": [
+            "redmi-5-plus-light-blue-1.jpg",
+            "redmi-5-plus-light-blue-2.jpg",
+            "redmi-5-plus-light-blue-3.jpg",
+  
+          ],
+          "price": 20600,
+          "title": "голубой"
+        }],
+        "title": "Xiaomi Mi 5S 3/64GB"
+      },
+      {
+      "id": 59,
       "groups": [12],
       "image": "Наушники Hybrid Pro/1.jpg",
       "isShow": true,
