@@ -1,5 +1,5 @@
 <template>
-<div class="product-up" v-if="product != null">
+<div class="product-up" v-if="product">
 
   <div class="product-up-l">
 
@@ -79,6 +79,12 @@ import Arrow from "~/assets/svg/arrow.svg";
 export default {
   components: {
     Arrow
+  },
+  created(){
+    if(this.product == null)
+    {
+      this.$root.error({'statusCode': 404, 'message': 'OK'})
+    }
   },
   head() {
     return {

@@ -52,34 +52,64 @@ export default {
         childs: [{
           isLocal: true,
           title: 'ВСЕ СМАРТФОНЫ',
-          link: '/categories/smartphones',
+          link: '/categories/smartphones/',
           img: 'all.svg'
         }, {
           isLocal: true,
           title: 'ТЯЖЕЛЫЕ ИГРЫ',
-          link: '/categories/hard-games',
+          link: '/categories/hard-games/',
           img: 'game.svg'
         }, {
           isLocal: true,
           title: 'ОТЛИЧНАЯ КАМЕРА',
-          link: '/categories/best-camera',
+          link: '/categories/best-camera/',
           img: 'camera.svg'
         }, {
           isLocal: true,
           title: 'АКТИВНОЕ ИСПОЛЬЗОВАНИЕ',
-          link: '/categories/active-using',
+          link: '/categories/active-using/',
           img: 'battery.svg'
         }, {
           isLocal: true,
           title: 'УНИВЕРСАЛЬНЫЙ СМАРТФОН',
-          link: '/categories/universal-smartphone',
+          link: '/categories/universal-smartphone/',
           img: 'universal.svg'
         }]
       }, {
         title: 'Другое',
-        link: '/categories/other',
+        link: '/categories/',
         isLocal: true,
-        childs: []
+        childs: [{
+          isLocal: true,
+          title: 'АКСЕССУАРЫ',
+          link: '/categories/accesories-for-smartphones/',
+          img: 'accessories.svg'
+        }, {
+          isLocal: true,
+          title: 'ЗАРЯДНЫЕ УСТРОЙСТВА',
+          link: '/categories/charging-device/',
+          img: 'charging.svg'
+        }, {
+          isLocal: true,
+          title: 'УМНЫЕ ЧАСЫ',
+          link: '/categories/smart-watch/',
+          img: 'watch.svg'
+        }, {
+          isLocal: true,
+          title: 'ГАДЖЕТЫ И УСТРОЙСТВА',
+          link: '/categories/gadgets/',
+          img: 'phone.svg'
+        }, {
+          isLocal: true,
+          title: 'ТОВАРЫ ДЛЯ ДОМА',
+          link: '/categories/home-device/',
+          img: 'home-device.svg'
+        }, {
+          isLocal: true,
+          title: 'НАУШНИКИ И КОЛОНКИ',
+          link: '/categories/headphones',
+          img: 'headphone.svg'
+        }]
       }, {
         title: 'Контакты',
         link: '/contacts',

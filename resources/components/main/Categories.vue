@@ -1,6 +1,6 @@
 <template>
 <div class="main-categorie">
-  <nuxt-link :to="'/categories/'+item.link" v-for="(item, index) in items" :key="index">
+  <nuxt-link :to="'/categories/'+item.link + '/'" v-for="(item, index) in items" :key="index">
     <img :src="'/images/' + item.image" />
     <span>{{item.title}}</span>
   </nuxt-link>
@@ -67,4 +67,4 @@ export default {
     }
   }
 }
-</style>`
+</style>
