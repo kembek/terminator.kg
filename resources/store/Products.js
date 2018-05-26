@@ -4,7 +4,7 @@ export const state = () => ({
       "groups": [1, 2, 10],
       "image": "redmi-5a-gold-1.jpg",
       "isShow": true,
-      "price": 6290,
+      "price": 6680,
       "prices": [{
           "color": "#d4c69a",
           "images": [
@@ -12,7 +12,7 @@ export const state = () => ({
             "redmi-5a-gold-3.jpg"
 
           ],
-          "price": 6290,
+          "price": 6680,
           "title": "Золотистый"
         },
         {
@@ -22,7 +22,7 @@ export const state = () => ({
             "redmi-5a-gray-2.jpg",
             "redmi-5a-gray-3.jpg"
           ],
-          "price": 6440,
+          "price": 6680,
           "title": "Темно серый"
         }
       ],
