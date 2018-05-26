@@ -10,11 +10,11 @@ import Categories from '~/components/main/Categories'
 export default {
   head() {
     return {
-      title: 'Другое',
+      title: 'Другие',
       meta: [{
         hid: 'og:title',
         property: 'og:title',
-        content: 'Другое | TERMINATOR.KG'
+        content: 'Другие | TERMINATOR.KG'
       }, ]
     }
   },

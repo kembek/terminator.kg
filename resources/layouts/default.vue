@@ -49,7 +49,7 @@ export default {
   },
   head() {
     return {
-      title: 'Главная',
+      title: settings.main_title,
       titleTemplate: '%s | ' + settings.name,
       htmlAttrs: {
         lang: 'ru'

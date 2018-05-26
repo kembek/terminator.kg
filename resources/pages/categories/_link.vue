@@ -24,7 +24,8 @@ export default {
   data() {
     return {
       search: this.$route.params.result,
-      categories: ''
+      categories: '',
+      description: ''
     }
   },
   head() {
@@ -34,6 +35,14 @@ export default {
         hid: 'og:title',
         property: 'og:title',
         content: this.categories + ' | TERMINATOR.KG'
+      },{
+        hid: 'description',
+        property: 'description',
+        content: this.description + ' | TERMINATOR.KG'
+      },{
+        hid: 'og:description',
+        property: 'og:description',
+        content: this.description + ' | TERMINATOR.KG'
       }, ]
     }
   },
@@ -44,7 +53,8 @@ export default {
   created() {
     this.$store.getters["Categories/ItemsAll"].forEach(item => {
       if (item.link == this.$route.params.link) {
-        this.categories = item.title
+        this.categories = item.meta_title
+        this.description = item.description
         return
       }
     })

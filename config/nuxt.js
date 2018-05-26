@@ -1,6 +1,7 @@
 'use strict'
 const resolve = require('path').resolve
 const axios = require('axios')
+const settings = require('../resources/settings')
 
 module.exports = {
   router: {
@@ -10,9 +11,9 @@ module.exports = {
    ** Headers of the page
    */
   manifest: {
-    name: 'TERMINATOR.KG',
-    short_name: 'TERMINATOR.KG',
-    description: 'Интернет-магазин TERMINATOR.KG',
+    name: settings.name,
+    short_name: settings.name,
+    description: settings.description,
     theme_color: '#242323',
     background_color: '#242323',
     display: 'standalone',
@@ -45,23 +46,18 @@ module.exports = {
         content: 'yes'
       },
       {
-        hid: 'description',
-        name: 'description',
-        content: 'Интернет-магазин TERMINATOR.KG. Здесь Вы сможете найти оригинальную, качественную продукцию по доступной цене. Продукция - Xiaomi смартфоны, аксессуары для смартфонов, гаджеты, рюкзаки и сумки, wi-fi роутеры, гироскутеры, электросамокаты, электровелоипеды, квадрокоптеры, зубные щетки и многое другое. Будем рады видеть!'
-      },
-      {
         hid: 'og:title',
         property: 'og:title',
-        content: 'Главная страница | TERMINATOR.KG'
+        content: settings.main_title
       }, {
         hid: 'og:description',
         property: 'og:description',
-        content: 'Интернет-магазин TERMINATOR.KG. Здесь Вы сможете найти оригинальную, качественную продукцию по доступной цене. Продукция - Xiaomi смартфоны, аксессуары для смартфонов, гаджеты, рюкзаки и сумки, wi-fi роутеры, гироскутеры, электросамокаты, электровелоипеды, квадрокоптеры, зубные щетки и многое другое. Будем рады видеть!'
+        content: settings.description
       },
       {
         hid: 'og:site_name',
         property: 'og:site_name',
-        content: 'TERMINATOR.KG'
+        content: settings.name
       },
       {
         hid: 'og:url',
