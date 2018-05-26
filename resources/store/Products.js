@@ -378,7 +378,7 @@ export const state = () => ({
             "redmi-5-plus-gold-1.jpg",
             "redmi-5-plus-gold-2.jpg",
             "redmi-5-plus-gold-3.jpg",
-            "redmi-5-plus-gold-4.jpg",
+            "redmi-5-plus-gold-4.jpg"
           ],
           "price": 10340,
           "title": "золотистый"
@@ -389,7 +389,7 @@ export const state = () => ({
             "redmi-5-plus-black-1.jpg",
             "redmi-5-plus-black-2.jpg",
             "redmi-5-plus-black-3.jpg",
-            "redmi-5-plus-black-4.jpg",
+            "redmi-5-plus-black-4.jpg"
           ],
           "price": 10340,
           "title": "черный"
@@ -400,7 +400,7 @@ export const state = () => ({
             "redmi-5-plus-black-1.jpg",
             "redmi-5-plus-black-2.jpg",
             "redmi-5-plus-black-3.jpg",
-            "redmi-5-plus-black-4.jpg",
+            "redmi-5-plus-black-4.jpg"
           ],
           "price": 10460,
           "title": "голубой"
@@ -419,7 +419,7 @@ export const state = () => ({
           "color": "#d4c69a",
           "images": [
             "Смартфоны Xiaomi Redmi 5 Plus/9.jpg",
-            "Смартфоны Xiaomi Redmi 5 Plus/11.jpg",
+            "Смартфоны Xiaomi Redmi 5 Plus/11.jpg"
           ],
           "price": 11920,
           "title": "золотистый"
@@ -429,7 +429,7 @@ export const state = () => ({
           "images": [
             "Смартфоны Xiaomi Redmi 5 Plus/1.jpg",
             "Смартфоны Xiaomi Redmi 5 Plus/2.jpg",
-            "Смартфоны Xiaomi Redmi 5 Plus/3.jpg",
+            "Смартфоны Xiaomi Redmi 5 Plus/3.jpg"
           ],
           "price": 11980,
           "title": "черный"
@@ -439,7 +439,7 @@ export const state = () => ({
           "images": [
             "Смартфоны Xiaomi Redmi 5 Plus/1.jpg",
             "Смартфоны Xiaomi Redmi 5 Plus/2.jpg",
-            "Смартфоны Xiaomi Redmi 5 Plus/3.jpg",
+            "Смартфоны Xiaomi Redmi 5 Plus/3.jpg"
           ],
           "price": 12340,
           "title": "голубой"
@@ -512,7 +512,7 @@ export const state = () => ({
             "mi-a1-gold-7.jpg",
             "mi-a1-gold-8.jpg",
             "mi-a1-gold-9.jpg",
-            "mi-a1-gold-10.jpg",
+            "mi-a1-gold-10.jpg"
           ],
           "price": 11620,
           "title": "золотистый"
@@ -524,7 +524,7 @@ export const state = () => ({
             "mi-a1-black-2.jpg",
             "mi-a1-black-3.jpg",
             "mi-a1-black-4.jpg",
-            "mi-a1-black-5.jpg",
+            "mi-a1-black-5.jpg"
           ],
           "price": 11620,
           "title": "черный"
@@ -536,7 +536,7 @@ export const state = () => ({
             "mi-a1-red-2.jpg",
             "mi-a1-red-3.jpg",
             "mi-a1-red-4.jpg",
-            "mi-a1-red-5.jpg",
+            "mi-a1-red-5.jpg"
           ],
           "price": 11620,
           "title": "красный"
@@ -781,19 +781,17 @@ export const state = () => ({
       "image": "Смартфоны Xiaomi Mi Max 2/6.jpg",
       "isShow": true,
       "price": 14260,
-      "prices": [
-        {
-          "color": "#000000",
-          "images": [
-            "Смартфоны Xiaomi Mi Max 2/1.jpg",
-            "Смартфоны Xiaomi Mi Max 2/2.jpg",
-            "Смартфоны Xiaomi Mi Max 2/3.jpg",
-            "Смартфоны Xiaomi Mi Max 2/4.jpg"
-          ],
-          "price": 14260,
-          "title": "черный"
-        }
-      ],
+      "prices": [{
+        "color": "#000000",
+        "images": [
+          "Смартфоны Xiaomi Mi Max 2/1.jpg",
+          "Смартфоны Xiaomi Mi Max 2/2.jpg",
+          "Смартфоны Xiaomi Mi Max 2/3.jpg",
+          "Смартфоны Xiaomi Mi Max 2/4.jpg"
+        ],
+        "price": 14260,
+        "title": "черный"
+      }],
       "description": "",
       "title": "Xiaomi Mi Max 2 4GB+64GB"
     },
@@ -920,9 +918,8 @@ export const state = () => ({
     },
     {
       "id": 31,
-      "groups": [2, 10],
       "image": "mi6-black-1.jpg",
-      "groups": [2, 3, 4],
+      "groups": [2, 3, 4, 10],
       "isShow": true,
       "price": 28490,
       "prices": [{
@@ -930,7 +927,7 @@ export const state = () => ({
         "images": [
           "mi6-black-1.jpg",
           "mi6-black-2.jpg",
-          "mi6-black-4.jpg",
+          "mi6-black-4.jpg"
         ],
         "price": 28490,
         "title": "черный"
@@ -940,45 +937,41 @@ export const state = () => ({
     },
     {
       "id": 32,
-      "groups": [2, 4, 10],
       "image": "Смартфоны Xiaomi Mi 6/4.jpg",
       "isShow": true,
-      "groups": [2, 3, 4],
+      "groups": [2, 3, 4, 10],
       "price": 26480,
       "prices": [{
-          "color": "#000000",
-          "images": [
-            "Смартфоны Xiaomi Mi 6/1.jpg",
-            "Смартфоны Xiaomi Mi 6/3.jpg",
-            "Смартфоны Xiaomi Mi 6/2.jpg",
-            "Смартфоны Xiaomi Mi 6/6.jpg"
-          ],
-          "price": 26480,
-          "title": "черный"
-        },
-      ],
+        "color": "#000000",
+        "images": [
+          "Смартфоны Xiaomi Mi 6/1.jpg",
+          "Смартфоны Xiaomi Mi 6/3.jpg",
+          "Смартфоны Xiaomi Mi 6/2.jpg",
+          "Смартфоны Xiaomi Mi 6/6.jpg"
+        ],
+        "price": 26480,
+        "title": "черный"
+      }],
       "description": "",
       "title": "Xiaomi Mi 6 6GB+64GB (Global Version)"
     },
     {
       "id": 61,
-      "groups": [2, 4, 10],
+      "groups": [2, 3, 4, 10],
       "image": "Смартфоны Xiaomi Mi 6/4.jpg",
       "isShow": true,
-      "groups": [2, 3, 4],
       "price": 22140,
       "prices": [{
-          "color": "#000000",
-          "images": [
-            "Смартфоны Xiaomi Mi 6/1.jpg",
-            "Смартфоны Xiaomi Mi 6/3.jpg",
-            "Смартфоны Xiaomi Mi 6/2.jpg",
-            "Смартфоны Xiaomi Mi 6/6.jpg"
-          ],
-          "price": 22140,
-          "title": "черный"
-        },
-      ],
+        "color": "#000000",
+        "images": [
+          "Смартфоны Xiaomi Mi 6/1.jpg",
+          "Смартфоны Xiaomi Mi 6/3.jpg",
+          "Смартфоны Xiaomi Mi 6/2.jpg",
+          "Смартфоны Xiaomi Mi 6/6.jpg"
+        ],
+        "price": 22140,
+        "title": "черный"
+      }],
       "description": "",
       "title": "Xiaomi Mi 6 6GB+64GB"
     },
@@ -1061,7 +1054,7 @@ export const state = () => ({
           "images": [
             "redmi-4x-1.jpg",
             "redmi-4x-2.jpg",
-            "redmi-4x-3.jpg",
+            "redmi-4x-3.jpg"
           ],
           "price": 9590,
           "title": "золотистый"
@@ -1552,7 +1545,7 @@ export const state = () => ({
       "prices": [{
         "color": "black",
         "images": [
-          '9f16476acbc9e08d2c90dc22d1a6c79b_thumb_5662fe976180f779.jpg'
+          "9f16476acbc9e08d2c90dc22d1a6c79b_thumb_5662fe976180f779.jpg"
         ],
         "price": 20600,
         "title": "черный"
@@ -1572,7 +1565,7 @@ export const state = () => ({
         "images": [
           "redmi-5-plus-black-1.jpg",
           "redmi-5-plus-black-2.jpg",
-          "redmi-5-plus-black-3.jpg",
+          "redmi-5-plus-black-3.jpg"
         ],
         "price": 9520,
         "title": "черный"
@@ -1581,7 +1574,7 @@ export const state = () => ({
         "images": [
           "redmi-5-plus-gold-1.jpg",
           "redmi-5-plus-gold-2.jpg",
-          "redmi-5-plus-gold-3.jpg",
+          "redmi-5-plus-gold-3.jpg"
         ],
         "price": 9340,
         "title": "золотистый"

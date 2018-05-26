@@ -200,10 +200,17 @@ module.exports = {
     //     priority: 1
     //   }
     // ],
-    // routes () {
-    //   return axios.get('https://jsonplaceholder.typicode.com/users')
-    //   .then(res => res.data.map(user =>  '/users/' + user.username))
-    // }
+    routes() {
+      return axios.all([
+          axios.get('http://localhost:3001/api/categories.json'),
+          axios.get('http://localhost:3001/api/products.json')
+        ])
+        .then(axios.spread((resCategories, resProducts) => {
+          let routes = resCategories.data.items.map(categories => '/categories/' + categories.link)
+            .concat(resProducts.data.items.map(product => '/products/' + product.id))
+          return routes
+        }))
+    }
   },
   build: {
     // analyze: true,
