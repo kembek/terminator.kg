@@ -1,0 +1,15 @@
+User-agent: *
+Allow: *.css
+Allow: *.js
+
+User-agent: Googlebot
+Allow: *.css
+Allow: *.js
+
+User-agent: Yandex
+Allow: *.css
+Allow: *.js
+Clean-param: tracking
+Host: https://terminator.kg
+
+sitemap: https://terminator.kg/sitemap.xml
