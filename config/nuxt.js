@@ -182,6 +182,12 @@ module.exports = {
     "@nuxtjs/sitemap",
     "@nuxtjs/pwa",
     [
+      "@nuxtjs/google-analytics",
+      {
+        id: "UA-119873741-1"
+      }
+    ],
+    [
       "@nuxtjs/google-tag-manager",
       {
         id: "GTM-NCVNLZP"
