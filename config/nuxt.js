@@ -1,7 +1,7 @@
-'use strict'
-const resolve = require('path').resolve
-const axios = require('axios')
-const settings = require('../resources/settings')
+"use strict";
+const resolve = require("path").resolve;
+const axios = require("axios");
+const settings = require("../resources/settings");
 
 module.exports = {
   router: {
@@ -14,192 +14,207 @@ module.exports = {
     name: settings.name,
     short_name: settings.name,
     description: settings.description,
-    theme_color: '#242323',
-    background_color: '#242323',
-    display: 'standalone',
-    orientation: 'portrait',
-    lang: 'ru',
-    start_url: '/'
+    theme_color: "#242323",
+    background_color: "#242323",
+    display: "standalone",
+    orientation: "portrait",
+    lang: "ru",
+    start_url: "/"
   },
   head: {
-    meta: [{
-        charset: 'utf-8'
+    title: settings.main_title,
+    titleTemplate: "%s | " + settings.name,
+    htmlAttrs: {
+      lang: "ru"
+    },
+    meta: [
+      {
+        charset: "utf-8"
       },
       {
-        name: 'viewport',
-        content: 'width=device-width, initial-scale=1, user-scalable=no'
+        hid: "keywords",
+        name: "keywords",
+        content:
+          "Смартфоны (телефоны) Xiaomi (Mi) в Бишкеке (Кыргызстане) Интернет магазине TERMINATOR.KG xiaomi в бишкеке, xiaomi купить в бишкеке, xiaomi в оше, xiaomi смартфоны, купить xiaomi смартфоны, xiaomi аксессуары, xiaomi рюкзаки, xiaomi видеорегистраторы, mi band xiaomi, аксессуары xiaomi, зарядное устройство xiaomi,  xiaomi камеры, планшеты xiaomi"
       },
       {
-        name: 'apple-mobile-web-app-capable',
-        content: 'yes'
-      },
-      {
-        name: 'apple-mobile-web-app-status-bar-style',
-        content: 'black'
-      },
-      {
-        name: 'apple-mobile-web-app-title',
-        content: 'TERMINATOR.KG'
-      },
-      {
-        name: 'mobile-web-app-capable',
-        content: 'yes'
-      },
-      {
-        hid: 'og:title',
-        property: 'og:title',
-        content: settings.main_title
-      }, {
-        hid: 'og:description',
-        property: 'og:description',
+        hid: "description",
+        name: "description",
         content: settings.description
       },
       {
-        hid: 'og:site_name',
-        property: 'og:site_name',
+        name: "viewport",
+        content: "width=device-width, initial-scale=1, user-scalable=no"
+      },
+      {
+        name: "apple-mobile-web-app-capable",
+        content: "yes"
+      },
+      {
+        name: "apple-mobile-web-app-status-bar-style",
+        content: "black"
+      },
+      {
+        name: "apple-mobile-web-app-title",
+        content: "TERMINATOR.KG"
+      },
+      {
+        name: "mobile-web-app-capable",
+        content: "yes"
+      },
+      {
+        hid: "og:title",
+        property: "og:title",
+        content: settings.main_title
+      },
+      {
+        hid: "og:description",
+        property: "og:description",
+        content: settings.description
+      },
+      {
+        hid: "og:site_name",
+        property: "og:site_name",
         content: settings.name
       },
       {
-        hid: 'og:url',
-        property: 'og:url',
-        content: 'https://terminator.kg'
+        hid: "og:url",
+        property: "og:url",
+        content: "https://terminator.kg"
       },
       {
-        hid: 'og:locale',
-        property: 'og:locale',
-        content: 'ru_RU'
+        hid: "og:locale",
+        property: "og:locale",
+        content: "ru_RU"
       },
       {
-        hid: 'og:image',
-        property: 'og:image',
-        content: 'https://terminator.kg/og.png'
+        hid: "og:image",
+        property: "og:image",
+        content: "https://terminator.kg/og.png"
       },
       {
-        hid: 'og:image:width',
-        property: 'og:image:width',
-        content: '968'
+        hid: "og:image:width",
+        property: "og:image:width",
+        content: "968"
       },
       {
-        hid: 'og:image:height',
-        property: 'og:image:height',
-        content: '504'
-      },
+        hid: "og:image:height",
+        property: "og:image:height",
+        content: "504"
+      }
     ],
-    link: [{
-        rel: 'icon',
-        type: 'image/x-icon',
-        href: 'favicon.ico'
+    link: [
+      {
+        rel: "icon",
+        type: "image/x-icon",
+        href: "favicon.ico"
       },
       {
-        rel: 'apple-touch-startup-image',
-        href: 'logo180.png'
+        rel: "apple-touch-startup-image",
+        href: "logo180.png"
       },
       {
-        rel: 'apple-touch-icon',
-        href: 'logo76.png'
+        rel: "apple-touch-icon",
+        href: "logo76.png"
       },
       {
-        rel: 'apple-touch-icon',
-        sizes: '76x76',
-        href: 'logo76.png'
+        rel: "apple-touch-icon",
+        sizes: "76x76",
+        href: "logo76.png"
       },
       {
-        rel: 'apple-touch-icon',
-        sizes: '120x120',
-        href: 'logo120.png'
+        rel: "apple-touch-icon",
+        sizes: "120x120",
+        href: "logo120.png"
       },
       {
-        rel: 'apple-touch-icon',
-        sizes: '152x152',
-        href: 'logo152.png'
+        rel: "apple-touch-icon",
+        sizes: "152x152",
+        href: "logo152.png"
       },
       {
-        rel: 'apple-touch-icon',
-        sizes: '167x167',
-        href: 'logo167.png'
+        rel: "apple-touch-icon",
+        sizes: "167x167",
+        href: "logo167.png"
       },
       {
-        rel: 'apple-touch-icon',
-        sizes: '180x180',
-        href: 'logo180.png'
-      },
-    ],
+        rel: "apple-touch-icon",
+        sizes: "180x180",
+        href: "logo180.png"
+      }
+    ]
   },
 
   /*
    ** Global CSS
    */
-  css: [
-    '~assets/css/clear.min.css',
-    '~assets/css/main.css'
-  ],
+  css: ["~assets/css/clear.min.css", "~assets/css/main.css"],
   /*
    ** Customize the progress-bar color
    */
   loading: {
-    color: '#744d82'
+    color: "#744d82"
   },
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [{
-      src: '~/plugins/vue-carousel',
+  plugins: [
+    {
+      src: "~/plugins/vue-carousel",
       ssr: false
     },
     {
-      src: '~/plugins/vue-scroll-to',
-      ssr: false
-    }, {
-      src: '~/plugins/vue-notifications',
-      ssr: false
-    }, {
-      src: '~/plugins/vue-slider-component',
+      src: "~/plugins/vue-scroll-to",
       ssr: false
     },
-    '~/plugins/vue-social-sharing',
+    {
+      src: "~/plugins/vue-notifications",
+      ssr: false
+    },
+    {
+      src: "~/plugins/vue-slider-component",
+      ssr: false
+    },
+    "~/plugins/vue-social-sharing"
   ],
   modules: [
-    '@nuxtjs/axios',
-    '@nuxtjs/sitemap',
-    '@nuxtjs/pwa', ['@nuxtjs/google-analytics', {
-      id: 'UA-119873741-1'
-    }],
-    ['@nuxtjs/google-tag-manager',
+    "@nuxtjs/axios",
+    "@nuxtjs/sitemap",
+    "@nuxtjs/pwa",
+    [
+      "@nuxtjs/google-tag-manager",
       {
-        id: 'GTM-NCVNLZP'
+        id: "GTM-NCVNLZP"
       }
-    ],
+    ]
   ],
   axios: {
     // proxy: true
   },
   workbox: {
-    runtimeCaching: [{
-      urlPattern: 'https://terminator.kg/*',
-      strategyOptions: {
-        cacheName: 'terminator.kg',
-        cacheableResponse: {
-          statuses: [0, 200]
-        },
-        cacheExpiration: {
-          maxEntries: 10,
-          maxAgeSeconds: 300
+    runtimeCaching: [
+      {
+        urlPattern: "https://terminator.kg/*",
+        strategyOptions: {
+          cacheName: "terminator.kg",
+          cacheableResponse: {
+            statuses: [0, 200]
+          },
+          cacheExpiration: {
+            maxEntries: 10,
+            maxAgeSeconds: 300
+          }
         }
       }
-    }]
+    ]
   },
   sitemap: {
-    path: '/sitemap.xml',
-    hostname: 'https://terminator.kg',
+    path: "/sitemap.xml",
+    hostname: "https://terminator.kg",
     cacheTime: 1000 * 60 * 15,
     gzip: true,
     generate: false, // Enable me when using nuxt generate
-    exclude: [
-      '/admin',
-      '/timer',
-      '/products',
-      '/admin/**'
-    ],
+    exclude: ["/admin", "/timer", "/products", "/admin/**"],
     // routes: [
     //   {
     //     url: '/',
@@ -208,38 +223,49 @@ module.exports = {
     //   }
     // ],
     routes() {
-      return axios.all([
-          axios.get('http://localhost:3001/api/categories.json'),
-          axios.get('http://localhost:3001/api/products.json')
+      return axios
+        .all([
+          axios.get("http://localhost:3001/api/categories.json"),
+          axios.get("http://localhost:3001/api/products.json")
         ])
-        .then(axios.spread((resCategories, resProducts) => {
-          let routes = resCategories.data.items.map(categories => '/categories/' + categories.link)
-            .concat(resProducts.data.items.map(product => '/products/' + product.id))
-          return routes
-        }))
+        .then(
+          axios.spread((resCategories, resProducts) => {
+            let routes = resCategories.data.items
+              .map(categories => "/categories/" + categories.link)
+              .concat(
+                resProducts.data.items.map(product => "/products/" + product.id)
+              );
+            return routes;
+          })
+        );
     }
   },
   build: {
     // analyze: true,
-    vendor: ['vue-notifications', 'vue-carousel'],
+    vendor: ["vue-notifications", "vue-carousel"],
     extend(config) {
-      const urlLoader = config.module.rules.find((rule) => rule.loader === 'url-loader')
-      urlLoader.test = /\.(png|jpe?g|gif)$/
+      const urlLoader = config.module.rules.find(
+        rule => rule.loader === "url-loader"
+      );
+      urlLoader.test = /\.(png|jpe?g|gif)$/;
 
       config.module.rules.push({
         test: /\.svg$/,
-        loader: 'vue-svg-loader',
+        loader: "vue-svg-loader",
         options: {
           svgo: {
-            plugins: [{
-              removeDoctype: true
-            }, {
-              removeComments: true
-            }]
+            plugins: [
+              {
+                removeDoctype: true
+              },
+              {
+                removeComments: true
+              }
+            ]
           }
         }
-      })
+      });
     }
   },
-  srcDir: resolve(__dirname, '..', 'resources')
-}
+  srcDir: resolve(__dirname, "..", "resources")
+};

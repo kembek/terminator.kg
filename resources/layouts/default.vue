@@ -47,15 +47,6 @@ export default {
       isTime: true
     }
   },
-  head() {
-    return {
-      title: settings.main_title,
-      titleTemplate: '%s | ' + settings.name,
-      htmlAttrs: {
-        lang: 'ru'
-      },
-    }
-  },
   created() {
     this.isTime = new Date(this.dedline).getTime() <= Date.now()
     this.ready(() => {
