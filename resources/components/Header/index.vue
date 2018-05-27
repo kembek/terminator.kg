@@ -14,7 +14,7 @@
         <nuxt-link class="link" :class="{'active': showChildMenu == i}" v-if="item.isLocal" :to="item.link">{{item.title}}</nuxt-link>
         <a v-else :href="item.link">{{item.title}}</a>
         <transition name="child-links">
-          <ul v-if="item.childs.length > 0 & showChildMenu == i" class="child-links-container">
+          <ul v-show="item.childs.length > 0 & showChildMenu == i" class="child-links-container">
             <li v-for="(child, j) in item.childs" :key="j" class="child-links" @click="showChildMenu = -1; isOpenMenu = false">
               <nuxt-link v-if="child.isLocal" :to="child.link" class="child-link">
                 <i :style="'mask-image: url(/images/' + child.img + ')'" />
