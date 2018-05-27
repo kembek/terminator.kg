@@ -143,20 +143,23 @@ module.exports = {
    ** Plugins to load before mounting the App
    */
   plugins: [{
-      src: '~/plugins/vue-carousel.js',
+      src: '~/plugins/vue-carousel',
       ssr: false
     },
     {
-      src: '~/plugins/vue-scroll-to.js',
+      src: '~/plugins/vue-scroll-to',
       ssr: false
     }, {
-      src: '~/plugins/vue-notifications.js',
+      src: '~/plugins/vue-notifications',
       ssr: false
     }, {
-      src: '~/plugins/vue-slider-component.js',
+      src: '~/plugins/vue-slider-component',
+      ssr: false
+    }, {
+      src: '~/plugins/ga',
       ssr: false
     },
-    '~/plugins/vue-social-sharing.js',
+    '~/plugins/vue-social-sharing',
   ],
   modules: [
     '@nuxtjs/axios',
