@@ -26,6 +26,8 @@
     "@adonisjs/session": "^1.0.19",
     "@adonisjs/shield": "^1.0.4",
     "@nuxtjs/axios": "^5.3.1",
+    "@nuxtjs/google-analytics": "^2.0.2",
+    "@nuxtjs/google-tag-manager": "^2.0.0",
     "@nuxtjs/pwa": "^2.0.8",
     "@nuxtjs/sitemap": "^0.1.1",
     "axios": "^0.18.0",

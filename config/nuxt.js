@@ -155,16 +155,20 @@ module.exports = {
     }, {
       src: '~/plugins/vue-slider-component',
       ssr: false
-    }, {
-      src: '~/plugins/ga',
-      ssr: false
     },
     '~/plugins/vue-social-sharing',
   ],
   modules: [
     '@nuxtjs/axios',
     '@nuxtjs/sitemap',
-    '@nuxtjs/pwa'
+    '@nuxtjs/pwa', ['@nuxtjs/google-analytics', {
+      id: 'UA-119873741-1'
+    }],
+    ['@nuxtjs/google-tag-manager',
+      {
+        id: 'GTM-NCVNLZP'
+      }
+    ],
   ],
   axios: {
     // proxy: true
