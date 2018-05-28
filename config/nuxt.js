@@ -220,7 +220,7 @@ module.exports = {
     cacheTime: 1000 * 60 * 15,
     gzip: true,
     generate: false, // Enable me when using nuxt generate
-    exclude: ["/admin", "/timer", "/products", "/admin/**"],
+    exclude: ["/admin", "/timer", "/products", "/admin/**", '/blog', '/blog/**'],
     // routes: [
     //   {
     //     url: '/',
