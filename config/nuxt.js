@@ -220,7 +220,7 @@ module.exports = {
     cacheTime: 1000 * 60 * 15,
     gzip: true,
     generate: false, // Enable me when using nuxt generate
-    exclude: ["/admin", "/timer", "/products", "/admin/**", '/blog', '/blog/**'],
+    exclude: ["/admin", "/timer", "/products", "/admin/**", "/blog", "blog", "/blog/**"],
     // routes: [
     //   {
     //     url: '/',
@@ -231,8 +231,8 @@ module.exports = {
     routes() {
       return axios
         .all([
-          axios.get("http://localhost:3001/api/categories.json"),
-          axios.get("http://localhost:3001/api/products.json")
+          axios.get("https://terminator.kg/api/categories.json"),
+          axios.get("https://terminator.kg/api/products.json")
         ])
         .then(
           axios.spread((resCategories, resProducts) => {
