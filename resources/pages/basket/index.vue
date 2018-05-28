@@ -85,6 +85,24 @@ import basket from '~/assets/svg/basket.svg'
 import arrow from '~/assets/svg/arrow.svg'
 import Basket from '~/components/basket/index'
 export default {
+  head() {
+    return {
+      title: "Корзина",
+      meta: [{
+        hid: 'og:title',
+        property: 'og:title',
+        content: Корзина + ' | TERMINATOR.KG'
+      },{
+        hid: 'description',
+        property: 'description',
+        content: "Корзина покупок" + ' | TERMINATOR.KG'
+      },{
+        hid: 'og:description',
+        property: 'og:description',
+        content: "Корзина покупок" + ' | TERMINATOR.KG'
+      }, ]
+    }
+  },
   notifications: {
     showSuccessMsg: {
       type: 'success',
