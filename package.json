@@ -28,11 +28,14 @@
     "@adonisjs/session": "^1.0.23",
     "@adonisjs/shield": "^1.0.6",
     "@adonisjs/validator": "^5.0.3",
-    "mysql": "^2.15.0"
+    "mysql": "^2.15.0",
+    "require-all": "^2.2.0",
+    "swagger-jsdoc": "^1.9.7"
   },
   "devDependencies": {
     "lodash": "^4.17.10",
-    "nodemon": "^1.17.3"
+    "nodemon": "^1.17.3",
+    "swagger-ui-dist": "^3.14.1"
   },
   "autoload": {
     "App": "./app",

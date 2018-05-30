@@ -3,6 +3,11 @@
 const Model = use('Model')
 
 class User extends Model {
+  
+  static get table() {
+    return 'users'
+  }
+
   static boot() {
     super.boot()
 
