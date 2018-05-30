@@ -18,7 +18,7 @@ class ProductSchema extends Schema {
       table.string('meta_desription')
       table.boolean('is_hit').notNullable().defaultTo(false)
       table.boolean('is_recommend').notNullable().defaultTo(false)
-      table.boolean('is_status').notNullable().defaultTo(1)
+      table.boolean('is_status').notNullable().defaultTo(true)
       table.timestamps()
     })
   }

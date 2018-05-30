@@ -1,5 +1,6 @@
 'use strict'
 
+const Helpers = use('Helpers')
 /*
 |--------------------------------------------------------------------------
 | Providers
@@ -19,7 +20,8 @@ const providers = [
   '@adonisjs/shield/providers/ShieldProvider',
   '@adonisjs/session/providers/SessionProvider',
   '@adonisjs/auth/providers/AuthProvider',
-  '@adonisjs/validator/providers/ValidatorProvider'
+  '@adonisjs/validator/providers/ValidatorProvider',
+  Helpers.appRoot('app/Providers/ExtendResponseProvider')
 ]
 
 /*

@@ -2,6 +2,56 @@
 
 const Basic = use('App/Models/Basic')
 
+/**
+ * @swagger
+ * definitions:
+ *   StoreProduct:
+ *     type: object
+ *     required:
+ *       - stock_status_id
+ *       - user_id
+ *       - category_id
+ *       - thumbnail
+ *       - title
+ *       - link
+ *       - description
+ *       - information
+ *       - is_hit
+ *       - is_recommend
+ *       - is_status
+ *     properties:
+ *       stock_status_id:
+ *         type: integer
+ *       user_id:
+ *         type: integer
+ *       category_id:
+ *         type: integer
+ *       thumbnail:
+ *         type: string
+ *       title:
+ *         type: string
+ *       description:
+ *         type: string
+ *       information:
+ *         type: string
+ *       meta_keywords:
+ *         type: string
+ *       meta_description:
+ *         type: string
+ *       is_hit:
+ *         type: boolean
+ *       is_recommend:
+ *         type: boolean
+ *       is_status:
+ *         type: boolean
+ *   Product:
+ *     allOf:
+ *       - $ref: '#/definitions/StoreProduct'
+ *       - type: object
+ *         properties:
+ *           id:
+ *             type: number
+ */
 class Product extends Basic {
   static get table() {
     return 'products'
@@ -27,6 +77,11 @@ class Product extends Basic {
     return this.hasMany('PRODUCTS/Video', 'id', 'product_id')
   }
 
+  orderProducts() {
+    return this.belongsToMany('ORDERS/Order')
+      .pivotModel(use('ORDERS/OrderProduct'))
+  }
+
   colors() {
     return this.belongsToMany('SETTINGS/Color')
       .pivotModel(use('PRODUCTS/ProductColor'))
@@ -40,10 +95,6 @@ class Product extends Basic {
     return this.manyThrough('PRODUCTS/ProductColor', 'prices')
   }
 
-  orderProducts() {
-    return this.belongsToMany('ORDERS/Order')
-      .pivotModel(use('ORDERS/OrderProduct'))
-  }
 }
 
 module.exports = Product

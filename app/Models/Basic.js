@@ -1,11 +1,16 @@
 'use strict'
 
 const Model = use('Model')
+const Exceptions = use('App/Exceptions/BasicException')
 
 class Basic extends Model {
   static boot() {
     super.boot()
     this.addHook('beforeCreate', 'Basic.link')
+  }
+
+  exceptions(message, status, code) {
+    throw new Exceptions(message, status, code)
   }
 }
 
