@@ -1,11 +1,6 @@
 'use strict'
-
 const Route = use('Route')
 
-// Route
-//   .group(() => {
-//     Route.get('')
-//   }).prefix('api')
-
+use('require-all')(`${use('Helpers').appRoot()}/start`)
 
 Route.any('*', 'NuxtController.render')
