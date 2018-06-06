@@ -371,7 +371,7 @@ export const state = () => ({
       "groups": [2, 5, 6, 10],
       "image": "redmi-5-plus-gold-1.jpg",
       "isShow": true,
-      "price": 10340,
+      "price": 9800,
       "prices": [{
           "color": "#d4c69a",
           "images": [
@@ -380,7 +380,7 @@ export const state = () => ({
             "redmi-5-plus-gold-3.jpg",
             "redmi-5-plus-gold-4.jpg"
           ],
-          "price": 10340,
+          "price": 9800,
           "title": "золотистый"
         },
         {
@@ -391,7 +391,7 @@ export const state = () => ({
             "redmi-5-plus-black-3.jpg",
             "redmi-5-plus-black-4.jpg"
           ],
-          "price": 10340,
+          "price": 9800,
           "title": "черный"
         },
         {
@@ -402,7 +402,7 @@ export const state = () => ({
             "redmi-5-plus-black-3.jpg",
             "redmi-5-plus-black-4.jpg"
           ],
-          "price": 10460,
+          "price": 10320,
           "title": "голубой"
         }
       ],
@@ -421,7 +421,7 @@ export const state = () => ({
             "Смартфоны Xiaomi Redmi 5 Plus/9.jpg",
             "Смартфоны Xiaomi Redmi 5 Plus/11.jpg"
           ],
-          "price": 11920,
+          "price": 11880,
           "title": "золотистый"
         },
         {
@@ -431,7 +431,7 @@ export const state = () => ({
             "Смартфоны Xiaomi Redmi 5 Plus/2.jpg",
             "Смартфоны Xiaomi Redmi 5 Plus/3.jpg"
           ],
-          "price": 11980,
+          "price": 11880,
           "title": "черный"
         },
         {
@@ -453,7 +453,7 @@ export const state = () => ({
       "groups": [2, 5, 6, 10],
       "image": "Смартфоны Xiaomi Redmi 5 Plus/8.jpg",
       "isShow": true,
-      "price": 10620,
+      "price": 10480,
       "prices": [{
           "color": "#d4c69a",
           "images": [
@@ -463,7 +463,7 @@ export const state = () => ({
             "Смартфоны Xiaomi Redmi 5 Plus/3.jpg",
             "Смартфоны Xiaomi Redmi 5 Plus/6.jpg"
           ],
-          "price": 10620,
+          "price": 10480,
           "title": "золотистый"
         },
         {
@@ -475,7 +475,7 @@ export const state = () => ({
             "Смартфоны Xiaomi Redmi 5 Plus/3.jpg",
             "Смартфоны Xiaomi Redmi 5 Plus/6.jpg"
           ],
-          "price": 10740,
+          "price": 10580,
           "title": "черный"
         },
         {
@@ -487,7 +487,7 @@ export const state = () => ({
             "Смартфоны Xiaomi Redmi 5 Plus/3.jpg",
             "Смартфоны Xiaomi Redmi 5 Plus/6.jpg"
           ],
-          "price": 11160,
+          "price": 11060,
           "title": "голубой"
         }
       ],
@@ -780,7 +780,7 @@ export const state = () => ({
       "groups": [2, 10],
       "image": "Смартфоны Xiaomi Mi Max 2/6.jpg",
       "isShow": true,
-      "price": 14260,
+      "price": 14180,
       "prices": [{
         "color": "#000000",
         "images": [
@@ -789,7 +789,7 @@ export const state = () => ({
           "Смартфоны Xiaomi Mi Max 2/3.jpg",
           "Смартфоны Xiaomi Mi Max 2/4.jpg"
         ],
-        "price": 14260,
+        "price": 14180,
         "title": "черный"
       }],
       "description": "",
@@ -1048,7 +1048,7 @@ export const state = () => ({
       "groups": [2, 5, 6, 10],
       "image": "redmi-4x-1.jpg",
       "isShow": true,
-      "price": 12190,
+      "price": 9680,
       "prices": [{
           "color": "#ffd700",
           "images": [
@@ -1056,7 +1056,7 @@ export const state = () => ({
             "redmi-4x-2.jpg",
             "redmi-4x-3.jpg"
           ],
-          "price": 9590,
+          "price": 9680,
           "title": "золотистый"
         },
         {
@@ -1567,7 +1567,7 @@ export const state = () => ({
           "redmi-5-plus-black-2.jpg",
           "redmi-5-plus-black-3.jpg"
         ],
-        "price": 9520,
+        "price": 9450,
         "title": "черный"
       }, {
         "color": "#d4c69a",
