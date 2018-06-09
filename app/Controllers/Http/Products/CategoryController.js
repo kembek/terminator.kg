@@ -1,6 +1,7 @@
 'use strict'
 
 const Category = use('PRODUCTS/Category')
+const CircularJSON = require('circular-json')
 
 class CategoryController {
 
@@ -31,28 +32,29 @@ class CategoryController {
       is_status: true
     })
 
-    let arrCat = []
-    for (let i = 0; i < category.length; ++i) {
-      const child = await Category.query().where({
-        parent_id: category[i].id,
+    async function recCat(object) {
+      const childs = await Category.query().where({
+        parent_id: object.id,
         is_status: true
       })
-
-      let tmp = category[i]
-      tmp.child = child
-
-      for (let j = 0; j < tmp.child.length; ++j) {
-        const chl = await Category.query().where({
-          parent_id: tmp.child[j].id,
-          is_status: true
-        })
-
-        tmp.child[j].child = chl
+      
+      if (childs != false) {
+        object.childs = []
+        for (var i = 0; i < childs.length; i++) {
+          childs[i].childs = await recCat(childs[i])
+          object.childs.push(childs[i])
+        }
       }
-
-      arrCat[i] = tmp
+      return object.childs
     }
 
+    let arrCat = []
+
+    for (var i = 0; i < category.length; i++) {
+      category[i].childs = await recCat(category[i])
+      arrCat.push(category[i])
+    }
+    
     return response.apiCollection(arrCat)
 
   }
@@ -112,8 +114,8 @@ class CategoryController {
     }
   }
 
-  async image({response}) {
-    
+  async image({ response }) {
+
   }
 }
 
