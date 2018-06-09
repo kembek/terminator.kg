@@ -1,13 +1,33 @@
 'use strict'
 
 const Route = use('Route')
+const Helpers = use('Helpers')
 
-
+/**
+ * Product category
+ */
 Route.group(() => {
 
   /**
    * @swagger
    * /product_category:
+   *   get:
+   *     tags:
+   *       - ProductCategory
+   *     summary: Select product categories
+   *     responses:
+   *       200:
+   *         description: product categories
+   *         schema:
+   *           type: array
+   *           items:
+   *             $ref: '#/definitions/ProductCategory'
+   */
+  Route.get('/', 'Products/CategoryController.category')
+
+  /**
+   * @swagger
+   * /product_category/all:
    *   get:
    *     tags:
    *       - ProductCategory
@@ -20,7 +40,7 @@ Route.group(() => {
    *           items:
    *             $ref: '#/definitions/ProductCategory'
    */
-  Route.get('/', 'Products/CategoryController.index')
+  Route.get('/all', 'Products/CategoryController.index')
 
   /**
    * @swagger
@@ -89,6 +109,9 @@ Route.group(() => {
 
 }).prefix('/api/product_category')
 
+/**
+ * Product
+ */
 Route.group(() => {
 
   /**
@@ -150,9 +173,7 @@ Route.group(() => {
    *       202:
    *         description: product update
    *         schema:
-   *           $ref: '#/definitions/Product
-   *       404:
-   *         $ref: '#/definitions/NotFound'
+   *           $ref: '#/definitions/Product'
    */
   Route.put('/:id', 'Products/ProductCotroller.update')
     .validator('Products/Product')
@@ -165,13 +186,40 @@ Route.group(() => {
    *       - Product
    *     summary:
    *     parameters:
-   *       - $ref: '#/definitions/Id'
+   *       - $ref: '#/parameters/Id'
    *     responses:
    *       202:
    *         description: Delete success
    *       404:
-   *         $ref: '#/definitions/NotFound'
+   *         $ref: '#/responses/NotFound'
    */
   Route.delete('/:id', 'Products/ProductController.destroy')
 
 }).prefix('/api/product')
+
+Route.group(() => {
+  Route.post('upload', async({request}) =>{
+    const image = request.file('image', {
+      types: ['image'],
+      size: '2mb',
+      allowedExtensions: ['jpg', 'png', 'jpeg']
+    })
+
+    const path = Helpers.resourcesPath('image')
+
+    await image.move(path, {
+      name: image.clientName
+    })
+
+    if(!image.moved()) {
+      return image.error()
+    }
+
+    return {
+      status: 'File upload!!',
+      fileName: image.fileName,
+      status: image.status,
+      path: `${path}/${image.fileName}`
+    }
+  })
+}).prefix('/api/test')

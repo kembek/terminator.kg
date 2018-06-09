@@ -5,9 +5,56 @@ const Category = use('PRODUCTS/Category')
 class CategoryController {
 
   async index({ response }) {
-    const category = await Category.all()
+    // // await Category.query().with('childs').fetch()
+    // let parentCat = await Category.query().where('parent_id', null)
 
-    return response.apiCollection(category)
+    // let resp = []
+    // for (let i = 0; i < parentCat.length; ++i) {
+    //   const childCat = await Category.query().where('parent_id', parentCat[i].id)
+
+    //   if(childCat) {
+    //     parentCat[i].child = childCat
+    //     const childCatThd = await Category.query().where('parent_id', parentCat[i].child.id)
+
+    //   }
+
+    //   resp[i] = parentCat[i]
+    // }
+    const resp = await Category.all()
+    return response.apiCollection(resp)
+  }
+
+  async category({ response }) {
+
+    const category = await Category.query().where({
+      parent_id: null,
+      is_status: true
+    })
+
+    let arrCat = []
+    for (let i = 0; i < category.length; ++i) {
+      const child = await Category.query().where({
+        parent_id: category[i].id,
+        is_status: true
+      })
+
+      let tmp = category[i]
+      tmp.child = child
+
+      for (let j = 0; j < tmp.child.length; ++j) {
+        const chl = await Category.query().where({
+          parent_id: tmp.child[j].id,
+          is_status: true
+        })
+
+        tmp.child[j].child = chl
+      }
+
+      arrCat[i] = tmp
+    }
+
+    return response.apiCollection(arrCat)
+
   }
 
   async create() {
@@ -63,6 +110,10 @@ class CategoryController {
     } catch (error) {
       new Category().exceptions(error.message, error.status, error.code)
     }
+  }
+
+  async image({response}) {
+    
   }
 }
 
