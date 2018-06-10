@@ -8,27 +8,6 @@ const Drive = use('Drive')
 class CategoryController {
 
   async index({ response }) {
-    // // await Category.query().with('childs').fetch()
-    // let parentCat = await Category.query().where('parent_id', null)
-
-    // let resp = []
-    // for (let i = 0; i < parentCat.length; ++i) {
-    //   const childCat = await Category.query().where('parent_id', parentCat[i].id)
-
-    //   if(childCat) {
-    //     parentCat[i].child = childCat
-    //     const childCatThd = await Category.query().where('parent_id', parentCat[i].child.id)
-
-    //   }
-
-    //   resp[i] = parentCat[i]
-    // }
-    const resp = await Category.all()
-    return response.apiCollection(resp)
-  }
-
-  async category({ response }) {
-
     const category = await Category.query().where({
       parent_id: null,
       is_status: true
