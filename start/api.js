@@ -42,6 +42,12 @@ Route.group(() => {
    */
   Route.get('/all', 'Products/CategoryController.index')
 
+
+  // *     consumes:
+  // *       - 'multipart/form-data'
+  // *     produces:
+  // *       - "application/json"
+
   /**
    * @swagger
    * /product_category:
@@ -50,9 +56,13 @@ Route.group(() => {
    *       - ProductCategory
    *     summary: Create product category
    *     parameters:
-   *       - name: body
+   *       - in: formData
+   *         name: thumbnail
+   *         type: file
+   *         description: The file to upload
+   *       - in: body
+   *         name: body
    *         description: JSON of product category
-   *         in: body
    *         required: true
    *         schema:
    *           $ref: '#/definitions/StoreProductCategory'
@@ -63,7 +73,7 @@ Route.group(() => {
    *           $ref: '#/definitions/ProductCategory'
    */
   Route.post('/', 'Products/CategoryController.store')
-    .validator('Products/Category')
+  // .validator('Products/Category')
 
   /**
    * @swagger
@@ -197,29 +207,3 @@ Route.group(() => {
 
 }).prefix('/api/product')
 
-Route.group(() => {
-  Route.post('upload', async({request}) =>{
-    const image = request.file('image', {
-      types: ['image'],
-      size: '2mb',
-      allowedExtensions: ['jpg', 'png', 'jpeg']
-    })
-
-    const path = Helpers.resourcesPath('image')
-
-    await image.move(path, {
-      name: image.clientName
-    })
-
-    if(!image.moved()) {
-      return image.error()
-    }
-
-    return {
-      status: 'File upload!!',
-      fileName: image.fileName,
-      status: image.status,
-      path: `${path}/${image.fileName}`
-    }
-  })
-}).prefix('/api/test')

@@ -1,7 +1,9 @@
 'use strict'
 
 const Category = use('PRODUCTS/Category')
-const CircularJSON = require('circular-json')
+const Helpers = use('Helpers')
+const { validate } = use('Validator')
+const Drive = use('Drive')
 
 class CategoryController {
 
@@ -37,7 +39,7 @@ class CategoryController {
         parent_id: object.id,
         is_status: true
       })
-      
+
       if (childs != false) {
         object.childs = []
         for (var i = 0; i < childs.length; i++) {
@@ -54,24 +56,64 @@ class CategoryController {
       category[i].childs = await recCat(category[i])
       arrCat.push(category[i])
     }
-    
+
     return response.apiCollection(arrCat)
+  }
+  async category() {
 
   }
 
   async create() {
+
+  }
+
+  async image(request) {
+    const image = request.file('thumbnail', {
+      type: ['image'],
+      size: '2mb',
+      allowedExtensions: ['jpg', 'png', 'jpeg', 'svg']
+    })
+
+    if (!image) {
+      new Category().exceptions('This field required!!!', 400)
+    }
+
+    const exists = await Drive.exists(`resources/image/${image.clientName}`)
+
+    if (exists) {
+      return `resources/image/${image.clientName}`
+    }
+
+    await image.move(Helpers.resourcesPath('image'), {
+      name: image.clientName
+    })
+
+    if (!image.moved()) {
+      return image.error()
+    }
+
+    return `resources/image/${image.clientName}`
   }
 
   async store({ request, response, auth }) {
-    // const user = await auth.getUser()
-    const data = request.only(['parent_id', 'user_id', 'sort', 'thumbnail', 'title', 'meta_keywords', 'meta_description', 'is_status'])
+
+    let data = request.only(['parent_id', 'user_id', 'sort', 'title', 'meta_keywords', 'meta_description', 'is_status'])
+    console.log(data)
+    data.thumbnail = await this.image(request)
+
+    const validation = await validate(data, {
+      thumbnail: `required|string|min:3|max:255|unique:product_categories, thumbnail`
+    })
+
+    if (validation.fails()) {
+      return validation.messages()
+    }
 
     try {
       const category = await Category.findOrCreate(
         { title: data.title }, data)
 
       return response.apiSuccess(category)
-
     } catch (error) {
       new Category().exceptions(error.message, error.status, error.code)
     }
@@ -114,9 +156,6 @@ class CategoryController {
     }
   }
 
-  async image({ response }) {
-
-  }
 }
 
 module.exports = CategoryController
