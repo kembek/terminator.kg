@@ -40,3 +40,4 @@ yarn.lock
 # The development sqlite file
 database/development.sqlite
 .env
+package-lock.json

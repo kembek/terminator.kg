@@ -3,7 +3,7 @@
 const Category = use('PRODUCTS/Category')
 const Helpers = use('Helpers')
 const { validate } = use('Validator')
-const Drive = use('Drive')
+// const Drive = use('Drive')
 
 class CategoryController {
 
@@ -11,13 +11,13 @@ class CategoryController {
     const category = await Category.query().where({
       parent_id: null,
       is_status: true
-    })
+    }).orderBy('sort', 'ASC')
 
     async function recCat(object) {
       const childs = await Category.query().where({
         parent_id: object.id,
         is_status: true
-      })
+      }).orderBy('sort', 'ASC')
 
       if (childs != false) {
         object.childs = []
@@ -60,7 +60,7 @@ class CategoryController {
     const exists = await Drive.exists(`resources/image/${image.clientName}`)
 
     if (exists) {
-      return `resources/image/${image.clientName}`
+     return `resources/image/${image.clientName}`
     }
 
     await image.move(Helpers.resourcesPath('image'), {

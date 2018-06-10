@@ -12,7 +12,7 @@ class CategoryPostSchema extends Schema {
   }
 
   down () {
-    this.drop('category_posts')
+    this.drop('categories_posts')
   }
 }
 

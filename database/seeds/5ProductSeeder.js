@@ -27,7 +27,7 @@ class ProductSeeder {
     await Database.raw('SET FOREIGN_KEY_CHECKS = 1;')
 
     // Categories
-    const category = await Factory.model('PRODUCTS/Category').createMany(9, { user_id: 1 })
+    const category = await Factory.model('PRODUCTS/Category').createMany(14)
 
     for (let i = 0; i < category.length; ++i) {
 
@@ -57,12 +57,12 @@ class ProductSeeder {
         }
 
         for (let k = min; k <= max; ++k) {
-          
+
           let productColor = await product[j].colors().attach([k])
           let price = await Factory.model('PRODUCTS/Price').make()
-          
+
           await productColor[0].prices().save(price)
-          
+
           let productImage = await Factory.model('PRODUCTS/Image').makeMany(_.random(3, 4))
           await productColor[0].images().saveMany(productImage)
         }

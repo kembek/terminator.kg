@@ -6,12 +6,12 @@ class StocStatusSchema extends Schema {
   up() {
     this.create('stock_statuses', (table) => {
       table.increments()
-      table.string('title').notNullable().unique('ui_stoc_statuses')
+      table.string('title').notNullable().unique('ui_stock_statuses')
     })
   }
 
   down() {
-    this.dropIfExists('stoc_statuses')
+    this.dropIfExists('stock_statuses')
   }
 }
 
