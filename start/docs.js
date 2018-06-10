@@ -53,6 +53,13 @@ Route.get('docs', ({ view }) => {
  *     required: true
  *     type: number
  *
+ *   Link:
+ *     name: link
+ *     description: link of instance
+ *     in:  path
+ *     required: true
+ *     type: string
+ *
  *   ListQuery:
  *     name: query
  *     description: '{ "where": { },  "with": ["string"], "select": ["string"], "limit": 20, "skip": 0, "sort": "string" }'

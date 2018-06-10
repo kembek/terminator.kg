@@ -10,23 +10,6 @@ Route.group(() => {
 
   /**
    * @swagger
-   * /product_category:
-   *   get:
-   *     tags:
-   *       - ProductCategory
-   *     summary: Select product categories
-   *     responses:
-   *       200:
-   *         description: product categories
-   *         schema:
-   *           type: array
-   *           items:
-   *             $ref: '#/definitions/ProductCategory'
-   */
-  Route.get('/', 'Products/CategoryController.category')
-
-  /**
-   * @swagger
    * /product_category/all:
    *   get:
    *     tags:
@@ -51,7 +34,7 @@ Route.group(() => {
   /**
    * @swagger
    * /product_category:
-   *   post: 
+   *   post:
    *     tags:
    *       - ProductCategory
    *     summary: Create product category
@@ -101,6 +84,24 @@ Route.group(() => {
 
   /**
    * @swagger
+   * /product_category/{link}:
+   *   get:
+   *     tags:
+   *       - ProductCategory
+   *     summary: Get product category
+   *     parameters:
+   *       - $ref: '#/parameters/Link'
+   *     responses:
+   *       202:
+   *         description: Get success
+   *       404:
+   *         $ref: '#/responses/NotFound'
+   *
+   */
+  Route.get('/:link', 'Products/CategoryController.category')
+
+  /**
+   * @swagger
    * /product_category/{id}:
    *   delete:
    *     tags:
@@ -113,9 +114,9 @@ Route.group(() => {
    *         description: Delete success
    *       404:
    *         $ref: '#/responses/NotFound'
-   * 
+   *
    */
-  Route.delete('/:id', 'Products/Categorycontroller.destroy')
+  Route.delete('/:id', 'Products/CategoryController.destroy')
 
 }).prefix('/api/product_category')
 

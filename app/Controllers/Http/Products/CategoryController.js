@@ -1,13 +1,18 @@
 'use strict'
 
 const Category = use('PRODUCTS/Category')
+const Product = use('PRODUCTS/Product')
 const Helpers = use('Helpers')
-const { validate } = use('Validator')
+const {
+  validate
+} = use('Validator')
 // const Drive = use('Drive')
 
 class CategoryController {
 
-  async index({ response }) {
+  async index({
+    response
+  }) {
     const category = await Category.query().where({
       parent_id: null,
       is_status: true
@@ -38,8 +43,16 @@ class CategoryController {
 
     return response.apiCollection(arrCat)
   }
-  async category() {
+  async category({request, params, response}) {
+    let { link } = params
+    const category = await Category.query().where({
+      link: link
+    }).innerJoin('products', )
 
+    if(category != false)
+        return response.apiCollection(category)
+
+    return response.send("Page Not Found")
   }
 
   async create() {
@@ -60,7 +73,7 @@ class CategoryController {
     const exists = await Drive.exists(`resources/image/${image.clientName}`)
 
     if (exists) {
-     return `resources/image/${image.clientName}`
+      return `resources/image/${image.clientName}`
     }
 
     await image.move(Helpers.resourcesPath('image'), {
@@ -74,7 +87,11 @@ class CategoryController {
     return `resources/image/${image.clientName}`
   }
 
-  async store({ request, response, auth }) {
+  async store({
+    request,
+    response,
+    auth
+  }) {
 
     let data = request.only(['parent_id', 'user_id', 'sort', 'title', 'meta_keywords', 'meta_description', 'is_status'])
     console.log(data)
@@ -89,8 +106,9 @@ class CategoryController {
     }
 
     try {
-      const category = await Category.findOrCreate(
-        { title: data.title }, data)
+      const category = await Category.findOrCreate({
+        title: data.title
+      }, data)
 
       return response.apiSuccess(category)
     } catch (error) {
@@ -98,13 +116,16 @@ class CategoryController {
     }
   }
 
-  async show() {
-  }
+  async show() {}
 
-  async edit() {
-  }
+  async edit() {}
 
-  async update({ request, response, params, auth }) {
+  async update({
+    request,
+    response,
+    params,
+    auth
+  }) {
     const data = request.only(['parent_id', 'user_id', 'sort', 'thumbnail', 'title', 'meta_keywords', 'meta_description', 'is_status'])
 
     try {
@@ -118,7 +139,12 @@ class CategoryController {
     }
   }
 
-  async destroy({ params, request, response, auth }) {
+  async destroy({
+    params,
+    request,
+    response,
+    auth
+  }) {
     try {
       const category = await Category.findOrFail(params.id)
 
