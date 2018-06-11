@@ -239,8 +239,8 @@ Factory.blueprint('AUTHS/Access', (faker, i, data) => {
 Factory.blueprint('AUTHS/User', (faker) => {
   return {
     username: faker.username(),
-    email: faker.email(),
-    password: faker.password(),
+    email: 'admin@terminator.kg',
+    password: '123',
     is_status: true
   }
 })

@@ -8,6 +8,11 @@ const Helpers = use('Helpers')
  */
 Route.group(() => {
 
+  // *     consumes:
+  // *       - 'multipart/form-data'
+  // *     produces:
+  // *       - "application/json"
+
   /**
    * @swagger
    * /categories/:
@@ -44,11 +49,6 @@ Route.group(() => {
    */
   Route.get('/:link', 'Products/CategoryController.category')
 
-  // *     consumes:
-  // *       - 'multipart/form-data'
-  // *     produces:
-  // *       - "application/json"
-
   /**
    * @swagger
    * /categories:
@@ -73,7 +73,7 @@ Route.group(() => {
    *         schema:
    *           $ref: '#/definitions/ProductCategory'
    */
-  Route.post('/', 'Products/CategoryController.store')
+  Route.post('/', 'Products/CategoryController.store').middleware(['auth:jwt'])
   // .validator('Products/Category')
 
   /**
@@ -98,7 +98,7 @@ Route.group(() => {
    *           $ref: '#/definitions/ProductCategory'
    */
   Route.put('/:id', 'Products/CategoryController.update')
-    .validator('Products/Category')
+    .validator('Products/Category').middleware(['auth:jwt'])
 
   /**
    * @swagger
@@ -116,7 +116,7 @@ Route.group(() => {
    *         $ref: '#/responses/NotFound'
    *
    */
-  Route.delete('/:id', 'Products/CategoryController.destroy')
+  Route.delete('/:id', 'Products/CategoryController.destroy').middleware(['auth:jwt'])
 
 }).prefix('/api/categories')
 
@@ -142,22 +142,6 @@ Route.group(() => {
    */
   Route.get('/', 'Products/ProductController.index')
 
-  /**
-   * @swagger
-   * /product:
-   *   get:
-   *     tags:
-   *       - Product
-   *     summary: Select all products
-   *     responses:
-   *       200:
-   *         description: products
-   *         schema:
-   *           type: array
-   *           items:
-   *             $ref: '#/definitions/Product'
-   */
-  Route.get('/', 'Products/ProductController.index')
 
   /**
    * @swagger
@@ -180,7 +164,7 @@ Route.group(() => {
    *           $ref: '#/definitions/Product'
    */
   Route.post('/', 'Products/ProductController.store')
-    .validator('Products/Product')
+    .validator('Products/Product').middleware(['auth:jwt'])
 
   /**
    * @swagger
@@ -204,7 +188,7 @@ Route.group(() => {
    *           $ref: '#/definitions/Product'
    */
   Route.put('/:id', 'Products/ProductCotroller.update')
-    .validator('Products/Product')
+    .validator('Products/Product').middleware(['auth:jwt'])
 
   /**
    * @swagger
@@ -221,7 +205,33 @@ Route.group(() => {
    *       404:
    *         $ref: '#/responses/NotFound'
    */
-  Route.delete('/:id', 'Products/ProductController.destroy')
+  Route.delete('/:id', 'Products/ProductController.destroy').middleware(['auth:jwt'])
 
 }).prefix('/api/product')
 
+
+Route.group(() => {
+
+  /**
+   * @swagger
+   * /auth:
+   *   post:
+   *     tags:
+   *       - Auth
+   *     summary: Auth
+   *     parameters:
+   *       - name: auth
+   *         description: Product object
+   *         in: body
+   *         required: true
+   *         schema:
+   *           $ref: '#/definitions/User'
+   *     responses:
+   *       202:
+   *         description: product update
+   *         schema:
+   *           $ref: '#/definitions/User'
+   */
+  Route.post('/', 'Auths/UserController.login')
+
+}).prefix('/api/auth')

@@ -6,7 +6,7 @@ const swaggerJSDoc = use('swagger-jsdoc')
 /**
  * Swagger jsDoc
  */
-Route.get('api-specs', async ({ request, response }) => {
+Route.get('/', async ({ request, response }) => {
   const options = {
     swaggerDefinition: {
       info: {
@@ -29,6 +29,7 @@ Route.get('api-specs', async ({ request, response }) => {
     },
     apis: [
       './start/*.js',
+      './app/Models/Auths/*.js',
       './app/Models/Products/*.js'
     ] // Path to the API docs
   }
