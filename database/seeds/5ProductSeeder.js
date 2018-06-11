@@ -22,12 +22,13 @@ class ProductSeeder {
     await Database.truncate('images')
     await Database.truncate('products')
     await Database.truncate('product_colors')
-    await Database.truncate('product_categories')
+    await Database.truncate('categories')
+    await Database.truncate('product_category')
     await Database.truncate('product_prices')
     await Database.raw('SET FOREIGN_KEY_CHECKS = 1;')
 
     // Categories
-    const category = await Factory.model('PRODUCTS/Category').createMany(14)
+    const category = await Factory.model('PRODUCTS/Categories').createMany(14)
 
     for (let i = 0; i < category.length; ++i) {
 

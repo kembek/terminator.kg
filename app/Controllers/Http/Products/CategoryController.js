@@ -1,6 +1,6 @@
 'use strict'
 
-const Category = use('PRODUCTS/Category')
+const Category = use('PRODUCTS/Categories')
 const Product = use('PRODUCTS/Product')
 const Helpers = use('Helpers')
 const {
@@ -98,7 +98,7 @@ class CategoryController {
     data.thumbnail = await this.image(request)
 
     const validation = await validate(data, {
-      thumbnail: `required|string|min:3|max:255|unique:product_categories, thumbnail`
+      thumbnail: `required|string|min:3|max:255|unique:product_category, thumbnail`
     })
 
     if (validation.fails()) {

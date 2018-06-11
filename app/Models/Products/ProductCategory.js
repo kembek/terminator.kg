@@ -37,22 +37,18 @@ const Basic = use('App/Models/Basic')
  *           id:
  *             type: number
  */
-class Category extends Basic {
+class ProductCategory extends Basic {
   static get table() {
-    return 'product_categories'
+    return 'product_category'
   }
 
-  products() {
-    return this.hasMany('PRODUCTS/Product', 'id', 'category_id')
+  product() {
+    return this.hasMany('PRODUCTS/Product', 'id', 'product_id')
   }
 
-  user() {
-    return this.belongsTo('AUTHS/User', 'user_id', 'id')
-  }
-
-  parent() {
-    return this.belongsTo('PRODUCTS/Category', 'parent_id', 'id')
+  category() {
+    return this.hasMany('PRODUCTS/Categories', 'id', 'category_id')
   }
 }
 
-module.exports = Category
+module.exports = ProductCategory

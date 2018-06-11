@@ -4,7 +4,7 @@ const Schema = use('Schema')
 
 class ProductCategorySchema extends Schema {
   up() {
-    this.create('product_categories', (table) => {
+    this.create('categories', (table) => {
       table.increments()
       table.integer('parent_id').unsigned()
       table.integer('user_id').notNullable().unsigned()
@@ -20,7 +20,7 @@ class ProductCategorySchema extends Schema {
   }
 
   down() {
-    this.dropIfExists('product_categories')
+    this.dropIfExists('categories')
   }
 }
 

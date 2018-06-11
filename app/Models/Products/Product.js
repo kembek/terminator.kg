@@ -66,7 +66,7 @@ class Product extends Basic {
   }
 
   category() {
-    return this.belongsTo('PRODUCTS/Category', 'categroy_id', 'id')
+    return this.belongsTo('PRODUCTS/ProductCategory', 'product_id', 'id')
   }
 
   productImages() {

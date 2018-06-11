@@ -293,7 +293,7 @@ Factory.blueprint('POSTS/Post', (faker, i, data) => {
   }
 })
 
-Factory.blueprint('PRODUCTS/Category', (faker, i, data) => {
+Factory.blueprint('PRODUCTS/Categories', (faker, i, data) => {
   return cat[i]
 })
 

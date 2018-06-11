@@ -61,9 +61,9 @@ class AlterSchema extends Schema {
 
 
     /**
-     * ALTER product_categories
+     * ALTER categories
      */
-    this.alter('product_categories', (table) => {
+    this.alter('categories', (table) => {
       table.foreign('user_id')
         .references('id')
         .inTable('users')
@@ -72,10 +72,28 @@ class AlterSchema extends Schema {
         .withKeyName('fk_user_id_product_categories_users')
       table.foreign('parent_id')
         .references('id')
-        .inTable('product_categories')
+        .inTable('categories')
         .onDelete('RESTRICT')
         .onUpdate('CASCADE')
         .withKeyName('fk_parent_id_product_categories')
+    })
+
+    /**
+     * ALTER product_category
+     */
+    this.alter('product_category', (table) => {
+      table.foreign('product_id')
+        .references('id')
+        .inTable('products')
+        .onDelete('RESTRICT')
+        .onUpdate('CASCADE')
+        .withKeyName('fk_product_id_categories')
+      table.foreign('category_id')
+        .references('id')
+        .inTable('categories')
+        .onDelete('RESTRICT')
+        .onUpdate('CASCADE')
+        .withKeyName('fk_category_id_categories')
     })
 
     /**
@@ -94,12 +112,6 @@ class AlterSchema extends Schema {
         .onDelete('RESTRICT')
         .onUpdate('CASCADE')
         .withKeyName('fk_stock_status_id_products_stock_statuses')
-      table.foreign('category_id')
-        .references('id')
-        .inTable('product_categories')
-        .onDelete('RESTRICT')
-        .onUpdate('CASCADE')
-        .withKeyName('fk_category_id_products_product_categories')
     })
 
     /**
@@ -229,8 +241,8 @@ class AlterSchema extends Schema {
     })
 
     /**
-    * ALTER user_orders
-    */
+     * ALTER user_orders
+     */
     this.alter('user_orders', (table) => {
       table.foreign('user_id')
         .references('id')
@@ -247,8 +259,8 @@ class AlterSchema extends Schema {
     })
 
     /**
-    * ALTER user_reviews
-    */
+     * ALTER user_reviews
+     */
     this.alter('user_reviews', (table) => {
       table.foreign('user_id')
         .references('id')
@@ -265,8 +277,8 @@ class AlterSchema extends Schema {
     })
 
     /**
-    * ALTER product_video_reviews
-    */
+     * ALTER product_video_reviews
+     */
     this.alter('product_video_reviews', (table) => {
       table.foreign('user_id')
         .references('id')
@@ -283,8 +295,8 @@ class AlterSchema extends Schema {
     })
 
     /**
-    * ALTER user_questions
-    */
+     * ALTER user_questions
+     */
     this.alter('user_questions', (table) => {
       table.foreign('user_id')
         .references('id')
@@ -339,7 +351,7 @@ class AlterSchema extends Schema {
     /**
      * Alter product_prices
      */
-    this.alter('product_prices', (table)=>{
+    this.alter('product_prices', (table) => {
       table.foreign('product_color_id')
         .references('id')
         .inTable('product_colors')

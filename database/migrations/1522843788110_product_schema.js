@@ -8,7 +8,6 @@ class ProductSchema extends Schema {
       table.increments()
       table.integer('stock_status_id').notNullable().unsigned()
       table.integer('user_id').notNullable().unsigned()
-      table.integer('category_id').notNullable().unsigned()
       table.string('thumbnail').notNullable()
       table.string('title').notNullable().unique('ui_products_title')
       table.string('link').notNullable().unique('ui_products_link')
