@@ -1,28 +1,28 @@
 'use strict'
 
-const Category = use('PRODUCTS/Categories')
+const Categories = use('PRODUCTS/Categories')
+const ProductCategory = use('PRODUCTS/ProductCategory')
 const Product = use('PRODUCTS/Product')
 const Helpers = use('Helpers')
 const {
   validate
 } = use('Validator')
-// const Drive = use('Drive')
+const Drive = use('Drive')
 
 class CategoryController {
 
   async index({
     response
   }) {
-    const category = await Category.query().where({
-      parent_id: null,
-      is_status: true
+    const categories = await Categories.query().where({
+      parent_id: null
     }).orderBy('sort', 'ASC')
 
     async function recCat(object) {
-      const childs = await Category.query().where({
-        parent_id: object.id,
-        is_status: true
+      const childs = await Categories.query().where({
+        parent_id: object.id
       }).orderBy('sort', 'ASC')
+
       if (childs != false) {
         object.childs = []
         for (var i = 0; i < childs.length; i++) {
@@ -35,26 +35,31 @@ class CategoryController {
 
     let arrCat = []
 
-    for (var i = 0; i < category.length; i++) {
-      category[i].childs = await recCat(category[i])
-      arrCat.push(category[i])
+    for (var i = 0; i < categories.length; i++) {
+      categories[i].childs = await recCat(categories[i])
+      arrCat.push(categories[i])
     }
 
     return response.apiCollection(arrCat)
   }
+
   async category({request, params, response}) {
     let { link } = params
-    const category = await Category.query().where({
+    let category = await Categories.query().where({
       link: link
-    }).innerJoin('product_category', 'id', 'category_id')
+    })
 
 
     if(category != false) {
-      category.products = await Product.find(category.product_id)
+      category = category[0]
+      category.products = await ProductCategory.query().where({category_id: category.id}).innerJoin('products', 'id', 'product_id')
       return response.apiCollection(category)
     }
 
-    return response.status(404).send("Page Not Found")
+    return response.status(404).send({
+      status: 404,
+      message: "Not Found"
+    })
   }
 
   async create() {

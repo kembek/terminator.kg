@@ -10,21 +10,39 @@ Route.group(() => {
 
   /**
    * @swagger
-   * /product_category/all:
+   * /categories/:
    *   get:
    *     tags:
    *       - ProductCategory
-   *     summary: Select all product categories
+   *     summary: Select all categories
    *     responses:
    *       200:
-   *         description: product categories
+   *         description: categories
    *         schema:
    *           type: array
    *           items:
    *             $ref: '#/definitions/ProductCategory'
    */
-  Route.get('/all', 'Products/CategoryController.index')
+  Route.get('/', 'Products/CategoryController.index')
 
+
+  /**
+   * @swagger
+   * /categories/{link}:
+   *   get:
+   *     tags:
+   *       - ProductCategory
+   *     summary: Get category
+   *     parameters:
+   *       - $ref: '#/parameters/Link'
+   *     responses:
+   *       202:
+   *         description: Get success
+   *       404:
+   *         $ref: '#/responses/NotFound'
+   *
+   */
+  Route.get('/:link', 'Products/CategoryController.category')
 
   // *     consumes:
   // *       - 'multipart/form-data'
@@ -33,11 +51,11 @@ Route.group(() => {
 
   /**
    * @swagger
-   * /product_category:
+   * /categories:
    *   post:
    *     tags:
    *       - ProductCategory
-   *     summary: Create product category
+   *     summary: Create category
    *     parameters:
    *       - in: formData
    *         name: thumbnail
@@ -45,7 +63,7 @@ Route.group(() => {
    *         description: The file to upload
    *       - in: body
    *         name: body
-   *         description: JSON of product category
+   *         description: JSON of category
    *         required: true
    *         schema:
    *           $ref: '#/definitions/StoreProductCategory'
@@ -60,14 +78,14 @@ Route.group(() => {
 
   /**
    * @swagger
-   * /product_category/{id}:
+   * /categories/{id}:
    *   put:
    *     tags:
    *       - ProductCategory
    *     summary: Product category update
    *     parameters:
    *       - $ref: '#/parameters/Id'
-   *       - name: productCategory
+   *       - name: Category
    *         description: Product category object
    *         in: body
    *         required: true
@@ -75,7 +93,7 @@ Route.group(() => {
    *           $ref: '#/definitions/ProductCategory'
    *     responses:
    *       202:
-   *         description: product category update
+   *         description: category update
    *         schema:
    *           $ref: '#/definitions/ProductCategory'
    */
@@ -84,25 +102,7 @@ Route.group(() => {
 
   /**
    * @swagger
-   * /product_category/{link}:
-   *   get:
-   *     tags:
-   *       - ProductCategory
-   *     summary: Get product category
-   *     parameters:
-   *       - $ref: '#/parameters/Link'
-   *     responses:
-   *       202:
-   *         description: Get success
-   *       404:
-   *         $ref: '#/responses/NotFound'
-   *
-   */
-  Route.get('/:link', 'Products/CategoryController.category')
-
-  /**
-   * @swagger
-   * /product_category/{id}:
+   * /categories/{id}:
    *   delete:
    *     tags:
    *       - ProductCategory
@@ -118,12 +118,29 @@ Route.group(() => {
    */
   Route.delete('/:id', 'Products/CategoryController.destroy')
 
-}).prefix('/api/product_category')
+}).prefix('/api/categories')
 
 /**
  * Product
  */
 Route.group(() => {
+
+  /**
+   * @swagger
+   * /product:
+   *   get:
+   *     tags:
+   *       - Product
+   *     summary: Select all products
+   *     responses:
+   *       200:
+   *         description: products
+   *         schema:
+   *           type: array
+   *           items:
+   *             $ref: '#/definitions/Product'
+   */
+  Route.get('/', 'Products/ProductController.index')
 
   /**
    * @swagger

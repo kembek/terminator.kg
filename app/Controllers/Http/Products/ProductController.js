@@ -8,12 +8,21 @@ class ProductController {
 
     return response.apiCollection(product)
   }
+  async product({ request, response }) {
 
+    let { link } = params
+    const product = await Product.query().where({
+      link: link
+    })
+
+    return response.apiCollection(product)
+  }
+  
   async create() {
   }
 
   async store({ request, response, auth }) {
-    const data = request.only(['stock_status_id', 'category_id', 'thumbnail', 'title', 'description', 'information', 'meta_keywords', 'meta_description', 'is_hit', 'is_recommend', 'is_status', 'user_id'])
+    const data = request.only(['stock_status_id', 'thumbnail', 'title', 'description', 'information', 'meta_keywords', 'meta_description', 'is_hit', 'is_recommend', 'is_status', 'user_id'])
 
     try {
       const product = await Product.findOrCreate({ title: data.title }, data)
@@ -31,7 +40,7 @@ class ProductController {
   }
 
   async update({ request, response, params, auth }) {
-    const data = request.only(['stock_status_id', 'category_id', 'thumbnail', 'title', 'description', 'information', 'meta_keywords', 'meta_description', 'is_hit', 'is_recommend', 'is_status', 'user_id'])
+    const data = request.only(['stock_status_id', 'thumbnail', 'title', 'description', 'information', 'meta_keywords', 'meta_description', 'is_hit', 'is_recommend', 'is_status', 'user_id'])
 
     try {
       const product = await Product.findOrFail(params.id)

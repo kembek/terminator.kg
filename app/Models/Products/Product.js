@@ -10,7 +10,6 @@ const Basic = use('App/Models/Basic')
  *     required:
  *       - stock_status_id
  *       - user_id
- *       - category_id
  *       - thumbnail
  *       - title
  *       - link
@@ -23,8 +22,6 @@ const Basic = use('App/Models/Basic')
  *       stock_status_id:
  *         type: integer
  *       user_id:
- *         type: integer
- *       category_id:
  *         type: integer
  *       thumbnail:
  *         type: string

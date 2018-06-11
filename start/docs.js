@@ -10,7 +10,7 @@ Route.get('api-specs', async ({ request, response }) => {
   const options = {
     swaggerDefinition: {
       info: {
-        title: 'My REST API', // Title (required)
+        title: 'TERMINATOR.KG API', // Title (required)
         version: '1.0.0' // Version (required)
       },
       // host: `${Config.get('host')}:${Config.get('port')}`,
