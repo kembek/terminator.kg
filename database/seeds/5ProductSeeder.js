@@ -28,16 +28,17 @@ class ProductSeeder {
     await Database.raw('SET FOREIGN_KEY_CHECKS = 1;')
 
     // Categories
-    const category = await Factory.model('PRODUCTS/Categories').createMany(14)
+    const categories = await Factory.model('PRODUCTS/Categories').createMany(14)
 
-    for (let i = 0; i < category.length; ++i) {
+
+    for (let i = 0; i < categories.length; ++i) {
 
       // Make many Products
-      let product = await Factory.model('PRODUCTS/Product').makeMany(_.random(1, 5), { user_id: 1 })
+      let product = await Factory.model('PRODUCTS/Product').createMany(_.random(1, 5), { user_id: 1 })
 
       for (let j = 0; j < product.length; ++j) {
         // Save products
-        await category[i].products().save(product[j])
+        await Factory.model('PRODUCTS/ProductCategory').create({product_id: product[j].id, category_id: categories[i].id})
 
         // Product videos
         let productVideo = await Factory.model('PRODUCTS/Video').makeMany(_.random(1, 4), { user_id: 1 })

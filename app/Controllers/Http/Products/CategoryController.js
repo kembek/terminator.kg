@@ -23,7 +23,6 @@ class CategoryController {
         parent_id: object.id,
         is_status: true
       }).orderBy('sort', 'ASC')
-
       if (childs != false) {
         object.childs = []
         for (var i = 0; i < childs.length; i++) {
@@ -47,12 +46,15 @@ class CategoryController {
     let { link } = params
     const category = await Category.query().where({
       link: link
-    }).innerJoin('products', )
+    }).innerJoin('product_category', 'id', 'category_id')
 
-    if(category != false)
-        return response.apiCollection(category)
 
-    return response.send("Page Not Found")
+    if(category != false) {
+      category.products = await Product.find(category.product_id)
+      return response.apiCollection(category)
+    }
+
+    return response.status(404).send("Page Not Found")
   }
 
   async create() {

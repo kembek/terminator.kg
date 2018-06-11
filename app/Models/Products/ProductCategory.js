@@ -41,6 +41,14 @@ class ProductCategory extends Basic {
   static get table() {
     return 'product_category'
   }
+  
+  static get createdAtColumn() {
+    return undefined
+  }
+
+  static get updatedAtColumn() {
+    return undefined
+  }
 
   product() {
     return this.hasMany('PRODUCTS/Product', 'id', 'product_id')

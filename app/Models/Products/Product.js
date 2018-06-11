@@ -65,7 +65,7 @@ class Product extends Basic {
     return this.belongsTo('AUTHS/User', 'user_id', 'id')
   }
 
-  category() {
+  categories() {
     return this.belongsTo('PRODUCTS/ProductCategory', 'product_id', 'id')
   }
 

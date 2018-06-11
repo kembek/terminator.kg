@@ -43,10 +43,6 @@ class Categories extends Basic {
     return 'categories'
   }
 
-  productCategory() {
-    return ProductCategory.hasMany('PRODUCTS/Product', 'id', 'product_id').hasMany(this, 'id', 'category_id')
-  }
-
   user() {
     return this.belongsTo('AUTHS/User', 'user_id', 'id')
   }
