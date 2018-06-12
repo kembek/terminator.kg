@@ -13,7 +13,7 @@
 
     </div>
 
-    <div class="product-img" :style="'background-image: url(\'/images/'+ image+'\')'">
+    <div class="product-img" :style="'background-image: url(/images/'+ product.thumbnail + ')'">
 
     </div>
 
@@ -80,22 +80,38 @@ export default {
   components: {
     Arrow
   },
-  created() {
-    if (this.product == null) {
-      this.$root.error({
-        'statusCode': 404,
-        'message': 'OK'
-      })
+  created(){
+    return this.$axios.$get(`/api/product/` + this.$route.params.product).then(res => {
+          this.title = res.data.title
+          this.description = res.data.meta_description
+          this.keywords = res.data.meta_keywords
+          this.product = res.data
+        })
+    if(this.product == null)
+    {
+      this.$root.error({'statusCode': 404, 'message': 'OK'})
     }
   },
   head() {
     return {
-      title: this.product.title,
+      title: this.title,
       meta: [{
         hid: 'og:title',
         property: 'og:title',
-        content: this.product.title + ' | TERMINATOR.KG'
-      }, ]
+        content: this.title + ' | TERMINATOR.KG'
+      },{
+        hid: 'description',
+        property: 'description',
+        content: this.description + ' | TERMINATOR.KG'
+      },{
+        hid: 'keywords',
+        property: 'keywords',
+        content: this.keywords + ' | TERMINATOR.KG'
+      },{
+        hid: 'og:description',
+        property: 'og:description',
+        content: this.description + ' | TERMINATOR.KG'
+      }]
     }
   },
   data() {
@@ -104,7 +120,7 @@ export default {
       active: 0,
       img_id: 0,
       count: 1,
-      product: this.$store.getters['Products/Item']
+      product: this.product
     };
   },
 

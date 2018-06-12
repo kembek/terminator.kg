@@ -61,7 +61,7 @@ export default {
           this.categories = res.data.title
           this.description = res.data.meta_description
           this.keywords = res.data.meta_keywords
-          this.items = res.data.products
+          this.items = res.data.product
         })
   },
   methods: {
