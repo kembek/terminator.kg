@@ -2,7 +2,6 @@
 
 const Product = use('PRODUCTS/Product')
 const Color = use('PRODUCTS/ProductColor')
-
 class ProductController {
   async index({ request, response }) {
     const product = await Product.all()
@@ -41,7 +40,7 @@ class ProductController {
     } = params
     let product = await Product.query().where({
       link: link
-    }).select('id','stock_status_id', 'user_id', 'thumbnail', 'title', 'link', 'description', 'information', 'meta_keywords', 'meta_desription', 'is_hit', 'is_recommend', 'created_at', 'updated_at')
+    }).select('id','stock_status_id', 'user_id', 'thumbnail', 'products.title', 'link', 'description', 'information', 'meta_keywords', 'meta_desription', 'is_hit', 'is_recommend', 'created_at', 'updated_at')
 
 
     if (product != false)
