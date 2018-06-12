@@ -72,9 +72,9 @@ class CategoryController {
         category.products[i].prices = await Color.query().where({
             product_id: category.products[i].product_id
           })
-          .select('colors.id', 'product_colors.sort', 'colors.title', 'colors.code', 'product_prices.price')
-          .innerJoin('colors', 'colors.id', 'product_colors.id')
-          .innerJoin('product_prices', 'product_prices.product_color_id', 'product_colors.id')
+
+          // .innerJoin('colors', 'colors.id', 'product_colors.id')
+          .innerJoin('product_prices', 'product_prices.product_color_id', 'product_colors.id').orderBy('product_prices.price', 'ASC').with('images').fetch()
         }
         // .innerJoin('product_colors', 'product_colors.product_id', 'product_category.product_id')
         // .innerJoin('colors', 'colors.id', 'product_colors.color_id')

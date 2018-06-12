@@ -41,3 +41,4 @@ yarn.lock
 database/development.sqlite
 .env
 package-lock.json
+.env
