@@ -80,10 +80,12 @@ export default {
   components: {
     Arrow
   },
-  created(){
-    if(this.product == null)
-    {
-      this.$root.error({'statusCode': 404, 'message': 'OK'})
+  created() {
+    if (this.product == null) {
+      this.$root.error({
+        'statusCode': 404,
+        'message': 'OK'
+      })
     }
   },
   head() {

@@ -11,7 +11,7 @@
     <nuxt-link :to="'/products/'+item.link" class="product" v-for="(item, i) in items" :key="i" :title="item.title">
       <img :src="'/images/'+item.thumbnail" :alt="item.title">
       <h3>{{item.title}}</h3>
-      <span>от {{Price(item)}} сом</span>
+      <span>от {{item.prices[0].price}} сом</span>
     </nuxt-link>
   </div>
 </div>
@@ -26,6 +26,7 @@ export default {
       search: this.$route.params.result,
       categories: '',
       description: '',
+      keywords: '',
       items: []
     }
   },
@@ -41,6 +42,10 @@ export default {
         property: 'description',
         content: this.description + ' | TERMINATOR.KG'
       },{
+        hid: 'keywords',
+        property: 'keywords',
+        content: this.keywords + ' | TERMINATOR.KG'
+      },{
         hid: 'og:description',
         property: 'og:description',
         content: this.description + ' | TERMINATOR.KG'
@@ -53,14 +58,14 @@ export default {
   },
   created() {
         return this.$axios.$get(`/api/categories/` + this.$route.params.link).then(res => {
+          this.categories = res.data.title
+          this.description = res.data.meta_description
+          this.keywords = res.data.meta_keywords
           this.items = res.data.products
         })
   },
   methods: {
-    Price(item) {
-      console.log(item)
-      return item.prices[0]
-    }
+    
   }
 }
 </script>
