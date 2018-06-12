@@ -3,7 +3,7 @@
 const Schema = use('Schema')
 
 class UserSchema extends Schema {
-  up() {
+  up () {
     this.create('users', table => {
       table.increments()
       table.integer('group_id').notNullable().unsigned()
@@ -15,8 +15,8 @@ class UserSchema extends Schema {
     })
   }
 
-  down() {
-    this.dropIfExists('users')
+  down () {
+    this.drop('users')
   }
 }
 

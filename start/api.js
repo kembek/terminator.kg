@@ -73,7 +73,7 @@ Route.group(() => {
    *         schema:
    *           $ref: '#/definitions/ProductCategory'
    */
-  Route.post('/', 'Products/CategoryController.store').middleware(['auth:jwt'])
+  Route.post('/', 'Products/CategoryController.store').middleware(['auth'])
   // .validator('Products/Category')
 
   /**
@@ -98,7 +98,7 @@ Route.group(() => {
    *           $ref: '#/definitions/ProductCategory'
    */
   Route.put('/:id', 'Products/CategoryController.update')
-    .validator('Products/Category').middleware(['auth:jwt'])
+    .validator('Products/Category').middleware(['auth'])
 
   /**
    * @swagger
@@ -116,7 +116,7 @@ Route.group(() => {
    *         $ref: '#/responses/NotFound'
    *
    */
-  Route.delete('/:id', 'Products/CategoryController.destroy').middleware(['auth:jwt'])
+  Route.delete('/:id', 'Products/CategoryController.destroy').middleware(['auth'])
 
 }).prefix('/api/categories')
 
@@ -164,7 +164,7 @@ Route.group(() => {
    *           $ref: '#/definitions/Product'
    */
   Route.post('/', 'Products/ProductController.store')
-    .validator('Products/Product').middleware(['auth:jwt'])
+    .validator('Products/Product').middleware(['auth'])
 
   /**
    * @swagger
@@ -188,7 +188,7 @@ Route.group(() => {
    *           $ref: '#/definitions/Product'
    */
   Route.put('/:id', 'Products/ProductCotroller.update')
-    .validator('Products/Product').middleware(['auth:jwt'])
+    .validator('Products/Product').middleware(['auth'])
 
   /**
    * @swagger
@@ -205,12 +205,28 @@ Route.group(() => {
    *       404:
    *         $ref: '#/responses/NotFound'
    */
-  Route.delete('/:id', 'Products/ProductController.destroy').middleware(['auth:jwt'])
+  Route.delete('/:id', 'Products/ProductController.destroy').middleware(['auth'])
 
 }).prefix('/api/product')
 
 
 Route.group(() => {
+
+  /**
+   * @swagger
+   * /auth:
+   *   get:
+   *     tags:
+   *       - Auth
+   *     summary: Auth
+   *     responses:
+   *       202:
+   *         description: product update
+   *         schema:
+   *           $ref: '#/definitions/User'
+   */
+
+  Route.get('/', 'Auths/UserController.user')
 
   /**
    * @swagger
