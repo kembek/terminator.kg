@@ -196,7 +196,7 @@ export default {
       return this.product.prices[this.active].images.length
     },
     image() {
-      return this.product.prices[this.active].images[this.img_id];
+      return this.product.prices[this.active].images[this.img_id].url;
     }
   },
   watch: {
