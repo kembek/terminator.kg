@@ -62,7 +62,7 @@ class CategoryController {
         .where({
           category_id: category.id
         })
-        .select( 'product_category.product_id','products.stock_status_id','products.user_id', 'products.thumbnail', 'products.title', 'products.link', 'products.description', 'products.information', 'products.meta_keywords', 'products.meta_desription', 'products.is_hit', 'products.is_recommend', 'products.created_at', 'products.updated_at')
+        .select('product_category.product_id', 'products.stock_status_id', 'products.user_id', 'products.thumbnail', 'products.title', 'products.link', 'products.description', 'products.information', 'products.meta_keywords', 'products.meta_desription', 'products.is_hit', 'products.is_recommend', 'products.created_at', 'products.updated_at')
         .innerJoin('products', 'products.id', 'product_category.product_id')
         .orderBy('products.updated_at', 'ASC')
       //.innerJoin('stock_statuses', 'stock_statuses.id', 'products.stock_status_id')
@@ -72,129 +72,128 @@ class CategoryController {
         category.products[i].prices = await Color.query().where({
             product_id: category.products[i].product_id
           })
-
-          // .innerJoin('colors', 'colors.id', 'product_colors.id')
-          .innerJoin('product_prices', 'product_prices.product_color_id', 'product_colors.id').orderBy('product_prices.price', 'ASC').with('images').fetch()
-        }
-        // .innerJoin('product_colors', 'product_colors.product_id', 'product_category.product_id')
-        // .innerJoin('colors', 'colors.id', 'product_colors.color_id')
-
-
-        return response.apiCollection(category)
+          .innerJoin('product_prices', 'product_prices.product_color_id', 'product_colors.id')
+          .orderBy('product_prices.price', 'ASC').with('images').fetch()
       }
+      // .innerJoin('product_colors', 'product_colors.product_id', 'product_category.product_id')
+      // .innerJoin('colors', 'colors.id', 'product_colors.color_id')
 
-      return response.status(404).send({
-        status: 404,
-        message: "Not Found"
-      })
+
+      return response.apiCollection(category)
     }
 
-    async create() {
+    return response.status(404).send({
+      status: 404,
+      message: "Not Found"
+    })
+  }
 
-    }
-
-    async image(request) {
-      const image = request.file('thumbnail', {
-        type: ['image'],
-        size: '2mb',
-        allowedExtensions: ['jpg', 'png', 'jpeg', 'svg']
-      })
-
-      if (!image) {
-        new Category().exceptions('This field required!!!', 400)
-      }
-
-      const exists = await Drive.exists(`resources/image/${image.clientName}`)
-
-      if (exists) {
-        return `resources/image/${image.clientName}`
-      }
-
-      await image.move(Helpers.resourcesPath('image'), {
-        name: image.clientName
-      })
-
-      if (!image.moved()) {
-        return image.error()
-      }
-
-      return `resources/image/${image.clientName}`
-    }
-
-    async store({
-      request,
-      response,
-      auth
-    }) {
-
-      let data = request.only(['parent_id', 'user_id', 'sort', 'title', 'meta_keywords', 'meta_description', 'is_status'])
-      console.log(data)
-      data.thumbnail = await this.image(request)
-
-      const validation = await validate(data, {
-        thumbnail: `required|string|min:3|max:255|unique:product_category, thumbnail`
-      })
-
-      if (validation.fails()) {
-        return validation.messages()
-      }
-
-      try {
-        const category = await Category.findOrCreate({
-          title: data.title
-        }, data)
-
-        return response.apiSuccess(category)
-      } catch (error) {
-        new Category().exceptions(error.message, error.status, error.code)
-      }
-    }
-
-    async show() {}
-
-    async edit() {}
-
-    async update({
-      request,
-      response,
-      params,
-      auth
-    }) {
-      const data = request.only(['parent_id', 'user_id', 'sort', 'thumbnail', 'title', 'meta_keywords', 'meta_description', 'is_status'])
-
-      try {
-        const category = await Category.findOrFail(params.id)
-        category.merge(data)
-        await category.save()
-
-        return response.apiUpdated(category)
-      } catch (error) {
-        new Category().exceptions(error.message, error.status, error.code)
-      }
-    }
-
-    async destroy({
-      params,
-      request,
-      response,
-      auth
-    }) {
-      try {
-        const category = await Category.findOrFail(params.id)
-
-        const product = await category.product().fetch()
-        await product.productVideo().delete()
-        await product.productImages().delete()
-        await product.prices().delete()
-        await product.productColors().delete()
-
-        await category.delete()
-        return response.apiDeleted(category)
-      } catch (error) {
-        new Category().exceptions(error.message, error.status, error.code)
-      }
-    }
+  async create() {
 
   }
 
-  module.exports = CategoryController
+  async image(request) {
+    const image = request.file('thumbnail', {
+      type: ['image'],
+      size: '2mb',
+      allowedExtensions: ['jpg', 'png', 'jpeg', 'svg']
+    })
+
+    if (!image) {
+      new Category().exceptions('This field required!!!', 400)
+    }
+
+    const exists = await Drive.exists(`resources/image/${image.clientName}`)
+
+    if (exists) {
+      return `resources/image/${image.clientName}`
+    }
+
+    await image.move(Helpers.resourcesPath('image'), {
+      name: image.clientName
+    })
+
+    if (!image.moved()) {
+      return image.error()
+    }
+
+    return `resources/image/${image.clientName}`
+  }
+
+  async store({
+    request,
+    response,
+    auth
+  }) {
+
+    let data = request.only(['parent_id', 'user_id', 'sort', 'title', 'meta_keywords', 'meta_description', 'is_status'])
+    console.log(data)
+    data.thumbnail = await this.image(request)
+
+    const validation = await validate(data, {
+      thumbnail: `required|string|min:3|max:255|unique:product_category, thumbnail`
+    })
+
+    if (validation.fails()) {
+      return validation.messages()
+    }
+
+    try {
+      const category = await Category.findOrCreate({
+        title: data.title
+      }, data)
+
+      return response.apiSuccess(category)
+    } catch (error) {
+      new Category().exceptions(error.message, error.status, error.code)
+    }
+  }
+
+  async show() {}
+
+  async edit() {}
+
+  async update({
+    request,
+    response,
+    params,
+    auth
+  }) {
+    const data = request.only(['parent_id', 'user_id', 'sort', 'thumbnail', 'title', 'meta_keywords', 'meta_description', 'is_status'])
+
+    try {
+      const category = await Category.findOrFail(params.id)
+      category.merge(data)
+      await category.save()
+
+      return response.apiUpdated(category)
+    } catch (error) {
+      new Category().exceptions(error.message, error.status, error.code)
+    }
+  }
+
+  async destroy({
+    params,
+    request,
+    response,
+    auth
+  }) {
+    try {
+      const category = await Category.findOrFail(params.id)
+
+      const product = await category.product().fetch()
+      await product.productVideo().delete()
+      await product.productImages().delete()
+      await product.prices().delete()
+      await product.productColors().delete()
+
+      await category.delete()
+      return response.apiDeleted(category)
+    } catch (error) {
+      new Category().exceptions(error.message, error.status, error.code)
+    }
+  }
+
+}
+
+module.exports = CategoryController

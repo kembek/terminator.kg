@@ -127,6 +127,24 @@ Route.group(() => {
 
   /**
    * @swagger
+   * /product/{link}:
+   *   get:
+   *     tags:
+   *       - Product
+   *     summary: Get category
+   *     parameters:
+   *       - $ref: '#/parameters/Link'
+   *     responses:
+   *       202:
+   *         description: Get success
+   *       404:
+   *         $ref: '#/responses/NotFound'
+   *
+   */
+  Route.get('/:link', 'Products/ProductController.show')
+
+  /**
+   * @swagger
    * /product:
    *   get:
    *     tags:

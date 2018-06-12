@@ -1,6 +1,7 @@
 'use strict'
 
 const Product = use('PRODUCTS/Product')
+const Color = use('PRODUCTS/ProductColor')
 
 class ProductController {
   async index({ request, response }) {
@@ -17,7 +18,7 @@ class ProductController {
 
     return response.apiCollection(product)
   }
-  
+
   async create() {
   }
 
@@ -33,7 +34,31 @@ class ProductController {
     }
   }
 
-  async show() {
+  async show({ params, response }) {
+    let {
+      link
+    } = params
+    let product = await Product.query().where({
+      link: link
+    }).select('id','stock_status_id', 'user_id', 'thumbnail', 'title', 'link', 'description', 'information', 'meta_keywords', 'meta_desription', 'is_hit', 'is_recommend', 'created_at', 'updated_at')
+
+
+    if (product != false)
+    {
+      product = product[0]
+      console.log(product)
+      product.prices = await Color.query().where({
+        product_id: product.id
+      })
+      .innerJoin('product_prices', 'product_prices.product_color_id', 'product_colors.id')
+      .orderBy('product_prices.price', 'ASC').with('images').fetch()
+      return response.apiCollection(product)
+    }
+
+    return response.status(404).send({
+      status: 404,
+      message: "Not Found"
+    })
   }
 
   async edit() {
