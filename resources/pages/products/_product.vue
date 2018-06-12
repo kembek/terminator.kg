@@ -1,76 +1,41 @@
 <template>
 <div class="product-up" v-if="product">
-
   <div class="product-up-l">
-
     <div class="product-slider">
-
       <span class="arrow-up" @click="slideChange('down')"><Arrow /></span>
-
       <img v-for="(item, i) in slides" :key="i" :src="'/images/'+ images(i)" :alt="product.title" @click="setSlide(Slide(i))" draggable="false">
-
       <span @click="slideChange('up')"><Arrow /></span>
-
     </div>
-
-    <div class="product-img" :style="'background-image: url(/images/'+ product.thumbnail + ')'">
-
+    <div class="product-img" :style="'background-image: url(\'/images/'+ image+'\')'">
     </div>
-
   </div>
-
   <div class="product-up-r">
-
     <h2>{{product.title}}</h2>
-
     <div class="p-text">
-
       <label>Цена</label>
-
       <span>{{product.prices[active].price}} сом</span>
-
     </div>
-
     <div class="p-text">
-
       <label>Количество</label>
-
       <div class="quality">
-
         <button @click="count--">-</button>
-
         <input type="number" min="1" v-model="count">
-
         <button @click="count++">+</button>
-
       </div>
-
     </div>
-
     <div class="p-text">
-
       <label>Цвет: {{product.prices[active].title}}</label>
-
       <div class="color">
-
         <span v-for="(item, i) in product.prices" :key="i" :style="'background-color: ' + item.color + ';'" @click="setColor(i)" :title="item.title" />
-
       </div>
-
     </div>
-
     <p>В зависимости от цвета стоимость может измениться</p>
-
     <div class="btns">
       <!-- @click="$root.$emit('order', false) -->
       <button class="btn" @click="AddOrder()">Купить</button>
-
       <button class="btn" @click="AddOrder()">Добавить в корзину</button>
-
     </div>
-
   </div>
-
 </div>
 </template>
 <script>
@@ -80,38 +45,23 @@ export default {
   components: {
     Arrow
   },
-  created(){
-    return this.$axios.$get(`/api/product/` + this.$route.params.product).then(res => {
-          this.title = res.data.title
-          this.description = res.data.meta_description
-          this.keywords = res.data.meta_keywords
-          this.product = res.data
-        })
-    if(this.product == null)
-    {
-      this.$root.error({'statusCode': 404, 'message': 'OK'})
+  created() {
+    if (this.product == null) {
+      this.$root.error({
+        'statusCode': 404,
+        'message': 'OK'
+      })
     }
+    
   },
   head() {
     return {
-      title: this.title,
+      title: this.product.title,
       meta: [{
         hid: 'og:title',
         property: 'og:title',
-        content: this.title + ' | TERMINATOR.KG'
-      },{
-        hid: 'description',
-        property: 'description',
-        content: this.description + ' | TERMINATOR.KG'
-      },{
-        hid: 'keywords',
-        property: 'keywords',
-        content: this.keywords + ' | TERMINATOR.KG'
-      },{
-        hid: 'og:description',
-        property: 'og:description',
-        content: this.description + ' | TERMINATOR.KG'
-      }]
+        content: this.product.title + ' | TERMINATOR.KG'
+      }, ]
     }
   },
   data() {
@@ -120,7 +70,7 @@ export default {
       active: 0,
       img_id: 0,
       count: 1,
-      product: this.product
+      product: this.$store.getters['Products/Item']
     };
   },
 
