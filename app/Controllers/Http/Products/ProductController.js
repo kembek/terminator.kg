@@ -20,6 +20,7 @@ class ProductController {
   }
 
   async create() {
+    
   }
 
   async store({ request, response, auth }) {

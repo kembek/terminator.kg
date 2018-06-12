@@ -3,6 +3,40 @@
 const Route = use('Route')
 const Helpers = use('Helpers')
 
+Route.group(() => {
+
+  /**
+   * @swagger
+   * /auth:
+   *   get:
+   *     tags:
+   *       - Авторизация
+   *     summary: Проверка авторизации
+   */
+
+  Route.get('/', 'Auths/UserController.user')
+
+  /**
+   * @swagger
+   * /auth:
+   *   post:
+   *     tags:
+   *       - Авторизация
+   *     summary: Авторизация
+   *     parameters:
+   *       - name: auth
+   *         description: Авторизация
+   *         in: body
+   *         required: true
+   *         schema:
+   *           type: array
+   *           items:
+   *             $ref: '#/definitions/User'
+   */
+  Route.post('/', 'Auths/UserController.login')
+
+}).prefix('/api/auth')
+
 /**
  * Product category
  */
@@ -18,7 +52,7 @@ Route.group(() => {
    * /categories/:
    *   get:
    *     tags:
-   *       - ProductCategory
+   *       - Категории
    *     summary: Select all categories
    *     responses:
    *       200:
@@ -36,7 +70,7 @@ Route.group(() => {
    * /categories/{link}:
    *   get:
    *     tags:
-   *       - ProductCategory
+   *       - Категории
    *     summary: Get category
    *     parameters:
    *       - $ref: '#/parameters/Link'
@@ -54,7 +88,7 @@ Route.group(() => {
    * /categories:
    *   post:
    *     tags:
-   *       - ProductCategory
+   *       - Категории
    *     summary: Create category
    *     parameters:
    *       - in: formData
@@ -81,7 +115,7 @@ Route.group(() => {
    * /categories/{id}:
    *   put:
    *     tags:
-   *       - ProductCategory
+   *       - Категории
    *     summary: Product category update
    *     parameters:
    *       - $ref: '#/parameters/Id'
@@ -105,7 +139,7 @@ Route.group(() => {
    * /categories/{id}:
    *   delete:
    *     tags:
-   *       - ProductCategory
+   *       - Категории
    *     summary: Product category delete
    *     parameters:
    *       - $ref: '#/parameters/Id'
@@ -130,7 +164,7 @@ Route.group(() => {
    * /product/{link}:
    *   get:
    *     tags:
-   *       - Product
+   *       - Продукты
    *     summary: Get category
    *     parameters:
    *       - $ref: '#/parameters/Link'
@@ -148,7 +182,7 @@ Route.group(() => {
    * /product:
    *   get:
    *     tags:
-   *       - Product
+   *       - Продукты
    *     summary: Select all products
    *     responses:
    *       200:
@@ -166,7 +200,7 @@ Route.group(() => {
    * product:
    *   post:
    *     tags:
-   *       - Product
+   *       - Продукты
    *     summary: Store new product
    *     parameters:
    *       - name: body
@@ -189,7 +223,7 @@ Route.group(() => {
    * product/{id}:
    *   put:
    *     tags:
-   *       - Product
+   *       - Продукты
    *     summary: Update product
    *     parameters:
    *       - $ref: '#/parameters/Id'
@@ -213,7 +247,7 @@ Route.group(() => {
    * /product/{id}:
    *   delete:
    *     tags:
-   *       - Product
+   *       - Продукты
    *     summary:
    *     parameters:
    *       - $ref: '#/parameters/Id'
@@ -227,45 +261,3 @@ Route.group(() => {
 
 }).prefix('/api/product')
 
-
-Route.group(() => {
-
-  /**
-   * @swagger
-   * /auth:
-   *   get:
-   *     tags:
-   *       - Auth
-   *     summary: Auth
-   *     responses:
-   *       202:
-   *         description: product update
-   *         schema:
-   *           $ref: '#/definitions/User'
-   */
-
-  Route.get('/', 'Auths/UserController.user')
-
-  /**
-   * @swagger
-   * /auth:
-   *   post:
-   *     tags:
-   *       - Auth
-   *     summary: Auth
-   *     parameters:
-   *       - name: auth
-   *         description: Product object
-   *         in: body
-   *         required: true
-   *         schema:
-   *           $ref: '#/definitions/User'
-   *     responses:
-   *       202:
-   *         description: product update
-   *         schema:
-   *           $ref: '#/definitions/User'
-   */
-  Route.post('/', 'Auths/UserController.login')
-
-}).prefix('/api/auth')

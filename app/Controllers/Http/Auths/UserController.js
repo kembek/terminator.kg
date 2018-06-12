@@ -15,14 +15,12 @@ class UserController {
 
     try {
       const user = await auth.attempt(email, password)
-      console.log(user)
       const token = await auth.authenticator('jwt').generate(user, true)
-      console.log(token)
       return response.send(token)
     } catch (error) {
       return response.status(401).send({
-        success: false,
-        message: error
+        status: 404,
+        message: "Not Foud or Auth"
       })
     }
   }
