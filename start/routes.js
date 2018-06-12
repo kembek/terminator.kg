@@ -14,7 +14,7 @@
 */
 
 const Route = use('Route')
-Route.get("slider", "SliderController.index").prefix("api")
+
 use('require-all')(`${use('Helpers').appRoot()}/start`)
 
 

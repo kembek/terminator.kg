@@ -261,3 +261,22 @@ Route.group(() => {
 
 }).prefix('/api/product')
 
+
+Route.group(()=>{
+
+  /**
+   * @swagger
+   * /slider/:
+   *   get:
+   *     tags:
+   *       - Слайдер
+   *     summary: Получение массива изображений
+   *     responses:
+   *       404:
+   *         $ref: '#/responses/NotFound'
+   *       200:
+   *         schema:
+   *          $ref: '#/definitions/Slider'
+   */
+  Route.get("slider", "SliderController.index").prefix("api")
+})
