@@ -83,7 +83,9 @@ export default {
   created(){
     return this.$axios.$get(`/api/product/` + this.$route.params.product).then(res => {
           this.title = res.data.title
-          this.description = res.data.meta_description
+          this.meta_description = res.data.meta_description
+          this.meta_keywords = res.data.meta_keywords
+          this.description = res.data.description
           this.keywords = res.data.meta_keywords
           this.product = res.data
         })
@@ -102,11 +104,11 @@ export default {
       },{
         hid: 'description',
         property: 'description',
-        content: this.description + ' | TERMINATOR.KG'
+        content: this.meta_description + ' | TERMINATOR.KG'
       },{
         hid: 'keywords',
         property: 'keywords',
-        content: this.keywords + ' | TERMINATOR.KG'
+        content: this.meta_keywords + ' | TERMINATOR.KG'
       },{
         hid: 'og:description',
         property: 'og:description',
