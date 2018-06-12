@@ -1,7 +1,7 @@
 <template>
 <div class="main-slider" :style="'background-image: url(' + items[active].img + ')'" v-if="items.length > 0">
   <div class="slider-container">
-    <div class="slider-content" v-html="items[active].text" />
+    <div class="slider-content" v-html="items[active].description" />
     <nuxt-link class="slider-link" :to="items[active].link">Подробнее</nuxt-link>
   </div>
   <div class="navigation">
@@ -12,6 +12,11 @@
 </template>
 <script>
 export default {
+  created(){
+    this.$axios.$get('/api/slider').then((res) =>{
+      return this.items = res.items
+    })
+  },
   props: {
     speed: {
       type: Number,
@@ -22,11 +27,7 @@ export default {
     return {
       active: 0,
       timeLine: 0,
-      items: [{
-          text: "<h2>Mi MIX 2</h2><h3>БЕЗРАМОЧНЫЙ СМАРТФОН</h3>",
-          link: "/products/27",
-          img: "/images/slide1.jpg"
-        },
+      items: [
       ]
     }
   },

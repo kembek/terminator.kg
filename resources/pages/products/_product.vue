@@ -1,76 +1,41 @@
 <template>
 <div class="product-up" v-if="product">
-
   <div class="product-up-l">
-
     <div class="product-slider">
-
       <span class="arrow-up" @click="slideChange('down')"><Arrow /></span>
-
       <img v-for="(item, i) in slides" :key="i" :src="'/images/'+ images(i)" :alt="product.title" @click="setSlide(Slide(i))" draggable="false">
-
       <span @click="slideChange('up')"><Arrow /></span>
-
     </div>
-
     <div class="product-img" :style="'background-image: url(\'/images/'+ image+'\')'">
-
     </div>
-
   </div>
-
   <div class="product-up-r">
-
     <h2>{{product.title}}</h2>
-
     <div class="p-text">
-
       <label>Цена</label>
-
       <span>{{product.prices[active].price}} сом</span>
-
     </div>
-
     <div class="p-text">
-
       <label>Количество</label>
-
       <div class="quality">
-
         <button @click="count--">-</button>
-
         <input type="number" min="1" v-model="count">
-
         <button @click="count++">+</button>
-
       </div>
-
     </div>
-
     <div class="p-text">
-
       <label>Цвет: {{product.prices[active].title}}</label>
-
       <div class="color">
-
         <span v-for="(item, i) in product.prices" :key="i" :style="'background-color: ' + item.color + ';'" @click="setColor(i)" :title="item.title" />
-
       </div>
-
     </div>
-
     <p>В зависимости от цвета стоимость может измениться</p>
-
     <div class="btns">
       <!-- @click="$root.$emit('order', false) -->
       <button class="btn" @click="AddOrder()">Купить</button>
-
       <button class="btn" @click="AddOrder()">Добавить в корзину</button>
-
     </div>
-
   </div>
-
 </div>
 </template>
 <script>
@@ -87,6 +52,7 @@ export default {
         'message': 'OK'
       })
     }
+    
   },
   head() {
     return {

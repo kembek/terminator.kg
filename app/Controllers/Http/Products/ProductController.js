@@ -2,7 +2,6 @@
 
 const Product = use('PRODUCTS/Product')
 const Color = use('PRODUCTS/ProductColor')
-
 class ProductController {
   async index({ request, response }) {
     const product = await Product.all()
