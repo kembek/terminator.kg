@@ -1,6 +1,6 @@
 <template>
   <div class="main-categorie">
-    <nuxt-link :to="'/categories/'+item.link + '/'" v-for="(item, index) in items" :key="index">
+    <nuxt-link :to="'/categories/'+item.link + '/'" v-for="(item, index) in items" :key="index" v-if="item.is_status">
       <img :src="'/images/' + item.thumbnail" />
       <span>{{item.title}}</span>
     </nuxt-link>
@@ -19,7 +19,7 @@
     },
     methods: {
       getCategories() {
-        return this.$axios.$get(`/api/product_category/all`).then(res => {
+        return this.$axios.$get(`/api/categories/`).then(res => {
           this.items = res.data
         })
       }
