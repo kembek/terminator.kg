@@ -309,7 +309,7 @@ Factory.blueprint('PRODUCTS/Product', (faker, i, data) => {
   return {
     user_id: data.user_id,
     stock_status_id: _.random(1, 3),
-    thumbnail: 'https://picsum.photos/800/500/?',
+    thumbnail: '4.jpg',
     title: faker.sentence({ words: _.random(3, 6) }),
     description: faker.paragraph(),
     information: faker.paragraph(),

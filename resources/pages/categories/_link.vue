@@ -8,10 +8,10 @@
     <!-- <Filters /> -->
   </div>
   <div class="search-result">
-    <nuxt-link :to="'/products/'+item.id" class="product" v-for="(item, i) in items" :key="i" :title="item.title">
-      <img :src="'/images/'+item.image" :alt="item.title">
+    <nuxt-link :to="'/products/'+item.link" class="product" v-for="(item, i) in items" :key="i" :title="item.title">
+      <img :src="'/images/'+item.thumbnail" :alt="item.title">
       <h3>{{item.title}}</h3>
-      <span>от {{item.price}} сом</span>
+      <span>от {{Price(item)}} сом</span>
     </nuxt-link>
   </div>
 </div>
@@ -25,7 +25,8 @@ export default {
     return {
       search: this.$route.params.result,
       categories: '',
-      description: ''
+      description: '',
+      items: []
     }
   },
   head() {
@@ -51,31 +52,14 @@ export default {
     Filters
   },
   created() {
-    this.$store.getters["Categories/ItemsAll"].forEach(item => {
-      if (item.link == this.$route.params.link) {
-        this.categories = item.meta_title
-        this.description = item.description
-        return
-      }
-    })
+        return this.$axios.$get(`/api/categories/` + this.$route.params.link).then(res => {
+          this.items = res.data.products
+        })
   },
-  computed: {
-    items() {
-      var id, items = [];
-      this.$store.getters["Categories/ItemsAll"].forEach(item => {
-        if (item.link == this.$route.params.link) {
-          id = item.id
-          return
-        }
-      })
-
-      this.$store.getters["Products/Items"].forEach(item => {
-        return item.groups.forEach(element => {
-          if (element == id)
-            items.push(item)
-        });
-      })
-      return items
+  methods: {
+    Price(item) {
+      console.log(item)
+      return item.prices[0]
     }
   }
 }

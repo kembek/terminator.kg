@@ -62,6 +62,7 @@ class CategoryController {
         .where({
           category_id: category.id
         })
+        .select( 'product_category.product_id','products.stock_status_id','products.user_id', 'products.thumbnail', 'products.title', 'products.link', 'products.description', 'products.information', 'products.meta_keywords', 'products.meta_desription', 'products.is_hit', 'products.is_recommend', 'products.created_at', 'products.updated_at')
         .innerJoin('products', 'products.id', 'product_category.product_id')
         .orderBy('products.updated_at', 'ASC')
       //.innerJoin('stock_statuses', 'stock_statuses.id', 'products.stock_status_id')
@@ -71,9 +72,9 @@ class CategoryController {
         category.products[i].prices = await Color.query().where({
             product_id: category.products[i].product_id
           })
+          .select('colors.id', 'product_colors.sort', 'colors.title', 'colors.code', 'product_prices.price')
           .innerJoin('colors', 'colors.id', 'product_colors.id')
           .innerJoin('product_prices', 'product_prices.product_color_id', 'product_colors.id')
-          .orderBy('product_prices.price', 'ASC').with('images').fetch()
         }
         // .innerJoin('product_colors', 'product_colors.product_id', 'product_category.product_id')
         // .innerJoin('colors', 'colors.id', 'product_colors.color_id')
