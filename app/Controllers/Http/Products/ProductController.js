@@ -19,7 +19,7 @@ class ProductController {
   }
 
   async create() {
-    
+
   }
 
   async store({ request, response, auth }) {
@@ -51,7 +51,7 @@ class ProductController {
         product_id: product.id
       })
       .innerJoin('product_prices', 'product_prices.product_color_id', 'product_colors.id')
-      .orderBy('product_prices.price', 'ASC').with('images').fetch()
+      .orderBy('product_prices.price', 'ASC').with('color').with('images').fetch()
       return response.apiCollection(product)
     }
 

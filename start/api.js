@@ -278,5 +278,5 @@ Route.group(()=>{
    *         schema:
    *          $ref: '#/definitions/Slider'
    */
-  Route.get("slider", "SliderController.index").prefix("api")
-})
+  Route.get("slider", "SliderController.index")
+}).prefix("api")

@@ -9,7 +9,7 @@
       </div>
     </div>
     <div class="article-img">
-      <img src="~/static/images/slide1.jpg">
+      <img src="~/static/slider/slide1.jpg">
     </div>
     <div v-html="article" class="article-text">
     </div>

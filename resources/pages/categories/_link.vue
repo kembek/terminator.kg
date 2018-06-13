@@ -8,7 +8,7 @@
     <!-- <Filters /> -->
   </div>
   <div class="search-result">
-    <nuxt-link :to="'/products/'+item.link" class="product" v-for="(item, i) in items" :key="i" :title="item.title">
+    <nuxt-link :to="'/products/'+item.link" class="product" v-for="(item, i) in products" :key="i" :title="item.title">
       <img :src="'/images/'+item.thumbnail" :alt="item.title">
       <h3>{{item.title}}</h3>
       <span>от {{item.prices[0].price}} сом</span>
@@ -21,34 +21,44 @@
 import SearchSunIcon from "~/assets/svg/searchsun.svg";
 import Filters from '~/components/filtres/'
 export default {
-  data() {
-    return {
-      search: this.$route.params.result,
-      categories: '',
-      description: '',
-      keywords: '',
-      items: []
-    }
-  },
+  async asyncData({
+      error,
+      app,
+      params
+    }) {
+
+      return await app.$axios.$get(`/api/categories/${params.link}`).then(({
+        data
+      }) => {
+        return data
+      }).catch(()=>{
+            return error({
+                statusCode: 404,
+                message: 'Not found'
+            })
+      })
+
+
+    },
   head() {
     return {
-      title: this.categories,
+      title: this.title,
       meta: [{
         hid: 'og:title',
         property: 'og:title',
-        content: this.categories + ' | TERMINATOR.KG'
+        content: this.title + ' | TERMINATOR.KG'
       },{
         hid: 'description',
         property: 'description',
-        content: this.description + ' | TERMINATOR.KG'
+        content: this.meta_description + ' | TERMINATOR.KG'
       },{
         hid: 'keywords',
         property: 'keywords',
-        content: this.keywords + ' | TERMINATOR.KG'
+        content: this.meta_keywords + ' | TERMINATOR.KG'
       },{
         hid: 'og:description',
         property: 'og:description',
-        content: this.description + ' | TERMINATOR.KG'
+        content: this.meta_description + ' | TERMINATOR.KG'
       }, ]
     }
   },
@@ -56,16 +66,8 @@ export default {
     SearchSunIcon,
     Filters
   },
-  created() {
-        return this.$axios.$get(`/api/categories/` + this.$route.params.link).then(res => {
-          this.categories = res.data.title
-          this.description = res.data.meta_description
-          this.keywords = res.data.meta_keywords
-          this.items = res.data.product
-        })
-  },
   methods: {
-    
+
   }
 }
 </script>
