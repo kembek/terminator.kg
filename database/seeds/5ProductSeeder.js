@@ -34,7 +34,7 @@ class ProductSeeder {
     for (let i = 0; i < categories.length; ++i) {
 
       // Make many Products
-      let product = await Factory.model('PRODUCTS/Product').createMany(_.random(1, 5), { user_id: 1 })
+      let product = await Factory.model('PRODUCTS/Product').createMany(40)
 
       for (let j = 0; j < product.length; ++j) {
         // Save products

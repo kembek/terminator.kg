@@ -13,6 +13,539 @@
 
 const Factory = use('Factory')
 const _ = require('lodash')
+const prod = [
+	{
+    user_id: 1,
+    stock_status_id: 1,
+    thumbnail: 'redmi-5a-gold-1.jpg',
+    title: 'Xiaomi Redmi 5A 2GB+16GB (Global Version)',
+    description: '',
+    information: '',
+    is_hit: 1,
+    is_recommend: 1,
+    is_status: true
+  },	{
+    user_id: 1,
+    stock_status_id: 1,
+    thumbnail: 'Клатч-Mi-DSP/5.jpg',
+    "title": "Клатч Xiaomi",
+    description: '',
+    information: '',
+    is_hit: 1,
+    is_recommend: 1,
+    is_status: true
+  },	{
+    user_id: 1,
+    stock_status_id: 1,
+    thumbnail: 'Xiaomi Simple City/6.jpg',
+    "title": "Мини-рюкзак Xiaomi Simple City",
+    description: '',
+    information: '',
+    is_hit: 1,
+    is_recommend: 1,
+    is_status: true
+  },	{
+    user_id: 1,
+    stock_status_id: 1,
+    thumbnail: 'Рюкзак Mi Urban Lifestyle/1.jpg',
+    "title": "Рюкзак Xiaomi Urban Lifestyle",
+    description: '',
+    information: '',
+    is_hit: 1,
+    is_recommend: 1,
+    is_status: true
+  },	{
+    user_id: 1,
+    stock_status_id: 1,
+    thumbnail: 'Рюкзак Mi Classic Business/2.jpg',
+    "title": "Рюкзак Xiaomi Classic Business",
+    description: '',
+    information: '',
+    is_hit: 1,
+    is_recommend: 1,
+    is_status: true
+  },	{
+    user_id: 1,
+    stock_status_id: 1,
+    thumbnail: 'Аудио-колонка Mi Square Box/5.jpg',
+    "title": "Аудио колонка Xiaomi Square Box #61c3fftooth Speaker",
+    description: '',
+    information: '',
+    is_hit: 1,
+    is_recommend: 1,
+    is_status: true
+  },	{
+    user_id: 1,
+    stock_status_id: 1,
+    thumbnail: 'Аудио-колонка Xiaomi #61c3fftooth Speaker Color/2.jpg',
+    "title": "Аудио колонка Xiaomi Colorful #61c3fftooth Speaker",
+    description: '',
+    information: '',
+    is_hit: 1,
+    is_recommend: 1,
+    is_status: true
+  },	{
+    user_id: 1,
+    stock_status_id: 1,
+    thumbnail: 'смарт-часы Amazfit Bip/8.jpg',
+    "title": "смарт-часы Amazfit Bip",
+    description: '',
+    information: '',
+    is_hit: 1,
+    is_recommend: 1,
+    is_status: true
+  },	{
+    user_id: 1,
+    stock_status_id: 1,
+    thumbnail: 'Xiaomi Redmi Note 5 Pro/1.jpg',
+    "title": "Xiaomi Redmi Note 5 Pro 3GB+32GB",
+    description: '',
+    information: '',
+    is_hit: 1,
+    is_recommend: 1,
+    is_status: true
+  },	{
+    user_id: 1,
+    stock_status_id: 1,
+    thumbnail: 'Xiaomi Redmi Note 5 Pro/8.jpg',
+    "title": "Xiaomi Redmi Note 5 Pro 4GB+64GB",
+    description: '',
+    information: '',
+    is_hit: 1,
+    is_recommend: 1,
+    is_status: true
+  },	{
+    user_id: 1,
+    stock_status_id: 1,
+    thumbnail: 'redmi-5-plus-gold-1.jpg',
+    "title": "Xiaomi Redmi 5 Plus 3GB+32GB",
+    description: '',
+    information: '',
+    is_hit: 1,
+    is_recommend: 1,
+    is_status: true
+  },	{
+    user_id: 1,
+    stock_status_id: 1,
+    thumbnail: 'Смартфоны Xiaomi Redmi 5 Plus/3.jpg',
+    "title": "Смартфоны Xiaomi Redmi 5 Plus 4GB+64GB (Global Version)",
+    description: '',
+    information: '',
+    is_hit: 1,
+    is_recommend: 1,
+    is_status: true
+  },	{
+    user_id: 1,
+    stock_status_id: 1,
+    thumbnail: 'Смартфоны Xiaomi Redmi 5 Plus/8.jpg',
+    "title": "Смартфоны Xiaomi Redmi 5 Plus 3GB+32GB (Global Version)",
+    description: '',
+    information: '',
+    is_hit: 1,
+    is_recommend: 1,
+    is_status: true
+  },	{
+    user_id: 1,
+    stock_status_id: 1,
+    thumbnail: 'mi-a1-gold-1.jpg',
+    "title": "Xiaomi Mi A1 4GB+32GB (Global Version)",
+    description: '',
+    information: '',
+    is_hit: 1,
+    is_recommend: 1,
+    is_status: true
+  },	{
+    user_id: 1,
+    stock_status_id: 1,
+    thumbnail: 'Ремешки для Mi Band 2/1.jpg',
+    "title": "Металлические ремешки для Mi Band 2",
+    description: '',
+    information: '',
+    is_hit: 1,
+    is_recommend: 1,
+    is_status: true
+  },	{
+    user_id: 1,
+    stock_status_id: 1,
+    thumbnail: 'Ремешки для Mi Band 2/7.jpg',
+    "title": "Цветные ремешки для Mi Band 2",
+    description: '',
+    information: '',
+    is_hit: 1,
+    is_recommend: 1,
+    is_status: true
+  },	{
+    user_id: 1,
+    stock_status_id: 1,
+    thumbnail: 'Защитное стекло_Nillkin/2.jpg',
+    "title": "Защитные стекла с олеофобным покрытием | Nillkin",
+    description: '',
+    information: '',
+    is_hit: 1,
+    is_recommend: 1,
+    is_status: true
+  },	{
+    user_id: 1,
+    stock_status_id: 1,
+    thumbnail: 'Защитное стекло_3D/2.jpg',
+    "title": "Защитные стекла | 3D",
+    description: '',
+    information: '',
+    is_hit: 1,
+    is_recommend: 1,
+    is_status: true
+  },	{
+    user_id: 1,
+    stock_status_id: 1,
+    thumbnail: 'Защитное стекло_обычное/3.jpg',
+    "title": "Защитные стекла | 2D",
+    description: '',
+    information: '',
+    is_hit: 1,
+    is_recommend: 1,
+    is_status: true
+  },	{
+    user_id: 1,
+    stock_status_id: 1,
+    thumbnail: 'Смартфоны Xiaomi Redmi 4A/5.jpg',
+    "title": "Xiaomi Redmi 4A 2GB+16GB (Global Version)",
+    description: '',
+    information: '',
+    is_hit: 1,
+    is_recommend: 1,
+    is_status: true
+  },{
+    user_id: 1,
+    stock_status_id: 1,
+    thumbnail: 'Ремешки для Mi Band 2/9.jpg',
+    "title": "Кожаные ремешки для Mi Band 2",
+    description: '',
+    information: '',
+    is_hit: 1,
+    is_recommend: 1,
+    is_status: true
+  },{
+    user_id: 1,
+    stock_status_id: 1,
+    thumbnail: 'Смартфоны Xiaomi Mi Max 2/6.jpg',
+    "title": "Xiaomi Mi Max 2 4GB+64GB",
+    description: '',
+    information: '',
+    is_hit: 1,
+    is_recommend: 1,
+    is_status: true
+  },{
+    user_id: 1,
+    stock_status_id: 1,
+    thumbnail: 'Смартфоны Xiaomi Mi Mix 2/3.jpg',
+    "title": "Xiaomi Mi Mix 2 6GB+64GB (Global Version)",
+    description: '',
+    information: '',
+    is_hit: 1,
+    is_recommend: 1,
+    is_status: true
+  },{
+    user_id: 1,
+    stock_status_id: 1,
+    thumbnail: 'mi-note-3-black-1.jpg',
+    "title": "Xiaomi Mi Note 3 6GB+128GB",
+    description: '',
+    information: '',
+    is_hit: 1,
+    is_recommend: 1,
+    is_status: true
+  },{
+    user_id: 1,
+    stock_status_id: 1,
+    thumbnail: 'Смартфоны Xiaomi Mi Note 3/1.jpg',
+    "title": "Xiaomi Mi Note 3 6GB+64GB",
+    description: '',
+    information: '',
+    is_hit: 1,
+    is_recommend: 1,
+    is_status: true
+  },{
+    user_id: 1,
+    stock_status_id: 1,
+    thumbnail: 'mi-a1-gold-1.jpg',
+    "title": "Xiaomi Mi A1 4GB+64GB (Global Version)",
+    description: '',
+    information: '',
+    is_hit: 1,
+    is_recommend: 1,
+    is_status: true
+  },{
+    user_id: 1,
+    stock_status_id: 1,
+    thumbnail: 'mi6-black-1.jpg',
+    "title": "Xiaomi Mi 6 6GB+128GB Ceramic",
+    description: '',
+    information: '',
+    is_hit: 1,
+    is_recommend: 1,
+    is_status: true
+  },{
+    user_id: 1,
+    stock_status_id: 1,
+    thumbnail: 'Смартфоны Xiaomi Mi 6/4.jpg',
+    "title": "Xiaomi Mi 6 6GB+64GB (Global Version)",
+    description: '',
+    information: '',
+    is_hit: 1,
+    is_recommend: 1,
+    is_status: true
+  },{
+    user_id: 1,
+    stock_status_id: 1,
+    thumbnail: 'Смартфоны Xiaomi Mi 6/4.jpg',
+    "title": "Xiaomi Mi 6 6GB+64GB",
+    description: '',
+    information: '',
+    is_hit: 1,
+    is_recommend: 1,
+    is_status: true
+  },{
+    user_id: 1,
+    stock_status_id: 1,
+    thumbnail: 'Смартфоны Xiaomi Mi 5X/7.jpg',
+    "title": "Xiaomi Mi 5X 4GB+64GB",
+    description: '',
+    information: '',
+    is_hit: 1,
+    is_recommend: 1,
+    is_status: true
+  },{
+    user_id: 1,
+    stock_status_id: 1,
+    thumbnail: 'Смартфоны Xiaomi Mi 5X/5.jpg',
+    "title": "Xiaomi Mi 5 3/32 GB",
+    description: '',
+    information: '',
+    is_hit: 1,
+    is_recommend: 1,
+    is_status: true
+  },{
+    user_id: 1,
+    stock_status_id: 1,
+    thumbnail: 'redmi-4x-1.jpg',
+    "title": "Xiaomi Redmi Note 4X 3GB+32GB (Global Version)",
+    description: '',
+    information: '',
+    is_hit: 1,
+    is_recommend: 1,
+    is_status: true
+  },{
+    user_id: 1,
+    stock_status_id: 1,
+    thumbnail: 'Смартфоны Xiaomi Redmi Note 4X/3.jpg',
+    "title": "Xiaomi Redmi Note 4X 3GB+32GB",
+    description: '',
+    information: '',
+    is_hit: 1,
+    is_recommend: 1,
+    is_status: true
+  },{
+    user_id: 1,
+    stock_status_id: 1,
+    thumbnail: 'Смартфоны Xiaomi Redmi 4X/5.jpg',
+    "title": "Xiaomi Redmi 4X 3GB+32GB (Global Version)",
+    description: '',
+    information: '',
+    is_hit: 1,
+    is_recommend: 1,
+    is_status: true
+  },{
+    user_id: 1,
+    stock_status_id: 1,
+    thumbnail: 'Смартфоны Xiaomi Redmi 4X/7.jpg',
+    "title": "Xiaomi Redmi 4X 2GB+16GB",
+    description: '',
+    information: '',
+    is_hit: 1,
+    is_recommend: 1,
+    is_status: true
+  },{
+    user_id: 1,
+    stock_status_id: 1,
+    thumbnail: 'Смартфоны Xiaomi Redmi 4A/9.jpg',
+    "title": "Xiaomi Redmi 4A 2GB+32GB (Global Version)",
+    description: '',
+    information: '',
+    is_hit: 1,
+    is_recommend: 1,
+    is_status: true
+  },{
+    user_id: 1,
+    stock_status_id: 1,
+    thumbnail: 'Смартфоны Xiaomi Redmi 4A/6.jpg',
+    "title": "Xiaomi Redmi 4A 2GB+16GB",
+    description: '',
+    information: '',
+    is_hit: 1,
+    is_recommend: 1,
+    is_status: true
+  },{
+    user_id: 1,
+    stock_status_id: 1,
+    thumbnail: 'Wi-Fi Router mini/1.jpg',
+    "title": "Xiaomi Mi Wi-Fi Router mini",
+    description: '',
+    information: '',
+    is_hit: 1,
+    is_recommend: 1,
+    is_status: true
+  },{
+    user_id: 1,
+    stock_status_id: 1,
+    thumbnail: 'Wi-Fi Router 3/1.jpg',
+    "title": "Wi-Fi Router 3",
+    description: '',
+    information: '',
+    is_hit: 1,
+    is_recommend: 1,
+    is_status: true
+  },{
+    user_id: 1,
+    stock_status_id: 1,
+    thumbnail: 'VR Play/1.jpg',
+    "title": "Xiaomi Mi VR Play",
+    description: '',
+    information: '',
+    is_hit: 1,
+    is_recommend: 1,
+    is_status: true
+  },{
+    user_id: 1,
+    stock_status_id: 1,
+    thumbnail: 'VR Glass/6.jpg',
+    "title": "Xiaomi Mi VR Glass",
+    description: '',
+    information: '',
+    is_hit: 1,
+    is_recommend: 1,
+    is_status: true
+  },{
+    user_id: 1,
+    stock_status_id: 1,
+    thumbnail: 'Power Bank 2 20.000 mAh/1.jpg',
+    "title": "Xiaomi Power Bank 2 20.000 mAh",
+    description: '',
+    information: '',
+    is_hit: 1,
+    is_recommend: 1,
+    is_status: true
+  },{
+    user_id: 1,
+    stock_status_id: 1,
+    thumbnail: 'Power Bank 2 10.000 mAh/1.jpg',
+    "title": "Xiaomi Power Bank 2 10.000 mAh",
+    description: '',
+    information: '',
+    is_hit: 1,
+    is_recommend: 1,
+    is_status: true
+  },{
+    user_id: 1,
+    stock_status_id: 1,
+    thumbnail: 'Mi Band 2/2.jpg',
+    "title": "смарт-браслет Xiaomi Mi Band 2",
+    description: '',
+    information: '',
+    is_hit: 1,
+    is_recommend: 1,
+    is_status: true
+  },{
+    user_id: 1,
+    stock_status_id: 1,
+    thumbnail: 'Xiaomi Yi Action/1.jpg',
+    "title": "Xiaomi Yi Action",
+    description: '',
+    information: '',
+    is_hit: 1,
+    is_recommend: 1,
+    is_status: true
+  },{
+    user_id: 1,
+    stock_status_id: 1,
+    thumbnail: 'Экшен кам. Yi 4K/1.jpg',
+    "title": "Xiaomi Yi 4K",
+    description: '',
+    information: '',
+    is_hit: 1,
+    is_recommend: 1,
+    is_status: true
+  },{
+    user_id: 1,
+    stock_status_id: 1,
+    thumbnail: 'Видеорег. Mi Yi/1.jpg',
+    "title": "Xiaomi Yi Car Wi-Fi DVR",
+    description: '',
+    information: '',
+    is_hit: 1,
+    is_recommend: 1,
+    is_status: true
+  },{
+    user_id: 1,
+    stock_status_id: 1,
+    thumbnail: 'Видеорег. Mi Jia/2.jpg',
+    "title": "Xiaomi MiJia Car Wi-Fi DVR",
+    description: '',
+    information: '',
+    is_hit: 1,
+    is_recommend: 1,
+    is_status: true
+  },{
+    user_id: 1,
+    stock_status_id: 1,
+    thumbnail: 'Смартфоны Xiaomi Mi 6/7.jpg',
+    "title": "Xiaomi Mi 5 3/64",
+    description: '',
+    information: '',
+    is_hit: 1,
+    is_recommend: 1,
+    is_status: true
+  },{
+    user_id: 1,
+    stock_status_id: 1,
+    thumbnail: 'Смартфон Xiaomi Redmi 5A/6.jpg',
+    "title": "Xiaomi Mi 5S 3/64GB",
+    description: '',
+    information: '',
+    is_hit: 1,
+    is_recommend: 1,
+    is_status: true
+  },{
+    user_id: 1,
+    stock_status_id: 1,
+    thumbnail: '9f16476acbc9e08d2c90dc22d1a6c79b_thumb_5662fe976180f779.jpg',
+    "title": "Xiaomi Mi 5S 3/64GB",
+    description: '',
+    information: '',
+    is_hit: 1,
+    is_recommend: 1,
+    is_status: true
+  },{
+    user_id: 1,
+    stock_status_id: 1,
+    thumbnail: 'redmi-5-plus-gold-1.jpg',
+    "title": "Redmi 5 32ГБ (Global Version)",
+    description: '',
+    information: '',
+    is_hit: 1,
+    is_recommend: 1,
+    is_status: true
+  },{
+    user_id: 1,
+    stock_status_id: 1,
+    thumbnail: 'Наушники Hybrid Pro/1.jpg',
+    "title": "Наушники Xiaomi Hybrid Pro HD",
+    description: '',
+    information: '',
+    is_hit: 1,
+    is_recommend: 1,
+    is_status: true
+  }
+]
 const cat = [
 	{
 		"id" : 1,
@@ -305,18 +838,7 @@ Factory.blueprint('PRODUCTS/ProductCategory', (faker, i, data) => {
 })
 
 Factory.blueprint('PRODUCTS/Product', (faker, i, data) => {
-
-  return {
-    user_id: data.user_id,
-    stock_status_id: _.random(1, 3),
-    thumbnail: '4.jpg',
-    title: faker.sentence({ words: _.random(3, 6) }),
-    description: faker.paragraph(),
-    information: faker.paragraph(),
-    is_hit: faker.bool({ likelihood: 20 }),
-    is_recommend: faker.bool({ likelihood: 30 }),
-    is_status: true
-  }
+  return prod[i]
 })
 
 Factory.blueprint('PRODUCTS/Video', (faker, i, data) => {
