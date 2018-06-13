@@ -17,6 +17,7 @@ const Product = use('PRODUCTS/Product')
 
 class OrderSeeder {
   async run() {
+    return /////################
     await Database.raw('SET FOREIGN_KEY_CHECKS = 0;')
     await Database.truncate('customers')
     await Database.truncate('order_products')
