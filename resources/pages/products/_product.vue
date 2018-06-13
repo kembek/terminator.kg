@@ -189,7 +189,7 @@
         return value + this.page;
       },
       images(i) {
-        console.log(this.product.prices[this.active]);
+        // console.log(this.product.prices[this.active]);
         return this.product.prices[this.active].images[this.Slide(i)].url;
       }
     },
