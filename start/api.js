@@ -280,3 +280,80 @@ Route.group(()=>{
    */
   Route.get("slider", "SliderController.index")
 }).prefix("api")
+
+Route.group(()=>{
+
+  /**
+   * @swagger
+   * /menu/:
+   *   get:
+   *     tags:
+   *       - Меню
+   *     summary: Получение массива меню
+   *     responses:
+   *       404:
+   *         $ref: '#/responses/NotFound'
+   *       200:
+   *         schema:
+   *          $ref: '#/definitions/Menu'
+   */
+  Route.get("", "MenuController.index")
+
+    /**
+   * @swagger
+   * /menu/:
+   *   put:
+   *     tags:
+   *       - Меню
+   *     summary: Добавление массива меню
+   *     responses:
+   *       404:
+   *         $ref: '#/responses/NotFound'
+   *       200:
+   *         schema:
+   *          $ref: '#/definitions/Menu'
+   */
+  Route.put("/", "MenuController.add")
+
+/**
+   * @swagger
+   * /menu/{id}:
+   *   post:
+   *     tags:
+   *       - Меню
+   *     summary: Изменение массива меню
+   *     parameters:
+   *       - $ref: '#/parameters/Id'
+   *       - name: menu
+   *         description: menu
+   *         in: body
+   *         required: true
+   *         schema:
+   *           $ref: '#/definitions/Menu'
+   *     responses:
+   *       404:
+   *         $ref: '#/responses/NotFound'
+   *       200:
+   *         schema:
+   *          $ref: '#/definitions/Menu'
+   */
+  Route.post("/:id", "MenuController.update")
+  
+/**
+   * @swagger
+   * /menu/{id}:
+   *   delete:
+   *     tags:
+   *       - Меню
+   *     summary: Удаление массива меню
+   *     parameters:
+   *       - $ref: '#/parameters/Id'
+   *     responses:
+   *       404:
+   *         $ref: '#/responses/NotFound'
+   *       200:
+   *         schema:
+   *          $ref: '#/definitions/Menu'
+   */
+  Route.delete("/:id" ,"MenuController.destroy")
+}).prefix("api/menu")

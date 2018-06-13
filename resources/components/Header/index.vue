@@ -38,7 +38,11 @@ import Bar from './Bar'
 
 export default {
   created(){
-    
+   return this.$axios.$get('/api/menu').then((res)=>{
+         this.test = res.menu
+          console.log(res)
+
+    })
   },
   components: {
     Logo,
@@ -48,6 +52,7 @@ export default {
     return {
       isOpenMenu: false,
       showChildMenu: -1,
+      test: [],
       menu: [{
         title: 'Смартфоны',
         link: '',
