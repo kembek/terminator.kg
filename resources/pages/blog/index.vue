@@ -3,7 +3,7 @@
   <h2 class="news--title">Новости</h2>
   <div class="news--module" v-for="(item, index) in items" :key="index">
     <nuxt-link :to="'/blog/' + item.id" class="news--item">
-      <img src="~/static/images/slide1.jpg" class="news--image">
+      <img src="~/static/slider/slide1.jpg" class="news--image">
       <span class="news--content-title">{{item.message}}</span>
     </nuxt-link>
   </div>
@@ -19,36 +19,36 @@ export default {
   data() {
     return {
       items: [
-       { 
+       {
          id: 0,
-         message: 'Фывоаыо ыварыловары ываоыоа qweqwe asklfjk' 
-       },{ 
+         message: 'Фывоаыо ыварыловары ываоыоа qweqwe asklfjk'
+       },{
          id: 1,
-         message: 'Фывоаыо ыварыловары ываоыоа qweqwe asklfjk' 
-       },{ 
+         message: 'Фывоаыо ыварыловары ываоыоа qweqwe asklfjk'
+       },{
          id: '2',
-         message: 'Фывоаыо ыварыловары ываоыоа qweqwe asklfjk' 
-       },{ 
+         message: 'Фывоаыо ыварыловары ываоыоа qweqwe asklfjk'
+       },{
          id: '3',
-         message: 'Фывоаыо ыварыловары ываоыоа qweqwe asklfjk' 
-       },{ 
+         message: 'Фывоаыо ыварыловары ываоыоа qweqwe asklfjk'
+       },{
          id: '4',
-         message: 'Фывоаыо ыварыловары ываоыоа qweqwe asklfjk' 
-       },{ 
+         message: 'Фывоаыо ыварыловары ываоыоа qweqwe asklfjk'
+       },{
          id: '5',
-         message: 'Фывоаыо ыварыловары ываоыоа qweqwe asklfjk' 
-       },{ 
+         message: 'Фывоаыо ыварыловары ываоыоа qweqwe asklfjk'
+       },{
          id: '6',
-         message: 'Фывоаыо ыварыловары ываоыоа qweqwe asklfjk' 
-       },{ 
+         message: 'Фывоаыо ыварыловары ываоыоа qweqwe asklfjk'
+       },{
          id: '7',
-         message: 'Фывоаыо ыварыловары ываоыоа qweqwe asklfjk' 
-       },{ 
+         message: 'Фывоаыо ыварыловары ываоыоа qweqwe asklfjk'
+       },{
          id: '8',
-         message: 'Фывоаыо ыварыловары ываоыоа qweqwe asklfjk' 
-       },{ 
+         message: 'Фывоаыо ыварыловары ываоыоа qweqwe asklfjk'
+       },{
          id: '9',
-         message: 'Фывоаыо ыварыловары ываоыоа qweqwe asklfjk' 
+         message: 'Фывоаыо ыварыловары ываоыоа qweqwe asklfjk'
        },
       ]
     }
