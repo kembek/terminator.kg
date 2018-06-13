@@ -37,6 +37,9 @@ import Logo from '~/assets/svg/logo.svg'
 import Bar from './Bar'
 
 export default {
+  created(){
+    
+  },
   components: {
     Logo,
     Bar
