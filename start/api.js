@@ -305,7 +305,14 @@ Route.group(()=>{
    *   put:
    *     tags:
    *       - Меню
-   *     summary: Добавление массива меню
+   *     summary: Добавление меню
+   *     parameters:
+   *       - name: menu
+   *         description: menu
+   *         in: body
+   *         required: true
+   *         schema:
+   *           $ref: '#/definitions/Menu'
    *     responses:
    *       404:
    *         $ref: '#/responses/NotFound'
@@ -321,7 +328,7 @@ Route.group(()=>{
    *   post:
    *     tags:
    *       - Меню
-   *     summary: Изменение массива меню
+   *     summary: Изменение меню
    *     parameters:
    *       - $ref: '#/parameters/Id'
    *       - name: menu
@@ -338,7 +345,7 @@ Route.group(()=>{
    *          $ref: '#/definitions/Menu'
    */
   Route.post("/:id", "MenuController.update")
-  
+
 /**
    * @swagger
    * /menu/{id}:

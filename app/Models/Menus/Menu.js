@@ -16,9 +16,13 @@ const Model = use('App/Models/Basic')
  *         type: string
  *       link:
  *         type: string
+ *       is_local:
+ *         type: boolean
+ *       is_status:
+ *         type: boolean
  *       sort:
  *         type: integer
- * 
+ *
  */
 class Menu extends Model {
 }

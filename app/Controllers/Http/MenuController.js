@@ -4,7 +4,7 @@ const Menu = use("App/Models/Menus/Menu");
 const Database = use("Database");
 class MenuController {
   async add({ request, response, params }) {
-    const data = request.only(["user_id", "title", "sort"]);
+    const data = request.all();
 
     try {
       const menu = await Menu.create(data);
@@ -15,13 +15,7 @@ class MenuController {
   }
 
   async update({ request, response, params, auth }) {
-    const data = request.only([
-      "parent_id",
-      "user_id",
-      "title",
-      "link",
-      "sort"
-    ]);
+    const data = request.all()
     try {
       const menu = await Menu.findOrFail(params.id);
       menu.merge(data);
