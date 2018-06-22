@@ -1,6 +1,6 @@
 'use strict'
 
-class Users&#x2F;Group {
+class Users_Group {
   get rules () {
     return {
       // validation rules
@@ -8,4 +8,4 @@ class Users&#x2F;Group {
   }
 }
 
-module.exports = Users&#x2F;Group
+module.exports = Users_Group

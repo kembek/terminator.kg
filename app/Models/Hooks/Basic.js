@@ -9,7 +9,6 @@ const BasicHook = exports = module.exports = {}
 
 BasicHook.link = async (objectInstance) => {
   if (objectInstance.title) {
-    console.log(objectInstance)
     if (!objectInstance.link || objectInstance.link == "")
       objectInstance.link = sanitizor.slug(objectInstance.title)
     else

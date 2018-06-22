@@ -12,6 +12,11 @@ Route.group(() => {
    *     tags:
    *       - Авторизация
    *     summary: Проверка авторизации
+   *     responses:
+   *       200:
+   *         description: Ответ
+   *         schema:
+   *             $ref: '#/definitions/User'
    */
 
   Route.get('/', 'Auths/UserController.user')
@@ -19,18 +24,30 @@ Route.group(() => {
   /**
    * @swagger
    * /auth:
+   *   delete:
+   *     tags:
+   *       - Авторизация
+   *     summary: Проверка авторизации
+   *     responses:
+   *       200:
+   *         description: Ответ
+   *         schema:
+   *             $ref: '#/definitions/User'
+   */
+
+  Route.delete('/', 'Auths/UserController.logout')
+
+  /**
+   * @swagger
+   * /auth:
    *   post:
    *     tags:
    *       - Авторизация
-   *     summary: Авторизация
-   *     parameters:
-   *       - name: auth
-   *         description: Авторизация
-   *         in: body
-   *         required: true
+   *     summary: Выход
+   *     responses:
+   *       200:
+   *         description: Данные
    *         schema:
-   *           type: array
-   *           items:
    *             $ref: '#/definitions/User'
    */
   Route.post('/', 'Auths/UserController.login')
@@ -38,14 +55,9 @@ Route.group(() => {
 }).prefix('/api/auth')
 
 /**
- * Product category
+ * Categories
  */
 Route.group(() => {
-
-  // *     consumes:
-  // *       - 'multipart/form-data'
-  // *     produces:
-  // *       - "application/json"
 
   /**
    * @swagger
@@ -53,16 +65,16 @@ Route.group(() => {
    *   get:
    *     tags:
    *       - Категории
-   *     summary: Select all categories
+   *     summary: Получить все категории
    *     responses:
    *       200:
-   *         description: categories
+   *         description: Ответ
    *         schema:
    *           type: array
    *           items:
    *             $ref: '#/definitions/ProductCategory'
    */
-  Route.get('/', 'Products/CategoryController.index')
+  Route.get('', 'Products/CategoryController.index')
 
 
   /**
@@ -71,12 +83,12 @@ Route.group(() => {
    *   get:
    *     tags:
    *       - Категории
-   *     summary: Get category
+   *     summary: Получить категорию по ссылке
    *     parameters:
    *       - $ref: '#/parameters/Link'
    *     responses:
    *       202:
-   *         description: Get success
+   *         description: Категория
    *       404:
    *         $ref: '#/responses/NotFound'
    *
@@ -85,54 +97,56 @@ Route.group(() => {
 
   /**
    * @swagger
-   * /categories:
-   *   post:
+   * /categories/:
+   *   put:
    *     tags:
    *       - Категории
-   *     summary: Create category
+   *     summary: Создать категорию
    *     parameters:
    *       - in: formData
    *         name: thumbnail
    *         type: file
-   *         description: The file to upload
+   *         description: Главное изображение
    *       - in: body
    *         name: body
-   *         description: JSON of category
+   *         description: Данные в JSON формате
    *         required: true
    *         schema:
    *           $ref: '#/definitions/StoreProductCategory'
    *     responses:
    *       200:
-   *         description: Product category
+   *         description: Добавленная категория
    *         schema:
    *           $ref: '#/definitions/ProductCategory'
    */
-  Route.post('/', 'Products/CategoryController.store').middleware(['auth'])
-  // .validator('Products/Category')
+  Route.put('/', 'Products/CategoryController.store')
+    .middleware(['auth'])
+    .validator('Products/Category')
 
   /**
    * @swagger
    * /categories/{id}:
-   *   put:
+   *   post:
    *     tags:
    *       - Категории
    *     summary: Product category update
    *     parameters:
    *       - $ref: '#/parameters/Id'
    *       - name: Category
-   *         description: Product category object
+   *         description: Категория
    *         in: body
    *         required: true
    *         schema:
    *           $ref: '#/definitions/ProductCategory'
    *     responses:
    *       202:
-   *         description: category update
+   *         description: Обновленная категория
    *         schema:
    *           $ref: '#/definitions/ProductCategory'
    */
-  Route.put('/:id', 'Products/CategoryController.update')
-    .validator('Products/Category').middleware(['auth'])
+  Route.post('/:id', 'Products/CategoryController.update')
+    .middleware(['auth'])
+    .validator('Products/Category')
 
   /**
    * @swagger
@@ -150,7 +164,8 @@ Route.group(() => {
    *         $ref: '#/responses/NotFound'
    *
    */
-  Route.delete('/:id', 'Products/CategoryController.destroy').middleware(['auth'])
+  Route.delete('/:id', 'Products/CategoryController.destroy')
+    .middleware(['auth'])
 
 }).prefix('/api/categories')
 
@@ -161,7 +176,7 @@ Route.group(() => {
 
   /**
    * @swagger
-   * /product/{link}:
+   * /products/{link}:
    *   get:
    *     tags:
    *       - Продукты
@@ -179,7 +194,7 @@ Route.group(() => {
 
   /**
    * @swagger
-   * /product:
+   * /products/:
    *   get:
    *     tags:
    *       - Продукты
@@ -197,11 +212,11 @@ Route.group(() => {
 
   /**
    * @swagger
-   * product:
-   *   post:
+   * /products/:
+   *   put:
    *     tags:
    *       - Продукты
-   *     summary: Store new product
+   *     summary: Добавление товара
    *     parameters:
    *       - name: body
    *         description: JSON of product
@@ -211,40 +226,42 @@ Route.group(() => {
    *           $ref: '#/definitions/StoreProduct'
    *     responses:
    *       200:
-   *         description: Store product
+   *         description: Продукт
    *         schema:
    *           $ref: '#/definitions/Product'
    */
-  Route.post('/', 'Products/ProductController.store')
-    .validator('Products/Product').middleware(['auth'])
+  Route.put('/', 'Products/ProductController.store')
+    .middleware(['auth'])
+    //.validator('Products/Product')
 
   /**
    * @swagger
-   * product/{id}:
-   *   put:
+   * /products/{id}:
+   *   post:
    *     tags:
    *       - Продукты
-   *     summary: Update product
+   *     summary: Обновление товара
    *     parameters:
    *       - $ref: '#/parameters/Id'
    *       - name: product
-   *         description: Product object
+   *         description: Продукт
    *         in: body
    *         required: true
    *         schema:
    *           $ref: '#/definitions/Product'
    *     responses:
    *       202:
-   *         description: product update
+   *         description: Обновленый продукт
    *         schema:
    *           $ref: '#/definitions/Product'
    */
-  Route.put('/:id', 'Products/ProductCotroller.update')
-    .validator('Products/Product').middleware(['auth'])
+  Route.post('/:id', 'Products/ProductController.update')
+    .middleware(['auth'])
+    //.validator('Products/Product')
 
   /**
    * @swagger
-   * /product/{id}:
+   * /products/{id}:
    *   delete:
    *     tags:
    *       - Продукты
@@ -253,17 +270,17 @@ Route.group(() => {
    *       - $ref: '#/parameters/Id'
    *     responses:
    *       202:
-   *         description: Delete success
+   *         description: Удалено
    *       404:
    *         $ref: '#/responses/NotFound'
    */
-  Route.delete('/:id', 'Products/ProductController.destroy').middleware(['auth'])
+  Route.delete('/:id', 'Products/ProductController.destroy')
+    .middleware(['auth'])
 
-}).prefix('/api/product')
+}).prefix('/api/products')
 
 
-Route.group(()=>{
-
+Route.group(() => {
   /**
    * @swagger
    * /slider/:
@@ -278,10 +295,10 @@ Route.group(()=>{
    *         schema:
    *          $ref: '#/definitions/Slider'
    */
-  Route.get("slider", "SliderController.index")
-}).prefix("api")
+  Route.get("/", "SliderController.index")
+}).prefix("/api/slider")
 
-Route.group(()=>{
+Route.group(() => {
 
   /**
    * @swagger
@@ -299,7 +316,7 @@ Route.group(()=>{
    */
   Route.get("", "MenuController.index")
 
-    /**
+  /**
    * @swagger
    * /menu/:
    *   put:
@@ -320,9 +337,9 @@ Route.group(()=>{
    *         schema:
    *          $ref: '#/definitions/Menu'
    */
-  Route.put("/", "MenuController.add")
+  Route.put("", "MenuController.add")
 
-/**
+  /**
    * @swagger
    * /menu/{id}:
    *   post:
@@ -346,7 +363,7 @@ Route.group(()=>{
    */
   Route.post("/:id", "MenuController.update")
 
-/**
+  /**
    * @swagger
    * /menu/{id}:
    *   delete:
@@ -362,5 +379,5 @@ Route.group(()=>{
    *         schema:
    *          $ref: '#/definitions/Menu'
    */
-  Route.delete("/:id" ,"MenuController.destroy")
+  Route.delete("/:id", "MenuController.destroy")
 }).prefix("api/menu")

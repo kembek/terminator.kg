@@ -14,7 +14,7 @@ class Category extends Basic {
       is_status: 'required|boolean'
     }
 
-    if (this.ctx.request.method() === 'PUT') {
+    if (this.ctx.request.method() === 'PUT' || this.ctx.request.method() === 'POST') {
       category.thumbnail = `required|string|min:4|max:255|unique:products, thumbnail, id, ${productId}`
       category.title = `required|string|max:255|unique:products, title, id, ${productId}`
 

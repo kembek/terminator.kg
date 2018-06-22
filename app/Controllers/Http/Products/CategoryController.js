@@ -159,10 +159,10 @@ class CategoryController {
     params,
     auth
   }) {
-    const data = request.only(['parent_id', 'user_id', 'sort', 'thumbnail', 'title', 'meta_keywords', 'meta_description', 'is_status'])
-
+    const data = request.all()
+    console.log(params)
     try {
-      const category = await Category.findOrFail(params.id)
+      const category = await Categories.findOrFail(params.id)
       category.merge(data)
       await category.save()
 
@@ -175,11 +175,9 @@ class CategoryController {
   async destroy({
     params,
     request,
-    response,
-    auth
   }) {
     try {
-      const category = await Category.findOrFail(params.id)
+      const category = await Categories.findOrFail(params.id)
 
       const product = await category.product().fetch()
       await product.productVideo().delete()
@@ -190,7 +188,7 @@ class CategoryController {
       await category.delete()
       return response.apiDeleted(category)
     } catch (error) {
-      new Category().exceptions(error.message, error.status, error.code)
+      new Categories().exceptions(error.message, error.status, error.code)
     }
   }
 

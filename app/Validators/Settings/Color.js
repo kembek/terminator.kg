@@ -1,6 +1,6 @@
 'use strict'
 
-class Settings&#x2F;Color {
+class Settings_Color {
   get rules () {
     return {
       // validation rules
@@ -8,4 +8,4 @@ class Settings&#x2F;Color {
   }
 }
 
-module.exports = Settings&#x2F;Color
+module.exports = Settings_Color

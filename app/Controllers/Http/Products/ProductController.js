@@ -46,7 +46,6 @@ class ProductController {
     if (product != false)
     {
       product = product[0]
-      console.log(product)
       product.prices = await Color.query().where({
         product_id: product.id
       })
@@ -65,7 +64,7 @@ class ProductController {
   }
 
   async update({ request, response, params, auth }) {
-    const data = request.only(['stock_status_id', 'thumbnail', 'title', 'description', 'information', 'meta_keywords', 'meta_description', 'is_hit', 'is_recommend', 'is_status', 'user_id'])
+    const data = request.all()
 
     try {
       const product = await Product.findOrFail(params.id)
@@ -80,15 +79,24 @@ class ProductController {
 
   async destroy({ request, response, params, auth }) {
     try {
+
       const product = await Product.findOrFail(params.id)
 
+      console.log(0)
       await product.orderProducts().delete()
+      console.log(1)
       await product.prices().delete()
-      await product.images().delete()
+      console.log(2)
       await product.colors().delete()
+      console.log(3)
+      await product.images().delete()
+      console.log(4)
       await product.productImages().delete()
+      console.log(5)
       await product.productVideo().delete()
+      console.log(6)
       await product.delete()
+      console.log(7)
 
       return response.apiDeleted()
     } catch (error) {

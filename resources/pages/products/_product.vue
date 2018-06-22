@@ -3,11 +3,11 @@
 
     <div class="product-up-l">
 
-      <div class="product-slider">
+      <div class="product-slider" v-if="isImages">
 
         <span class="arrow-up" @click="slideChange('down')">
-                  <Arrow />
-                  </span>
+                      <Arrow />
+                      </span>
 
         <img v-for="(item, i) in slides" :key="i" :src="'/images/'+ images(i)" :alt="product.title" @click="setSlide(Slide(i))" draggable="false">
 
@@ -15,9 +15,9 @@
 
       </div>
 
-      <div class="product-img" :style="'background-image: url(/images/'+ image + ')'">
+      <div v-if="isImages" class="product-img" :style="'background-image: url(\'/images/'+ image + '\')'" />
+      <div v-else class="product-img" :style="'background-image: url(\'/images/'+ product.thumbnail + '\')'" />
 
-      </div>
 
     </div>
 
@@ -88,15 +88,15 @@
       app,
       params
     }) {
-      const product = await app.$axios.$get(`/api/product/${params.product}`).then(({
+      const product = await app.$axios.$get(`/api/products/${params.product}`).then(({
         data
       }) => {
         return data
-      }).catch(()=>{
-            return error({
-                statusCode: 404,
-                message: 'Not found'
-            })
+      }).catch(() => {
+        return error({
+          statusCode: 404,
+          message: 'Not found'
+        })
       })
       return {
         product
@@ -190,7 +190,8 @@
       },
       images(i) {
         // console.log(this.product.prices[this.active]);
-        return this.product.prices[this.active].images[this.Slide(i)].url;
+        //if(this.isImages)
+          return this.product.prices[this.active].images[this.Slide(i)].url;
       }
     },
     beforeCreate() {
@@ -207,7 +208,13 @@
         return this.product.prices[this.active].images.length;
       },
       image() {
+        //if(this.isImages)
         return this.product.prices[this.active].images[this.img_id].url;
+      },
+      isImages() {
+        if (this.product.prices[this.active].images.length > 0)
+          return true
+        return false
       }
     },
     watch: {

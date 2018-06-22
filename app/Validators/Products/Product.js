@@ -19,7 +19,7 @@ class Product {
       is_status: 'required|boolean'
     }
 
-    if (this.ctx.request.method() === 'PUT') {
+    if (this.ctx.request.method() === 'PUT' || this.ctx.request.method() === 'POST') {
       product.thumbnail = `required|string|min:4|max:255|unique:products, thumbnail, id, ${productId}`
       product.title = `required|string|max:255|unique:products, title, id, ${productId}`
 

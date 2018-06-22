@@ -15,12 +15,19 @@ class UserController {
 
     try {
       const user = await auth.attempt(email, password)
-      const token = await auth.authenticator('jwt').generate(user, true)
-      return response.send(token)
+      return response.apiCollection({
+        id: user.id,
+        group_id: user.group_id,
+        username: user.username,
+        email: user.email,
+        is_status: user.is_status
+      })
+      //const token = await auth.authenticator('jwt').generate(user, true)
+      //return response.apiCollection(token)
     } catch (error) {
-      return response.status(401).send({
+      return response.status(404).send({
         status: 404,
-        message: "Not Foud or Auth"
+        message: "Not found"
       })
     }
   }
@@ -31,7 +38,29 @@ class UserController {
     auth,
     response
   }) {
-    return response.send(await auth.user)
+    try {
+      const user = await auth.user
+
+      return response.apiCollection({
+        id: user.id,
+        group_id: user.group_id,
+        username: user.username,
+        email: user.email,
+        is_status: user.is_status
+      })
+    } catch (error) {
+      return response.status(404).send({
+        status: 404,
+        message: "Not found"
+      })
+    }
+  }
+
+  async logout({
+    response,
+    auth
+  }) {
+    return response.status(200).apiCollection(await auth.logout())
   }
 }
 

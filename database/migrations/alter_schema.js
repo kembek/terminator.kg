@@ -359,6 +359,51 @@ class AlterSchema extends Schema {
         .onUpdate('CASCADE')
         .withKeyName('fk_product_color_id_pp_pc')
     })
+
+    /**
+     * Alter attributes
+     */
+    this.alter('attributes', (table) => {
+      table.foreign('user_id')
+        .references('id')
+        .inTable('users')
+        .onDelete('RESTRICT')
+        .onUpdate('CASCADE')
+    })
+
+    this.alter('product_attributes', (table) => {
+      table.foreign('product_id')
+        .references('id')
+        .inTable('products')
+        .onDelete('RESTRICT')
+        .onUpdate('CASCADE')
+      table.foreign('attribute_id')
+        .references('id')
+        .inTable('attributes')
+        .onDelete('RESTRICT')
+        .onUpdate('CASCADE')
+    })
+
+    this.alter('attribute_group_attributes', (table) => {
+      table.foreign('attribute_group_id')
+        .references('id')
+        .inTable('attribute_groups')
+        .onDelete('RESTRICT')
+        .onUpdate('CASCADE')
+      table.foreign('attribute_id')
+        .references('id')
+        .inTable('attributes')
+        .onDelete('RESTRICT')
+        .onUpdate('CASCADE')
+    })
+
+      this.alter('attribute_groups', (table) => {
+        table.foreign('user_id')
+          .references('id')
+          .inTable('users')
+          .onDelete('RESTRICT')
+          .onUpdate('CASCADE')
+    })
   }
 
   down() {
