@@ -7,7 +7,7 @@ Route.group(() => {
 
   /**
    * @swagger
-   * /auth:
+   * /auth/:
    *   get:
    *     tags:
    *       - Авторизация
@@ -23,11 +23,11 @@ Route.group(() => {
 
   /**
    * @swagger
-   * /auth:
+   * /auth/:
    *   delete:
    *     tags:
    *       - Авторизация
-   *     summary: Проверка авторизации
+   *     summary: Выход
    *     responses:
    *       200:
    *         description: Ответ
@@ -39,11 +39,18 @@ Route.group(() => {
 
   /**
    * @swagger
-   * /auth:
+   * /auth/:
    *   post:
    *     tags:
    *       - Авторизация
-   *     summary: Выход
+   *     summary: Вход
+   *     parameters:
+   *       - name: body
+   *         description: JSON of user
+   *         in: body
+   *         required: true
+   *         schema:
+   *           $ref: '#/definitions/User'
    *     responses:
    *       200:
    *         description: Данные
@@ -283,6 +290,112 @@ Route.group(() => {
 Route.group(() => {
   /**
    * @swagger
+   * /colors/:
+   *   get:
+   *     tags:
+   *       - Цвета
+   *     summary: Получение массива цветов
+   *     responses:
+   *       404:
+   *         $ref: '#/responses/NotFound'
+   *       200:
+   *         schema:
+   *          $ref: '#/definitions/Color'
+   */
+  Route.get("/", "Settings/ColorController.index")
+
+
+  /**
+   * @swagger
+   * /colors/:
+   *   put:
+   *     tags:
+   *       - Цвета
+   *     summary: Добавление цвета
+   *     parameters:
+   *       - name: color
+   *         description: color
+   *         in: body
+   *         required: true
+   *         schema:
+   *           $ref: '#/definitions/Color'
+   *     responses:
+   *       404:
+   *         $ref: '#/responses/NotFound'
+   *       200:
+   *         schema:
+   *          $ref: '#/definitions/Color'
+   */
+  Route.put("/", "Settings/ColorController.create")
+  .middleware(['auth'])
+
+  /**
+   * @swagger
+   * /colors/{id}:
+   *   get:
+   *     tags:
+   *       - Цвета
+   *     summary: Получение цвета
+   *     parameters:
+   *       - $ref: '#/parameters/Id'
+   *     responses:
+   *       404:
+   *         $ref: '#/responses/NotFound'
+   *       200:
+   *         schema:
+   *          $ref: '#/definitions/Color'
+   */
+  Route.get("/:id", "Settings/ColorController.show")
+
+  /**
+   * @swagger
+   * /colors/{id}:
+   *   post:
+   *     tags:
+   *       - Цвета
+   *     summary: Изминение цвета
+   *     parameters:
+   *       - $ref: '#/parameters/Id'
+   *       - name: color
+   *         description: color
+   *         in: body
+   *         required: true
+   *         schema:
+   *           $ref: '#/definitions/Color'
+   *     responses:
+   *       404:
+   *         $ref: '#/responses/NotFound'
+   *       200:
+   *         schema:
+   *          $ref: '#/definitions/Color'
+   */
+  Route.post("/:id", "Settings/ColorController.update")
+  .middleware(['auth'])
+
+  /**
+   * @swagger
+   * /colors/{id}:
+   *   delete:
+   *     tags:
+   *       - Цвета
+   *     summary: Удаление цвета
+   *     parameters:
+   *       - $ref: '#/parameters/Id'
+   *     responses:
+   *       404:
+   *         $ref: '#/responses/NotFound'
+   *       200:
+   *         schema:
+   *          description: Удалено
+   */
+  Route.delete("/:id", "Settings/ColorController.destroy")
+  .middleware(['auth'])
+
+}).prefix("/api/colors")
+
+Route.group(() => {
+  /**
+   * @swagger
    * /slider/:
    *   get:
    *     tags:
@@ -296,6 +409,8 @@ Route.group(() => {
    *          $ref: '#/definitions/Slider'
    */
   Route.get("/", "SliderController.index")
+
+
 }).prefix("/api/slider")
 
 Route.group(() => {
@@ -377,7 +492,7 @@ Route.group(() => {
    *         $ref: '#/responses/NotFound'
    *       200:
    *         schema:
-   *          $ref: '#/definitions/Menu'
+   *          description: Удалено
    */
   Route.delete("/:id", "MenuController.destroy")
 }).prefix("api/menu")

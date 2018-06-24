@@ -10,34 +10,46 @@ class ExtendResponseProvider extends ServiceProvider {
     Response.macro('apiSuccess', function (data, meta, message) {
       this.status(200).json({
         status: 200,
-        message: message || 'Succes',
+        type: 'success',
+        message: message || 'Успешно',
+        data: data,
+        meta: meta
+      })
+    })
+
+    Response.macro('apiError', function (data, meta, message) {
+      this.status(404).json({
+        status: 404,
+        type: 'error',
+        message: message || 'Произошла ошибка',
         data: data,
         meta: meta
       })
     })
 
     Response.macro('apiCreated', function (item, meta) {
-      this.status(201).json({
-        status: 201,
-        message: 'Created successfully',
+      this.status(200).json({
+        status: 200,
+        type: 'success',
+        message: 'Успешно созданно',
         data: item,
         meta: meta
       })
     })
 
     Response.macro('apiUpdated', function (item, meta) {
-      this.status(202).json({
-        status: 202,
-        message: 'Updated successfully',
+      this.status(200).json({
+        status: 200,
+        message: 'Успешно обновленно',
         data: item,
         meta: meta
       })
     })
 
     Response.macro('apiDeleted', function (item, meta) {
-      this.status(202).json({
-        status: 202,
-        message: 'Deleted successfully',
+      this.status(200).json({
+        status: 200,
+        message: 'Успешно удалено',
         data: null,
         meta: meta
       })
@@ -46,7 +58,7 @@ class ExtendResponseProvider extends ServiceProvider {
     Response.macro('apiCollection', function (items, meta) {
       this.status(200).json({
         status: 200,
-        message: 'Data retrieval successfully',
+        message: 'Успешно получено',
         data: items,
         meta: meta
       })

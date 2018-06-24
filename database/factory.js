@@ -40,7 +40,7 @@ Factory.blueprint('AUTHS/Access', (faker, i, data) => {
 
 Factory.blueprint('AUTHS/User', (faker) => {
   return {
-    username: faker.username(),
+    username: 'Джамалов Даниярхан',
     email: 'admin@terminator.kg',
     password: '123',
     is_status: true

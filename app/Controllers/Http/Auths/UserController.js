@@ -1,6 +1,8 @@
 'use strict'
 const Hash = use('Hash')
 
+const User = use("App/Models/Auths/User");
+
 class UserController {
 
   async login({
@@ -14,22 +16,26 @@ class UserController {
     } = request.all()
 
     try {
-      const user = await auth.attempt(email, password)
-      return response.apiCollection({
-        id: user.id,
-        group_id: user.group_id,
-        username: user.username,
-        email: user.email,
-        is_status: user.is_status
+      let data = await User.query().where({
+        email: email,
+        is_status: true
       })
-      //const token = await auth.authenticator('jwt').generate(user, true)
-      //return response.apiCollection(token)
-    } catch (error) {
-      return response.status(404).send({
-        status: 404,
-        message: "Not found"
-      })
-    }
+      if (data != false) {
+        const user = await auth.attempt(email, password)
+        return response.apiCollection({
+          id: user.id,
+          group_id: user.group_id,
+          username: user.username,
+          email: user.email,
+          is_status: user.is_status
+        })
+      }
+    } catch (error) {}
+
+    return response.status(403).send({
+      status: 403,
+      message: "Доступ не был предоставлен"
+    })
   }
 
 
@@ -40,20 +46,23 @@ class UserController {
   }) {
     try {
       const user = await auth.user
+      if (user.is_status)
+        return response.apiCollection({
+          id: user.id,
+          group_id: user.group_id,
+          username: user.username,
+          email: user.email,
+          is_status: user.is_status
+        })
+      else {
+        await auth.logout()
+      }
+    } catch (error) {}
 
-      return response.apiCollection({
-        id: user.id,
-        group_id: user.group_id,
-        username: user.username,
-        email: user.email,
-        is_status: user.is_status
-      })
-    } catch (error) {
-      return response.status(404).send({
-        status: 404,
-        message: "Not found"
-      })
-    }
+    return response.status(403).send({
+      status: 403,
+      message: "У вас нет разрешения на доступ"
+    })
   }
 
   async logout({

@@ -15,11 +15,6 @@ class Basic extends Model {
   exceptions(message, status, code) {
     throw new Exceptions(message, status, code)
   }
-
-
-  exceptions(message, status, code) {
-    throw new Exceptions(message, status, code)
-  }
 }
 
 module.exports = Basic

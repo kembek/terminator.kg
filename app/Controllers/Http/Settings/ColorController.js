@@ -9,10 +9,7 @@ class ColorController {
     return response.apiCollection(color)
   }
 
-  async create() {
-  }
-
-  async store({ request, response }) {
+  async create({ request, response }) {
     const data = request.only(['title', 'code'])
 
     try {
@@ -22,14 +19,18 @@ class ColorController {
     } catch (error) {
       new Color().exceptions(error.message, error.status, error.code)
     }
-
   }
 
-  async show() {
+  async show({ response, params }) {
+    try {
+      const color = await Color.findOrFail(params.id)
+
+      return response.apiCollection(color)
+    } catch (error) {
+      new Color().exceptions(error.message, error.status, error.code)
+    }
   }
 
-  async edit() {
-  }
 
   async update({ request, response, params }) {
     const data = request.only(['title', 'code'])

@@ -6,8 +6,8 @@
       <div class="product-slider" v-if="isImages">
 
         <span class="arrow-up" @click="slideChange('down')">
-                      <Arrow />
-                      </span>
+                        <Arrow />
+                        </span>
 
         <img v-for="(item, i) in slides" :key="i" :src="'/images/'+ images(i)" :alt="product.title" @click="setSlide(Slide(i))" draggable="false">
 
@@ -29,7 +29,8 @@
 
         <label>Цена</label>
 
-        <span>{{product.prices[active].price}} сом</span>
+        <span v-if="isPrices">{{product.prices[active].price}} сом</span>
+        <span v-else>Цена еще не установленна</span>
 
       </div>
 
@@ -49,7 +50,7 @@
 
       </div>
 
-      <div class="p-text">
+      <div class="p-text" v-if="isPrices">
 
         <label>Цвет: {{product.prices[active].title}}</label>
 
@@ -189,8 +190,7 @@
         return value + this.page;
       },
       images(i) {
-        // console.log(this.product.prices[this.active]);
-        //if(this.isImages)
+        if (this.isImages)
           return this.product.prices[this.active].images[this.Slide(i)].url;
       }
     },
@@ -199,20 +199,26 @@
     },
     computed: {
       slides() {
-        if (this.product.prices[this.active].images.length >= 4)
-          if (process.browser) {
-            if (window.innerWidth > 450) return 4;
-            else if (window.innerWidth > 350) return 3;
-            return 2;
-          }
+        if (isImages)
+          if (this.product.prices[this.active].images.length >= 4)
+            if (process.browser) {
+              if (window.innerWidth > 450) return 4;
+              else if (window.innerWidth > 350) return 3;
+              return 2;
+            }
         return this.product.prices[this.active].images.length;
       },
       image() {
-        //if(this.isImages)
-        return this.product.prices[this.active].images[this.img_id].url;
+        if (this.isImages)
+          return this.product.prices[this.active].images[this.img_id].url;
       },
       isImages() {
         if (this.product.prices[this.active].images.length > 0)
+          return true
+        return false
+      },
+      isPrices() {
+        if (!this.product.prices)
           return true
         return false
       }
