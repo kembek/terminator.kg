@@ -48,7 +48,7 @@ class Categories extends Basic {
   }
 
   parent() {
-    return this.belongsTo('PRODUCTS/Category', 'parent_id', 'id')
+    return this.belongsTo('PRODUCTS/Categories', 'parent_id', 'id')
   }
 }
 

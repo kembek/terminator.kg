@@ -27,8 +27,8 @@ class UserSeeder {
     await Database.raw('SET FOREIGN_KEY_CHECKS = 1;')
 
     // Group
-    const group = await Factory.model('AUTHS/Group').create({ title: 'Administrator' })
-    
+    const group = await Factory.model('AUTHS/Group').create({ title: 'Администратор' })
+
     // Access
     const access = await Factory.model('AUTHS/Access').make({
       post: '111',

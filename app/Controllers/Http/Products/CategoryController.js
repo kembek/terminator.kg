@@ -11,13 +11,21 @@ const {
 const Drive = use('Drive')
 
 class CategoryController {
+  async all({
+    response
+  }) {
+    const categories = await Categories.query().orderBy('sort', 'ASC').with('parent').fetch()
+
+    return response.apiCollection(categories)
+  }
+
 
   async index({
     response
   }) {
     const categories = await Categories.query().where({
       parent_id: null
-    }).orderBy('sort', 'ASC')
+    })
 
     async function recCat(object) {
       const childs = await Categories.query().where({
@@ -160,7 +168,6 @@ class CategoryController {
     auth
   }) {
     const data = request.all()
-    console.log(params)
     try {
       const category = await Categories.findOrFail(params.id)
       category.merge(data)
@@ -174,16 +181,10 @@ class CategoryController {
 
   async destroy({
     params,
-    request,
+    response
   }) {
     try {
       const category = await Categories.findOrFail(params.id)
-
-      const product = await category.product().fetch()
-      await product.productVideo().delete()
-      await product.productImages().delete()
-      await product.prices().delete()
-      await product.productColors().delete()
 
       await category.delete()
       return response.apiDeleted(category)

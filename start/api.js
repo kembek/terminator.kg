@@ -72,7 +72,7 @@ Route.group(() => {
    *   get:
    *     tags:
    *       - Категории
-   *     summary: Получить все категории
+   *     summary: Получить категории со вложенностями
    *     responses:
    *       200:
    *         description: Ответ
@@ -82,6 +82,24 @@ Route.group(() => {
    *             $ref: '#/definitions/ProductCategory'
    */
   Route.get('', 'Products/CategoryController.index')
+
+
+  /**
+   * @swagger
+   * /categories/all/:
+   *   get:
+   *     tags:
+   *       - Категории
+   *     summary: Получить все категории
+   *     responses:
+   *       200:
+   *         description: Ответ
+   *         schema:
+   *           type: array
+   *           items:
+   *             $ref: '#/definitions/ProductCategory'
+   */
+  Route.get('/all/', 'Products/CategoryController.all')
 
 
   /**
@@ -136,7 +154,7 @@ Route.group(() => {
    *   post:
    *     tags:
    *       - Категории
-   *     summary: Product category update
+   *     summary: Изминение категории
    *     parameters:
    *       - $ref: '#/parameters/Id'
    *       - name: Category
@@ -153,7 +171,7 @@ Route.group(() => {
    */
   Route.post('/:id', 'Products/CategoryController.update')
     .middleware(['auth'])
-    .validator('Products/Category')
+    //.validator('Products/Category')
 
   /**
    * @swagger

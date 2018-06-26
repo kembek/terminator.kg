@@ -37,8 +37,6 @@ export default {
                 message: 'Not found'
             })
       })
-
-
     },
   head() {
     return {
