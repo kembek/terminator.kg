@@ -108,24 +108,20 @@ class CategoryController {
     })
 
     if (!image) {
-      new Category().exceptions('This field required!!!', 400)
+     await new Category().exceptions('This field required!!!', 400)
     }
 
-    const exists = await Drive.exists(`resources/image/${image.clientName}`)
+    let image_name = `${new Date().getTime()}.${image.subtype}`
 
-    if (exists) {
-      return `resources/image/${image.clientName}`
-    }
-
-    await image.move(Helpers.resourcesPath('image'), {
-      name: image.clientName
+    await image.move(Helpers.resourcesPath('static/images'), {
+      name: image_name
     })
 
     if (!image.moved()) {
       return image.error()
     }
 
-    return `resources/image/${image.clientName}`
+    return image_name
   }
 
   async store({
@@ -168,7 +164,10 @@ class CategoryController {
     auth
   }) {
     const data = request.all()
+    
     try {
+      data.thumbnail = await this.image(request)
+
       const category = await Categories.findOrFail(params.id)
       category.merge(data)
       await category.save()
