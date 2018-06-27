@@ -144,9 +144,9 @@ Route.group(() => {
    *         schema:
    *           $ref: '#/definitions/ProductCategory'
    */
-  Route.put('/', 'Products/CategoryController.store')
+  Route.put('/', 'Products/CategoryController.create')
     .middleware(['auth'])
-    .validator('Products/Category')
+    // .validator('Products/Category')
 
   /**
    * @swagger

@@ -2,6 +2,8 @@
 
 const Product = use('PRODUCTS/Product')
 const Color = use('PRODUCTS/ProductColor')
+const Helpers = use('Helpers')
+
 class ProductController {
   async index({ request, response }) {
     const product = await Product.all()
@@ -20,6 +22,31 @@ class ProductController {
 
   async create() {
 
+  }
+
+  async image(request) {
+    console.log('start')
+    const image = request.file('file', {
+      type: ['image'],
+      size: '2mb',
+      allowedExtensions: ['jpg', 'png', 'jpeg', 'svg']
+    })
+    if (!image) {
+      await new Categories().exceptions('This field required!!!', 400)
+    }
+
+    let image_name = `${new Date().getTime()}-${image.clientName}.${image.subtype}`
+
+    await image.move(Helpers.resourcesPath('static/images'), {
+      name: image_name
+    })
+
+    console.log(image)
+    if (!image.moved()) {
+      return image.error()
+    }
+
+    return image_name
   }
 
   async store({ request, response, auth }) {

@@ -96,8 +96,31 @@ class CategoryController {
     })
   }
 
-  async create() {
+  async create({request, response}) {
+    let data = request.only(['title', 'parent_id', 'is_status', 'thumbnail', 'link', 'meta_keywords', 'meta_description', 'sort', 'user_id'])
 
+    try {
+      try {
+        data.parent_id = JSON.parse(data.parent_id)
+        data.sort = JSON.parse(data.sort)
+        data.is_status = JSON.parse(data.is_status)
+      } catch (error) {}
+
+      const category = await Categories.findOrCreate({title: data.title}, data)
+
+      if (data.thumbnail != null && data.thumbnail != category.thumbnail)
+        data.thumbnail = await this.image(request)
+
+
+      const categories = await Categories.query().where({
+        id: category.id
+      }).with('parent').fetch()
+
+      return response.apiCreated(categories)
+
+    } catch (error) {
+      new Categories().exceptions(error.message, error.status, error.code)
+    }
   }
 
   async image(request) {
@@ -108,7 +131,7 @@ class CategoryController {
       allowedExtensions: ['jpg', 'png', 'jpeg', 'svg']
     })
     if (!image) {
-      await new Category().exceptions('This field required!!!', 400)
+      await new Categories().exceptions('This field required!!!', 400)
     }
 
     let image_name = `${new Date().getTime()}-${image.clientName}.${image.subtype}`
@@ -121,36 +144,8 @@ class CategoryController {
     if (!image.moved()) {
       return image.error()
     }
-    console.log(image_name)
+
     return image_name
-  }
-
-  async store({
-    request,
-    response,
-    auth
-  }) {
-
-    let data = request.only(['parent_id', 'user_id', 'sort', 'title', 'meta_keywords', 'meta_description', 'is_status'])
-    data.thumbnail = await this.image(request)
-
-    const validation = await validate(data, {
-      thumbnail: `required|string|min:3|max:255|unique:product_category, thumbnail`
-    })
-
-    if (validation.fails()) {
-      return validation.messages()
-    }
-
-    try {
-      const category = await Category.findOrCreate({
-        title: data.title
-      }, data)
-
-      return response.apiSuccess(category)
-    } catch (error) {
-      new Category().exceptions(error.message, error.status, error.code)
-    }
   }
 
   async show() {}
@@ -163,11 +158,12 @@ class CategoryController {
     params,
     auth
   }) {
-    let data = request.only(['title', 'parent_id', 'is_status', 'thumbnail', 'link', 'meta_keywords', 'meta_description'])
+    let data = request.only(['title', 'parent_id', 'is_status', 'thumbnail', 'link', 'meta_keywords', 'meta_description', 'sort'])
 
     try {
       try {
         data.parent_id = JSON.parse(data.parent_id)
+        data.sort = JSON.parse(data.sort)
         data.is_status = JSON.parse(data.is_status)
       } catch (error) {}
 
