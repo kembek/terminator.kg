@@ -46,11 +46,10 @@ class ExtendResponseProvider extends ServiceProvider {
       })
     })
 
-    Response.macro('apiDeleted', function (item, meta) {
+    Response.macro('apiDeleted', function (meta) {
       this.status(200).json({
         status: 200,
         message: 'Успешно удалено',
-        data: null,
         meta: meta
       })
     })

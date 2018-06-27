@@ -101,26 +101,27 @@ class CategoryController {
   }
 
   async image(request) {
-    const image = request.file('thumbnail', {
+    console.log('start')
+    const image = request.file('file', {
       type: ['image'],
       size: '2mb',
       allowedExtensions: ['jpg', 'png', 'jpeg', 'svg']
     })
-
     if (!image) {
-     await new Category().exceptions('This field required!!!', 400)
+      await new Category().exceptions('This field required!!!', 400)
     }
 
-    let image_name = `${new Date().getTime()}.${image.subtype}`
+    let image_name = `${new Date().getTime()}-${image.clientName}.${image.subtype}`
 
     await image.move(Helpers.resourcesPath('static/images'), {
       name: image_name
     })
 
+    console.log(image)
     if (!image.moved()) {
       return image.error()
     }
-
+    console.log(image_name)
     return image_name
   }
 
@@ -131,7 +132,6 @@ class CategoryController {
   }) {
 
     let data = request.only(['parent_id', 'user_id', 'sort', 'title', 'meta_keywords', 'meta_description', 'is_status'])
-    console.log(data)
     data.thumbnail = await this.image(request)
 
     const validation = await validate(data, {
@@ -163,18 +163,29 @@ class CategoryController {
     params,
     auth
   }) {
-    const data = request.all()
-    
+    let data = request.only(['title', 'parent_id', 'is_status', 'thumbnail', 'link', 'meta_keywords', 'meta_description'])
+
     try {
-      data.thumbnail = await this.image(request)
+      try {
+        data.parent_id = JSON.parse(data.parent_id)
+        data.is_status = JSON.parse(data.is_status)
+      } catch (error) {}
 
       const category = await Categories.findOrFail(params.id)
+      if (data.thumbnail != null && data.thumbnail != category.thumbnail)
+        data.thumbnail = await this.image(request)
+
       category.merge(data)
       await category.save()
 
-      return response.apiUpdated(category)
+      const categories = await Categories.query().where({
+        id: category.id
+      }).with('parent').fetch()
+
+      return response.apiUpdated(categories)
+
     } catch (error) {
-      new Category().exceptions(error.message, error.status, error.code)
+      new Categories().exceptions(error.message, error.status, error.code)
     }
   }
 
