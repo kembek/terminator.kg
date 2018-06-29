@@ -1,7 +1,7 @@
 "use strict";
 
-const Menu = use("App/Models/Menus/Menu");
-const Database = use("Database");
+const Menu = use("SETTINGS/Menu");
+
 class MenuController {
   async add({ request, response, params }) {
     const data = request.all();

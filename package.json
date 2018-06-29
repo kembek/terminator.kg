@@ -59,9 +59,6 @@
   },
   "autoload": {
     "App": "./app",
-    "MODELS": "App/Models",
-    "BASIC": "App/Models/Basic",
-    "SLIDERS": "App/Models/Sliders",
     "AUTHS": "App/Models/Auths",
     "FAQS": "App/Models/Faqs",
     "IMAGES": "App/Models/Images",

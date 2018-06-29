@@ -1,16 +1,5 @@
 'use strict'
 
-/*
-|--------------------------------------------------------------------------
-| 1SettingSeeder
-|--------------------------------------------------------------------------
-|
-| Make use of the Factory instance to seed database with dummy data or
-| make use of Lucid models directly.
-|
-*/
-
-const Factory = use('Factory')
 const Database = use('Database')
 const Color = use('SETTINGS/Color')
 const StocStatus = use('SETTINGS/StockStatus')
@@ -24,27 +13,23 @@ class SettingSeeder {
 
     let arrColor = [
       {
-        title: 'черный',
+        title: 'Черный',
         code: '#000000'
       },
       {
-        title: 'красный',
+        title: 'Красный',
         code: '#FF0000'
       },
       {
-        title: 'зеленый',
+        title: 'Зеленый',
         code: '#008000'
       },
       {
-        title: 'синей полночи',
+        title: 'Синий',
         code: '#191970'
       },
       {
-        title: 'морская волна',
-        code: '#00FFFF'
-      },
-      {
-        title: 'оранжевый',
+        title: 'Оранжевый',
         code: '#FFA500'
       }
     ]
@@ -54,7 +39,7 @@ class SettingSeeder {
     let arrStockStatus = [
       { title: 'В наличии' },
       { title: 'Отсуствует' },
-      { title: 'Склад' }
+      { title: 'На складе' }
     ]
 
     await StocStatus.createMany(arrStockStatus)

@@ -277,24 +277,6 @@ class AlterSchema extends Schema {
     })
 
     /**
-     * ALTER product_video_reviews
-     */
-    this.alter('product_video_reviews', (table) => {
-      table.foreign('user_id')
-        .references('id')
-        .inTable('users')
-        .onDelete('RESTRICT')
-        .onUpdate('CASCADE')
-        .withKeyName('fk_user_id_product_video_reviews_users')
-      table.foreign('product_id')
-        .references('id')
-        .inTable('products')
-        .onDelete('RESTRICT')
-        .onUpdate('CASCADE')
-        .withKeyName('fk_product_id_product_video_reviews_products')
-    })
-
-    /**
      * ALTER user_questions
      */
     this.alter('user_questions', (table) => {

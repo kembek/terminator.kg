@@ -31,9 +31,7 @@ Route.get('/api-specs', async ({ request, response }) => {
       './start/*.js',
       './app/Models/Auths/*.js',
       './app/Models/Products/*.js',
-      './app/Models/Sliders/*.js',
       './app/Models/Settings/*.js',
-      './app/Models/Menus/*.js',
     ] // Path to the API docs
   }
   // Initialize swagger-jsdoc -> returns validated swagger spec in json format

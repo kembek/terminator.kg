@@ -106,17 +106,6 @@ Factory.blueprint('PRODUCTS/ProductCategory', (faker, i, data) => {
   }
 })
 
-Factory.blueprint('PRODUCTS/Product', (faker, i, data) => {
-  return data[i]
-})
-
-Factory.blueprint('PRODUCTS/Video', (faker, i, data) => {
-  return {
-    user_id: data.user_id,
-    url: faker.url({ domain: 'www.youtube.com' })
-  }
-})
-
 Factory.blueprint('PRODUCTS/ProductImage', (faker, i, data) => {
   return {
     url: faker.url({ extensions: ['jpg', 'png'] })

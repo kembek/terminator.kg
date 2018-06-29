@@ -255,7 +255,7 @@ Route.group(() => {
    *         schema:
    *           $ref: '#/definitions/Product'
    */
-  Route.put('/', 'Products/ProductController.store')
+  Route.put('/', 'Products/ProductController.create')
     .middleware(['auth'])
     //.validator('Products/Product')
 
@@ -429,7 +429,7 @@ Route.group(() => {
   Route.get("/", "SliderController.index")
 
 
-}).prefix("/api/slider")
+}).prefix("/api/sliders")
 
 Route.group(() => {
 

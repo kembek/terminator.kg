@@ -22,7 +22,7 @@ import Slider from '~/components/Slider'
 import MyFooter from '~/components/Footer'
 import Basket from '~/components/basket/'
 import preloader from '~/components/preloader'
-import Timer from '~/pages/timer'
+import Timer from '~/components/TimerPage'
 import Order from '~/components/forms/order'
 
 import settings from '~/settings'
@@ -43,7 +43,7 @@ export default {
       loading: true,
       online: true,
       text: 'Идёт загрузка',
-      dedline: '2018/05/06 18:00:00',
+      dedline: '2018/06/01 18:00:00',
       isTime: true
     }
   },

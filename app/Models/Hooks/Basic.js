@@ -3,6 +3,7 @@
 const {
   sanitizor
 } = use('Validator')
+
 const Database = use('Database')
 
 const BasicHook = exports = module.exports = {}
@@ -12,7 +13,7 @@ BasicHook.link = async (objectInstance) => {
     if (!objectInstance.link || objectInstance.link == "")
       objectInstance.link = sanitizor.slug(objectInstance.title)
     else
-      objectInstance.link = objectInstance.link.toLowerCase()
+      objectInstance.link = sanitizor.slug(objectInstance.link)
   }
 }
 

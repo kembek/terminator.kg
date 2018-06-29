@@ -17,7 +17,7 @@
           <ul v-show="item.childs.length > 0 & showChildMenu == i" class="child-links-container">
             <li v-for="(child, j) in item.childs" :key="j" class="child-links" @click="showChildMenu = -1; isOpenMenu = false">
               <nuxt-link v-if="child.isLocal" :to="child.link" class="child-link">
-                <i :style="'mask-image: url(/images/' + child.img + ')'" />
+                <i :style="'mask-image: url(/images/menu/' + child.img + ')'" />
                 <span>{{child.title}}</span>
               </nuxt-link>
               <a v-else :href="child.link">{{child.title}}</a>
@@ -55,7 +55,7 @@ export default {
       test: [],
       menu: [{
         title: 'Смартфоны',
-        link: '',
+        link: '/categories/smartphones/',
         isLocal: true,
         childs: [{
           isLocal: true,

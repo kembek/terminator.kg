@@ -3,12 +3,10 @@
 const Categories = use('PRODUCTS/Categories')
 const ProductCategory = use('PRODUCTS/ProductCategory')
 const Color = use('PRODUCTS/ProductColor')
-const Product = use('PRODUCTS/Product')
 const Helpers = use('Helpers')
 const {
   validate
 } = use('Validator')
-const Drive = use('Drive')
 
 class CategoryController {
   async all({
@@ -70,7 +68,7 @@ class CategoryController {
         .where({
           category_id: category.id
         })
-        .select('product_category.product_id', 'products.stock_status_id', 'products.user_id', 'products.thumbnail', 'products.title', 'products.link', 'products.description', 'products.information', 'products.meta_keywords', 'products.meta_desription', 'products.is_hit', 'products.is_recommend', 'products.created_at', 'products.updated_at')
+        .select('product_category.product_id', 'products.stock_status_id', 'products.user_id', 'products.thumbnail', 'products.title', 'products.link', 'products.description', 'products.information', 'products.meta_keywords', 'products.meta_description', 'products.is_hit', 'products.is_recommend', 'products.created_at', 'products.updated_at')
         .innerJoin('products', 'products.id', 'product_category.product_id')
         .orderBy('products.updated_at', 'ASC')
       //.innerJoin('stock_statuses', 'stock_statuses.id', 'products.stock_status_id')
@@ -96,7 +94,10 @@ class CategoryController {
     })
   }
 
-  async create({request, response}) {
+  async create({
+    request,
+    response
+  }) {
     let data = request.only(['title', 'parent_id', 'is_status', 'thumbnail', 'link', 'meta_keywords', 'meta_description', 'sort', 'user_id'])
 
     try {
@@ -104,13 +105,22 @@ class CategoryController {
         data.parent_id = JSON.parse(data.parent_id)
         data.sort = JSON.parse(data.sort)
         data.is_status = JSON.parse(data.is_status)
+        data.thumbnail = JSON.parse(data.thumbnail)
+        if (data.link == null || data.link == '')
+          delete data.link
       } catch (error) {}
 
-      const category = await Categories.findOrCreate({title: data.title}, data)
 
-      if (data.thumbnail != null && data.thumbnail != category.thumbnail)
+      if (data.thumbnail != null && data.thumbnail != '')
         data.thumbnail = await this.image(request)
 
+      const category = await Categories.findOrCreate({
+        title: data.title
+      }, data)
+
+
+      category.merge(data)
+      await category.save()
 
       const categories = await Categories.query().where({
         id: category.id
@@ -134,9 +144,9 @@ class CategoryController {
       await new Categories().exceptions('This field required!!!', 400)
     }
 
-    let image_name = `${new Date().getTime()}-${image.clientName}.${image.subtype}`
+    let image_name = `${new Date().getTime()}-${image.clientName}`
 
-    await image.move(Helpers.resourcesPath('static/images'), {
+    await image.move(Helpers.resourcesPath('static/images/categories'), {
       name: image_name
     })
 
@@ -149,8 +159,6 @@ class CategoryController {
   }
 
   async show() {}
-
-  async edit() {}
 
   async update({
     request,
@@ -165,6 +173,9 @@ class CategoryController {
         data.parent_id = JSON.parse(data.parent_id)
         data.sort = JSON.parse(data.sort)
         data.is_status = JSON.parse(data.is_status)
+        data.thumbnail = JSON.parse(data.thumbnail)
+        if (data.link == null || data.link == '')
+          delete data.link
       } catch (error) {}
 
       const category = await Categories.findOrFail(params.id)

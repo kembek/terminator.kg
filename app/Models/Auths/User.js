@@ -72,10 +72,6 @@ class User extends Model {
     return this.hasMany('PRODUCTS/Product', 'id', 'user_id')
   }
 
-  productVideo() {
-    return this.hasMany('PRODUCTS/Video', 'id', 'user_id')
-  }
-
   productCategories() {
     return this.hasMany('PRODUCTS/Category', 'id', 'user_id')
   }

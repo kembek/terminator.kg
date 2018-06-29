@@ -13,7 +13,7 @@ class FaqSchema extends Schema {
       table.string('link').notNullable().unique('ui_faqs_link')
       table.text('body', 'longtext').notNullable()
       table.string('meta_keywords')
-      table.string('meta_desription')
+      table.string('meta_description')
       table.boolean('is_status').notNullable().defaultTo(1)
       table.timestamps()
     })

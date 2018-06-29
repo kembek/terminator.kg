@@ -12,7 +12,7 @@ class FaqCategoriesSchema extends Schema {
       table.string('title').notNullable().unique('ui_faq_categories_title')
       table.string('link').notNullable().unique('ui_faq_categories_link')
       table.string('meta_keywords')
-      table.string('meta_desription')
+      table.string('meta_description')
       table.boolean('is_status').notNullable().defaultTo(1)
       table.timestamps()
     })

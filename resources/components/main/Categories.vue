@@ -1,7 +1,7 @@
 <template>
   <div class="main-categorie">
     <nuxt-link :to="'/categories/'+item.link + '/'" v-for="(item, index) in items" :key="index" v-if="item.is_status">
-      <img :src="'/images/' + item.thumbnail" />
+      <img :src="'/images/categories/' + item.thumbnail" />
       <span>{{item.title}}</span>
     </nuxt-link>
   </div>

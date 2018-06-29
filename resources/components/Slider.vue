@@ -1,5 +1,5 @@
 <template>
-<div class="main-slider" :style="'background-image: url(\'/slider/' + items[active].img + '\')'" v-if="items.length > 0">
+<div class="main-slider" :style="'background-image: url(\'/images/sliders/' + items[active].img + '\')'" v-if="items.length > 0">
   <div class="slider-container">
     <div class="slider-content" v-html="items[active].description" />
     <nuxt-link class="slider-link" :to="items[active].link">Подробнее</nuxt-link>
@@ -13,7 +13,7 @@
 <script>
 export default {
   created(){
-    return this.$axios.$get('/api/slider').then((res) =>{
+    return this.$axios.$get('/api/sliders').then((res) =>{
         this.items = res.items
     })
   },

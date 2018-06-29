@@ -70,10 +70,6 @@ class Product extends Basic {
     return this.hasMany('PRODUCTS/ProductImage', 'id', 'product_id')
   }
 
-  productVideo() {
-    return this.hasMany('PRODUCTS/Video', 'id', 'product_id')
-  }
-
   orderProducts() {
     return this.belongsToMany('ORDERS/Order')
       .pivotModel(use('ORDERS/OrderProduct'))

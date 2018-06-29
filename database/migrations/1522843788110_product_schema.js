@@ -6,7 +6,7 @@ class ProductSchema extends Schema {
   up() {
     this.create('products', (table) => {
       table.increments()
-      table.integer('stock_status_id').notNullable().unsigned()
+      table.integer('stock_status_id').notNullable().unsigned().defaultTo(1)
       table.integer('user_id').notNullable().unsigned()
       table.integer('sort').notNullable().defaultTo(0)
       table.string('thumbnail').notNullable()
@@ -14,10 +14,8 @@ class ProductSchema extends Schema {
       table.string('link').notNullable().unique('ui_products_link')
       table.text('description', 'longtext').notNullable()
       table.text('information', 'longtext').notNullable()
-      table.string('meta_keywords')
-      table.string('meta_desription')
-      table.boolean('is_hit').notNullable().defaultTo(false)
-      table.boolean('is_recommend').notNullable().defaultTo(false)
+      table.string('meta_keywords').notNullable().defaultTo('')
+      table.string('meta_description').notNullable().defaultTo('')
       table.boolean('is_status').notNullable().defaultTo(true)
       table.timestamps()
     })

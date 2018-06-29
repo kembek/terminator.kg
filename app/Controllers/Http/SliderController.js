@@ -1,7 +1,7 @@
 'use strict'
 
-const Slider = use('App/Models/Sliders/Slider')
-const Database = use('Database')
+const Slider = use('SETTINGS/Slider')
+
 class SliderController {
     async index({request, response}){
         const items = await Slider.all()

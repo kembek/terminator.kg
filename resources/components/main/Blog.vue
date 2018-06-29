@@ -6,7 +6,7 @@
       <Slide v-for="(item, index) in items" :key="index">
         <nuxt-link :to="item.url">
           <span class="slider-name" :title="item.name">{{item.name}}</span>
-          <img :src="'/images/' + item.image" :alt="item.description">
+          <img :src="'/images/blog/' + item.image" :alt="item.description">
         </nuxt-link>
       </Slide>
     </Carousel>
