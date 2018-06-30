@@ -25,6 +25,10 @@ const Model = use('App/Models/Basic')
  *
  */
 class Menu extends Model {
+  // categories() {
+  //   return this.belongsTo('PRODUCTS/Categories', 'link', 'link')
+  // }
 }
+
 
 module.exports = Menu

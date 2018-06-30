@@ -79,13 +79,6 @@ Factory.blueprint('FAQS/Review', (faker) => {
   }
 })
 
-Factory.blueprint('POSTS/Category', (faker, i, data) => {
-  return {
-    user_id: data.user_id,
-    title: faker.sentence({ words: _.random(1, 2) })
-  }
-})
-
 Factory.blueprint('POSTS/Post', (faker, i, data) => {
   return {
     user_id: data.user_id,
@@ -139,4 +132,9 @@ Factory.blueprint('ORDERS/Order', (faker, i, data) => {
     comment: faker.sentence(),
     is_status: faker.bool({ likelihood: 20 })
   }
+})
+
+
+Factory.blueprint('SETTINGS/Menu', (faker, i, data) => {
+  return data[i]
 })

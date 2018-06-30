@@ -12,8 +12,6 @@ BasicHook.link = async (objectInstance) => {
   if (objectInstance.title) {
     if (!objectInstance.link || objectInstance.link == "")
       objectInstance.link = sanitizor.slug(objectInstance.title)
-    else
-      objectInstance.link = sanitizor.slug(objectInstance.link)
   }
 }
 

@@ -68,7 +68,7 @@ class CategoryController {
         .where({
           category_id: category.id
         })
-        .select('product_category.product_id', 'products.stock_status_id', 'products.user_id', 'products.thumbnail', 'products.title', 'products.link', 'products.description', 'products.information', 'products.meta_keywords', 'products.meta_description', 'products.is_hit', 'products.is_recommend', 'products.created_at', 'products.updated_at')
+        .select('product_category.product_id', 'products.stock_status_id', 'products.user_id', 'products.thumbnail', 'products.title', 'products.link', 'products.created_at', 'products.updated_at')
         .innerJoin('products', 'products.id', 'product_category.product_id')
         .orderBy('products.updated_at', 'ASC')
       //.innerJoin('stock_statuses', 'stock_statuses.id', 'products.stock_status_id')
@@ -134,7 +134,6 @@ class CategoryController {
   }
 
   async image(request) {
-    console.log('start')
     const image = request.file('file', {
       type: ['image'],
       size: '2mb',
@@ -150,7 +149,6 @@ class CategoryController {
       name: image_name
     })
 
-    console.log(image)
     if (!image.moved()) {
       return image.error()
     }

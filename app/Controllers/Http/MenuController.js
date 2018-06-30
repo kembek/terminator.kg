@@ -56,7 +56,7 @@ class MenuController {
       if (childs != false) {
         object.childs = [];
         for (var i = 0; i < childs.length; i++) {
-          childs[i].childs = await recCat(childs[i]);
+          childs[i].childs = await recMenu(childs[i]);
           object.childs.push(childs[i]);
         }
       }
