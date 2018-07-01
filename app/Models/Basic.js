@@ -2,8 +2,6 @@
 
 const Model = use('Model')
 const Exceptions = use('App/Exceptions/BasicException')
-
-
 const Env = use('Env')
 
 class Basic extends Model {

@@ -187,12 +187,12 @@ module.exports = {
         id: "UA-119873741-1"
       }
     ],
-    [
-      "@nuxtjs/google-tag-manager",
-      {
-        id: "GTM-NCVNLZP"
-      }
-    ]
+    // [
+    //   "@nuxtjs/google-tag-manager",
+    //   {
+    //     id: "GTM-NCVNLZP"
+    //   }
+    // ]
   ],
   axios: {
     // proxy: true
@@ -220,7 +220,7 @@ module.exports = {
     cacheTime: 1000 * 60 * 15,
     gzip: true,
     generate: false, // Enable me when using nuxt generate
-    exclude: ["/admin", "/timer", "/products", "/admin/**", "/blog", "blog", "/blog/**"],
+    exclude: ["/blog", "blog", "/blog/**"],
     // routes: [
     //   {
     //     url: '/',
@@ -231,15 +231,15 @@ module.exports = {
     routes() {
       return axios
         .all([
-          axios.get("https://terminator.kg/api/categories.json"),
-          axios.get("https://terminator.kg/api/products.json")
+          axios.get("https://terminator.kg/api/categories/"),
+          axios.get("https://terminator.kg/api/products/")
         ])
         .then(
           axios.spread((resCategories, resProducts) => {
             let routes = resCategories.data.items
               .map(categories => "/categories/" + categories.link)
               .concat(
-                resProducts.data.items.map(product => "/products/" + product.id)
+                resProducts.data.items.map(product => "/product/" + product.id)
               );
             return routes;
           })

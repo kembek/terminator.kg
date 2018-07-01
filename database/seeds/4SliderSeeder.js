@@ -8,17 +8,17 @@ class SliderSeeder {
       title: 'Подробнее',
       description: '<h2>Mi MIX 2</h2><h3>БЕЗРАМОЧНЫЙ СМАРТФОН</h3>',
       link: '/',
-      img: 'slide1.jpg'
+      thumbnail: 'slide1.jpg'
     },{
       title: 'Подробнее',
       description: '<h2>Mi MIX 2</h2><h3>БЕЗРАМОЧНЫЙ СМАРТФОН</h3>',
       link: '/',
-      img: 'slide2.jpg'
+      thumbnail: 'slide2.jpg'
     },{
       title: 'Подробнее',
       description: '<h2>Mi MIX 2</h2><h3>БЕЗРАМОЧНЫЙ СМАРТФОН</h3>',
       link: '/',
-      img: 'slide3.jpg'
+      thumbnail: 'slide3.jpg'
     }]
     
     await Slider.createMany(slides)

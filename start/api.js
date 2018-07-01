@@ -101,6 +101,23 @@ Route.group(() => {
    */
   Route.get('/all/', 'Products/CategoryController.all')
 
+  /**
+   * @swagger
+   * /categories/block/:
+   *   get:
+   *     tags:
+   *       - Категории
+   *     summary: Получить категории относящиеся к блоку
+   *     responses:
+   *       200:
+   *         description: Ответ
+   *         schema:
+   *           type: array
+   *           items:
+   *             $ref: '#/definitions/ProductCategory'
+   */
+  Route.get('/block/', 'Products/CategoryController.block')
+
 
   /**
    * @swagger
@@ -302,7 +319,7 @@ Route.group(() => {
   Route.delete('/:id', 'Products/ProductController.destroy')
     .middleware(['auth'])
 
-}).prefix('/api/products')
+}).prefix('api/products')
 
 
 Route.group(() => {
@@ -412,13 +429,14 @@ Route.group(() => {
 }).prefix("/api/colors")
 
 Route.group(() => {
+
   /**
    * @swagger
    * /slider/:
    *   get:
    *     tags:
    *       - Слайдер
-   *     summary: Получение массива изображений
+   *     summary: Получение массива слайдов
    *     responses:
    *       404:
    *         $ref: '#/responses/NotFound'
@@ -426,10 +444,90 @@ Route.group(() => {
    *         schema:
    *          $ref: '#/definitions/Slider'
    */
-  Route.get("/", "SliderController.index")
+  Route.get("", "SliderController.index")
 
+  /**
+   * @swagger
+   * /slider/all/:
+   *   get:
+   *     tags:
+   *       - Слайдер
+   *     summary: Получение всех слайдов
+   *     responses:
+   *       404:
+   *         $ref: '#/responses/NotFound'
+   *       200:
+   *         schema:
+   *          $ref: '#/definitions/Slider'
+   */
+  Route.get("/all/", "SliderController.all")
 
-}).prefix("/api/sliders")
+  /**
+   * @swagger
+   * /slider/:
+   *   put:
+   *     tags:
+   *       - Слайдер
+   *     summary: Добавление слайда
+   *     parameters:
+   *       - name: menu
+   *         description: menu
+   *         in: body
+   *         required: true
+   *         schema:
+   *           $ref: '#/definitions/Slider'
+   *     responses:
+   *       404:
+   *         $ref: '#/responses/NotFound'
+   *       200:
+   *         schema:
+   *          $ref: '#/definitions/Slider'
+   */
+  Route.put("", "SliderController.create")
+
+  /**
+   * @swagger
+   * /slider/{id}:
+   *   post:
+   *     tags:
+   *       - Слайдер
+   *     summary: Изменение слайда
+   *     parameters:
+   *       - $ref: '#/parameters/Id'
+   *       - name: menu
+   *         description: menu
+   *         in: body
+   *         required: true
+   *         schema:
+   *           $ref: '#/definitions/Slider'
+   *     responses:
+   *       404:
+   *         $ref: '#/responses/NotFound'
+   *       200:
+   *         schema:
+   *          $ref: '#/definitions/Slider'
+   */
+  Route.post("/:id", "SliderController.update")
+
+  /**
+   * @swagger
+   * /slider/{id}:
+   *   delete:
+   *     tags:
+   *       - Слайдер
+   *     summary: Удаление массива меню
+   *     parameters:
+   *       - $ref: '#/parameters/Id'
+   *     responses:
+   *       404:
+   *         $ref: '#/responses/NotFound'
+   *       200:
+   *         schema:
+   *          description: Удалено
+   */
+  Route.delete("/:id", "SliderController.destroy")
+}).prefix("api/slider")
+
 
 Route.group(() => {
 
@@ -448,6 +546,22 @@ Route.group(() => {
    *          $ref: '#/definitions/Menu'
    */
   Route.get("", "MenuController.index")
+
+  /**
+   * @swagger
+   * /menu/all/:
+   *   get:
+   *     tags:
+   *       - Меню
+   *     summary: Получение всего меню без вложенностей
+   *     responses:
+   *       404:
+   *         $ref: '#/responses/NotFound'
+   *       200:
+   *         schema:
+   *          $ref: '#/definitions/Menu'
+   */
+  Route.get("/all/", "MenuController.all")
 
   /**
    * @swagger
@@ -470,7 +584,7 @@ Route.group(() => {
    *         schema:
    *          $ref: '#/definitions/Menu'
    */
-  Route.put("", "MenuController.add")
+  Route.put("", "MenuController.create")
 
   /**
    * @swagger

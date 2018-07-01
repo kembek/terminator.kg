@@ -23,7 +23,7 @@ class MenuSeeder {
       title: "Все смартфоны",
       link: "/categories/vse-smartfony/",
       is_local: true,
-      img: 'all.svg',
+      thumbnail: 'all.svg',
       is_status: true,
       sort: 0
     }, {
@@ -33,7 +33,7 @@ class MenuSeeder {
       title: "Тяжелые игры",
       link: "/categories/tyazhelye-igry",
       is_local: true,
-      img: 'all.svg',
+      thumbnail: 'game.svg',
       is_status: true,
       sort: 0
     }, {
@@ -43,7 +43,7 @@ class MenuSeeder {
       title: "Отличная камера",
       link: "/categories/otlichnaya-kamera",
       is_local: true,
-      img: 'camera.svg',
+      thumbnail: 'camera.svg',
       is_status: true,
       sort: 0
     }, {
@@ -53,7 +53,7 @@ class MenuSeeder {
       title: "Активное использование",
       link: "/categories/aktivnoe-ispolzovanie",
       is_local: true,
-      img: 'battery.svg',
+      thumbnail: 'battery.svg',
       is_status: true,
       sort: 0
     }, {
@@ -63,7 +63,7 @@ class MenuSeeder {
       title: "Универсальный смартфон",
       link: "/categories/universalnyj-smartfon",
       is_local: true,
-      img: 'universal.svg',
+      thumbnail: 'universal.svg',
       is_status: true,
       sort: 0
     }, {
@@ -82,7 +82,7 @@ class MenuSeeder {
       title: "Аксессуары для смартфона",
       link: "/categories/aksessuary-dlya-smartfona",
       is_local: true,
-      img: 'accessories.svg',
+      thumbnail: 'accessories.svg',
       is_status: true,
       sort: 0
     }, {
@@ -92,7 +92,7 @@ class MenuSeeder {
       title: "Зарядные устройства",
       link: "/categories/zaryadnye-ustrojstva",
       is_local: true,
-      img: 'charging.svg',
+      thumbnail: 'charging.svg',
       is_status: true,
       sort: 0
     }, {
@@ -102,7 +102,7 @@ class MenuSeeder {
       title: "Умные часы",
       link: "/categories/umnye-chasy",
       is_local: true,
-      img: 'watch.svg',
+      thumbnail: 'watch.svg',
       is_status: true,
       sort: 0
     }, {
@@ -112,7 +112,7 @@ class MenuSeeder {
       title: "Гаджеты и устройства",
       link: "/categories/gadzhety-i-ustrojstva",
       is_local: true,
-      img: 'phone.svg',
+      thumbnail: 'phone.svg',
       is_status: true,
       sort: 0
     }, {
@@ -122,7 +122,7 @@ class MenuSeeder {
       title: "Товары для дома",
       link: "/categories/tovary-dlya-doma",
       is_local: true,
-      img: 'home-device.svg',
+      thumbnail: 'home-device.svg',
       is_status: true,
       sort: 0
     }, {
@@ -132,7 +132,7 @@ class MenuSeeder {
       title: "Наушники и колонки",
       link: "/categories/naushniki-i-kolonki",
       is_local: true,
-      img: 'headphone.svg',
+      thumbnail: 'headphone.svg',
       is_status: true,
       sort: 0
     }, {

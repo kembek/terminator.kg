@@ -1,27 +1,24 @@
 <template>
 <div class="main-blocks">
-  <nuxt-link to="/categories/hits/">
-    <h2>Хиты продаж</h2>
-    <img src="/images/categories/hits.jpg" alt="Хиты продаж">
-  </nuxt-link>
-  <nuxt-link to="/categories/recomendation/">
-    <h2>Рекомендуем</h2>
-    <img src="/images/categories/recomendation.jpg" alt="Рекомдуем">
-  </nuxt-link>
-  <nuxt-link to="/categories/new/">
-    <h2>Новинки</h2>
-    <img src="/images/categories/new.jpg" alt="Новинки">
+  <nuxt-link :to="'/categories/' + item.link" v-for="(item, i) in items" :key="i">
+    <h2>{{item.title}}</h2>
+    <img :src="'/images/categories/' + item.thumbnail" :alt="item.title">
   </nuxt-link>
 </div>
 </template>
 
 <script>
 export default {
-  data() {
-    return {}
-  },
-  methods: {}
-
+    created() {
+      return this.$axios.$get('/api/categories/block/').then((res) =>{
+          this.items = res.data
+      })
+    },
+    data() {
+      return {
+        items: []
+      }
+    }
 }
 </script>
 

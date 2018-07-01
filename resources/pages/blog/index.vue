@@ -3,7 +3,7 @@
   <h2 class="news--title">Новости</h2>
   <div class="news--module" v-for="(item, index) in items" :key="index">
     <nuxt-link :to="'/blog/' + item.id" class="news--item">
-      <img src="/images/sliders/slide1.jpg" class="news--image">
+      <img src="/images/slider/slide1.jpg" class="news--image">
       <span class="news--content-title">{{item.message}}</span>
     </nuxt-link>
   </div>

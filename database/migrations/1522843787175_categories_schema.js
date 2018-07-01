@@ -15,6 +15,7 @@ class ProductCategorySchema extends Schema {
       table.string('meta_keywords')
       table.string('meta_description')
       table.boolean('is_status').notNullable().defaultTo(1)
+      table.boolean('is_two_block').notNullable().defaultTo(0)
       table.timestamps()
     })
   }

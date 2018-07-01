@@ -1,7 +1,8 @@
 'use strict'
 
 const Model = use('App/Models/Basic')
-
+const Exceptions = use('App/Exceptions/BasicException')
+const Env = use('Env')
 /**
  * @swagger
  * definitions:
@@ -25,9 +26,17 @@ const Model = use('App/Models/Basic')
  *
  */
 class Menu extends Model {
-  // categories() {
-  //   return this.belongsTo('PRODUCTS/Categories', 'link', 'link')
-  // }
+    static get table() {
+        return 'menus'
+    }
+
+    parent() {
+        return this.belongsTo('SETTINGS/Menu', 'parent_id', 'id')
+    }
+    exceptions(message, status, code) {
+        if (Env.NODE_ENV != 'production')
+            throw new Exceptions(message, status, code)
+    }
 }
 
 
