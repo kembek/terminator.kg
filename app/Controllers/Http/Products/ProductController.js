@@ -1,6 +1,7 @@
 'use strict'
 
 const Product = use('PRODUCTS/Product')
+const Categories = use('PRODUCTS/Categories')
 const Color = use('PRODUCTS/ProductColor')
 const Helpers = use('Helpers')
 
@@ -55,10 +56,12 @@ class ProductController {
         request,
         response
     }) {
-        const data = request.only([
+        let data = request.only([
           'title',
           'photos',
           'video',
+          'link',
+          'is_status',
           'thumbnail',
           'description',
           'meta_keywords',
@@ -73,6 +76,8 @@ class ProductController {
           'meta_description_photos',
           'user_id'
           ])
+
+        const categories = request.only(['categories'])
         try {
             try {
                 data.sort = JSON.parse(data.sort)
@@ -109,10 +114,12 @@ class ProductController {
         let product = await Product.query().where({
             link: link
         }).select(
-          'id', 
+          'id',
           'title',
           'photos',
           'video',
+          'link',
+          'is_status',
           'thumbnail',
           'description',
           'meta_keywords',
@@ -155,6 +162,8 @@ class ProductController {
           'title',
           'photos',
           'video',
+          'link',
+          'is_status',
           'thumbnail',
           'description',
           'meta_keywords',
@@ -166,7 +175,8 @@ class ProductController {
           'meta_keywords_review',
           'meta_description_review',
           'meta_keywords_photos',
-          'meta_description_photos'
+          'meta_description_photos',
+          'categories'
           ]);
 
         try {

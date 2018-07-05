@@ -40,6 +40,7 @@
     "mysql": "^2.15.0",
     "nuxt": "^1.4.1",
     "nuxt-robots-module": "^1.2.0",
+    "pg": "^7.4.3",
     "require-all": "^2.2.0",
     "standard": "^8.6.0",
     "swagger-jsdoc": "^1.9.7",

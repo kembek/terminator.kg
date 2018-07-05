@@ -24,7 +24,7 @@ class CategoryController {
         const categories = await Categories.query().where({
             parent_id: null,
             is_status: true
-        })
+        }).orderBy('sort', 'ASC')
 
         async function recCat(object) {
             const childs = await Categories.query().where({
@@ -101,7 +101,7 @@ class CategoryController {
     }) {
         let category = await Categories.query().where({
             is_two_block: true
-        })
+        }).orderBy('sort', 'ASC')
         try {
             return response.apiCollection(category)
         } catch (error) {
