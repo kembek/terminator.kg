@@ -45,6 +45,6 @@ module.exports = {
             password: Env.get('DB_PASSWORD', ''),
             database: Env.get('DB_DATABASE', 'tm_db')
         },
-        // debug: true
+         //debug: true
     }
 }

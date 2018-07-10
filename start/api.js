@@ -212,6 +212,207 @@ Route.group(() => {
 }).prefix('/api/categories')
 
 /**
+ * AttributeGroups
+ */
+Route.group(() => {
+
+  /**
+   * @swagger
+   * /attribute-groups/:
+   *   get:
+   *     tags:
+   *       - Группы характеристик
+   *     summary: Получить группы характеристик
+   *     responses:
+   *       200:
+   *         description: Группы характеристик
+   *         schema:
+   *           type: array
+   *           items:
+   *             $ref: '#/definitions/AttributeGroups'
+   */
+  Route.get('', 'Settings/AttributeGroupsController.index')
+
+
+  /**
+   * @swagger
+   * /attribute-groups/{id}:
+   *   get:
+   *     tags:
+   *       - Группы характеристик
+   *     parameters:
+   *       - $ref: '#/parameters/Id'
+   *     summary: Получить группу со всеми характеристиками
+   *     responses:
+   *       200:
+   *         description: Группа с характеристиками
+   *         schema:
+   *           type: array
+   *           items:
+   *             $ref: '#/definitions/AttributeGroups'
+   */
+  Route.get('/:id', 'Settings/AttributeGroupsController.show')
+
+
+  /**
+   * @swagger
+   * /attribute-groups/:
+   *   put:
+   *     tags:
+   *       - Группы характеристик
+   *     summary: Создать группу характеристик
+   *     parameters:
+   *       - name: AttributeGroups
+   *         description: Группа характеристик
+   *         in: body
+   *         required: true
+   *         schema:
+   *           $ref: '#/definitions/AttributeGroups'
+   *     responses:
+   *       202:
+   *         description: Обновленная группа характеристик
+   *         schema:
+   *           $ref: '#/definitions/AttributeGroups'
+   */
+  Route.put('/', 'Settings/AttributeGroupsController.create')
+    .middleware(['auth'])
+
+  /**
+   * @swagger
+   * /attribute-groups/{id}:
+   *   post:
+   *     tags:
+   *       - Группы характеристик
+   *     summary: Изминение группы характеристик
+   *     parameters:
+   *       - $ref: '#/parameters/Id'
+   *       - name: AttributeGroups
+   *         description: Группа характеристик
+   *         in: body
+   *         required: true
+   *         schema:
+   *           $ref: '#/definitions/AttributeGroups'
+   *     responses:
+   *       202:
+   *         description: Обновленная группа характеристик
+   *         schema:
+   *           $ref: '#/definitions/AttributeGroups'
+   */
+  Route.post('/:id', 'Settings/AttributeGroupsController.update')
+    .middleware(['auth'])
+
+  /**
+   * @swagger
+   * /attribute-groups/{id}:
+   *   delete:
+   *     tags:
+   *       - Группы характеристик
+   *     summary: Удалить группу характеристик
+   *     parameters:
+   *       - $ref: '#/parameters/Id'
+   *     responses:
+   *       202:
+   *         description: Успешно удаленно
+   *       404:
+   *         $ref: '#/responses/NotFound'
+   *
+   */
+  Route.delete('/:id', 'Settings/AttributeGroupsController.destroy')
+    .middleware(['auth'])
+
+}).prefix('/api/attribute-groups')
+/**
+ * AttributeGroups
+ */
+Route.group(() => {
+
+  /**
+   * @swagger
+   * /attribute/:
+   *   get:
+   *     tags:
+   *       - Характеристики
+   *     summary: Получить характеристики
+   *     responses:
+   *       200:
+   *         description: Характеристики
+   *         schema:
+   *           type: array
+   *           items:
+   *             $ref: '#/definitions/Attribute'
+   */
+  Route.get('', 'Settings/AttributeController.index')
+
+
+  /**
+   * @swagger
+   * /attribute/:
+   *   put:
+   *     tags:
+   *       - Характеристики
+   *     summary: Создать характеристику
+   *     parameters:
+   *       - name: Attribute
+   *         description: Характеристика
+   *         in: body
+   *         required: true
+   *         schema:
+   *           $ref: '#/definitions/Attribute'
+   *     responses:
+   *       202:
+   *         description: Обновленная характеристика
+   *         schema:
+   *           $ref: '#/definitions/Attribute'
+   */
+  Route.put('/', 'Settings/AttributeController.create')
+    .middleware(['auth'])
+
+  /**
+   * @swagger
+   * /attribute/{id}:
+   *   post:
+   *     tags:
+   *       - Характеристики
+   *     summary: Изминение характеристики
+   *     parameters:
+   *       - $ref: '#/parameters/Id'
+   *       - name: Attribute
+   *         description: Характеристикиа
+   *         in: body
+   *         required: true
+   *         schema:
+   *           $ref: '#/definitions/Attribute'
+   *     responses:
+   *       202:
+   *         description: Обновленная характеристик
+   *         schema:
+   *           $ref: '#/definitions/Attribute'
+   */
+  Route.post('/:id', 'Settings/AttributeController.update')
+    .middleware(['auth'])
+
+  /**
+   * @swagger
+   * /attribute/{id}:
+   *   delete:
+   *     tags:
+   *       - Характеристики
+   *     summary: Удалить характеристику
+   *     parameters:
+   *       - $ref: '#/parameters/Id'
+   *     responses:
+   *       202:
+   *         description: Успешно удаленно
+   *       404:
+   *         $ref: '#/responses/NotFound'
+   *
+   */
+  Route.delete('/:id', 'Settings/AttributeController.destroy')
+    .middleware(['auth'])
+
+}).prefix('/api/attribute')
+
+/**
  * Product
  */
 Route.group(() => {

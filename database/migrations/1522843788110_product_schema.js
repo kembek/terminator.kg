@@ -25,7 +25,7 @@ class ProductSchema extends Schema {
       table.string('meta_description_review').notNullable().defaultTo('')
       table.string('meta_keywords_photos').notNullable().defaultTo('')
       table.string('meta_description_photos').notNullable().defaultTo('')
-      table.boolean('is_status').notNullable().defaultTo(true)
+      table.boolean('is_status').defaultTo(true)
       table.timestamps()
     })
   }

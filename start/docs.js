@@ -41,7 +41,7 @@ Route.get('/api-specs', async ({ request, response }) => {
 /**
  * Swagger UI
  */
-Route.get('docs', ({ view }) => {
+Route.get('docs/api', ({ view }) => {
   return view.render('swagger')
 }).as('swaggerUI')
 

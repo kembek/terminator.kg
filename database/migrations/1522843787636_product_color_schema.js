@@ -5,7 +5,7 @@ const Schema = use('Schema')
 class ProductImageSchema extends Schema {
   up() {
     this.create('product_colors', (table) => {
-      table.primary(['id', 'product_id', 'color_id'])
+      table.unique(['id', 'product_id', 'color_id'])
       table.integer('id').notNullable().unsigned()
       table.integer('product_id').notNullable().unsigned()
       table.integer('color_id').notNullable().unsigned()
