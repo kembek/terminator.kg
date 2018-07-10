@@ -60,14 +60,14 @@
   },
   "autoload": {
     "App": "./app",
-    "AUTHS": "App/Models/Auths",
-    "FAQS": "App/Models/Faqs",
-    "IMAGES": "App/Models/Images",
-    "ORDERS": "App/Models/Orders",
-    "POSTS": "App/Models/Posts",
-    "PRODUCTS": "App/Models/Products",
-    "SETTINGS": "App/Models/Settings",
-    "USERS": "App/Models/Users"
+    "AUTHS": "./app/Models/Auths",
+    "FAQS": "./app/Models/Faqs",
+    "IMAGES": "./app/Models/Images",
+    "ORDERS": "./app/Models/Orders",
+    "POSTS": "./app/Models/Posts",
+    "PRODUCTS": "./app/Models/Products",
+    "SETTINGS": "./app/Models/Settings",
+    "USERS": "./app/Models/Users"
   },
   "devDependencies": {
     "babel-eslint": "^7.1.1",
