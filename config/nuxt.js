@@ -195,7 +195,8 @@ module.exports = {
     // ]
   ],
   axios: {
-    // proxy: true
+    proxy: true,
+    baseURL: 'https://terminator.kg/'
   },
   workbox: {
     runtimeCaching: [
