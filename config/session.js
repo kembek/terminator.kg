@@ -25,7 +25,7 @@ module.exports = {
   | are signed and encrypted.
   |
   */
-  cookieName: 'adonis-session',
+  cookieName: 'terminator.kg-session',
 
   /*
   |--------------------------------------------------------------------------

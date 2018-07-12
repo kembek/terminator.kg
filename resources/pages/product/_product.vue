@@ -293,8 +293,6 @@ export default {
                     display: flex;
                     flex-wrap: wrap;
                     justify-content: flex-end;
-                    height: 90vh;
-                    max-height: 600px;
                     .nav-attrivutes {
                         display: flex;
                         flex-direction: column;
@@ -302,6 +300,8 @@ export default {
                         border-right: 2px dashed @color-dark;
                         a {
                             padding: 10px 0;
+                            text-align: right;
+                            padding-right: 15px;
                         }
                     }
                     .attributes {

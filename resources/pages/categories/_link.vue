@@ -21,24 +21,15 @@
 import SearchSunIcon from "~/assets/svg/searchsun.svg";
 import Filters from '~/components/filtres/'
 export default {
-    async asyncData({
-        error,
-        app,
-        params
-    }) {
-        let category = await app.$axios.$get(`/api/categories/` + params.link).then(({
-            data
-        }) => {
-            return data
-        }).catch(() => {
-            return error({
-                statusCode: 404,
-                message: 'Not found'
-            })
-        })
-        return {
-            category
+    data(){
+      return {
+        category: {
+          title: '',
+          meta_description: '',
+          meta_keywords: '',
+          products: []
         }
+      }
     },
     head() {
         return {
@@ -67,7 +58,21 @@ export default {
         Filters
     },
     methods: {
-
+      async getCategory() {
+        await this.$axios.$get(`/api/categories/` + this.$route.params.link).then(({
+            data
+        }) => {
+            this.category = data
+        }).catch(() => {
+            return error({
+                statusCode: 404,
+                message: 'Not found'
+            })
+        })
+      }
+    },
+    created() {
+      this.getCategory()
     }
 }
 </script>
