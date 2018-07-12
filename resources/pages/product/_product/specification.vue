@@ -26,6 +26,32 @@ export default {
             active: 0
         }
     },
+    head() {
+        return {
+            title: this.product.title + ' - Характеристики',
+            meta: [{
+                    hid: "og:title",
+                    property: "og:title",
+                    content: this.product.title  + ' - Характеристики | TERMINATOR.KG'
+                },
+                {
+                    hid: "description",
+                    property: "description",
+                    content: this.product.meta_description_atributes + " - Характеристики | TERMINATOR.KG"
+                },
+                {
+                    hid: "keywords",
+                    property: "keywords",
+                    content: this.product.meta_keywords_atributes + " - Характеристики | TERMINATOR.KG"
+                },
+                {
+                    hid: "og:description",
+                    property: "og:description",
+                    content: this.product.description_atributes + " - Характеристики | TERMINATOR.KG"
+                }
+            ]
+        };
+    },
     methods: {
         scroll(value) {
             this.$scrollTo(`#attribute-${value}`, 500, {
