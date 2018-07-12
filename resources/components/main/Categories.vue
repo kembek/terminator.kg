@@ -22,6 +22,7 @@
         return this.$axios.$get(`/api/categories/`).then(res => {
           this.items = res.data
         })
+        .catch(error => {});
       }
     }
   }

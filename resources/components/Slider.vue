@@ -17,6 +17,7 @@ export default {
     return this.$axios.$get('/api/slider/').then((res) =>{
         this.items = res.data
     })
+        .catch(error => {});
   },
   props: {
     speed: {

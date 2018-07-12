@@ -18,6 +18,7 @@ export const actions = {
       .then(res => {
         commit('SET_MENU', res.data)
       })
+      .catch(error => {});
   },
   Set({
     commit

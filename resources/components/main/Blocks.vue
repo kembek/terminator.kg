@@ -12,7 +12,7 @@ export default {
     created() {
       return this.$axios.$get('/api/categories/block/').then((res) =>{
           this.items = res.data
-      })
+      }).catch(error => {});
     },
     data() {
       return {
