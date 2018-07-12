@@ -202,12 +202,12 @@ class AlterSchema extends Schema {
      * ALTER product_images
      */
     this.alter('product_images', (table) => {
-      table.foreign('product_id')
+      table.foreign('product_color_id')
         .references('id')
-        .inTable('products')
+        .inTable('product_colors')
         .onDelete('CASCADE')
         .onUpdate('CASCADE')
-        .withKeyName('fk_product_id_product_images_products')
+        .withKeyName('fk_product_color_id_images_product_colors')
     })
 
     /**
