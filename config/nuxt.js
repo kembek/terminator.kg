@@ -191,11 +191,11 @@ module.exports = {
   ],
   axios: {
     proxy: false,
-    baseURL: 'https://terminator.kg/'
+    baseURL: 'http://localhost:3333/'
   },
   proxy: {
     '/api/': {
-      target: 'https://terminator.kg',
+      target: 'http://localhost:3333',
       pathRewrite: {
         '^/api/': '/api/'
       }
