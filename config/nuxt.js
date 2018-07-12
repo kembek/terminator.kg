@@ -200,16 +200,16 @@ module.exports = {
   ],
   axios: {
     proxy: false,
-    // baseURL: "http://localhost:3333/"
+    baseURL: "http://terminator.kg:3333/"
   },
-  // proxy: {
-  //   "/api/": {
-  //     target: "http://localhost:3333",
-  //     pathRewrite: {
-  //       "^/api/": "/api/"
-  //     }
-  //   }
-  // },
+  proxy: {
+    "/api/": {
+      target: "http://terminator.kg:3333",
+      pathRewrite: {
+        "^/api/": "/api/"
+      }
+    }
+  },
   workbox: {
     runtimeCaching: [
       {
@@ -244,7 +244,7 @@ module.exports = {
     routes() {
       return axios
         .all([
-          axios.get("https://terminator.kg/api/categories/"),
+          axios.get("http://terminator.kg/api/categories/"),
           axios.get("https://terminator.kg/api/products/")
         ])
         .then(
