@@ -4,7 +4,7 @@
 
         <div class="product-up-l">
 
-            <div class="product-slider">
+            <div class="product-slider" v-if="isPrices">
 
                 <span class="arrow-up" @click="slideChange('down')">
                         <Arrow />
@@ -16,7 +16,8 @@
 
             </div>
 
-            <div class="product-img" :style="'background-image: url(\'/images/products/'+ image + '\')'" />
+            <div class="product-img"  v-if="isPrices" :style="'background-image: url(\'/images/products/'+ image + '\')'" />
+            <div class="product-img"  v-el :style="'background-image: url(\'/images/products/'+ product.thumbnail + '\')'" />
 
         </div>
 
