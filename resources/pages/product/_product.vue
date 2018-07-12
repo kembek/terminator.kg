@@ -296,7 +296,10 @@ export default {
                     .nav-attrivutes {
                         display: flex;
                         flex-direction: column;
-                        flex-basis: 200px;
+                        text-align: right;
+                        padding-right: 30px;
+                        min-width: 300px;
+                        flex-basis: 300px;
                         border-right: 2px dashed @color-dark;
                         a {
                             padding: 10px 0;
@@ -306,10 +309,11 @@ export default {
                     }
                     .attributes {
                         flex-grow: 1;
-                        height: 90vh;
+                        height: 60vh;
                         max-height: 600px;
-                        overflow: auto;
+                        overflow-y: scroll;
                         padding-left: 20px;
+                        flex-basis: 800px;
                         ul {
                             li {
                                 p {
