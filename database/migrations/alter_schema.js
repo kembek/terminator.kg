@@ -30,18 +30,6 @@ class AlterSchema extends Schema {
     })
 
     /**
-     * ALTER  images
-     */
-    this.alter('images', (table) => {
-      table.foreign('product_color_id')
-        .references('id')
-        .inTable('product_colors')
-        .onDelete('CASCADE')
-        .onUpdate('CASCADE')
-        .withKeyName('fk_product_color_id_images_product_colors')
-    })
-
-    /**
      * ALTER product_colors
      */
     this.alter('product_colors', (table) => {
