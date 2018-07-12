@@ -241,8 +241,8 @@ module.exports = {
     //     priority: 1
     //   }
     // ],
-    routes() {
-      return axios
+    async routes() {
+      return await axios
         .all([
           axios.get("http://terminator.kg/api/categories/"),
           axios.get("http://terminator.kg/api/products/")
