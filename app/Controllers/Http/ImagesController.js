@@ -3,6 +3,7 @@
 const Exceptions = use('App/Exceptions/BasicException')
 const Env = use('Env')
 const Helpers = use('Helpers')
+const fs = require('fs');
 
 class ImagesController {
 
@@ -52,6 +53,10 @@ class ImagesController {
     }
 
     return image_name
+  }
+
+  static async delete(dir, name ) {
+    fs.unlink(Helpers.resourcesPath(`static/images/${dir}/${name}`))
   }
 
   static exceptions(message, status, code) {

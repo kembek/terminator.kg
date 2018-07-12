@@ -95,6 +95,8 @@ class MenuController {
 
       await menu.delete();
 
+      await Images.delete('menu', menu.thumbnail)
+
       return response.apiDeleted(menu);
     } catch (error) {
       new Menu().exceptions(error.message, error.status, error.code);

@@ -2,12 +2,15 @@
 
 const Schema = use('Schema')
 
-class PhotoGalleriesSchema extends Schema {
+class ProductImagesSchema extends Schema {
   up() {
     this.create('product_images', (table) => {
-      table.integer('product_id').notNullable().unsigned()
+      table.increments()
+      table.integer('product_color_id').notNullable().unsigned()
       table.integer('sort').notNullable().unsigned().defaultTo(0)
-      table.string('url').notNullable().unique('ui_product_images_url')
+      table.string('url').notNullable()
+      table.string('title').defaultTo('')
+      table.timestamps()
     })
   }
 
@@ -16,4 +19,4 @@ class PhotoGalleriesSchema extends Schema {
   }
 }
 
-module.exports = PhotoGalleriesSchema
+module.exports = ProductImagesSchema

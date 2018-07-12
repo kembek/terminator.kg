@@ -5,7 +5,7 @@ const Model = use('Model')
 class Image extends Model {
 
   static get table() {
-    return 'images'
+    return 'product_images'
   }
 
   productColor() {

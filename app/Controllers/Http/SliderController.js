@@ -84,6 +84,8 @@ class SliderController {
 
       await slider.delete();
 
+      await Images.delete('slider', slider.thumbnail)
+
       return response.apiDeleted(slider);
     } catch (error) {
       new Slider().exceptions(error.message, error.status, error.code);

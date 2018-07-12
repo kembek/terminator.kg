@@ -43,19 +43,28 @@ export default {
             loading: true,
             online: true,
             text: "Идёт загрузка",
-            dedline: "2018/06/01 18:00:00",
+            dedline: "2018/07/12 21:00:00",
             isTime: true
         };
     },
     created() {
-        this.isTime = new Date(this.dedline).getTime() <= Date.now();
+        this.autch()
         this.ready(() => {
-            setTimeout(() => {
-                this.loading = false;
-            }, 1000);
+            this.loading = false;
         });
     },
     methods: {
+        async autch() {
+            if (new Date(this.dedline).getTime() <= Date.now() == false)
+                await this.$axios.$get('/api/auth/').then(res => {
+                    if (res.status == 200)
+                        this.isTime = true
+                    else
+                        this.isTime = false
+                }).catch(error => {
+                    this.isTime = false
+                })
+        },
         ready(fn) {
             if (process.browser) {
                 window.onload = () => {

@@ -148,7 +148,7 @@ module.exports = {
   /*
    ** Global CSS
    */
-  css: ["~assets/css/clear.min.css", "~assets/css/main.css"],
+  css: ["~assets/css/clear.min.css", "~assets/css/main.css", "~assets/css/vue2-editor.min.css"],
   /*
    ** Customize the progress-bar color
    */

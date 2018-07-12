@@ -22,6 +22,7 @@ class User extends Model {
     super.boot()
 
     this.addHook('beforeCreate', 'User.hashPassword')
+    this.addHook('beforeUpdate', 'User.hashPassword')
   }
 
   tokens () {

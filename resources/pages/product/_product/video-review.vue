@@ -1,5 +1,5 @@
 <template>
-	<div class="tabs-content-item" v-html="product.description" />
+	<div class="tabs-content-item" v-html="product.video" />
 </template>
 
 <script>

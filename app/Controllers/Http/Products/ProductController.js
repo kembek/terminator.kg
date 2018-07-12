@@ -26,22 +26,26 @@ function filter_array(test_array) {
 }
 
 class ProductController {
-  async index({ response }) {
-    const product = await Product.all();
+  async index({
+    response,
+    auth
+  }) {
+    let product;
+    try {
+      await auth.check()
+      product = await Product.all();
+    } catch (error) {
+      product = await Product.query().where({
+        is_status: true
+      });}
 
     return response.apiCollection(product);
   }
 
-  async product({ response, params }) {
-    let { link } = params;
-    const product = await Product.query().where({
-      link: link
-    });
-
-    return response.apiCollection(product);
-  }
-
-  async create({ request, response }) {
+  async create({
+    request,
+    response
+  }) {
     let data = request.only([
       "title",
       "photos",
@@ -76,8 +80,7 @@ class ProductController {
       if (data.thumbnail != null && data.thumbnail != "")
         data.thumbnail = await Images.image(request, "products");
 
-      let product = await Product.findOrCreate(
-        {
+      let product = await Product.findOrCreate({
           title: data.title
         },
         data
@@ -85,22 +88,18 @@ class ProductController {
 
       try {
         for (var i = 0; i < categories.length; i++)
-          await Categories.create(
-            {
-              product_id: product.id,
-              category_id: categories[i]
-            }
-          );
+          await Categories.create({
+            product_id: product.id,
+            category_id: categories[i]
+          });
       } catch (error) {}
 
       for (var i = 0; i < all_attributes.length; i++) {
-        await ProdutAttributes.create(
-          {
-            product_id: product.id,
-            attribute_id: all_attributes[i].id,
-            text: all_attributes[i].text
-          }
-        );
+        await ProdutAttributes.create({
+          product_id: product.id,
+          attribute_id: all_attributes[i].id,
+          text: all_attributes[i].text
+        });
       }
 
       product.all_attributes = all_attributes;
@@ -113,35 +112,75 @@ class ProductController {
     }
   }
 
-  async show({ params, response }) {
-    let { link } = params;
-    let product = await Product.query()
-      .where({
-        link: link
-      })
-      .select(
-        "id",
-        "title",
-        "photos",
-        "video",
-        "link",
-        "sort",
-        "is_status",
-        "thumbnail",
-        "description",
-        "meta_keywords",
-        "meta_description",
-        "meta_keywords_video",
-        "meta_description_video",
-        "meta_keywords_atributes",
-        "meta_description_atributes",
-        "meta_keywords_review",
-        "meta_description_review",
-        "meta_keywords_photos",
-        "meta_description_photos"
-      );
+  async show({
+    params,
+    response,
+    auth
+  }) {
+    let {
+      link
+    } = params;
+
+    let product;
+    try {
+      await auth.check()
+      product = await Product.query()
+        .where({
+          link: link
+        })
+        .select(
+          "id",
+          "title",
+          "photos",
+          "video",
+          "link",
+          "sort",
+          "is_status",
+          "thumbnail",
+          "description",
+          "meta_keywords",
+          "meta_description",
+          "meta_keywords_video",
+          "meta_description_video",
+          "meta_keywords_atributes",
+          "meta_description_atributes",
+          "meta_keywords_review",
+          "meta_description_review",
+          "meta_keywords_photos",
+          "meta_description_photos"
+        );
+    } catch (error) {
+      product = await Product.query()
+        .where({
+          link: link,
+          is_status: true
+        })
+        .select(
+          "id",
+          "title",
+          "photos",
+          "video",
+          "link",
+          "sort",
+          "is_status",
+          "thumbnail",
+          "description",
+          "meta_keywords",
+          "meta_description",
+          "meta_keywords_video",
+          "meta_description_video",
+          "meta_keywords_atributes",
+          "meta_description_atributes",
+          "meta_keywords_review",
+          "meta_description_review",
+          "meta_keywords_photos",
+          "meta_description_photos"
+        );
+    }
+
 
     if (product != false) {
+
       product = product[0];
       product.prices = await Color.query()
         .where({
@@ -152,8 +191,13 @@ class ProductController {
           "product_prices.product_color_id",
           "product_colors.id"
         )
+        .innerJoin(
+          "colors",
+          "colors.id",
+          "product_colors.id"
+        )
+        .select('colors.id', "colors.title", "colors.code", "sort", "price")
         .orderBy("product_prices.price", "ASC")
-        .with("color")
         .with("images")
         .fetch();
 
@@ -216,7 +260,11 @@ class ProductController {
     });
   }
 
-  async update({ request, response, params }) {
+  async update({
+    request,
+    response,
+    params
+  }) {
     const data = request.only([
       "title",
       "photos",
@@ -238,16 +286,21 @@ class ProductController {
       "meta_description_photos"
     ]);
 
-    let categories = request.only(["categories"]);
+    let {
+      categories,
+      all_attributes
+    } = request.only(["categories", "all_attributes"]);
 
-    let all_attributes = request.only(["all_attributes"]);
 
-    all_attributes = JSON.parse(all_attributes.all_attributes);
     try {
-      categories = categories.categories.split(",");
+      if (all_attributes)
+        all_attributes = JSON.parse(all_attributes);
+      if (categories)
+        categories = categories.split(",");
+
+      data.is_status = JSON.parse(data.is_status);
     } catch (error) {}
     try {
-      data.is_status = JSON.parse(data.is_status);
 
       const product = await Product.findOrFail(params.id);
       if (data.thumbnail != null && data.thumbnail != product.thumbnail)
@@ -265,17 +318,15 @@ class ProductController {
 
         try {
           for (var i = 0; i < categories.length; i++)
-            await Categories.create(
-              {
-                product_id: product.id,
-                category_id: categories[i]
-              }
-            );
+            await Categories.create({
+              product_id: product.id,
+              category_id: categories[i]
+            });
           product.categories = categories;
         } catch (error) {}
       }
 
-      if (categories) {
+      if (all_attributes) {
         try {
           await ProdutAttributes.query()
             .where({
@@ -284,13 +335,11 @@ class ProductController {
             .delete();
 
           for (var i = 0; i < all_attributes.length; i++)
-            await ProdutAttributes.create(
-              {
-                product_id: product.id,
-                attribute_id: all_attributes[i].id,
-                text: all_attributes[i].text
-              }
-            );
+            await ProdutAttributes.create({
+              product_id: product.id,
+              attribute_id: all_attributes[i].id,
+              text: all_attributes[i].text
+            });
           product.all_attributes = all_attributes;
         } catch (error) {}
       }
@@ -301,11 +350,16 @@ class ProductController {
     }
   }
 
-  async destroy({ response, params }) {
+  async destroy({
+    response,
+    params
+  }) {
     try {
       const product = await Product.findOrFail(params.id);
 
       await product.delete();
+
+      await Images.delete('products', product.thumbnail)
 
       return response.apiDeleted();
     } catch (error) {

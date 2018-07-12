@@ -199,8 +199,8 @@ class CategoryController {
   }) {
     try {
       const category = await Categories.findOrFail(params.id)
-
       await category.delete()
+      await Images.delete('categories', category.thumbnail)
       return response.apiDeleted(category)
     } catch (error) {
       new Categories().exceptions(error.message, error.status, error.code)
