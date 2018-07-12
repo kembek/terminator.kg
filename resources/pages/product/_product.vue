@@ -17,7 +17,7 @@
             </div>
 
             <div class="product-img"  v-if="isPrices" :style="'background-image: url(\'/images/products/'+ image + '\')'" />
-            <div class="product-img"  v-el :style="'background-image: url(\'/images/products/'+ product.thumbnail + '\')'" />
+            <div class="product-img"  v-else :style="'background-image: url(\'/images/products/'+ product.thumbnail + '\')'" />
 
         </div>
 
@@ -306,6 +306,7 @@ export default {
                             padding: 10px 0;
                             text-align: right;
                             padding-right: 15px;
+                            cursor: pointer;
                         }
                     }
                     .attributes {
