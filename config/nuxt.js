@@ -250,9 +250,9 @@ module.exports = {
         .then(
           axios.spread((resCategories, resProducts) => {
             let routes = resCategories.data.items
-              .map(categories => "/categories/" + categories.link)
+              .forEach(categories => "/categories/" + categories.link)
               .concat(
-                resProducts.data.items.map(product => "/product/" + product.id)
+                resProducts.data.items.forEach(product => "/product/" + product.id)
               );
             return routes;
           })
