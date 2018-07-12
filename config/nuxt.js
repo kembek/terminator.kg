@@ -198,10 +198,10 @@ module.exports = {
     //   }
     // ]
   ],
-  // axios: {
-  //   proxy: true,
-  //   baseURL: "http://terminator.kg:3333/"
-  // },
+  axios: {
+    proxy: true,
+    // baseURL: "http://terminator.kg:3333/"
+  },
   // proxy: {
   //   "/api/": {
   //     target: "http://terminator.kg:3333",
