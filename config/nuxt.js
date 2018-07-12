@@ -190,17 +190,17 @@ module.exports = {
     // ]
   ],
   axios: {
-    // proxy: false,
-    // baseURL: 'https://terminator.kg/'
+    proxy: false,
+    baseURL: 'https://terminator.kg/'
   },
-  // proxy: {
-  //   '/api/': {
-  //     target: 'https://terminator.kg',
-  //     pathRewrite: {
-  //       '^/api/': '/api/'
-  //     }
-  //   },
-  // },
+  proxy: {
+    '/api/': {
+      target: 'https://terminator.kg',
+      pathRewrite: {
+        '^/api/': '/api/'
+      }
+    },
+  },
   workbox: {
     runtimeCaching: [{
       urlPattern: "https://terminator.kg/*",
