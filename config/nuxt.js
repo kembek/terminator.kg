@@ -199,7 +199,7 @@ module.exports = {
     // ]
   ],
   axios: {
-    proxy: false,
+    proxy: true,
     baseURL: "http://terminator.kg:3333/"
   },
   proxy: {
