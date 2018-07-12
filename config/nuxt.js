@@ -198,18 +198,18 @@ module.exports = {
     //   }
     // ]
   ],
-  axios: {
-    proxy: true,
-    baseURL: "http://terminator.kg:3333/"
-  },
-  proxy: {
-    "/api/": {
-      target: "http://terminator.kg:3333",
-      pathRewrite: {
-        "^/api/": "/api/"
-      }
-    }
-  },
+  // axios: {
+  //   proxy: true,
+  //   baseURL: "http://terminator.kg:3333/"
+  // },
+  // proxy: {
+  //   "/api/": {
+  //     target: "http://terminator.kg:3333",
+  //     pathRewrite: {
+  //       "^/api/": "/api/"
+  //     }
+  //   }
+  // },
   workbox: {
     runtimeCaching: [
       {
