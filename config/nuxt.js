@@ -245,14 +245,14 @@ module.exports = {
       return axios
         .all([
           axios.get("http://terminator.kg/api/categories/"),
-          axios.get("https://terminator.kg/api/products/")
+          axios.get("http://terminator.kg/api/products/")
         ])
         .then(
           axios.spread((resCategories, resProducts) => {
             let routes = resCategories.data.items
-              .forEach(categories => "/categories/" + categories.link)
+              .map(categories => "/categories/" + categories.link)
               .concat(
-                resProducts.data.items.forEach(product => "/product/" + product.id)
+                resProducts.data.items.map(product => "/product/" + product.id)
               );
             return routes;
           })
