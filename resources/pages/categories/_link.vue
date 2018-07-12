@@ -11,7 +11,8 @@
         <nuxt-link :to="'/product/'+item.link" class="product" v-for="(item, i) in category.products" :key="i" :title="item.title">
             <img :src="'/images/products/'+item.thumbnail" :alt="item.title">
             <h3>{{item.title}}</h3>
-            <span>от {{item.prices[0].price}} сом</span>
+            <span v-if="isPrice">от {{item.prices[0].price}} сом</span>
+            <span v-else>ещё не установленна</span>
         </nuxt-link>
     </div>
 </div>
@@ -66,6 +67,13 @@ export default {
         SearchSunIcon,
         Filters
     },
+    methods: {
+        isPrices() {
+            if (this.product.prices != false)
+                return true
+            return false
+        }
+    }
 }
 </script>
 
