@@ -30,7 +30,7 @@
                 <label>Цена</label>
 
                 <span v-if="isPrices">{{product.prices[active].price}} сом</span>
-                <span v-else>ещё не установленна</span>
+                <span v-else>ещё не установлена</span>
 
             </div>
 
