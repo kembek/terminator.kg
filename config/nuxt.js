@@ -27,13 +27,15 @@ module.exports = {
     htmlAttrs: {
       lang: "ru"
     },
-    meta: [{
+    meta: [
+      {
         charset: "utf-8"
       },
       {
         hid: "keywords",
         name: "keywords",
-        content: "Смартфоны (телефоны) Xiaomi (Mi) в Бишкеке (Кыргызстане) Интернет магазине TERMINATOR.KG xiaomi в бишкеке, xiaomi купить в бишкеке, xiaomi в оше, xiaomi смартфоны, купить xiaomi смартфоны, xiaomi аксессуары, xiaomi рюкзаки, xiaomi видеорегистраторы, mi band xiaomi, аксессуары xiaomi, зарядное устройство xiaomi,  xiaomi камеры, планшеты xiaomi"
+        content:
+          "Смартфоны (телефоны) Xiaomi (Mi) в Бишкеке (Кыргызстане) Интернет магазине TERMINATOR.KG xiaomi в бишкеке, xiaomi купить в бишкеке, xiaomi в оше, xiaomi смартфоны, купить xiaomi смартфоны, xiaomi аксессуары, xiaomi рюкзаки, xiaomi видеорегистраторы, mi band xiaomi, аксессуары xiaomi, зарядное устройство xiaomi,  xiaomi камеры, планшеты xiaomi"
       },
       {
         hid: "description",
@@ -101,7 +103,8 @@ module.exports = {
         content: "504"
       }
     ],
-    link: [{
+    link: [
+      {
         rel: "icon",
         type: "image/x-icon",
         href: "favicon.ico"
@@ -145,7 +148,11 @@ module.exports = {
   /*
    ** Global CSS
    */
-  css: ["~assets/css/clear.min.css", "~assets/css/main.css", "~assets/css/vue2-editor.min.css"],
+  css: [
+    "~assets/css/clear.min.css",
+    "~assets/css/main.css",
+    "~assets/css/vue2-editor.min.css"
+  ],
   /*
    ** Customize the progress-bar color
    */
@@ -155,7 +162,8 @@ module.exports = {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [{
+  plugins: [
+    {
       src: "~/plugins/vue-carousel",
       ssr: false
     },
@@ -176,12 +184,13 @@ module.exports = {
   modules: [
     "@nuxtjs/axios",
     "@nuxtjs/sitemap",
-    "@nuxtjs/pwa", [
+    "@nuxtjs/pwa",
+    [
       "@nuxtjs/google-analytics",
       {
         id: "UA-119873741-1"
       }
-    ],
+    ]
     // [
     //   "@nuxtjs/google-tag-manager",
     //   {
@@ -191,30 +200,32 @@ module.exports = {
   ],
   axios: {
     proxy: false,
-    baseURL: 'http://localhost:3333/'
+    // baseURL: "http://localhost:3333/"
   },
-  proxy: {
-    '/api/': {
-      target: 'http://localhost:3333',
-      pathRewrite: {
-        '^/api/': '/api/'
-      }
-    },
-  },
+  // proxy: {
+  //   "/api/": {
+  //     target: "http://localhost:3333",
+  //     pathRewrite: {
+  //       "^/api/": "/api/"
+  //     }
+  //   }
+  // },
   workbox: {
-    runtimeCaching: [{
-      urlPattern: "https://terminator.kg/*",
-      strategyOptions: {
-        cacheName: "terminator.kg",
-        cacheableResponse: {
-          statuses: [0, 200]
-        },
-        cacheExpiration: {
-          maxEntries: 10,
-          maxAgeSeconds: 300
+    runtimeCaching: [
+      {
+        urlPattern: "https://terminator.kg/*",
+        strategyOptions: {
+          cacheName: "terminator.kg",
+          cacheableResponse: {
+            statuses: [0, 200]
+          },
+          cacheExpiration: {
+            maxEntries: 10,
+            maxAgeSeconds: 300
+          }
         }
       }
-    }]
+    ]
   },
   sitemap: {
     path: "/sitemap.xml",
@@ -245,7 +256,8 @@ module.exports = {
               );
             return routes;
           })
-        );
+        )
+        .catch(error => {});
     }
   },
   build: {
@@ -262,7 +274,8 @@ module.exports = {
         loader: "vue-svg-loader",
         options: {
           svgo: {
-            plugins: [{
+            plugins: [
+              {
                 removeDoctype: true
               },
               {
