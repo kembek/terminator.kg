@@ -10,14 +10,21 @@
 <script>
 export default {
     created() {
-      return this.$axios.$get('/api/categories/block/').then((res) =>{
-          this.items = res.data
-      }).catch(error => {});
+      this.Get()
     },
     data() {
       return {
         items: []
       }
+    },
+    methods: {
+
+        async Get() {
+            return await this.$axios.$get('/api/categories/block/').then((res) => {
+                    this.items = res.data
+                })
+                .catch(error => {});
+        },
     }
 }
 </script>

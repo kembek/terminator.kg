@@ -18,8 +18,8 @@
       this.getCategories()
     },
     methods: {
-      getCategories() {
-        return this.$axios.$get(`/api/categories/`).then(res => {
+      async getCategories() {
+        return await this.$axios.$get(`/api/categories/`).then(res => {
           this.items = res.data
         })
         .catch(error => {});
