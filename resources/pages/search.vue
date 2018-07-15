@@ -8,8 +8,9 @@
     <div class="live-search">
       <ul v-if="search && items.length != 0">
         <li v-for="(item, i) in items" :key="i" v-if="i < 5">
-          <nuxt-link :to="'/products/' + item.id">
-            {{item.title}} | {{item.price}} сом
+          <nuxt-link :to="'/products/' + item.link">
+            {{item.title}}
+            <!-- | от {{item.prices[0].price}} сом -->
           </nuxt-link>
         </li>
       </ul>
@@ -26,7 +27,28 @@ export default {
   components: {
     SearchIcon,
     SearchSunIcon
-  },
+  },async asyncData({
+        error,
+        app,
+        params
+    }) {
+        const products = await app.$axios
+            .$get(`/api/products/`)
+            .then(({
+                data
+            }) => {
+                return data;
+            })
+            .catch(() => {
+                return error({
+                    statusCode: 404,
+                    message: "Not found"
+                });
+            });
+        return {
+            products
+        };
+    },
   data() {
     return {
       search: this.$route.params.result,
@@ -34,7 +56,7 @@ export default {
   },
   computed: {
     items() {
-      return this.$store.getters["Products/Items"].filter(item => {
+      return this.products.filter(item => {
         return item.title.trim().toLowerCase().includes(this.search.toLowerCase());
       })
     }

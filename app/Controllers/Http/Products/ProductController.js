@@ -35,10 +35,49 @@ class ProductController {
     try {
       await auth.check()
       product = await Product.all();
+      for (var i = 0; i < product.length; i++)
+        product[i].prices = await Color.query()
+        .where({
+          product_id: product[i].id
+        })
+        .innerJoin(
+          "product_prices",
+          "product_prices.product_color_id",
+          "product_colors.id"
+        )
+        .innerJoin(
+          "colors",
+          "colors.id",
+          "product_colors.color_id"
+        )
+        .select('colors.id', "colors.title", "colors.code", "sort", "price")
+        .orderBy("product_prices.price", "ASC")
+        .with("images")
+        .fetch();
+        
     } catch (error) {
       product = await Product.query().where({
         is_status: true
       });
+      for (var i = 0; i < product.length; i++)
+        product[i].prices = await Color.query()
+        .where({
+          product_id: product[i].id
+        })
+        .innerJoin(
+          "product_prices",
+          "product_prices.product_color_id",
+          "product_colors.id"
+        )
+        .innerJoin(
+          "colors",
+          "colors.id",
+          "product_colors.color_id"
+        )
+        .select('colors.id', "colors.title", "colors.code", "sort", "price")
+        .orderBy("product_prices.price", "ASC")
+        .with("images")
+        .fetch();
     }
 
     return response.apiCollection(product);

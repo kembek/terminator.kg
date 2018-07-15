@@ -8,10 +8,10 @@
     <!-- <Filters /> -->
   </div>
   <div class="search-result">
-    <nuxt-link :to="'/products/'+item.id" class="product" v-for="(item, i) in items" :key="i" :title="item.title">
-      <img :src="'/images/'+item.image" :alt="item.title">
+    <nuxt-link :to="'/product/'+item.link" class="product" v-for="(item, i) in items" :key="i" :title="item.title">
+      <img :src="'/images/products/'+item.thumbnail" :alt="item.title">
       <h3>{{item.title}}</h3>
-      <span>{{item.price}} сом</span>
+      <!-- <span>от {{item.prices[0].price}} сом</span> -->
     </nuxt-link>
   </div>
 </div>
@@ -21,6 +21,28 @@
 import SearchSunIcon from "~/assets/svg/searchsun.svg";
 import Filters from '~/components/filtres/'
 export default {
+  async asyncData({
+        error,
+        app,
+        params
+    }) {
+        const products = await app.$axios
+            .$get(`/api/products/`)
+            .then(({
+                data
+            }) => {
+                return data;
+            })
+            .catch(() => {
+                return error({
+                    statusCode: 404,
+                    message: "Not found"
+                });
+            });
+        return {
+            products
+        };
+    },
   data() {
     return {
       search: this.$route.params.result
@@ -30,11 +52,19 @@ export default {
     SearchSunIcon,
     Filters
   },
+  methods: {
+    async GetProducts() {
+     return await this.$axios.$get('/api/products/').then(res => {
+        return res.data.data
+      }).catch(error => {})
+    }
+  },
   computed: {
     items() {
-      return this.$store.getters["Products/Items"].filter(item => {
+      return this.products.filter(item => {
         return item.title.toLowerCase().includes(this.search.toLowerCase());
       });
+
     }
   }
 }
