@@ -61,6 +61,18 @@ body {
     transform: translateX(100%);
 }
 
+.slider-control-enter-active,
+.slider-control-leave-active {
+    transition: all .5s;
+    transform: scale(1);
+}
+
+.slider-control-enter,
+.slider-control-leave-active {
+    transform: scale(0);
+}
+
+
 * {
     transition: all .3s;
 }

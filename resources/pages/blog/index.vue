@@ -9,7 +9,7 @@
   </div>
   <div class="load-container">
     <button class="load-more">
-   Идитфыв
+   
   </button>
   </div>
 </div>
@@ -19,37 +19,6 @@ export default {
   data() {
     return {
       items: [
-       {
-         id: 0,
-         message: 'Фывоаыо ыварыловары ываоыоа qweqwe asklfjk'
-       },{
-         id: 1,
-         message: 'Фывоаыо ыварыловары ываоыоа qweqwe asklfjk'
-       },{
-         id: '2',
-         message: 'Фывоаыо ыварыловары ываоыоа qweqwe asklfjk'
-       },{
-         id: '3',
-         message: 'Фывоаыо ыварыловары ываоыоа qweqwe asklfjk'
-       },{
-         id: '4',
-         message: 'Фывоаыо ыварыловары ываоыоа qweqwe asklfjk'
-       },{
-         id: '5',
-         message: 'Фывоаыо ыварыловары ываоыоа qweqwe asklfjk'
-       },{
-         id: '6',
-         message: 'Фывоаыо ыварыловары ываоыоа qweqwe asklfjk'
-       },{
-         id: '7',
-         message: 'Фывоаыо ыварыловары ываоыоа qweqwe asklfjk'
-       },{
-         id: '8',
-         message: 'Фывоаыо ыварыловары ываоыоа qweqwe asklfjk'
-       },{
-         id: '9',
-         message: 'Фывоаыо ыварыловары ываоыоа qweqwe asklfjk'
-       },
       ]
     }
   }

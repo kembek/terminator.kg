@@ -3,18 +3,18 @@
     <div class="product-up">
 
         <div class="product-up-l">
+            <transition name="slider-control">
+                <div class="product-slider" v-if="isPrices && image">
 
-            <div class="product-slider" v-if="isPrices && image">
-
-                <span class="arrow-up" @click="slideChange('down')">
+                    <span class="arrow-up" @click="slideChange('down')">
                         <Arrow />
                         </span>
 
-                <img v-for="(item, i) in slides" :key="i" :src="'/images/products/'+ images(i)" :alt="product.title" @click="setSlide(Slide(i))" draggable="false">
+                        <span class="slider-img" v-for="(item, i) in slides" :key="i" :style="`background-image: url('/images/products/` + images(i) +`')`" :alt="product.title" @click="setSlide(Slide(i))" draggable="false" />
 
-                <span @click="slideChange('up')"><Arrow /></span>
-
-            </div>
+                    <span @click="slideChange('up')"><Arrow /></span>
+                </div>
+            </transition>
             <div class="product-img" v-if="isPrices && image" :style="'background-image: url(\'/images/products/'+ image + '\')'" />
             <div class="product-img" v-else :style="'background-image: url(\'/images/products/'+ product.thumbnail + '\')'" />
 
@@ -104,19 +104,22 @@ export default {
         app,
         params
     }) {
-        const product = await app.$axios.$get(`/api/products/${params.product}`).then(({
-            data
-        }) => {
-            return data
-        }).catch(() => {
-            return error({
-                statusCode: 404,
-                message: 'Not found'
+        const product = await app.$axios
+            .$get(`/api/products/${params.product}`)
+            .then(({
+                data
+            }) => {
+                return data;
             })
-        })
+            .catch(() => {
+                return error({
+                    statusCode: 404,
+                    message: "Not found"
+                });
+            });
         return {
             product
-        }
+        };
     },
     head() {
         return {
@@ -149,7 +152,7 @@ export default {
             page: 0,
             active: 0,
             img_id: 0,
-            count: 1,
+            count: 1
         };
     },
 
@@ -167,9 +170,9 @@ export default {
     },
     methods: {
         scroll() {
-            this.$scrollTo('.tabs-content', 500, {
+            this.$scrollTo(".tabs-content", 500, {
                 offset: -50
-            })
+            });
         },
         AddOrder() {
             // this.$store.getters['Order/Items'].forEach(item => {
@@ -210,7 +213,6 @@ export default {
             return value + this.page;
         },
         images(i) {
-
             if (this.isImages)
                 return this.product.prices[this.active].images[this.Slide(i)].url;
         }
@@ -235,19 +237,21 @@ export default {
                 if (this.isImages)
                     return this.product.prices[this.active].images[this.img_id].url;
             } catch (e) {}
-            return false
+            return false;
         },
         isImages() {
             try {
-                if (this.product.prices[this.active].images.length > 0 && this.product.prices != false)
-                    return true
+                if (
+                    this.product.prices[this.active].images.length > 0 &&
+                    this.product.prices != false
+                )
+                    return true;
             } catch (e) {}
-            return false
+            return false;
         },
         isPrices() {
-            if (this.product.prices != false)
-                return true
-            return false
+            if (this.product.prices != false) return true;
+            return false;
         }
     },
     watch: {
@@ -316,7 +320,7 @@ export default {
                             padding-right: 15px;
                             cursor: pointer;
                             &.active {
-                              background-color: @color-dark;
+                                background-color: @color-dark;
                             }
                         }
                     }
@@ -374,6 +378,7 @@ export default {
         .product-up-l {
             display: flex;
             align-items: center;
+            flex-direction: row-reverse;
             img {
                 user-select: none;
                 transition: all 0.5s linear;
@@ -385,7 +390,9 @@ export default {
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                margin-right: 10px;
+                height: 50vh;
+                max-height: 500px;
+                margin-left: 10px;
                 svg {
                     width: 30px;
                     height: 32px;
@@ -395,10 +402,13 @@ export default {
                 .arrow-up {
                     transform: rotate(180deg);
                 }
-                img {
+                .slider-img {
                     width: 80px; // height: 80px;
                     border-radius: 5px;
-                    margin: 6px;
+                    margin: 6px;   
+    background-size: contain;
+    height: 50px;
+    background-position: center;
                 }
             }
             .product-img {
@@ -406,8 +416,8 @@ export default {
                 background-size: contain;
                 background-repeat: no-repeat;
                 max-height: 500px;
-                max-width: 500px;
-                height: 30vh;
+                max-width: 800px;
+                height: 50vh;
                 width: 100vw;
             }
         }
@@ -515,40 +525,42 @@ export default {
 }
 
 @media screen and(max-width: 920px) {
-  .product{
-    .tabs {
-      .tabs-headers {
-        a {
-          width: 100%;
-        }
-      }
-    }
-    .product-up {
-        flex-direction: column-reverse;
-        align-items: center;
-        margin: 24px 0;
-        .product-up-l {
-            flex-direction: column-reverse;
-            width: 100%;
-            .product-slider {
-                flex-direction: row;
-                svg {
-                    transform: rotate(-90deg);
+    .product {
+        .tabs {
+            .tabs-headers {
+                a {
+                    width: 100%;
                 }
             }
         }
-    }}
+        .product-up {
+            flex-direction: column-reverse;
+            align-items: center;
+            margin: 24px 0;
+            .product-up-l {
+                flex-direction: column-reverse;
+                width: 100%;
+                .product-slider {
+                    flex-direction: row;
+                    svg {
+                        transform: rotate(-90deg);
+                    }
+                }
+            }
+        }
+    }
 }
 
 @media screen and(max-width: 340px) {
-  .product{
-    .product-up {
-        .product-up-r {
-            .btn {
-                width: 130px;
+    .product {
+        .product-up {
+            .product-up-r {
+                .btn {
+                    width: 130px;
+                }
             }
         }
-    }}
+    }
 }
 
 @media screen and(max-width: 870px) {}
