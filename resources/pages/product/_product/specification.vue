@@ -53,7 +53,7 @@ export default {
           hid: "og:description",
           property: "og:description",
           content:
-            this.product.description_atributes +
+            this.product.meta_description_atributes +
             " - Характеристики | TERMINATOR.KG"
         }
       ]

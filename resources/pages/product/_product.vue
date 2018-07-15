@@ -124,7 +124,7 @@ export default {
             meta: [{
                     hid: "og:title",
                     property: "og:title",
-                    content: this.product.title + " | TERMINATOR.KG"
+                    content: this.product.title + " Купить в Бишкеке | TERMINATOR.KG"
                 },
                 {
                     hid: "description",
