@@ -4,7 +4,7 @@
 
         <div class="product-up-l">
 
-            <div class="product-slider" v-if="isPrices">
+            <div class="product-slider" v-if="isPrices && image">
 
                 <span class="arrow-up" @click="slideChange('down')">
                         <Arrow />
@@ -15,9 +15,8 @@
                 <span @click="slideChange('up')"><Arrow /></span>
 
             </div>
-
-            <div class="product-img"  v-if="isPrices" :style="'background-image: url(\'/images/products/'+ image + '\')'" />
-            <div class="product-img"  v-else :style="'background-image: url(\'/images/products/'+ product.thumbnail + '\')'" />
+            <div class="product-img" v-if="isPrices && image" :style="'background-image: url(\'/images/products/'+ image + '\')'" />
+            <div class="product-img" v-else :style="'background-image: url(\'/images/products/'+ product.thumbnail + '\')'" />
 
         </div>
 
@@ -72,7 +71,7 @@
         </div>
     </div>
     <div class="tabs">
-        <div class="tabs-headers">
+        <div class="tabs-headers" @click="scroll">
             <nuxt-link :to="`/product/${product.link}/`" v-if="product.description.length > 50">
                 Описание
             </nuxt-link>
@@ -167,6 +166,11 @@ export default {
         }
     },
     methods: {
+        scroll() {
+            this.$scrollTo('.tabs-content', 500, {
+                offset: -150
+            })
+        },
         AddOrder() {
             // this.$store.getters['Order/Items'].forEach(item => {
             //   if(item.product.id == this.product.id)
@@ -227,12 +231,15 @@ export default {
             }
         },
         image() {
-            if (this.isImages)
-                return this.product.prices[this.active].images[this.img_id].url;
+            try {
+                if (this.isImages)
+                    return this.product.prices[this.active].images[this.img_id].url;
+            } catch (e) {}
+            return false
         },
         isImages() {
             try {
-                if (this.product.prices[this.active].images.length > 0 && this.product.process != false)
+                if (this.product.prices[this.active].images.length > 0 && this.product.prices != false)
                     return true
             } catch (e) {}
             return false
@@ -269,7 +276,7 @@ export default {
             a {
                 height: 25px;
                 border: 1px solid @color-bg_dark;
-                color: @color-text;
+                color: @color-main_font;
                 padding: 10px;
                 text-decoration: none;
                 display: flex;
@@ -278,8 +285,8 @@ export default {
                 margin: 5px;
             }
             .nuxt-link-exact-active {
-                color: @color-dark;
-                background: @color-bg_dark;
+                // color: @color-dark;
+                background-color: @color-dark;
             }
         }
         .tabs-content {
@@ -307,6 +314,9 @@ export default {
                             text-align: right;
                             padding-right: 15px;
                             cursor: pointer;
+                            &.active {
+                              background-color: @color-dark;
+                            }
                         }
                     }
                     .attributes {

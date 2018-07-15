@@ -6,6 +6,7 @@ const ProdutAttributes = use("PRODUCTS/ProdutAttributes");
 const Attribute = use("SETTINGS/Attribute");
 const AttributeGroups = use("SETTINGS/AttributeGroups");
 const Color = use("PRODUCTS/ProductColor");
+const Price = use("PRODUCTS/Price");
 const Images = use("App/Controllers/Http/ImagesController");
 
 function filter_array(test_array) {
@@ -37,7 +38,8 @@ class ProductController {
     } catch (error) {
       product = await Product.query().where({
         is_status: true
-      });}
+      });
+    }
 
     return response.apiCollection(product);
   }
@@ -68,11 +70,23 @@ class ProductController {
       "user_id"
     ]);
 
-    let categories = request.only(["categories"]);
-    let all_attributes = request.only(["all_attributes"]);
-    categories = categories.categories.split(",");
+    let {
+      categories,
+      all_attributes,
+      prices
+    } = request.only(["categories", "all_attributes", "prices"]);
 
-    all_attributes = JSON.parse(all_attributes.all_attributes);
+    try {
+      if (all_attributes)
+        all_attributes = JSON.parse(all_attributes);
+      if (categories)
+        categories = categories.split(",");
+      if (prices)
+        prices = JSON.parse(prices);
+
+      data.is_status = JSON.parse(data.is_status);
+    } catch (error) {}
+
     try {
       data.is_status = JSON.parse(data.is_status);
       if (data.link == null || data.link == "") delete data.link;
@@ -102,9 +116,28 @@ class ProductController {
         });
       }
 
+      // try {
+        console.log(prices)
+        for (var i = 0; i < prices.length; i++) {
+         let color = await Color.create({
+            product_id: product.id,
+            color_id: prices[i].id,
+            sort: prices[i].sort
+          });
+
+          let price = await Price.create(
+            {
+              product_color_id: color.id,
+              price: prices[i].price
+            }
+          )
+        }
+      // } catch (error) {}
+
       product.all_attributes = all_attributes;
 
       product.categories = categories;
+      product.prices = prices
 
       return response.apiCreated(product);
     } catch (error) {
@@ -194,7 +227,7 @@ class ProductController {
         .innerJoin(
           "colors",
           "colors.id",
-          "product_colors.id"
+          "product_colors.color_id"
         )
         .select('colors.id', "colors.title", "colors.code", "sort", "price")
         .orderBy("product_prices.price", "ASC")
@@ -288,8 +321,9 @@ class ProductController {
 
     let {
       categories,
-      all_attributes
-    } = request.only(["categories", "all_attributes"]);
+      all_attributes,
+      prices
+    } = request.only(["categories", "all_attributes", "prices"]);
 
 
     try {
@@ -297,6 +331,8 @@ class ProductController {
         all_attributes = JSON.parse(all_attributes);
       if (categories)
         categories = categories.split(",");
+      if (prices)
+        prices = JSON.parse(prices);
 
       data.is_status = JSON.parse(data.is_status);
     } catch (error) {}

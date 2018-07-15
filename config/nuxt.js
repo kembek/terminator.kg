@@ -27,15 +27,13 @@ module.exports = {
     htmlAttrs: {
       lang: "ru"
     },
-    meta: [
-      {
+    meta: [{
         charset: "utf-8"
       },
       {
         hid: "keywords",
         name: "keywords",
-        content:
-          "Смартфоны (телефоны) Xiaomi (Mi) в Бишкеке (Кыргызстане) Интернет магазине TERMINATOR.KG xiaomi в бишкеке, xiaomi купить в бишкеке, xiaomi в оше, xiaomi смартфоны, купить xiaomi смартфоны, xiaomi аксессуары, xiaomi рюкзаки, xiaomi видеорегистраторы, mi band xiaomi, аксессуары xiaomi, зарядное устройство xiaomi,  xiaomi камеры, планшеты xiaomi"
+        content: "Смартфоны (телефоны) Xiaomi (Mi) в Бишкеке (Кыргызстане) Интернет магазине TERMINATOR.KG xiaomi в бишкеке, xiaomi купить в бишкеке, xiaomi в оше, xiaomi смартфоны, купить xiaomi смартфоны, xiaomi аксессуары, xiaomi рюкзаки, xiaomi видеорегистраторы, mi band xiaomi, аксессуары xiaomi, зарядное устройство xiaomi,  xiaomi камеры, планшеты xiaomi"
       },
       {
         hid: "description",
@@ -103,8 +101,7 @@ module.exports = {
         content: "504"
       }
     ],
-    link: [
-      {
+    link: [{
         rel: "icon",
         type: "image/x-icon",
         href: "favicon.ico"
@@ -162,8 +159,7 @@ module.exports = {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [
-    {
+  plugins: [{
       src: "~/plugins/vue-carousel",
       ssr: false
     },
@@ -184,8 +180,7 @@ module.exports = {
   modules: [
     "@nuxtjs/axios",
     "@nuxtjs/sitemap",
-    "@nuxtjs/pwa",
-    [
+    "@nuxtjs/pwa", [
       "@nuxtjs/google-analytics",
       {
         id: "UA-119873741-1"
@@ -211,21 +206,19 @@ module.exports = {
   //   }
   // },
   workbox: {
-    runtimeCaching: [
-      {
-        urlPattern: "https://terminator.kg/*",
-        strategyOptions: {
-          cacheName: "terminator.kg",
-          cacheableResponse: {
-            statuses: [0, 200]
-          },
-          cacheExpiration: {
-            maxEntries: 10,
-            maxAgeSeconds: 300
-          }
+    runtimeCaching: [{
+      urlPattern: "https://terminator.kg/*",
+      strategyOptions: {
+        cacheName: "terminator.kg",
+        cacheableResponse: {
+          statuses: [0, 200]
+        },
+        cacheExpiration: {
+          maxEntries: 10,
+          maxAgeSeconds: 300
         }
       }
-    ]
+    }]
   },
   sitemap: {
     path: "/sitemap.xml",
@@ -233,7 +226,7 @@ module.exports = {
     cacheTime: 1000 * 60 * 15,
     gzip: true,
     generate: false, // Enable me when using nuxt generate
-    exclude: ["/blog", "blog", "/blog/**"],
+    exclude: [],
     // routes: [
     //   {
     //     url: '/',
@@ -241,23 +234,25 @@ module.exports = {
     //     priority: 1
     //   }
     // ],
-    async routes() {
-      return await axios
+    async routes(calback) {
+      await axios
         .all([
-          axios.get("http://terminator.kg/api/categories/"),
-          axios.get("http://terminator.kg/api/products/")
+          axios.get("http://localhost:3333/api/categories/"),
+          axios.get("http://localhost:3333/api/products/")
         ])
         .then(
           axios.spread((resCategories, resProducts) => {
-            let routes = resCategories.data.items
+            let routes = resCategories.data
+              .data
               .map(categories => "/categories/" + categories.link)
               .concat(
-                resProducts.data.items.map(product => "/product/" + product.id)
+                resProducts.data
+                .data.map(product => "/product/" + product.link)
               );
-            return routes;
+              calback(null, routes)
           })
         )
-        .catch(error => {});
+        .catch(calback);
     }
   },
   build: {
@@ -274,8 +269,7 @@ module.exports = {
         loader: "vue-svg-loader",
         options: {
           svgo: {
-            plugins: [
-              {
+            plugins: [{
                 removeDoctype: true
               },
               {

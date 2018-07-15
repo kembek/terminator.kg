@@ -104,7 +104,10 @@ export default {
         transform: rotate(180deg);
       }
     }
-    .content {
+    .filters-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       li {
         max-width: 100%;
         width: 250px;

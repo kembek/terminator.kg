@@ -61,21 +61,37 @@ class CategoryController {
     let {
       link
     } = params
+
+    let {
+      page
+    } = request.only(['page'])
+
     let category = await Categories.query().where({
       link: link
     })
+
+    if (page) {
+      page = JSON.parse(page)
+    } else
+      page = 0
 
     if (category != false) {
       category = category[0]
       category.products = await ProductCategory.query()
         .where({
-          category_id: category.id
+          category_id: category.id,
+          is_status: true
         })
+        .offset(page * 9)
+        .limit(9)
         .select('product_category.product_id', 'products.stock_status_id', 'products.user_id', 'products.thumbnail', 'products.title', 'products.link', 'products.created_at', 'products.updated_at')
         .innerJoin('products', 'products.id', 'product_category.product_id')
-        .orderBy('products.updated_at', 'ASC')
+        .orderBy('products.sort', 'ASC')
       //.innerJoin('stock_statuses', 'stock_statuses.id', 'products.stock_status_id')
 
+      if (page) {
+        //category.products = category.products.splice(page * 9, (page +1) * 9)
+      }
 
       for (var i = 0; i < category.products.length; i++) {
         category.products[i].prices = await Color.query().where({
