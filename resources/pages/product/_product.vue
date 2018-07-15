@@ -10,7 +10,7 @@
                         <Arrow />
                         </span>
 
-                        <span class="slider-img" v-for="(item, i) in slides" :key="i" :style="`background-image: url('/images/products/` + images(i) +`')`" :alt="product.title" @click="setSlide(Slide(i))" draggable="false" />
+                    <span class="slider-img" v-for="(item, i) in slides" :key="i" :style="`background-image: url('/images/products/` + images(i) +`')`" :alt="product.title" @click="setSlide(Slide(i))" draggable="false" />
 
                     <span @click="slideChange('up')"><Arrow /></span>
                 </div>
@@ -171,7 +171,7 @@ export default {
     methods: {
         scroll() {
             this.$scrollTo(".tabs-content", 500, {
-                offset: -50
+                offset: -110
             });
         },
         AddOrder() {
@@ -343,7 +343,7 @@ export default {
                                     background: url(/images/attribute_dots.png) left 10px repeat-x;
                                     label {
                                         background-color: @color-bg;
-                                        padding: 0 10px;
+                                        padding: 5px 10px;
                                     }
                                     span {
                                         color: @color-main_font;
@@ -406,9 +406,9 @@ export default {
                     width: 80px; // height: 80px;
                     border-radius: 5px;
                     margin: 6px;
-    background-size: contain;
-    height: 50px;
-    background-position: center;
+                    background-size: contain;
+                    height: 50px;
+                    background-position: center;
                 }
             }
             .product-img {
@@ -529,6 +529,19 @@ export default {
             .tabs-headers {
                 a {
                     width: 100%;
+                    margin: 0;
+                    height: auto;
+                }
+            }
+            .tabs-content-item {
+                .conteiner-attribute {
+                    .nav-attrivutes {
+                        display: none !important;
+                    }
+                    .attributes {
+                      height: auto !important;
+                      max-height: none !important;
+                    }
                 }
             }
         }
