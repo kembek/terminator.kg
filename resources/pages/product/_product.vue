@@ -168,7 +168,7 @@ export default {
     methods: {
         scroll() {
             this.$scrollTo('.tabs-content', 500, {
-                offset: -150
+                offset: -50
             })
         },
         AddOrder() {
@@ -514,9 +514,18 @@ export default {
 }
 
 @media screen and(max-width: 920px) {
+  .product{
+    .tabs {
+      .tabs-headers {
+        a {
+          width: 100%;
+        }
+      }
+    }
     .product-up {
         flex-direction: column-reverse;
         align-items: center;
+        margin: 24px 0;
         .product-up-l {
             flex-direction: column-reverse;
             width: 100%;
@@ -527,17 +536,18 @@ export default {
                 }
             }
         }
-    }
+    }}
 }
 
 @media screen and(max-width: 340px) {
+  .product{
     .product-up {
         .product-up-r {
             .btn {
                 width: 130px;
             }
         }
-    }
+    }}
 }
 
 @media screen and(max-width: 870px) {}

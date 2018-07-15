@@ -116,23 +116,22 @@ class ProductController {
         });
       }
 
-      // try {
-        console.log(prices)
+      try {
+        let price
         for (var i = 0; i < prices.length; i++) {
-         let color = await Color.create({
+          let color = await Color.create({
             product_id: product.id,
             color_id: prices[i].id,
             sort: prices[i].sort
           });
 
-          let price = await Price.create(
-            {
-              product_color_id: color.id,
-              price: prices[i].price
-            }
-          )
+          price = await Price.create({
+            product_color_id: color.id,
+            price: prices[i].price
+          })
         }
-      // } catch (error) {}
+        product.prices = price;
+      } catch (error) {}
 
       product.all_attributes = all_attributes;
 
