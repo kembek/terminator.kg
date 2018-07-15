@@ -8,7 +8,7 @@
         <!-- <Filters /> -->
     </div>
     <div class="search-result" style="width: 100%;">
-        <nuxt-link :to="'/product/'+item.link" class="product" v-for="(item, i) in category.products" :key="i" :title="item.title">
+        <nuxt-link v-scroll-to="'#Top'" :to="'/product/'+item.link" class="product" v-for="(item, i) in category.products" :key="i" :title="item.title">
             <img :src="'/images/products/'+item.thumbnail" :alt="item.title">
             <h3>{{item.title}}</h3>
             <span v-if="isPrice(item)">от {{item.prices[0].price}} сом</span>
