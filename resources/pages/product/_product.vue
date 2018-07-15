@@ -283,6 +283,7 @@ export default {
                 justify-content: center;
                 align-items: center;
                 margin: 5px;
+                user-select: none;
             }
             .nuxt-link-exact-active {
                 // color: @color-dark;
