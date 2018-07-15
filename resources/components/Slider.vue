@@ -2,8 +2,8 @@
 <div class="main-slider" :style="'background-image: url(\'/images/slider/' + items[active].thumbnail + '\')'" v-if="items.length > 0">
     <div class="slider-container">
         <div class="slider-content" v-html="items[active].description" />
-        <nuxt-link class="slider-link" :to="items[active].link" v-if="items[active].is_local">Подробнее</nuxt-link>
-        <a class="slider-link" :href="items[active].link" target="_blank" v-else>Подробнее</a>
+        <nuxt-link class="slider-link" :to="items[active].link" v-if="items[active].is_local && items[active].link.length > 0">Подробнее</nuxt-link>
+        <a class="slider-link" :href="items[active].link" target="_blank" v-else-if="items[active].link.length > 0">Подробнее</a>
     </div>
     <div class="navigation">
         <span :class="{'active': active == i}" v-for="(item, i) in items" :key="i" @click="active = i; timeLine = 0" v-if="items.length > 1" />
