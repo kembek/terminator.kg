@@ -6,7 +6,7 @@
     <Order />
     <MyHeader />
     <Slider :speed="speedMainSlider" v-if="this.$route.fullPath == '/'" />
-    <div v-else style="padding-top: 100px;" />
+    <div v-else style="padding-top: 50px;" />
     <Basket />
     <div class="content">
         <nuxt />

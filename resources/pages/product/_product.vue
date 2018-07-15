@@ -392,7 +392,7 @@ export default {
                 align-items: center;
                 height: 50vh;
                 max-height: 500px;
-                margin-left: 10px;
+                margin: 10px;
                 svg {
                     width: 30px;
                     height: 32px;
@@ -405,7 +405,7 @@ export default {
                 .slider-img {
                     width: 80px; // height: 80px;
                     border-radius: 5px;
-                    margin: 6px;   
+                    margin: 6px;
     background-size: contain;
     height: 50px;
     background-position: center;
@@ -424,7 +424,6 @@ export default {
         .product-up-r {
             display: flex;
             flex-direction: column;
-            justify-content: center;
             width: 100%;
             max-width: 320px;
             padding: 0 0 0 25px;
@@ -542,6 +541,7 @@ export default {
                 width: 100%;
                 .product-slider {
                     flex-direction: row;
+                    height: auto;
                     svg {
                         transform: rotate(-90deg);
                     }
