@@ -8,7 +8,7 @@
     <div class="live-search">
       <ul v-if="search && items.length != 0">
         <li v-for="(item, i) in items" :key="i" v-if="i < 5">
-          <nuxt-link :to="'/products/' + item.link">
+          <nuxt-link :to="'/product/' + item.link">
             {{item.title}}
             <!-- | от {{item.prices[0].price}} сом -->
           </nuxt-link>
