@@ -22,7 +22,7 @@
 
         <div class="product-up-r">
 
-            <h2>{{product.title}}</h2>
+            <h1>{{product.title}}</h1>
 
             <div class="p-text">
 
@@ -131,12 +131,12 @@ export default {
                 },
                 {
                     hid: "description",
-                    property: "description",
+                    name: "description",
                     content: this.product.meta_description + " | TERMINATOR.KG"
                 },
                 {
                     hid: "keywords",
-                    property: "keywords",
+                    name: "keywords",
                     content: this.product.meta_keywords + " | TERMINATOR.KG"
                 },
                 {
@@ -447,7 +447,7 @@ export default {
                     color: @color-main_font;
                 }
             }
-            h2 {
+            h1 {
                 color: @color-dark;
                 font-size: 21px;
                 margin-top: 5px;

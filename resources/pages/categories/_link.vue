@@ -66,12 +66,12 @@ export default {
         },
         {
           hid: "description",
-          property: "description",
+          name: "description",
           content: this.category.meta_description + " | TERMINATOR.KG"
         },
         {
           hid: "keywords",
-          property: "keywords",
+          name: "keywords",
           content: this.category.meta_keywords + " | TERMINATOR.KG"
         },
         {

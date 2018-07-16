@@ -37,14 +37,14 @@ export default {
         },
         {
           hid: "description",
-          property: "description",
+          name: "description",
           content:
             this.product.meta_description_atributes +
             " - Характеристики | TERMINATOR.KG"
         },
         {
           hid: "keywords",
-          property: "keywords",
+          name: "keywords",
           content:
             this.product.meta_keywords_atributes +
             " - Характеристики | TERMINATOR.KG"
