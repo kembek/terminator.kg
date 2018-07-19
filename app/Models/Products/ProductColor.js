@@ -24,7 +24,7 @@ class ProductColor extends Model {
   }
 
   images() {
-    return this.hasMany('PRODUCTS/Image', 'id', 'product_color_id')
+    return this.hasMany('PRODUCTS/Image', 'product_color_id', 'product_color_id')
   }
 
   prices() {

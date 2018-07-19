@@ -8,6 +8,7 @@ const AttributeGroups = use("SETTINGS/AttributeGroups");
 const Color = use("PRODUCTS/ProductColor");
 const Price = use("PRODUCTS/Price");
 const Images = use("App/Controllers/Http/ImagesController");
+const ProductImage = use("PRODUCTS/Image");
 
 function filter_array(test_array) {
   let index = -1;
@@ -269,7 +270,7 @@ class ProductController {
           "colors.id",
           "product_colors.color_id"
         )
-        .select('colors.id', "colors.title", "colors.code", "sort", "price")
+        .select('product_colors.id as product_color_id','colors.id', "colors.title", "colors.code", "sort", "price")
         .orderBy("product_prices.price", "ASC")
         .with("images")
         .fetch();
@@ -404,42 +405,67 @@ class ProductController {
       }
 
       if (prices) {
+        // try {
+        let color_not_delete = [];
 
-        // Проверить
-        let price
-        let color = await Color.query().where({
+        for (var i = 0; i < prices.length; i++)
+          color_not_delete.push(prices[i].id)
+
+
+        let color_delete = await Color.query().where({
           product_id: product.id
-        })
+        }).whereNotIn('color_id', color_not_delete).delete()
 
-        if (color)
-          for (var i = 0; i < color.length; i++) {
+        if (color_delete)
+          for (var i = 0; i < color_delete.length; i++) {
             await Price.query().where({
-              product_color_id: color[i].id
+              product_color_id: color_delete[i].id
             }).delete()
+
+            let img = await ProductImage.query().where({
+              product_color_id: color_delete[i].id
+            }).delete()
+
+            for (var i = 0; i < img.length; i++) {
+              Image.delete('products', img[i].url)
+            }
           }
 
-        await Color.query().where({
-            product_id: product.id
-          })
-          .delete();
+       // await Images.images(request, "products");
 
-        try {
-          for (var i = 0; i < prices.length; i++) {
-            let color = await Color.create({
-              product_id: product.id,
-              color_id: prices[i].id,
+        for (var i = 0; i < prices.length; i++) {
+          let color = await Color.findOrCreate({
+            product_id: product.id,
+            color_id: prices[i].id,
+          }, {
+            product_id: product.id,
+            color_id: prices[i].id,
+            sort: prices[i].sort
+          });
+          try {
+            color.merge({
               sort: prices[i].sort
-            });
+            })
 
-            price = await Price.create({
-              product_color_id: color.id,
+            await color.save()
+          } catch (error) {}
+          let price = await Price.findOrCreate({
+            product_color_id: color.id,
+          }, {
+            product_color_id: color.id,
+            price: prices[i].price
+          })
+          try {
+            price.merge({
               price: prices[i].price
             })
-          }
 
-        } catch (error) {}
+            await price.save()
+          } catch (error) {}
+        }
 
-        product.prices = price
+        // } catch (error) {}
+
       }
       if (all_attributes) {
         try {

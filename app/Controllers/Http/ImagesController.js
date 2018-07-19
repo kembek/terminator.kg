@@ -55,8 +55,12 @@ class ImagesController {
     return image_name
   }
 
-  static async delete(dir, name ) {
-    fs.unlink(Helpers.resourcesPath(`static/images/${dir}/${name}`))
+  static async delete(dir, name) {
+    try {
+      fs.unlink(Helpers.resourcesPath(`static/images/${dir}/${name}`))
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   static exceptions(message, status, code) {
