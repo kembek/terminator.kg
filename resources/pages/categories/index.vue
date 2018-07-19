@@ -18,7 +18,7 @@ export default {
       }, ]
     }
   },
-  data() {	
+  data() {
     return {}
   },
   methods: {},
@@ -27,10 +27,3 @@ export default {
   }
 }
 </script>
-
-<style lang="less">
-.cat-h1 {
-  font-size: 18pt;
-  text-align: center;
-}
-</style>

@@ -110,4 +110,11 @@ export default {
         align-items: center;
     }
 }
+
+.cat-h1 {
+    font-size: 18pt;
+    text-align: center;
+    margin-bottom: 40px;
+    width: 100%;
+}
 </style>

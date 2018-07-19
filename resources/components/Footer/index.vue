@@ -5,19 +5,19 @@
             <h2>Контакты</h2>
             <div class="links">
                 <div class="link">
-                    <img src="/images/map.svg" alt="Местоположение" />
+                    <img src="/images/map.svg" alt="Местоположение" title="Местоположение" />
                     <a href="https://goo.gl/maps/UV43TANLUSq" target="_blank">
               <span>г.Бишкек, ул.Ахунбаева 173а/ул.Табалдиева Бизнес Центр "Профи", 2 этаж</span>
           </a>
                 </div>
                 <div class="link">
-                    <img src="/images/message.svg" alt="Почта" />
+                    <img src="/images/message.svg" alt="Почта" title="Почта" />
                     <a href="mailto:office@terminator.kg" target="_blank" class="link">
                 <span>office@terminator.kg</span>
               </a>
                 </div>
                 <div class="link">
-                    <img src="/images/telephone.svg" alt="Номера" target="_blank" /><span><a href="tel:+996 502 052 052">+996 502 052 052</a><a href="tel:+996 558 058 058">+996 558 058 058</a></span>
+                    <img src="/images/telephone.svg" alt="Номера" title="Номера" target="_blank" /><span><a href="tel:+996 502 052 052">+996 502 052 052</a><a href="tel:+996 558 058 058">+996 558 058 058</a></span>
                 </div>
             </div>
         </div>
@@ -25,7 +25,7 @@
             <h2>Информация</h2>
             <div class="links">
                 <nuxt-link to="/about">О нас</nuxt-link>
-                <nuxt-link to="/advantages">Наши преимущества</nuxt-link>
+                <nuxt-link to="/faq">Наши преимущества</nuxt-link>
                 <nuxt-link to="/faq">Часто задаваемые вопросы</nuxt-link>
                 <nuxt-link to="/faq">Оплата и доставка</nuxt-link>
                 <nuxt-link to="/faq">Условия гарантии</nuxt-link>

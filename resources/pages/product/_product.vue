@@ -75,13 +75,13 @@
             <nuxt-link :to="`/product/${product.link}/`" v-if="product.description.length > 50">
                 Описание
             </nuxt-link>
-            <nuxt-link :to="`/product/${product.link}/specification`" v-if="product.attribute_groups != false">
+            <nuxt-link :to="`/product/${product.link}/specification/`" v-if="product.attribute_groups != false">
                 Характеристики
             </nuxt-link>
-            <nuxt-link :to="`/product/${product.link}/video-review`" v-if="product.video.length > 50">
+            <nuxt-link :to="`/product/${product.link}/video-review/`" v-if="product.video.length > 50">
                 Видео обзор
             </nuxt-link>
-            <nuxt-link :to="`/product/${product.link}/sample-photos`" v-if="product.photos.length > 50">
+            <nuxt-link :to="`/product/${product.link}/sample-photos/`" v-if="product.photos.length > 50">
                 Примеры снимков со смартфона
             </nuxt-link>
         </div>

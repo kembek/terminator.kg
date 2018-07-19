@@ -54,7 +54,7 @@ class ProductController {
         .orderBy("product_prices.price", "ASC")
         .with("images")
         .fetch();
-        
+
     } catch (error) {
       product = await Product.query().where({
         is_status: true
@@ -155,8 +155,10 @@ class ProductController {
         });
       }
 
+      let price
+
       try {
-        let price
+
         for (var i = 0; i < prices.length; i++) {
           let color = await Color.create({
             product_id: product.id,
@@ -169,7 +171,7 @@ class ProductController {
             price: prices[i].price
           })
         }
-        product.prices = price;
+
       } catch (error) {}
 
       product.all_attributes = all_attributes;
@@ -390,6 +392,7 @@ class ProductController {
           })
           .delete();
 
+
         try {
           for (var i = 0; i < categories.length; i++)
             await Categories.create({
@@ -400,6 +403,44 @@ class ProductController {
         } catch (error) {}
       }
 
+      if (prices) {
+
+        // Проверить
+        let price
+        let color = await Color.query().where({
+          product_id: product.id
+        })
+
+        if (color)
+          for (var i = 0; i < color.length; i++) {
+            await Price.query().where({
+              product_color_id: color[i].id
+            }).delete()
+          }
+
+        await Color.query().where({
+            product_id: product.id
+          })
+          .delete();
+
+        try {
+          for (var i = 0; i < prices.length; i++) {
+            let color = await Color.create({
+              product_id: product.id,
+              color_id: prices[i].id,
+              sort: prices[i].sort
+            });
+
+            price = await Price.create({
+              product_color_id: color.id,
+              price: prices[i].price
+            })
+          }
+
+        } catch (error) {}
+
+        product.prices = price
+      }
       if (all_attributes) {
         try {
           await ProdutAttributes.query()
@@ -432,8 +473,9 @@ class ProductController {
       const product = await Product.findOrFail(params.id);
 
       await product.delete();
-
-      await Images.delete('products', product.thumbnail)
+      try {
+        await Images.delete('products', product.thumbnail)
+      } catch (error) {}
 
       return response.apiDeleted();
     } catch (error) {

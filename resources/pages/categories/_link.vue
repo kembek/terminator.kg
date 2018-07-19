@@ -1,14 +1,16 @@
 <template>
 <div class="NotResult" v-if="category.products.length == 0 || !category.products">
+  <h1 class="cat-h1">{{category.title}}</h1>
     <h3>Ничего не найдено</h3>
     <SearchSunIcon />
 </div>
 <div class="result-wrapper" v-else>
+  <h1 class="cat-h1">{{category.title}}</h1>
     <div class="search-filters">
         <!-- <Filters /> -->
     </div>
     <div class="search-result" style="width: 100%;">
-        <nuxt-link v-scroll-to="'#Top'" :to="'/product/'+item.link" class="product" v-for="(item, i) in category.products" :key="i" :title="item.title">
+        <nuxt-link v-scroll-to="'#Top'" :to="`/product/${item.link}/`"  class="product" v-for="(item, i) in category.products" :key="i" :title="item.title">
             <img :src="'/images/products/'+item.thumbnail" :alt="item.title">
             <h3>{{item.title}}</h3>
             <span v-if="isPrice(item)">от {{item.prices[0].price}} сом</span>

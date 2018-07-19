@@ -1,6 +1,6 @@
 <template>
 <div class="GetLoad">
-  <button @click="$emit('update', true)" >Загрузить ещё</button>
+  <button @click="$emit('update', true)" rel="next" >Загрузить ещё</button>
 </div>
 </template>
 
