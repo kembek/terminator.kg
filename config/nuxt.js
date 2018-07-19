@@ -78,7 +78,7 @@ module.exports = {
       {
         hid: "og:url",
         property: "og:url",
-        content: "http://localhost:3333"
+        content: "https://terminator.kg"
       },
       {
         hid: "og:locale",
@@ -88,7 +88,7 @@ module.exports = {
       {
         hid: "og:image",
         property: "og:image",
-        content: "http://localhost:3333/og.png"
+        content: "https://terminator.kg/og.png"
       },
       {
         hid: "og:image:width",
@@ -207,7 +207,7 @@ module.exports = {
   // },
   workbox: {
     runtimeCaching: [{
-      urlPattern: "http://localhost:3333/*",
+      urlPattern: "https://terminator.kg/*",
       strategyOptions: {
         cacheName: "terminator.kg",
         cacheableResponse: {
@@ -222,7 +222,7 @@ module.exports = {
   },
   sitemap: {
     path: "/sitemap.xml",
-    hostname: "http://localhost:3333",
+    hostname: "https://terminator.kg",
     cacheTime: 1000 * 60 * 15,
     gzip: true,
     generate: false, // Enable me when using nuxt generate
@@ -237,8 +237,8 @@ module.exports = {
     async routes(calback) {
       await axios
         .all([
-          axios.get("http://localhost:3333/api/categories/"),
-          axios.get("http://localhost:3333/api/products/")
+          axios.get("https://terminator.kg/api/categories/"),
+          axios.get("https://terminator.kg/api/products/")
         ])
         .then(
           axios.spread((resCategories, resProducts) => {
