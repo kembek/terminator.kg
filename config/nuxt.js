@@ -104,7 +104,7 @@ module.exports = {
     link: [{
         rel: "shortcut icon",
         type: "image/x-icon",
-        href: "favicon.ico"
+        href: "https://terminator.kg/favicon.ico"
       },
       {
         rel: "apple-touch-startup-image",

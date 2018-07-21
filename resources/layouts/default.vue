@@ -80,9 +80,7 @@ export default {
                     }, 1000);
                 } else {
                     document.addEventListener("DOMContentLoaded", () => {
-                        setTimeout(() => {
-                            fn();
-                        }, 1000);
+                        fn();
                     });
                 }
                 setTimeout(() => {

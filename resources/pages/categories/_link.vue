@@ -14,7 +14,7 @@
             <img :src="'/images/products/'+item.thumbnail" :alt="item.title">
             <h3>{{item.title}}</h3>
             <span v-if="isPrice(item)">от {{item.prices[0].price}} сом</span>
-            <span v-else>ещё не установлена</span>
+            <span v-else>Цена ещё не установлена</span>
         </nuxt-link>
     </div>
     <PulseLoader v-if="isLoade" />

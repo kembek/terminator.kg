@@ -10,7 +10,7 @@
                         <Arrow />
                         </span>
 
-                    <span class="slider-img" v-for="(item, i) in slides" :key="i" :style="`background-image: url('/images/products/` + images(i) +`')`" :alt="product.title" @click="setSlide(Slide(i))" draggable="false" />
+                    <span class="slider-img" v-for="(item, i) in slides" :key="i" :style="`background-image: url('/images/products/` + images(i) +`')`" :alt="image_title(i)" @click="setSlide(Slide(i))" :title="image_title(i)" draggable="false" />
 
                     <span @click="slideChange('up')"><Arrow /></span>
                 </div>
@@ -215,6 +215,10 @@ export default {
         images(i) {
             if (this.isImages)
                 return this.product.prices[this.active].images[this.Slide(i)].url;
+        },
+        image_title(i) {
+            if (this.isImages)
+                return this.product.prices[this.active].images[this.Slide(i)].title;
         }
     },
     beforeCreate() {

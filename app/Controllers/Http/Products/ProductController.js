@@ -270,7 +270,7 @@ class ProductController {
           "colors.id",
           "product_colors.color_id"
         )
-        .select('product_colors.id as product_color_id','colors.id', "colors.title", "colors.code", "sort", "price")
+        .select('product_colors.id as product_color_id', 'colors.id', "colors.title", "colors.code", "sort", "price")
         .orderBy("product_prices.price", "ASC")
         .with("images")
         .fetch();
@@ -427,11 +427,9 @@ class ProductController {
             }).delete()
 
             for (var i = 0; i < img.length; i++) {
-              Image.delete('products', img[i].url)
+              Images.delete('products', img[i].url)
             }
           }
-
-       // await Images.images(request, "products");
 
         for (var i = 0; i < prices.length; i++) {
           let color = await Color.findOrCreate({
@@ -442,6 +440,43 @@ class ProductController {
             color_id: prices[i].id,
             sort: prices[i].sort
           });
+
+          for (var j = 0; j < prices[i].images.length; j++) {
+            let name = prices[i].images[j].url
+
+            if (prices[i].images[j].src) {
+              name = await Images.base64(
+                prices[i].images[j].src,
+                'products',
+                `${color.id} ${new Date().getTime()} - ${product.title.replace("\/","-")}`
+              )
+            }
+
+              console.log(prices[i].images[j])
+
+             let p_i = await ProductImage.findOrCreate({
+                product_color_id: color.id,
+                url: name
+              }, {
+                product_color_id: color.id,
+                url: name,
+                title: prices[i].images[j].title,
+                sort: prices[i].images[j].sort
+              })
+
+              try {
+                p_i.merge({
+                  product_color_id: color.id,
+                  url: name,
+                  title: prices[i].images[j].title,
+                  sort: prices[i].images[j].sort
+                })
+
+                await p_i.save()
+              } catch (error) {}
+
+          }
+
           try {
             color.merge({
               sort: prices[i].sort
@@ -449,6 +484,7 @@ class ProductController {
 
             await color.save()
           } catch (error) {}
+
           let price = await Price.findOrCreate({
             product_color_id: color.id,
           }, {
@@ -462,6 +498,8 @@ class ProductController {
 
             await price.save()
           } catch (error) {}
+
+
         }
 
         // } catch (error) {}

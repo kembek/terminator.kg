@@ -15,7 +15,7 @@ class ImagesController {
     })
 
     if (!image) {
-      await new this.exceptions('This field required!!!', 400)
+      await this.exceptions('This field required!!!', 400)
     }
 
     let image_name = `${new Date().getTime()}-${image.clientName}`
@@ -32,27 +32,37 @@ class ImagesController {
   }
 
   static async images(request, dir) {
-    const image = request.file('file', {
+    const image = request.file('files', {
       type: ['image'],
       size: '10mb',
       allowedExtensions: ['jpg', 'png', 'jpeg', 'svg']
     })
 
     if (!image) {
-      await new this.exceptions('This field required!!!', 400)
+      await this.exceptions('This field required!!!', 400)
     }
 
-    let image_name = `${new Date().getTime()}-${image.clientName}`
+    let images_name = []
+    try {
+      await image.moveAll(Helpers.resourcesPath('static/images/' + dir), (file) => {
+        images_name.push(`${new Date().getTime()}.${file.clientName}`)
+        return {
+          name: `${new Date().getTime()}.${file.clientName}`
+        }
+      })
+    } catch (error) {}
 
-    await image.moveAll(Helpers.resourcesPath('static/images/' + dir), {
-      name: image_name
-    })
+    return images_name
+  }
 
-    if (!image.moveAll()) {
-      return image.error()
-    }
+  static base64(base64Image, dir, name) {
+    base64Image = base64Image.split(';base64,').pop();
 
-    return image_name
+    fs.writeFile(Helpers.resourcesPath(`static/images/${dir}/${name}.jpg`), base64Image, {
+      encoding: 'base64'
+    }, function (err) {})
+
+    return name + '.jpg'
   }
 
   static async delete(dir, name) {

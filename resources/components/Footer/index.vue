@@ -56,7 +56,7 @@
                 <span>terminator</span>
             </nuxt-link>
             <div class="copyright">
-                Все права защищены © 2018
+                Все права защищены © {{ (new Date()).getFullYear() }}
             </div>
         </div>
         <div class="middle">
