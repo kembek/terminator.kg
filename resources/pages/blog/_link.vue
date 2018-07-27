@@ -32,21 +32,6 @@
                     <network network="telegram">
                         <i class="fa fa-telegram"></i>
                     </network>
-                    <network network="twitter">
-                        <i class="fa fa-twitter"></i>
-                    </network>
-                    <network network="pinterest">
-                        <i class="fa fa-pinterest"></i>
-                    </network>
-                    <network network="skype">
-                        <i class="fa fa-skype"></i>
-                    </network>
-                    <network network="email">
-                        <i class="fa fa-envelope"></i>
-                    </network>
-                    <network network="sms">
-                        <i class="fa fa-commenting-o"></i>
-                    </network>
                 </div>
             </social-sharing>
         </div>
