@@ -1,7 +1,25 @@
 'use strict'
 
 const Basic = use('App/Models/Basic')
-
+/**
+ * @swagger
+ * definitions:
+ *   Post:
+ *     type: object
+ *     properties:
+ *       title:
+ *         type: string
+ *       meta_keywords:
+ *         type: string
+ *       meta_description:
+ *         type: string
+ *       body:
+ *         type: string
+ *       link:
+ *         type: string
+ *       is_status:
+ *         type: boolean
+ */
 class Post extends Basic {
   static get table() {
     return 'posts'

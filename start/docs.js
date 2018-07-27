@@ -30,6 +30,7 @@ Route.get('/api-specs', async ({ request, response }) => {
     apis: [
       './start/*.js',
       './app/Models/Auths/*.js',
+      './app/Models/Posts/*.js',
       './app/Models/Products/*.js',
       './app/Models/Settings/*.js',
     ] // Path to the API docs

@@ -729,6 +729,125 @@ Route.group(() => {
   Route.delete("/:id", "SliderController.destroy")
 }).prefix("api/slider")
 
+Route.group(() => {
+
+  /**
+   * @swagger
+   * /blog/:
+   *   get:
+   *     tags:
+   *       - Блог
+   *     summary: Получение с пагинацией
+   *     responses:
+   *       404:
+   *         $ref: '#/responses/NotFound'
+   *       200:
+   *         schema:
+   *          $ref: '#/definitions/Post'
+   */
+  Route.get("", "PostController.index")
+
+
+  /**
+   * @swagger
+   * /blog/all/:
+   *   get:
+   *     tags:
+   *       - Блог
+   *     summary: Получение всех
+   *     responses:
+   *       404:
+   *         $ref: '#/responses/NotFound'
+   *       200:
+   *         schema:
+   *          $ref: '#/definitions/Post'
+   */
+  Route.get("all", "PostController.all")
+
+  /**
+   * @swagger
+   * /blog/{link}:
+   *   get:
+   *     tags:
+   *       - Блог
+   *     summary: Получение по ссылке
+   *     parameters:
+   *       - $ref: '#/parameters/Link'
+   *     responses:
+   *       404:
+   *         $ref: '#/responses/NotFound'
+   *       200:
+   *         schema:
+   *          $ref: '#/definitions/Post'
+   */
+  Route.get('/:link', 'PostController.show')
+
+  /**
+   * @swagger
+   * /blog/:
+   *   put:
+   *     tags:
+   *       - Блог
+   *     summary: Добавление
+   *     parameters:
+   *       - name: blog
+   *         description: blog
+   *         in: body
+   *         required: true
+   *         schema:
+   *           $ref: '#/definitions/Post'
+   *     responses:
+   *       404:
+   *         $ref: '#/responses/NotFound'
+   *       200:
+   *         schema:
+   *          $ref: '#/definitions/Post'
+   */
+  Route.put("", "PostController.create")
+
+  /**
+   * @swagger
+   * /blog/{id}:
+   *   post:
+   *     tags:
+   *       - Блог
+   *     summary: Изменение
+   *     parameters:
+   *       - $ref: '#/parameters/Id'
+   *       - name: blog
+   *         description: blog
+   *         in: body
+   *         required: true
+   *         schema:
+   *           $ref: '#/definitions/Post'
+   *     responses:
+   *       404:
+   *         $ref: '#/responses/NotFound'
+   *       200:
+   *         schema:
+   *          $ref: '#/definitions/Post'
+   */
+  Route.post("/:id", "PostController.update")
+
+  /**
+   * @swagger
+   * /blog/{id}:
+   *   delete:
+   *     tags:
+   *       - Блог
+   *     summary: Удаление
+   *     parameters:
+   *       - $ref: '#/parameters/Id'
+   *     responses:
+   *       404:
+   *         $ref: '#/responses/NotFound'
+   *       200:
+   *         schema:
+   *          description: Удалено
+   */
+  Route.delete("/:id", "PostController.destroy")
+}).prefix("api/blog")
+
 
 Route.group(() => {
 

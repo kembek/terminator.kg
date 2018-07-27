@@ -17,13 +17,11 @@ class ExtendResponseProvider extends ServiceProvider {
       })
     })
 
-    Response.macro('apiError', function (data, meta, message) {
+    Response.macro('apiError', function (message) {
       this.status(404).json({
         status: 404,
         type: 'error',
-        message: message || 'Произошла ошибка',
-        data: data,
-        meta: meta
+        message: message || 'Произошла ошибка'
       })
     })
 

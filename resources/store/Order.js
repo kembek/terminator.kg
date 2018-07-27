@@ -1,6 +1,9 @@
+
 export const state = () => ({
   "items": [],
 })
+
+
 
 export const mutations = {
   SET_ITEMS(state, value) {
@@ -11,7 +14,7 @@ export const mutations = {
     temp.push(value)
     state.items = temp
   },
-  UPDATE_PRODUCT(state,value) {
+  UPDATE_PRODUCT(state, value) {
 
   }
 }

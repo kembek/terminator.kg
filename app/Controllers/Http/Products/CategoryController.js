@@ -82,8 +82,8 @@ class CategoryController {
           category_id: category.id,
           is_status: true
         })
-        .offset(page * 9)
-        .limit(9)
+        .offset(page * 36)
+        .limit(36)
         .select('product_category.product_id', 'products.stock_status_id', 'products.user_id', 'products.thumbnail', 'products.title', 'products.link', 'products.created_at', 'products.updated_at')
         .innerJoin('products', 'products.id', 'product_category.product_id')
         .orderBy('products.sort', 'ASC')

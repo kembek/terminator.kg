@@ -24,12 +24,12 @@
         <div class="block">
             <h2>Информация</h2>
             <div class="links">
-                <nuxt-link to="/about">О нас</nuxt-link>
-                <nuxt-link to="/faq">Наши преимущества</nuxt-link>
-                <nuxt-link to="/faq">Часто задаваемые вопросы</nuxt-link>
-                <nuxt-link to="/faq">Оплата и доставка</nuxt-link>
-                <nuxt-link to="/faq">Условия гарантии</nuxt-link>
-                <!-- <nuxt-link to="/blog">Наш блог</nuxt-link> -->
+                <nuxt-link to="/about/">О нас</nuxt-link>
+                <nuxt-link to="/faq/">Наши преимущества</nuxt-link>
+                <nuxt-link to="/faq/">Часто задаваемые вопросы</nuxt-link>
+                <nuxt-link to="/faq/">Оплата и доставка</nuxt-link>
+                <nuxt-link to="/faq/">Условия гарантии</nuxt-link>
+                <nuxt-link to="/blog/">Наш блог</nuxt-link>
             </div>
         </div>
         <div class="block">

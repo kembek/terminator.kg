@@ -27,6 +27,7 @@ module.exports = {
     htmlAttrs: {
       lang: "ru"
     },
+
     meta: [{
         charset: "utf-8"
       },
@@ -175,12 +176,21 @@ module.exports = {
       src: "~/plugins/vue-slider-component",
       ssr: false
     },
+    {
+      src: '~/plugins/localStorage.js',
+      ssr: false
+    },
+    {
+      src: '~/plugins/localStorage.js',
+      ssr: false
+    },
     "~/plugins/vue-social-sharing"
   ],
   modules: [
     "@nuxtjs/axios",
     "@nuxtjs/sitemap",
-    "@nuxtjs/pwa", [
+    "@nuxtjs/pwa",
+    "@nuxtjs/font-awesome", [
       "@nuxtjs/google-analytics",
       {
         id: "UA-119873741-1"
@@ -226,7 +236,8 @@ module.exports = {
     cacheTime: 1000 * 60 * 15,
     gzip: true,
     generate: false, // Enable me when using nuxt generate
-    exclude: ["/blog", "blog", "/blog/**"],
+    // exclude: ["/blog", "blog", "/blog/**"],
+    exclude: [],
     // routes: [
     //   {
     //     url: '/',
@@ -238,7 +249,7 @@ module.exports = {
       await axios
         .all([
           axios.get("https://terminator.kg/api/categories/"),
-          axios.get("https://terminator.kg/api/products/")
+          axios.get("https://terminator.kg/api/product/")
         ])
         .then(
           axios.spread((resCategories, resProducts) => {
@@ -249,7 +260,7 @@ module.exports = {
                 resProducts.data
                 .data.map(product => "/product/" + product.link)
               );
-              calback(null, routes)
+            calback(null, routes)
           })
         )
         .catch(calback);

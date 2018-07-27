@@ -14,7 +14,7 @@
             <img :src="'/images/products/'+item.thumbnail" :alt="item.title">
             <h3>{{item.title}}</h3>
             <span v-if="isPrice(item)">от {{item.prices[0].price}} сом</span>
-            <span v-else>Цена ещё не установлена</span>
+            <span v-else>Ожидаем поступления</span>
         </nuxt-link>
     </div>
     <PulseLoader v-if="isLoade" />
@@ -92,7 +92,7 @@ export default {
     GetLoader
   },
   mounted() {
-    if (this.category.products.length < 9) this.isLoadAll = true;
+    if (this.category.products.length < 36) this.isLoadAll = true;
   },
   methods: {
     isPrice(product) {

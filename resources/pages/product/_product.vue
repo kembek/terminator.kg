@@ -29,7 +29,7 @@
                 <label>Цена</label>
 
                 <span v-if="isPrices">{{product.prices[active].price}} сом</span>
-                <span v-else>ещё не установлена</span>
+                <span v-else>Ожидаем поступления</span>
 
             </div>
 
@@ -186,6 +186,7 @@ export default {
             //   count: this.count,
             //   product: this.product
             // }
+
             // this.$store.dispatch('Order/AddProduct', temp)
             // this.showSuccessMsg({
             //   text: 'Товар \"' + this.product.title + '\" добавлен в корзину!'
@@ -220,9 +221,6 @@ export default {
             if (this.isImages)
                 return this.product.prices[this.active].images[this.Slide(i)].title;
         }
-    },
-    beforeCreate() {
-        this.$store.dispatch("Products/SetActive", this.$route.params.product);
     },
     computed: {
         slides() {
@@ -410,7 +408,7 @@ export default {
                     width: 80px; // height: 80px;
                     border-radius: 5px;
                     margin: 6px;
-                    background-size: contain;
+                    background-size: cover;
                     height: 50px;
                     background-position: center;
                 }
@@ -458,8 +456,8 @@ export default {
                 margin-bottom: 15px;
             }
             p {
-                font-size: 11px;
-                color: @color-light;
+                font-size: 15px;
+                color: @color-text;
             }
             .p-text {
                 display: flex;
