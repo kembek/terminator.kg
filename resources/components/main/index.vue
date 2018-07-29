@@ -3,7 +3,7 @@
     <Categories />
     <Blocks />
     <!-- <Reviews /> -->
-    <!-- <Blog /> -->
+    <Blog />
   </div>
 </template>
 
@@ -14,7 +14,7 @@ import Reviews from './Reviews'
 import Blog from './Blog'
 
 export default {
-  data() {	
+  data() {
     return {}
   },
   methods: {},

@@ -75,6 +75,32 @@ export default {
             return fecha.format(new Date(value), 'default');
         }
     },
+    head() {
+        return {
+            title: this.post.title + " - Блог TERMINATOR.KG",
+            meta: [{
+                    hid: "og:title",
+                    property: "og:title",
+                    content: this.post.title + " - Блог | TERMINATOR.KG"
+                },
+                {
+                    hid: "description",
+                    name: "description",
+                    content: this.post.meta_description + " | Блог TERMINATOR.KG"
+                },
+                {
+                    hid: "keywords",
+                    name: "keywords",
+                    content: this.post.meta_keywords + " | Блог TERMINATOR.KG"
+                },
+                {
+                    hid: "og:description",
+                    property: "og:description",
+                    content: this.post.meta_description + " | Блог TERMINATOR.KG"
+                }
+            ]
+        };
+    },
     components: {
         IconDate,
         OK,

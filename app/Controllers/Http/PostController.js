@@ -26,7 +26,8 @@ class PostController {
         if (data.link == null || data.link == "") delete data.link;
       } catch (error) {}
 
-      if (data.thumbnail != null && data.thumbnail != "")
+      console.log(data.thumbnail)
+      if (data.thumbnail != null && data.thumbnail != '')
         data.thumbnail = await Images.image(request, "post");
 
       const post = await Post.findOrCreate({
@@ -88,7 +89,7 @@ class PostController {
 
       await post.delete();
 
-      await Images.delete("blog", post.thumbnail);
+      await Images.delete("post", post.thumbnail);
 
       return response.apiDeleted(post);
     } catch (error) {
@@ -101,8 +102,9 @@ class PostController {
     response
   }) {
     let {
-      page
-    } = request.only(['page'])
+      page,
+      limit
+    } = request.only(['page', 'limit'])
 
 
     if (page) {
@@ -115,7 +117,7 @@ class PostController {
         is_status: true
       })
       .offset(page * 36)
-      .limit(36)
+      .limit(limit ? limit : 36)
       .orderBy("updated_at", "ASC");
 
     return response.apiCollection(posts);

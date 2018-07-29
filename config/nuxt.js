@@ -249,16 +249,20 @@ module.exports = {
       await axios
         .all([
           axios.get("https://terminator.kg/api/categories/"),
-          axios.get("https://terminator.kg/api/product/")
+          axios.get("https://terminator.kg/api/products/"),
+          axios.get("https://terminator.kg/api/blog?page=0&limit=9999999999999999999/")
         ])
         .then(
-          axios.spread((resCategories, resProducts) => {
+          axios.spread((resCategories, resProducts, resBlog) => {
             let routes = resCategories.data
               .data
-              .map(categories => "/categories/" + categories.link)
+              .map(categories => `/categories/${categories.link}/`)
               .concat(
                 resProducts.data
-                .data.map(product => "/product/" + product.link)
+                .data.map(product => `/product/${product.link}/` )
+              ).concat(
+                resBlog.data
+                .data.map(post => `/blog/${post.link}/`)
               );
             calback(null, routes)
           })
