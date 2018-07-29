@@ -85,13 +85,14 @@ export default {
         text-decoration: none;
         text-align: center;
         padding: 5px;
-        .slider-name {
           max-width: 300px;
+        .slider-name {
           color: @color-dark;
           font-size: 18px;
           overflow: hidden;
           text-overflow: ellipsis;
-          white-space: nowrap;
+          // white-space: nowrap;
+        text-align: left;
           display: block;
         }
         img {
